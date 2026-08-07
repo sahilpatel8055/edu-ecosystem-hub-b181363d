@@ -64,6 +64,9 @@ export const Route = createFileRoute("/sitemap.xml")({
           ...categories.map((c) => ({ path: `/categories/${c.slug}`, changefreq: "weekly" as const })),
           ...tags.map((t) => ({ path: `/tags/${t.slug}`, changefreq: "weekly" as const })),
           ...authors.map((a) => ({ path: `/authors/${a.slug}`, changefreq: "monthly" as const })),
+        ];
+
+
 
         const urls = entries.map((e) =>
           [
