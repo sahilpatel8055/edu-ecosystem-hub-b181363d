@@ -1,0 +1,286 @@
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
+import {
+  AuthorBox,
+  DataTable,
+  LinkCluster,
+  QuickFacts,
+  References,
+  RelatedLinkGrid,
+  StepList,
+  StickyMobileCTA,
+  UpdatedStamp,
+} from "@/components/common/Blocks";
+import { AppLink } from "@/components/common/AppLink";
+import { getSpecialisation } from "@/data";
+import {
+  approvalText,
+  articleLinks,
+  comparisonLinks,
+  offeringLinks,
+  offeringProfile,
+  providerLinks,
+} from "@/lib/entities";
+import {
+  breadcrumbSchema,
+  canonical,
+  courseSchema,
+  faqSchema,
+  howToSchema,
+  jsonLd,
+  pageMeta,
+} from "@/lib/seo";
+
+/**
+ * Highest-intent programmatic page type: university × programme.
+ * URL: /universities/{university}/courses/{course}
+ */
+export const Route = createFileRoute("/universities/$slug/courses/$course")({
+  loader: ({ params }) => {
+    const profile = offeringProfile(params.slug, params.course);
+    if (!profile) throw notFound();
+    return {
+      universityName: profile.university.record.name,
+      universityShort: profile.university.record.shortName,
+      programmeName: profile.programme.record.name,
+      duration: profile.offering.durationLabel,
+      feeRange: profile.programme.record.feeRangeLabel,
+      lastUpdated: profile.offering.lastUpdated,
+      level: profile.programme.record.level,
+      admissionProcess: profile.university.record.admissionProcess,
+      summary: profile.programme.record.summary,
+    };
+  },
+  head: ({ params, loaderData }) => {
+    const path = `/universities/${params.slug}/courses/${params.course}`;
+    if (!loaderData) {
+      return { meta: [{ title: "Programme not found" }, { name: "robots", content: "noindex" }] };
+    }
+    const title = `${loaderData.universityShort} ${loaderData.programmeName}: Fees, Eligibility & Admission 2026`;
+    const description = `${loaderData.programmeName} at ${loaderData.universityName} — ${loaderData.duration} duration, ${loaderData.feeRange} fee range, specialisations, eligibility, admission steps and placement support.`;
+    return {
+      meta: pageMeta({
+        title,
+        description,
+        path,
+        modifiedTime: loaderData.lastUpdated,
+        author: "AVEDU Editorial Desk",
+        keywords: [
+          `${loaderData.universityShort} ${loaderData.programmeName} fees`,
+          `${loaderData.universityShort} ${loaderData.programmeName} admission`,
+          `${loaderData.programmeName} eligibility`,
+        ],
+      }),
+      links: canonical(path),
+      scripts: [
+        jsonLd(
+          courseSchema({
+            name: `${loaderData.programmeName} — ${loaderData.universityName}`,
+            description: loaderData.summary,
+            provider: loaderData.universityName,
+            path,
+            mode: "online",
+            level: loaderData.level,
+          }),
+        ),
+        jsonLd(
+          howToSchema({
+            name: `How to apply for ${loaderData.programmeName} at ${loaderData.universityShort}`,
+            steps: loaderData.admissionProcess,
+          }),
+        ),
+        jsonLd(
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Universities", href: "/universities" },
+            { name: loaderData.universityShort, href: `/universities/${params.slug}` },
+            { name: loaderData.programmeName, href: path },
+          ]),
+        ),
+      ],
+    };
+  },
+  component: Page,
+  notFoundComponent: () => (
+    <div className="container-page py-24 text-center">
+      <h1 className="text-2xl font-bold">Programme not found</h1>
+      <AppLink to="/universities" className="mt-6 inline-block text-sm font-semibold text-brand hover:underline">
+        Browse all universities →
+      </AppLink>
+    </div>
+  ),
+});
+
+function Page() {
+  const { slug, course } = Route.useParams();
+  const profile = offeringProfile(slug, course)!;
+  const { offering, university, programme } = profile;
+  const u = university.record;
+  const p = programme.record;
+
+  const faqs = [
+    {
+      question: `What is the ${p.name} fee at ${u.shortName}?`,
+      answer: `The ${p.name} at ${u.shortName} sits in the ${p.feeRangeLabel} band across the full ${offering.durationLabel} programme. The exact figure is confirmed against the university's official fee page before publication.`,
+    },
+    {
+      question: `What is the eligibility for ${p.name} at ${u.shortName}?`,
+      answer: p.eligibility,
+    },
+    {
+      question: `Which specialisations are available?`,
+      answer: offering.specialisations
+        .map((s) => getSpecialisation(p.slug, s)?.name ?? s)
+        .join(", "),
+    },
+    {
+      question: `Is this ${p.name} approved?`,
+      answer: `${u.name} holds ${approvalText(u)}, so the degree carries the same recognition as the equivalent on-campus programme.`,
+    },
+  ];
+
+  return (
+    <>
+      <DetailLayout
+        crumbs={[
+          { name: "Universities", href: "/universities" },
+          { name: u.shortName, href: `/universities/${u.slug}` },
+          { name: p.shortName, href: profile.path },
+        ]}
+        eyebrow={`${u.shortName} · ${p.level} programme`}
+        title={`${u.shortName} ${p.name}: Fees, Eligibility & Admission 2026`}
+        subtitle={`${p.summary} This page covers the ${p.name} exactly as delivered by ${u.name}.`}
+        meta={<UpdatedStamp date={offering.lastUpdated} verified={offering.verified} />}
+        tocSections={[
+          "Quick facts",
+          "Overview",
+          "Specialisations",
+          "Fee structure",
+          "Eligibility",
+          "Admission process",
+          "Career scope",
+          "Placements",
+          "FAQs",
+          "Related links",
+        ]}
+        faqs={faqs}
+        sidebarExtras={
+          <>
+            <LinkCluster title={`Other ${u.shortName} programmes`} links={offeringLinks(u.slug)} />
+            <LinkCluster title={`${p.name} at other universities`} links={providerLinks(p.slug)} />
+          </>
+        }
+        related={
+          <RelatedLinkGrid
+            groups={[
+              { title: `${p.name} elsewhere`, links: providerLinks(p.slug) },
+              { title: `More from ${u.shortName}`, links: offeringLinks(u.slug) },
+              { title: "Comparisons", links: comparisonLinks(u.slug) },
+              { title: "Related reading", links: articleLinks(4) },
+            ]}
+          />
+        }
+      >
+        <QuickFacts
+          items={[
+            { label: "Programme", value: p.name },
+            { label: "University", value: u.shortName },
+            { label: "Level", value: p.level },
+            { label: "Duration", value: offering.durationLabel },
+            { label: "Mode", value: p.mode.join(", ") },
+            { label: "Fee band", value: p.feeRangeLabel },
+            { label: "Specialisations", value: offering.specialisations.length },
+            { label: "Admissions", value: offering.admissionOpen ? "Open" : "Closed" },
+          ]}
+        />
+
+        <ContentSection title="Overview">
+          <p>
+            {p.summary} At {u.name}, it runs for {offering.durationLabel} and is delivered {p.mode.join(" / ")}, with{" "}
+            {approvalText(u)} backing the award.
+          </p>
+          <p>{u.verdict}</p>
+        </ContentSection>
+
+        <ContentSection title="Specialisations">
+          <DataTable
+            caption={`${p.name} specialisations at ${u.shortName}`}
+            head={["Specialisation", "Focus", "Career paths"]}
+            rows={offering.specialisations.map((s) => {
+              const spec = getSpecialisation(p.slug, s);
+              return [
+                <AppLink
+                  key={s}
+                  to={`/courses/${p.slug}`}
+                  className="font-semibold text-brand hover:underline"
+                >
+                  {spec?.name ?? s}
+                </AppLink>,
+                spec?.summary ?? "—",
+                spec?.careerPaths.slice(0, 3).join(", ") ?? "—",
+              ];
+            })}
+          />
+        </ContentSection>
+
+        <ContentSection title="Fee structure">
+          <DataTable
+            caption="Fee components"
+            head={["Component", "Amount"]}
+            rows={[
+              ["Programme fee band", p.feeRangeLabel],
+              ["Total (official figure)", offering.fee.total ? `₹${offering.fee.total.toLocaleString("en-IN")}` : "Awaiting official confirmation"],
+              ["Per semester", offering.fee.perSemester ? `₹${offering.fee.perSemester.toLocaleString("en-IN")}` : "Awaiting official confirmation"],
+              ["EMI from", offering.fee.emiFrom ? `₹${offering.fee.emiFrom.toLocaleString("en-IN")}/month` : "Available via university partners"],
+            ]}
+          />
+          <p className="text-xs">
+            Figures are published only after verification against the university's own fee schedule — nothing on this
+            page is estimated.
+          </p>
+        </ContentSection>
+
+        <ContentSection title="Eligibility">
+          <p>{p.eligibility}</p>
+          <ul className="list-inside list-disc">
+            {u.documentsRequired.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="Admission process">
+          <StepList steps={u.admissionProcess} />
+        </ContentSection>
+
+        <ContentSection title="Career scope">
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {p.whoIsItFor.map((w) => (
+              <li key={w} className="rounded-lg bg-secondary px-3 py-2 text-sm text-foreground">
+                {w}
+              </li>
+            ))}
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="Placements">
+          <p>
+            {offering.placement?.supportAvailable
+              ? `${u.shortName} provides placement assistance to enrolled learners of this programme — resume support, interview preparation and access to the recruiter network.`
+              : "Placement support details for this programme are being confirmed with the university."}
+          </p>
+        </ContentSection>
+
+        <AuthorBox />
+        <References
+          items={[
+            { label: `${u.name} official website`, href: u.websiteUrl },
+            { label: "UGC-DEB entitled programme list", href: "https://deb.ugc.ac.in/" },
+          ]}
+        />
+      </DetailLayout>
+      <StickyMobileCTA label={`Apply for ${p.shortName}`} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
+    </>
+  );
+}

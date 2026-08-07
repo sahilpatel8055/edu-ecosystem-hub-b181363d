@@ -1,0 +1,253 @@
+import type { ReactNode } from "react";
+import { CalendarClock, Check, ExternalLink, Minus, ShieldCheck } from "lucide-react";
+import { AppLink } from "./AppLink";
+import { Chip } from "./Primitives";
+import type { LinkRef } from "@/lib/entities";
+
+/* ------------------------------ Quick facts ------------------------------ */
+
+export function QuickFacts({ items }: { items: { label: string; value: ReactNode }[] }) {
+  return (
+    <dl
+      id="quick-facts"
+      className="scroll-mt-28 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4"
+    >
+      {items.map((i) => (
+        <div key={i.label} className="bg-card p-3 sm:p-4">
+          <dt className="text-[0.68rem] font-semibold uppercase tracking-wider text-muted-foreground">{i.label}</dt>
+          <dd className="mt-1 text-sm font-bold leading-snug sm:text-base">{i.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/* -------------------------------- Tables -------------------------------- */
+
+export function DataTable({
+  caption,
+  head,
+  rows,
+}: {
+  caption?: string;
+  head: string[];
+  rows: ReactNode[][];
+}) {
+  return (
+    <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+      <table className="w-full min-w-[34rem] border-collapse overflow-hidden rounded-xl border border-border text-sm">
+        {caption && <caption className="sr-only">{caption}</caption>}
+        <thead>
+          <tr className="bg-secondary text-left">
+            {head.map((h) => (
+              <th key={h} scope="col" className="px-3 py-2.5 text-xs font-semibold uppercase tracking-wide">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i} className="border-t border-border align-top">
+              {r.map((cell, j) => (
+                <td key={j} className="px-3 py-2.5">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/* ------------------------------- Pros/cons ------------------------------- */
+
+export function ProsCons({ pros, cons }: { pros: string[]; cons: string[] }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2">
+      <div className="surface-card p-4 sm:p-5">
+        <p className="text-sm font-bold text-success">Strengths</p>
+        <ul className="mt-3 space-y-2">
+          {pros.map((p) => (
+            <li key={p} className="flex gap-2 text-sm text-foreground">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-success" /> {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="surface-card p-4 sm:p-5">
+        <p className="text-sm font-bold text-highlight-foreground">Things to weigh</p>
+        <ul className="mt-3 space-y-2">
+          {cons.map((c) => (
+            <li key={c} className="flex gap-2 text-sm text-foreground">
+              <Minus className="mt-0.5 h-4 w-4 shrink-0 text-highlight-foreground" /> {c}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------- Step list ------------------------------- */
+
+export function StepList({ steps }: { steps: string[] }) {
+  return (
+    <ol className="space-y-3">
+      {steps.map((s, i) => (
+        <li key={s} className="grid grid-cols-[auto_minmax(0,1fr)] gap-3">
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-soft text-xs font-bold text-brand">
+            {i + 1}
+          </span>
+          <span className="min-w-0 pt-1 text-sm text-foreground">{s}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/* ---------------------------- Internal linking --------------------------- */
+
+export function LinkCluster({ title, links }: { title: string; links: LinkRef[] }) {
+  if (!links.length) return null;
+  return (
+    <div className="surface-card p-4 sm:p-5">
+      <p className="text-sm font-bold">{title}</p>
+      <ul className="mt-3 grid gap-1.5 sm:grid-cols-2">
+        {links.map((l) => (
+          <li key={l.href + l.label} className="min-w-0">
+            <AppLink
+              to={l.href}
+              className="flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors hover:bg-secondary"
+            >
+              <span className="truncate text-foreground">{l.label}</span>
+              {l.note && <span className="shrink-0 text-xs text-muted-foreground">{l.note}</span>}
+            </AppLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Dense related-links block placed at the bottom of every detail page. */
+export function RelatedLinkGrid({ groups }: { groups: { title: string; links: LinkRef[] }[] }) {
+  return (
+    <section id="related-links" className="scroll-mt-28">
+      <h2 className="text-xl font-bold sm:text-2xl">Explore next</h2>
+      <div className="mt-4 grid gap-4 lg:grid-cols-2">
+        {groups.map((g) => (
+          <LinkCluster key={g.title} title={g.title} links={g.links} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------ Trust blocks ----------------------------- */
+
+export function UpdatedStamp({ date, verified }: { date: string; verified?: boolean }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+      <span className="inline-flex items-center gap-1">
+        <CalendarClock className="h-3.5 w-3.5" /> Last updated {date}
+      </span>
+      <Chip tone={verified ? "success" : "highlight"}>
+        <ShieldCheck className="mr-1 h-3 w-3" />
+        {verified ? "Officially verified" : "Awaiting official verification"}
+      </Chip>
+    </div>
+  );
+}
+
+export function AuthorBox({
+  name = "AVEDU Editorial Desk",
+  role = "Education research team",
+  slug = "",
+}: {
+  name?: string;
+  role?: string;
+  slug?: string;
+}) {
+  return (
+    <section id="author" className="surface-card scroll-mt-28 grid grid-cols-[auto_minmax(0,1fr)] gap-4 p-4 sm:p-5">
+      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-soft font-display text-sm font-bold text-brand">
+        {name
+          .split(" ")
+          .map((w) => w[0])
+          .slice(0, 2)
+          .join("")}
+      </span>
+      <div className="min-w-0">
+        <p className="text-sm font-bold">{name}</p>
+        <p className="text-xs text-muted-foreground">{role}</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Every fact on this page is checked against university and UGC-DEB sources before publication, and
+          re-checked each admission cycle.
+        </p>
+        {slug && (
+          <AppLink to={`/authors/${slug}`} className="mt-2 inline-block text-sm font-semibold text-brand hover:underline">
+            View profile →
+          </AppLink>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export function References({ items }: { items: { label: string; href?: string | undefined }[] }) {
+  return (
+    <section id="references" className="scroll-mt-28">
+      <h2 className="text-xl font-bold sm:text-2xl">References</h2>
+      <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+        {items.map((r) => (
+          <li key={r.label} className="flex gap-2">
+            <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+            {r.href ? (
+              <a href={r.href} rel="nofollow noopener noreferrer" target="_blank" className="hover:text-foreground">
+                {r.label}
+              </a>
+            ) : (
+              r.label
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/* ---------------------------- Mobile sticky CTA --------------------------- */
+
+export function StickyMobileCTA({
+  label = "Get free guidance",
+  href = "/contact",
+  secondaryLabel = "Compare",
+  secondaryHref = "/compare",
+}: {
+  label?: string;
+  href?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}) {
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 p-3 backdrop-blur lg:hidden">
+      <div className="flex gap-2">
+        <AppLink
+          to={secondaryHref}
+          className="flex h-11 flex-1 items-center justify-center rounded-xl border border-border text-sm font-semibold"
+        >
+          {secondaryLabel}
+        </AppLink>
+        <AppLink
+          to={href}
+          className="flex h-11 flex-[1.4] items-center justify-center rounded-xl bg-brand text-sm font-semibold text-brand-foreground"
+        >
+          {label}
+        </AppLink>
+      </div>
+    </div>
+  );
+}

@@ -29,6 +29,11 @@ import { Route as TagsRouteImport } from './routes/tags'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as UniversitiesRouteImport } from './routes/universities'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
+import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
+import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
+import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
+import { Route as UniversitiesSlugCoursesCourseRouteImport } from './routes/universities.$slug.courses.$course'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -130,6 +135,32 @@ const UniversitiesRoute = UniversitiesRouteImport.update({
   path: '/universities',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CoursesRoute,
+} as any)
+const CoursesCourseRoute = CoursesCourseRouteImport.update({
+  id: '/$course',
+  path: '/$course',
+  getParentRoute: () => CoursesRoute,
+} as any)
+const UniversitiesIndexRoute = UniversitiesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => UniversitiesRoute,
+} as any)
+const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => UniversitiesRoute,
+} as any)
+const UniversitiesSlugCoursesCourseRoute =
+  UniversitiesSlugCoursesCourseRouteImport.update({
+    id: '/courses/$course',
+    path: '/courses/$course',
+    getParentRoute: () => UniversitiesSlugRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -141,7 +172,7 @@ export interface FileRoutesByFullPath {
   '/categories': typeof CategoriesRoute
   '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
-  '/courses': typeof CoursesRoute
+  '/courses': typeof CoursesRouteWithChildren
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
@@ -151,7 +182,12 @@ export interface FileRoutesByFullPath {
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
-  '/universities': typeof UniversitiesRoute
+  '/universities': typeof UniversitiesRouteWithChildren
+  '/courses/$course': typeof CoursesCourseRoute
+  '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/courses/': typeof CoursesIndexRoute
+  '/universities/': typeof UniversitiesIndexRoute
+  '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -163,7 +199,6 @@ export interface FileRoutesByTo {
   '/categories': typeof CategoriesRoute
   '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
-  '/courses': typeof CoursesRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
@@ -173,7 +208,11 @@ export interface FileRoutesByTo {
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
-  '/universities': typeof UniversitiesRoute
+  '/courses/$course': typeof CoursesCourseRoute
+  '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/courses': typeof CoursesIndexRoute
+  '/universities': typeof UniversitiesIndexRoute
+  '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -186,7 +225,7 @@ export interface FileRoutesById {
   '/categories': typeof CategoriesRoute
   '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
-  '/courses': typeof CoursesRoute
+  '/courses': typeof CoursesRouteWithChildren
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
@@ -196,7 +235,12 @@ export interface FileRoutesById {
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
-  '/universities': typeof UniversitiesRoute
+  '/universities': typeof UniversitiesRouteWithChildren
+  '/courses/$course': typeof CoursesCourseRoute
+  '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/courses/': typeof CoursesIndexRoute
+  '/universities/': typeof UniversitiesIndexRoute
+  '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -221,6 +265,11 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/tools'
     | '/universities'
+    | '/courses/$course'
+    | '/universities/$slug'
+    | '/courses/'
+    | '/universities/'
+    | '/universities/$slug/courses/$course'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -232,7 +281,6 @@ export interface FileRouteTypes {
     | '/categories'
     | '/compare'
     | '/contact'
-    | '/courses'
     | '/news'
     | '/privacy-policy'
     | '/rankings'
@@ -242,7 +290,11 @@ export interface FileRouteTypes {
     | '/tags'
     | '/terms-and-conditions'
     | '/tools'
+    | '/courses/$course'
+    | '/universities/$slug'
+    | '/courses'
     | '/universities'
+    | '/universities/$slug/courses/$course'
   id:
     | '__root__'
     | '/'
@@ -265,6 +317,11 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/tools'
     | '/universities'
+    | '/courses/$course'
+    | '/universities/$slug'
+    | '/courses/'
+    | '/universities/'
+    | '/universities/$slug/courses/$course'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -277,7 +334,7 @@ export interface RootRouteChildren {
   CategoriesRoute: typeof CategoriesRoute
   CompareRoute: typeof CompareRoute
   ContactRoute: typeof ContactRoute
-  CoursesRoute: typeof CoursesRoute
+  CoursesRoute: typeof CoursesRouteWithChildren
   NewsRoute: typeof NewsRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RankingsRoute: typeof RankingsRoute
@@ -287,7 +344,7 @@ export interface RootRouteChildren {
   TagsRoute: typeof TagsRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   ToolsRoute: typeof ToolsRoute
-  UniversitiesRoute: typeof UniversitiesRoute
+  UniversitiesRoute: typeof UniversitiesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -432,8 +489,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses/': {
+      id: '/courses/'
+      path: '/'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof CoursesRoute
+    }
+    '/courses/$course': {
+      id: '/courses/$course'
+      path: '/$course'
+      fullPath: '/courses/$course'
+      preLoaderRoute: typeof CoursesCourseRouteImport
+      parentRoute: typeof CoursesRoute
+    }
+    '/universities/': {
+      id: '/universities/'
+      path: '/'
+      fullPath: '/universities/'
+      preLoaderRoute: typeof UniversitiesIndexRouteImport
+      parentRoute: typeof UniversitiesRoute
+    }
+    '/universities/$slug': {
+      id: '/universities/$slug'
+      path: '/$slug'
+      fullPath: '/universities/$slug'
+      preLoaderRoute: typeof UniversitiesSlugRouteImport
+      parentRoute: typeof UniversitiesRoute
+    }
+    '/universities/$slug/courses/$course': {
+      id: '/universities/$slug/courses/$course'
+      path: '/courses/$course'
+      fullPath: '/universities/$slug/courses/$course'
+      preLoaderRoute: typeof UniversitiesSlugCoursesCourseRouteImport
+      parentRoute: typeof UniversitiesSlugRoute
+    }
   }
 }
+
+interface CoursesRouteChildren {
+  CoursesCourseRoute: typeof CoursesCourseRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
+}
+
+const CoursesRouteChildren: CoursesRouteChildren = {
+  CoursesCourseRoute: CoursesCourseRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
+}
+
+const CoursesRouteWithChildren =
+  CoursesRoute._addFileChildren(CoursesRouteChildren)
+
+interface UniversitiesSlugRouteChildren {
+  UniversitiesSlugCoursesCourseRoute: typeof UniversitiesSlugCoursesCourseRoute
+}
+
+const UniversitiesSlugRouteChildren: UniversitiesSlugRouteChildren = {
+  UniversitiesSlugCoursesCourseRoute: UniversitiesSlugCoursesCourseRoute,
+}
+
+const UniversitiesSlugRouteWithChildren =
+  UniversitiesSlugRoute._addFileChildren(UniversitiesSlugRouteChildren)
+
+interface UniversitiesRouteChildren {
+  UniversitiesSlugRoute: typeof UniversitiesSlugRouteWithChildren
+  UniversitiesIndexRoute: typeof UniversitiesIndexRoute
+}
+
+const UniversitiesRouteChildren: UniversitiesRouteChildren = {
+  UniversitiesSlugRoute: UniversitiesSlugRouteWithChildren,
+  UniversitiesIndexRoute: UniversitiesIndexRoute,
+}
+
+const UniversitiesRouteWithChildren = UniversitiesRoute._addFileChildren(
+  UniversitiesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -445,7 +575,7 @@ const rootRouteChildren: RootRouteChildren = {
   CategoriesRoute: CategoriesRoute,
   CompareRoute: CompareRoute,
   ContactRoute: ContactRoute,
-  CoursesRoute: CoursesRoute,
+  CoursesRoute: CoursesRouteWithChildren,
   NewsRoute: NewsRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RankingsRoute: RankingsRoute,
@@ -455,7 +585,7 @@ const rootRouteChildren: RootRouteChildren = {
   TagsRoute: TagsRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
   ToolsRoute: ToolsRoute,
-  UniversitiesRoute: UniversitiesRoute,
+  UniversitiesRoute: UniversitiesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

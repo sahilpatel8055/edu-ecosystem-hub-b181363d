@@ -1,0 +1,308 @@
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
+import {
+  AuthorBox,
+  DataTable,
+  ProsCons,
+  QuickFacts,
+  References,
+  RelatedLinkGrid,
+  StepList,
+  StickyMobileCTA,
+  UpdatedStamp,
+} from "@/components/common/Blocks";
+import { LinkCluster } from "@/components/common/Blocks";
+import { AppLink } from "@/components/common/AppLink";
+import {
+  approvalText,
+  articleLinks,
+  comparisonLinks,
+  offeringLinks,
+  universityLinks,
+  universityProfile,
+} from "@/lib/entities";
+import { getProgramme } from "@/data";
+import {
+  breadcrumbSchema,
+  canonical,
+  collegeSchema,
+  faqSchema,
+  howToSchema,
+  itemListSchema,
+  jsonLd,
+  pageMeta,
+} from "@/lib/seo";
+
+export const Route = createFileRoute("/universities/$slug")({
+  loader: ({ params }) => {
+    const profile = universityProfile(params.slug);
+    if (!profile) throw notFound();
+    const u = profile.record;
+    return {
+      slug: u.slug,
+      name: u.name,
+      shortName: u.shortName,
+      summary: u.summary,
+      lastUpdated: u.lastUpdated,
+      city: u.city,
+      state: u.state,
+      rating: u.rating,
+      reviewCount: u.reviewCount,
+      websiteUrl: u.websiteUrl,
+      admissionProcess: u.admissionProcess,
+    };
+  },
+  head: ({ params, loaderData }) => {
+    const path = `/universities/${params.slug}`;
+    if (!loaderData) {
+      return { meta: [{ title: "University not found" }, { name: "robots", content: "noindex" }] };
+    }
+    const title = `${loaderData.shortName} — Fees, Courses, Approvals & Admission 2026`;
+    const description = `${loaderData.name}: UGC approval status, programme-wise fees, eligibility, admission process, placements, pros and cons, and verified student ratings.`;
+    return {
+      meta: pageMeta({
+        title,
+        description,
+        path,
+        modifiedTime: loaderData.lastUpdated,
+        author: "AVEDU Editorial Desk",
+        keywords: [
+          `${loaderData.shortName} fees`,
+          `${loaderData.shortName} admission`,
+          `${loaderData.shortName} review`,
+          `${loaderData.shortName} courses`,
+        ],
+      }),
+      links: canonical(path),
+      scripts: [
+        jsonLd(
+          collegeSchema({
+            name: loaderData.name,
+            description: loaderData.summary,
+            path,
+            city: loaderData.city,
+            state: loaderData.state,
+            url: loaderData.websiteUrl,
+            rating: loaderData.rating,
+            reviewCount: loaderData.reviewCount,
+          }),
+        ),
+        jsonLd(
+          howToSchema({
+            name: `How to apply to ${loaderData.shortName}`,
+            steps: loaderData.admissionProcess,
+          }),
+        ),
+        jsonLd(
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Universities", href: "/universities" },
+            { name: loaderData.shortName, href: path },
+          ]),
+        ),
+      ],
+    };
+  },
+  component: Page,
+  notFoundComponent: UniversityNotFound,
+});
+
+function UniversityNotFound() {
+  return (
+    <div className="container-page py-24 text-center">
+      <h1 className="text-2xl font-bold">University not found</h1>
+      <p className="mt-2 text-sm text-muted-foreground">
+        This profile is not published yet. Browse the full directory instead.
+      </p>
+      <AppLink
+        to="/universities"
+        className="mt-6 inline-block rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-foreground"
+      >
+        All universities
+      </AppLink>
+    </div>
+  );
+}
+
+function Page() {
+  const { slug } = Route.useParams();
+  const profile = universityProfile(slug)!;
+  const u = profile.record;
+  const path = profile.path;
+
+  const faqs = [
+    {
+      question: `Is a degree from ${u.shortName} valid for jobs and higher studies?`,
+      answer: `Yes. ${u.name} holds ${approvalText(u)}. Degrees from UGC-entitled online programmes carry the same recognition as the equivalent on-campus degree for employment and further study.`,
+    },
+    {
+      question: `What is the fee range at ${u.shortName}?`,
+      answer: `Programmes at ${u.shortName} fall in the ${u.feeRangeLabel} range. Programme-wise figures are published on each course page and updated every admission cycle.`,
+    },
+    {
+      question: `What documents are required for ${u.shortName} admission?`,
+      answer: u.documentsRequired.join(", ") + ".",
+    },
+    {
+      question: `How do I apply to ${u.shortName}?`,
+      answer: u.admissionProcess.join(" → ") + ".",
+    },
+  ];
+
+  return (
+    <>
+      <DetailLayout
+        crumbs={[
+          { name: "Universities", href: "/universities" },
+          { name: u.shortName, href: path },
+        ]}
+        eyebrow={`${u.type} university · ${u.modes.join(" / ")}`}
+        title={`${u.name}: Fees, Courses, Approvals & Admission 2026`}
+        subtitle={u.summary}
+        meta={<UpdatedStamp date={u.lastUpdated} verified={u.verified} />}
+        tocSections={[
+          "Quick facts",
+          "Overview",
+          "Approvals & recognition",
+          "Courses & fees",
+          "Eligibility",
+          "Admission process",
+          "Placements & career scope",
+          "Scholarships",
+          "Pros and cons",
+          "FAQs",
+          "Related links",
+        ]}
+        faqs={faqs}
+        sidebarExtras={
+          <>
+            <LinkCluster title={`${u.shortName} programmes`} links={offeringLinks(u.slug)} />
+            <LinkCluster title="Compare with" links={comparisonLinks(u.slug, 5)} />
+          </>
+        }
+        related={
+          <RelatedLinkGrid
+            groups={[
+              { title: `${u.shortName} courses`, links: offeringLinks(u.slug) },
+              { title: "Similar universities", links: universityLinks(u.slug) },
+              { title: "Comparisons", links: comparisonLinks(u.slug) },
+              { title: "Related reading", links: articleLinks(4) },
+            ]}
+          />
+        }
+      >
+        <QuickFacts
+          items={[
+            { label: "Established", value: u.establishedYear ?? "—" },
+            { label: "Type", value: u.type },
+            { label: "Location", value: `${u.city}, ${u.state}` },
+            { label: "Mode", value: u.modes.join(", ") },
+            { label: "Fee range", value: u.feeRangeLabel },
+            { label: "Rating", value: `${u.rating}/5 (${u.reviewCount})` },
+            { label: "Programmes", value: profile.offerings.length },
+            { label: "Approvals", value: u.approvals.map((a) => a.body).join(", ") },
+          ]}
+        />
+
+        <ContentSection title="Overview">
+          <p>{u.verdict}</p>
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {u.highlights.map((h) => (
+              <li key={h} className="rounded-lg bg-secondary px-3 py-2 text-sm text-foreground">
+                {h}
+              </li>
+            ))}
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="Approvals & recognition">
+          <DataTable
+            caption={`${u.shortName} approvals`}
+            head={["Body", "Status", "Validity"]}
+            rows={u.approvals.map((a) => [a.body, a.status, a.validity ?? "Current cycle"])}
+          />
+        </ContentSection>
+
+        <ContentSection title="Courses & fees">
+          <DataTable
+            caption={`${u.shortName} programme fees`}
+            head={["Programme", "Duration", "Specialisations", "Fee"]}
+            rows={profile.offerings.map((o) => [
+              <AppLink
+                key={o.id}
+                to={`/universities/${u.slug}/courses/${o.programmeSlug}`}
+                className="font-semibold text-brand hover:underline"
+              >
+                {getProgramme(o.programmeSlug)?.name ?? o.programmeSlug}
+              </AppLink>,
+              o.durationLabel,
+              o.specialisations.length,
+              o.fee.total ? `₹${o.fee.total.toLocaleString("en-IN")}` : u.feeRangeLabel,
+            ])}
+          />
+        </ContentSection>
+
+        <ContentSection title="Eligibility">
+          <p>
+            Undergraduate programmes require a 10+2 pass from a recognised board. Postgraduate programmes require a
+            bachelor's degree, usually with the minimum aggregate set by the university. Programme-specific criteria
+            are listed on each course page.
+          </p>
+          <ul className="list-inside list-disc">
+            {u.documentsRequired.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="Admission process">
+          <StepList steps={u.admissionProcess} />
+        </ContentSection>
+
+        <ContentSection title="Placements & career scope">
+          <p>
+            {u.shortName} offers placement assistance across its online programmes. Verified placement figures are
+            published only once confirmed from the university's official disclosure, so this section shows support
+            structure rather than unverified salary claims.
+          </p>
+        </ContentSection>
+
+        <ContentSection title="Scholarships">
+          <p>
+            Merit waivers, defence-category concessions and instalment plans are commonly available. Check the
+            scholarships hub for the current cycle's live schemes and deadlines.
+          </p>
+        </ContentSection>
+
+        <ContentSection title="Pros and cons">
+          <ProsCons pros={u.pros} cons={u.cons} />
+        </ContentSection>
+
+        <AuthorBox />
+        <References
+          items={[
+            { label: `${u.name} official website`, href: u.websiteUrl },
+            { label: "UGC-DEB entitled institutions list", href: "https://deb.ugc.ac.in/" },
+            { label: "NAAC accreditation status", href: "https://www.naac.gov.in/" },
+          ]}
+        />
+      </DetailLayout>
+      <StickyMobileCTA label={`Apply to ${u.shortName}`} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            itemListSchema(
+              offeringLinks(u.slug).map((l) => ({ name: l.label, href: l.href })),
+              `${u.shortName} programmes`,
+            ),
+          ),
+        }}
+      />
+    </>
+  );
+}
