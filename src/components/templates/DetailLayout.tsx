@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/common/Breadcrumbs";
-import { Faq, type FaqItem } from "@/components/common/Faq";
+import { Faq, placeholderFaqs, type FaqItem } from "@/components/common/Faq";
 import { LeadCaptureCard, TableOfContents, TrustCard } from "@/components/common/Sidebar";
 import { CTASection } from "@/components/common/Primitives";
 
@@ -14,8 +14,8 @@ export function DetailLayout({
   title,
   subtitle,
   meta,
-  tocSections,
-  faqs,
+  tocSections = ["Overview", "Key highlights", "Eligibility", "Fee structure", "FAQs"],
+  faqs = placeholderFaqs,
   related,
   sidebarExtras,
   hideLeadForm = false,
@@ -26,8 +26,8 @@ export function DetailLayout({
   title: string;
   subtitle?: string;
   meta?: ReactNode;
-  tocSections?: string[];
-  faqs?: FaqItem[];
+  tocSections?: string[] | undefined;
+  faqs?: FaqItem[] | undefined;
   related?: ReactNode;
   sidebarExtras?: ReactNode;
   hideLeadForm?: boolean;
