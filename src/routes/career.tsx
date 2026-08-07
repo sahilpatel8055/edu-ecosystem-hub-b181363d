@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/templates/PageShell";
 import { FilterBar, SimplePagination, CTASection } from "@/components/common/Primitives";
-import { NewsCard } from "@/components/cards";
-import { news } from "@/lib/content";
+import { CareerCard } from "@/components/cards";
+import { careerGuides } from "@/lib/content";
 import { canonical, collectionSchema, jsonLd, pageMeta, breadcrumbSchema } from "@/lib/seo";
 
-const title = "Education News & Regulatory Updates";
-const description = "UGC notifications, admission deadline changes and programme launches, tracked as they happen.";
-const path = "/news";
+const title = "Career Guides for Online Learners";
+const description = "Role ladders, salary benchmarks and switch strategies for graduates of online and distance programmes.";
+const path = "/career";
 
-export const Route = createFileRoute("/news")({
+export const Route = createFileRoute("/career/")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),
     scripts: [
       jsonLd(collectionSchema({ name: title, description, path })),
-      jsonLd(breadcrumbSchema([{ name: "Home", href: "/" }, { name: "News", href: path }])),
+      jsonLd(breadcrumbSchema([{ name: "Home", href: "/" }, { name: "Career", href: path }])),
     ],
   }),
   component: Page,
@@ -24,14 +24,14 @@ export const Route = createFileRoute("/news")({
 function Page() {
   return (
     <PageShell
-      crumbs={[{ name: "News", href: path }]}
-      eyebrow="Newsroom"
-      title="Education News & Regulatory Updates"
+      crumbs={[{ name: "Career", href: path }]}
+      eyebrow="Outcomes"
+      title="Career Guides for Online Learners"
       description={description}
     >
-      <FilterBar groups={[{"label":"Topic","options":["All","Regulatory","Admissions","Programmes"]}]} />
+      <FilterBar groups={[{"label":"Field","options":["All","Management","Data & Analytics","Public Sector"]}]} />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {news.map((i) => (<NewsCard key={i.slug} item={i} />))}
+        {careerGuides.map((i) => (<CareerCard key={i.slug} item={i} />))}
       </div>
       <SimplePagination />
       <div className="mt-16"><CTASection /></div>

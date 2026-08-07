@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/templates/PageShell";
 import { FilterBar, SimplePagination, CTASection } from "@/components/common/Primitives";
-import { ComparisonCard } from "@/components/cards";
-import { comparisons } from "@/lib/content";
+import { ToolCard } from "@/components/cards";
+import { tools } from "@/lib/content";
 import { canonical, collectionSchema, jsonLd, pageMeta, breadcrumbSchema } from "@/lib/seo";
 
-const title = "University & Course Comparisons";
-const description = "Objective side-by-side comparisons of universities and programmes on fee, approvals, delivery and outcomes.";
-const path = "/compare";
+const title = "Free Student Tools & Calculators";
+const description = "Fee and EMI calculators, eligibility checks, university finders and comparison builders.";
+const path = "/tools";
 
-export const Route = createFileRoute("/compare")({
+export const Route = createFileRoute("/tools/")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),
     scripts: [
       jsonLd(collectionSchema({ name: title, description, path })),
-      jsonLd(breadcrumbSchema([{ name: "Home", href: "/" }, { name: "Compare", href: path }])),
+      jsonLd(breadcrumbSchema([{ name: "Home", href: "/" }, { name: "Tools", href: path }])),
     ],
   }),
   component: Page,
@@ -24,14 +24,14 @@ export const Route = createFileRoute("/compare")({
 function Page() {
   return (
     <PageShell
-      crumbs={[{ name: "Compare", href: path }]}
-      eyebrow="Side by side"
-      title="University & Course Comparisons"
+      crumbs={[{ name: "Tools", href: path }]}
+      eyebrow="Utilities"
+      title="Free Student Tools & Calculators"
       description={description}
     >
-      <FilterBar groups={[{"label":"Type","options":["All","University","Course"]}]} />
+      <FilterBar groups={[{"label":"Status","options":["All","Live","Beta","Coming soon"]}]} />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {comparisons.map((i) => (<ComparisonCard key={i.slug} item={i} />))}
+        {tools.map((i) => (<ToolCard key={i.slug} item={i} />))}
       </div>
       <SimplePagination />
       <div className="mt-16"><CTASection /></div>

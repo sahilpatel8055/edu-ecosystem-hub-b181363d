@@ -9,7 +9,7 @@ const title = "Scholarships & Fee Waivers";
 const description = "Merit, category and government scholarships available to online and distance education students.";
 const path = "/scholarships";
 
-export const Route = createFileRoute("/scholarships")({
+export const Route = createFileRoute("/scholarships/")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),
