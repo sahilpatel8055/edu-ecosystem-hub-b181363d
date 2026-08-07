@@ -29,6 +29,7 @@ import { Route as TagsRouteImport } from './routes/tags'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as UniversitiesRouteImport } from './routes/universities'
+import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
@@ -135,6 +136,11 @@ const UniversitiesRoute = UniversitiesRouteImport.update({
   path: '/universities',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareIndexRoute = CompareIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompareRoute,
+} as any)
 const CoursesIndexRoute = CoursesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -170,7 +176,7 @@ export interface FileRoutesByFullPath {
   '/blogs': typeof BlogsRoute
   '/career': typeof CareerRoute
   '/categories': typeof CategoriesRoute
-  '/compare': typeof CompareRoute
+  '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/news': typeof NewsRoute
@@ -185,6 +191,7 @@ export interface FileRoutesByFullPath {
   '/universities': typeof UniversitiesRouteWithChildren
   '/courses/$course': typeof CoursesCourseRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
@@ -197,7 +204,6 @@ export interface FileRoutesByTo {
   '/blogs': typeof BlogsRoute
   '/career': typeof CareerRoute
   '/categories': typeof CategoriesRoute
-  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -210,6 +216,7 @@ export interface FileRoutesByTo {
   '/tools': typeof ToolsRoute
   '/courses/$course': typeof CoursesCourseRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/compare': typeof CompareIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/universities': typeof UniversitiesIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
@@ -223,7 +230,7 @@ export interface FileRoutesById {
   '/blogs': typeof BlogsRoute
   '/career': typeof CareerRoute
   '/categories': typeof CategoriesRoute
-  '/compare': typeof CompareRoute
+  '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/news': typeof NewsRoute
@@ -238,6 +245,7 @@ export interface FileRoutesById {
   '/universities': typeof UniversitiesRouteWithChildren
   '/courses/$course': typeof CoursesCourseRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
@@ -267,6 +275,7 @@ export interface FileRouteTypes {
     | '/universities'
     | '/courses/$course'
     | '/universities/$slug'
+    | '/compare/'
     | '/courses/'
     | '/universities/'
     | '/universities/$slug/courses/$course'
@@ -279,7 +288,6 @@ export interface FileRouteTypes {
     | '/blogs'
     | '/career'
     | '/categories'
-    | '/compare'
     | '/contact'
     | '/news'
     | '/privacy-policy'
@@ -292,6 +300,7 @@ export interface FileRouteTypes {
     | '/tools'
     | '/courses/$course'
     | '/universities/$slug'
+    | '/compare'
     | '/courses'
     | '/universities'
     | '/universities/$slug/courses/$course'
@@ -319,6 +328,7 @@ export interface FileRouteTypes {
     | '/universities'
     | '/courses/$course'
     | '/universities/$slug'
+    | '/compare/'
     | '/courses/'
     | '/universities/'
     | '/universities/$slug/courses/$course'
@@ -332,7 +342,7 @@ export interface RootRouteChildren {
   BlogsRoute: typeof BlogsRoute
   CareerRoute: typeof CareerRoute
   CategoriesRoute: typeof CategoriesRoute
-  CompareRoute: typeof CompareRoute
+  CompareRoute: typeof CompareRouteWithChildren
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
   NewsRoute: typeof NewsRoute
@@ -489,6 +499,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/': {
+      id: '/compare/'
+      path: '/'
+      fullPath: '/compare/'
+      preLoaderRoute: typeof CompareIndexRouteImport
+      parentRoute: typeof CompareRoute
+    }
     '/courses/': {
       id: '/courses/'
       path: '/'
@@ -526,6 +543,17 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface CompareRouteChildren {
+  CompareIndexRoute: typeof CompareIndexRoute
+}
+
+const CompareRouteChildren: CompareRouteChildren = {
+  CompareIndexRoute: CompareIndexRoute,
+}
+
+const CompareRouteWithChildren =
+  CompareRoute._addFileChildren(CompareRouteChildren)
 
 interface CoursesRouteChildren {
   CoursesCourseRoute: typeof CoursesCourseRoute
@@ -573,7 +601,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogsRoute: BlogsRoute,
   CareerRoute: CareerRoute,
   CategoriesRoute: CategoriesRoute,
-  CompareRoute: CompareRoute,
+  CompareRoute: CompareRouteWithChildren,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
   NewsRoute: NewsRoute,
@@ -590,13 +618,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
