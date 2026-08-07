@@ -5,11 +5,11 @@ import { AppLink } from "@/components/common/AppLink";
 import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Primitives";
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
 import { Faq } from "@/components/common/Faq";
+import { ProgramFinder } from "@/components/common/ProgramFinder";
 import {
   ArticleCard,
   CareerCard,
   ComparisonCard,
-  CourseCard,
   NewsCard,
   ReviewCard,
   ScholarshipCard,
@@ -67,7 +67,7 @@ function HomePage() {
               Part of the AVEDU education ecosystem
             </span>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
-              <span className="text-gradient-brand">Decide your degree</span> with research, not guesswork.
+              <span className="text-shine">Decide your degree</span> with research, not guesswork.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Verified data on India's online and distance universities — approvals, fees, placements and real
@@ -114,17 +114,10 @@ function HomePage() {
 
       {/* Popular courses */}
       <Section muted>
-        <SectionHeader
-          eyebrow="Courses"
-          title="Popular courses"
-          description="Programme-level guides with fees, duration, specialisations and eligibility."
-          href="/courses"
-        />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {courses.slice(0, 6).map((c) => (
-            <CourseCard key={c.slug} item={c} />
-          ))}
-        </div>
+        <h2 className="mb-6 font-display text-3xl font-extrabold sm:text-4xl">
+          Top <span className="text-shine">Online Programs</span>
+        </h2>
+        <ProgramFinder items={courses} />
       </Section>
 
       {/* Admission updates + latest news */}
