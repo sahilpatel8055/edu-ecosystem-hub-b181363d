@@ -30,6 +30,7 @@ import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-condi
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as UniversitiesRouteImport } from './routes/universities'
 import { Route as CompareIndexRouteImport } from './routes/compare.index'
+import { Route as CompareComparisonRouteImport } from './routes/compare.$comparison'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
@@ -141,6 +142,11 @@ const CompareIndexRoute = CompareIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CompareRoute,
 } as any)
+const CompareComparisonRoute = CompareComparisonRouteImport.update({
+  id: '/$comparison',
+  path: '/$comparison',
+  getParentRoute: () => CompareRoute,
+} as any)
 const CoursesIndexRoute = CoursesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -189,6 +195,7 @@ export interface FileRoutesByFullPath {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
   '/universities': typeof UniversitiesRouteWithChildren
+  '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/compare/': typeof CompareIndexRoute
@@ -214,6 +221,7 @@ export interface FileRoutesByTo {
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
+  '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/compare': typeof CompareIndexRoute
@@ -243,6 +251,7 @@ export interface FileRoutesById {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
   '/universities': typeof UniversitiesRouteWithChildren
+  '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/compare/': typeof CompareIndexRoute
@@ -273,6 +282,7 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/tools'
     | '/universities'
+    | '/compare/$comparison'
     | '/courses/$course'
     | '/universities/$slug'
     | '/compare/'
@@ -298,6 +308,7 @@ export interface FileRouteTypes {
     | '/tags'
     | '/terms-and-conditions'
     | '/tools'
+    | '/compare/$comparison'
     | '/courses/$course'
     | '/universities/$slug'
     | '/compare'
@@ -326,6 +337,7 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/tools'
     | '/universities'
+    | '/compare/$comparison'
     | '/courses/$course'
     | '/universities/$slug'
     | '/compare/'
@@ -506,6 +518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareIndexRouteImport
       parentRoute: typeof CompareRoute
     }
+    '/compare/$comparison': {
+      id: '/compare/$comparison'
+      path: '/$comparison'
+      fullPath: '/compare/$comparison'
+      preLoaderRoute: typeof CompareComparisonRouteImport
+      parentRoute: typeof CompareRoute
+    }
     '/courses/': {
       id: '/courses/'
       path: '/'
@@ -545,10 +564,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface CompareRouteChildren {
+  CompareComparisonRoute: typeof CompareComparisonRoute
   CompareIndexRoute: typeof CompareIndexRoute
 }
 
 const CompareRouteChildren: CompareRouteChildren = {
+  CompareComparisonRoute: CompareComparisonRoute,
   CompareIndexRoute: CompareIndexRoute,
 }
 
