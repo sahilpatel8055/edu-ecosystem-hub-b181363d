@@ -58,7 +58,7 @@ function CourseTile({ item, index }: { item: Course; index: number }) {
       <div className="mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-2 border-t border-border pt-3">
         <div className="min-w-0">
           <span className="block text-[11px] text-muted-foreground">Fee range</span>
-          <span className="block truncate text-sm font-bold">{item.feeRange}</span>
+          <span className="block truncate text-sm font-bold text-card-foreground">{item.feeRange}</span>
         </div>
         <AppLink
           to={`/courses/${item.slug}`}
