@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { AppLink } from "@/components/common/AppLink";
 import { ArrowUpRight, GraduationCap, Linkedin, Instagram, Youtube, Twitter } from "lucide-react";
 import { ecosystemLinks, footerNav } from "@/lib/navigation";
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
@@ -16,12 +16,12 @@ export function Footer() {
       <div className="container-page py-16">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2.5">
+            <AppLink to="/" className="flex items-center gap-2.5">
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-brand-foreground">
                 <GraduationCap className="h-5 w-5" />
               </span>
               <span className="font-display text-base font-bold">AVEDU Insights</span>
-            </Link>
+            </AppLink>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Independent research, comparisons and guidance on India's online and distance education
               landscape — built for learners who want verified answers, not sales pitches.
@@ -52,9 +52,9 @@ export function Footer() {
                 <ul className="space-y-2">
                   {col.links.map((l) => (
                     <li key={l.href}>
-                      <Link to={l.href} className="text-sm text-foreground/80 transition-colors hover:text-brand">
+                      <AppLink to={l.href} className="text-sm text-foreground/80 transition-colors hover:text-brand">
                         {l.label}
-                      </Link>
+                      </AppLink>
                     </li>
                   ))}
                 </ul>
@@ -89,9 +89,9 @@ export function Footer() {
         <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} AVEDU Insights. All rights reserved.</p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/privacy-policy" className="hover:text-foreground">Privacy policy</Link>
-            <Link to="/terms-and-conditions" className="hover:text-foreground">Terms & conditions</Link>
-            <Link to="/about" className="hover:text-foreground">Editorial policy</Link>
+            <AppLink to="/privacy-policy" className="hover:text-foreground">Privacy policy</AppLink>
+            <AppLink to="/terms-and-conditions" className="hover:text-foreground">Terms & conditions</AppLink>
+            <AppLink to="/about" className="hover:text-foreground">Editorial policy</AppLink>
           </div>
         </div>
       </div>

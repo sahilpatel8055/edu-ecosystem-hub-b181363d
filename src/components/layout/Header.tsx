@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { AppLink } from "@/components/common/AppLink";
 import { ChevronDown, GraduationCap, Menu, Moon, Sun, X } from "lucide-react";
 import { primaryNav, type NavItem } from "@/lib/navigation";
 import { useTheme } from "@/hooks/use-theme";
@@ -19,7 +19,7 @@ function MegaMenu({ item }: { item: NavItem }) {
             <ul className="space-y-1">
               {col.links.map((link) => (
                 <li key={link.label + link.href}>
-                  <Link
+                  <AppLink
                     to={link.href}
                     className="block rounded-lg px-2 py-1.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-brand-soft hover:text-foreground"
                   >
@@ -29,14 +29,14 @@ function MegaMenu({ item }: { item: NavItem }) {
                         {link.description}
                       </span>
                     )}
-                  </Link>
+                  </AppLink>
                 </li>
               ))}
             </ul>
           </div>
         ))}
         {item.featured && (
-          <Link
+          <AppLink
             to={item.featured.href}
             className="flex flex-col justify-between rounded-xl bg-brand-soft p-5 transition-colors hover:bg-brand-soft/70"
           >
@@ -45,7 +45,7 @@ function MegaMenu({ item }: { item: NavItem }) {
               <p className="mt-1 text-xs text-muted-foreground">{item.featured.description}</p>
             </div>
             <span className="mt-4 text-xs font-semibold text-brand">{item.featured.cta} →</span>
-          </Link>
+          </AppLink>
         )}
       </div>
     </div>
@@ -60,7 +60,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <div className="container-page flex h-16 items-center gap-4 lg:h-[4.5rem]">
-        <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="AVEDU Insights home">
+        <AppLink to="/" className="flex shrink-0 items-center gap-2.5" aria-label="AVEDU Insights home">
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground">
             <GraduationCap className="h-5 w-5" />
           </span>
@@ -70,20 +70,20 @@ export function Header() {
               Insights
             </span>
           </span>
-        </Link>
+        </AppLink>
 
         <nav className="hidden flex-1 items-center justify-center xl:flex" aria-label="Primary">
           <ul className="flex items-center gap-1">
             {primaryNav.map((item) => (
               <li key={item.label} className="group static">
-                <Link
+                <AppLink
                   to={item.href}
                   className="inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
                   activeProps={{ className: "bg-secondary text-foreground" }}
                 >
                   {item.label}
                   {item.columns && <ChevronDown className="h-3.5 w-3.5 opacity-60" />}
-                </Link>
+                </AppLink>
                 <MegaMenu item={item} />
               </li>
             ))}
@@ -102,12 +102,12 @@ export function Header() {
           >
             {mounted && theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-          <Link
+          <AppLink
             to="/contact"
             className="hidden shrink-0 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:inline-block"
           >
             Get guidance
-          </Link>
+          </AppLink>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -127,13 +127,13 @@ export function Header() {
             {primaryNav.map((item) => (
               <div key={item.label} className="border-b border-border/60 pb-2">
                 <div className="flex items-center justify-between">
-                  <Link
+                  <AppLink
                     to={item.href}
                     onClick={() => setOpen(false)}
                     className="py-2.5 text-sm font-semibold"
                   >
                     {item.label}
-                  </Link>
+                  </AppLink>
                   {item.columns && (
                     <button
                       type="button"
@@ -157,13 +157,13 @@ export function Header() {
                         <ul>
                           {col.links.map((l) => (
                             <li key={l.label + l.href}>
-                              <Link
+                              <AppLink
                                 to={l.href}
                                 onClick={() => setOpen(false)}
                                 className="block py-1.5 text-sm text-foreground/80"
                               >
                                 {l.label}
-                              </Link>
+                              </AppLink>
                             </li>
                           ))}
                         </ul>
