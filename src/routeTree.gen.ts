@@ -10,193 +10,271 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthorsIndexRouteImport } from './routes/authors.index'
-import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
-import { Route as CareerIndexRouteImport } from './routes/career.index'
-import { Route as CategoriesIndexRouteImport } from './routes/categories.index'
-import { Route as CompareIndexRouteImport } from './routes/compare.index'
-import { Route as CoursesIndexRouteImport } from './routes/courses.index'
-import { Route as NewsIndexRouteImport } from './routes/news.index'
-import { Route as ReviewsIndexRouteImport } from './routes/reviews.index'
-import { Route as ScholarshipsIndexRouteImport } from './routes/scholarships.index'
-import { Route as TagsIndexRouteImport } from './routes/tags.index'
-import { Route as ToolsIndexRouteImport } from './routes/tools.index'
-import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdmissionsRouteImport } from './routes/admissions'
+import { Route as AuthorsRouteImport } from './routes/authors'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as CareerRouteImport } from './routes/career'
+import { Route as CategoriesRouteImport } from './routes/categories'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RankingsRouteImport } from './routes/rankings'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ScholarshipsRouteImport } from './routes/scholarships'
+import { Route as TagsRouteImport } from './routes/tags'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as ToolsRouteImport } from './routes/tools'
+import { Route as UniversitiesRouteImport } from './routes/universities'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthorsIndexRoute = AuthorsIndexRouteImport.update({
-  id: '/authors/',
-  path: '/authors/',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogsIndexRoute = BlogsIndexRouteImport.update({
-  id: '/blogs/',
-  path: '/blogs/',
+const AdmissionsRoute = AdmissionsRouteImport.update({
+  id: '/admissions',
+  path: '/admissions',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CareerIndexRoute = CareerIndexRouteImport.update({
-  id: '/career/',
-  path: '/career/',
+const AuthorsRoute = AuthorsRouteImport.update({
+  id: '/authors',
+  path: '/authors',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CategoriesIndexRoute = CategoriesIndexRouteImport.update({
-  id: '/categories/',
-  path: '/categories/',
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CompareIndexRoute = CompareIndexRouteImport.update({
-  id: '/compare/',
-  path: '/compare/',
+const CareerRoute = CareerRouteImport.update({
+  id: '/career',
+  path: '/career',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CoursesIndexRoute = CoursesIndexRouteImport.update({
-  id: '/courses/',
-  path: '/courses/',
+const CategoriesRoute = CategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NewsIndexRoute = NewsIndexRouteImport.update({
-  id: '/news/',
-  path: '/news/',
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReviewsIndexRoute = ReviewsIndexRouteImport.update({
-  id: '/reviews/',
-  path: '/reviews/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ScholarshipsIndexRoute = ScholarshipsIndexRouteImport.update({
-  id: '/scholarships/',
-  path: '/scholarships/',
+const CoursesRoute = CoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TagsIndexRoute = TagsIndexRouteImport.update({
-  id: '/tags/',
-  path: '/tags/',
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ToolsIndexRoute = ToolsIndexRouteImport.update({
-  id: '/tools/',
-  path: '/tools/',
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UniversitiesIndexRoute = UniversitiesIndexRouteImport.update({
-  id: '/universities/',
-  path: '/universities/',
+const RankingsRoute = RankingsRouteImport.update({
+  id: '/rankings',
+  path: '/rankings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScholarshipsRoute = ScholarshipsRouteImport.update({
+  id: '/scholarships',
+  path: '/scholarships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TagsRoute = TagsRouteImport.update({
+  id: '/tags',
+  path: '/tags',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsRoute = ToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UniversitiesRoute = UniversitiesRouteImport.update({
+  id: '/universities',
+  path: '/universities',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/authors/': typeof AuthorsIndexRoute
-  '/blogs/': typeof BlogsIndexRoute
-  '/career/': typeof CareerIndexRoute
-  '/categories/': typeof CategoriesIndexRoute
-  '/compare/': typeof CompareIndexRoute
-  '/courses/': typeof CoursesIndexRoute
-  '/news/': typeof NewsIndexRoute
-  '/reviews/': typeof ReviewsIndexRoute
-  '/scholarships/': typeof ScholarshipsIndexRoute
-  '/tags/': typeof TagsIndexRoute
-  '/tools/': typeof ToolsIndexRoute
-  '/universities/': typeof UniversitiesIndexRoute
+  '/about': typeof AboutRoute
+  '/admissions': typeof AdmissionsRoute
+  '/authors': typeof AuthorsRoute
+  '/blogs': typeof BlogsRoute
+  '/career': typeof CareerRoute
+  '/categories': typeof CategoriesRoute
+  '/compare': typeof CompareRoute
+  '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/rankings': typeof RankingsRoute
+  '/reviews': typeof ReviewsRoute
+  '/scholarships': typeof ScholarshipsRoute
+  '/tags': typeof TagsRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/tools': typeof ToolsRoute
+  '/universities': typeof UniversitiesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/authors': typeof AuthorsIndexRoute
-  '/blogs': typeof BlogsIndexRoute
-  '/career': typeof CareerIndexRoute
-  '/categories': typeof CategoriesIndexRoute
-  '/compare': typeof CompareIndexRoute
-  '/courses': typeof CoursesIndexRoute
-  '/news': typeof NewsIndexRoute
-  '/reviews': typeof ReviewsIndexRoute
-  '/scholarships': typeof ScholarshipsIndexRoute
-  '/tags': typeof TagsIndexRoute
-  '/tools': typeof ToolsIndexRoute
-  '/universities': typeof UniversitiesIndexRoute
+  '/about': typeof AboutRoute
+  '/admissions': typeof AdmissionsRoute
+  '/authors': typeof AuthorsRoute
+  '/blogs': typeof BlogsRoute
+  '/career': typeof CareerRoute
+  '/categories': typeof CategoriesRoute
+  '/compare': typeof CompareRoute
+  '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/rankings': typeof RankingsRoute
+  '/reviews': typeof ReviewsRoute
+  '/scholarships': typeof ScholarshipsRoute
+  '/tags': typeof TagsRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/tools': typeof ToolsRoute
+  '/universities': typeof UniversitiesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/authors/': typeof AuthorsIndexRoute
-  '/blogs/': typeof BlogsIndexRoute
-  '/career/': typeof CareerIndexRoute
-  '/categories/': typeof CategoriesIndexRoute
-  '/compare/': typeof CompareIndexRoute
-  '/courses/': typeof CoursesIndexRoute
-  '/news/': typeof NewsIndexRoute
-  '/reviews/': typeof ReviewsIndexRoute
-  '/scholarships/': typeof ScholarshipsIndexRoute
-  '/tags/': typeof TagsIndexRoute
-  '/tools/': typeof ToolsIndexRoute
-  '/universities/': typeof UniversitiesIndexRoute
+  '/about': typeof AboutRoute
+  '/admissions': typeof AdmissionsRoute
+  '/authors': typeof AuthorsRoute
+  '/blogs': typeof BlogsRoute
+  '/career': typeof CareerRoute
+  '/categories': typeof CategoriesRoute
+  '/compare': typeof CompareRoute
+  '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
+  '/news': typeof NewsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/rankings': typeof RankingsRoute
+  '/reviews': typeof ReviewsRoute
+  '/scholarships': typeof ScholarshipsRoute
+  '/tags': typeof TagsRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/tools': typeof ToolsRoute
+  '/universities': typeof UniversitiesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/authors/'
-    | '/blogs/'
-    | '/career/'
-    | '/categories/'
-    | '/compare/'
-    | '/courses/'
-    | '/news/'
-    | '/reviews/'
-    | '/scholarships/'
-    | '/tags/'
-    | '/tools/'
-    | '/universities/'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
+    | '/about'
+    | '/admissions'
     | '/authors'
     | '/blogs'
     | '/career'
     | '/categories'
     | '/compare'
+    | '/contact'
     | '/courses'
     | '/news'
+    | '/privacy-policy'
+    | '/rankings'
     | '/reviews'
     | '/scholarships'
     | '/tags'
+    | '/terms-and-conditions'
+    | '/tools'
+    | '/universities'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/about'
+    | '/admissions'
+    | '/authors'
+    | '/blogs'
+    | '/career'
+    | '/categories'
+    | '/compare'
+    | '/contact'
+    | '/courses'
+    | '/news'
+    | '/privacy-policy'
+    | '/rankings'
+    | '/reviews'
+    | '/scholarships'
+    | '/tags'
+    | '/terms-and-conditions'
     | '/tools'
     | '/universities'
   id:
     | '__root__'
     | '/'
-    | '/authors/'
-    | '/blogs/'
-    | '/career/'
-    | '/categories/'
-    | '/compare/'
-    | '/courses/'
-    | '/news/'
-    | '/reviews/'
-    | '/scholarships/'
-    | '/tags/'
-    | '/tools/'
-    | '/universities/'
+    | '/about'
+    | '/admissions'
+    | '/authors'
+    | '/blogs'
+    | '/career'
+    | '/categories'
+    | '/compare'
+    | '/contact'
+    | '/courses'
+    | '/news'
+    | '/privacy-policy'
+    | '/rankings'
+    | '/reviews'
+    | '/scholarships'
+    | '/tags'
+    | '/terms-and-conditions'
+    | '/tools'
+    | '/universities'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthorsIndexRoute: typeof AuthorsIndexRoute
-  BlogsIndexRoute: typeof BlogsIndexRoute
-  CareerIndexRoute: typeof CareerIndexRoute
-  CategoriesIndexRoute: typeof CategoriesIndexRoute
-  CompareIndexRoute: typeof CompareIndexRoute
-  CoursesIndexRoute: typeof CoursesIndexRoute
-  NewsIndexRoute: typeof NewsIndexRoute
-  ReviewsIndexRoute: typeof ReviewsIndexRoute
-  ScholarshipsIndexRoute: typeof ScholarshipsIndexRoute
-  TagsIndexRoute: typeof TagsIndexRoute
-  ToolsIndexRoute: typeof ToolsIndexRoute
-  UniversitiesIndexRoute: typeof UniversitiesIndexRoute
+  AboutRoute: typeof AboutRoute
+  AdmissionsRoute: typeof AdmissionsRoute
+  AuthorsRoute: typeof AuthorsRoute
+  BlogsRoute: typeof BlogsRoute
+  CareerRoute: typeof CareerRoute
+  CategoriesRoute: typeof CategoriesRoute
+  CompareRoute: typeof CompareRoute
+  ContactRoute: typeof ContactRoute
+  CoursesRoute: typeof CoursesRoute
+  NewsRoute: typeof NewsRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RankingsRoute: typeof RankingsRoute
+  ReviewsRoute: typeof ReviewsRoute
+  ScholarshipsRoute: typeof ScholarshipsRoute
+  TagsRoute: typeof TagsRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  ToolsRoute: typeof ToolsRoute
+  UniversitiesRoute: typeof UniversitiesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -208,88 +286,130 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/authors/': {
-      id: '/authors/'
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admissions': {
+      id: '/admissions'
+      path: '/admissions'
+      fullPath: '/admissions'
+      preLoaderRoute: typeof AdmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/authors': {
+      id: '/authors'
       path: '/authors'
-      fullPath: '/authors/'
-      preLoaderRoute: typeof AuthorsIndexRouteImport
+      fullPath: '/authors'
+      preLoaderRoute: typeof AuthorsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blogs/': {
-      id: '/blogs/'
+    '/blogs': {
+      id: '/blogs'
       path: '/blogs'
-      fullPath: '/blogs/'
-      preLoaderRoute: typeof BlogsIndexRouteImport
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/career/': {
-      id: '/career/'
+    '/career': {
+      id: '/career'
       path: '/career'
-      fullPath: '/career/'
-      preLoaderRoute: typeof CareerIndexRouteImport
+      fullPath: '/career'
+      preLoaderRoute: typeof CareerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/categories/': {
-      id: '/categories/'
+    '/categories': {
+      id: '/categories'
       path: '/categories'
-      fullPath: '/categories/'
-      preLoaderRoute: typeof CategoriesIndexRouteImport
+      fullPath: '/categories'
+      preLoaderRoute: typeof CategoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/compare/': {
-      id: '/compare/'
+    '/compare': {
+      id: '/compare'
       path: '/compare'
-      fullPath: '/compare/'
-      preLoaderRoute: typeof CompareIndexRouteImport
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/courses/': {
-      id: '/courses/'
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses': {
+      id: '/courses'
       path: '/courses'
-      fullPath: '/courses/'
-      preLoaderRoute: typeof CoursesIndexRouteImport
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/news/': {
-      id: '/news/'
+    '/news': {
+      id: '/news'
       path: '/news'
-      fullPath: '/news/'
-      preLoaderRoute: typeof NewsIndexRouteImport
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/reviews/': {
-      id: '/reviews/'
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rankings': {
+      id: '/rankings'
+      path: '/rankings'
+      fullPath: '/rankings'
+      preLoaderRoute: typeof RankingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
       path: '/reviews'
-      fullPath: '/reviews/'
-      preLoaderRoute: typeof ReviewsIndexRouteImport
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/scholarships/': {
-      id: '/scholarships/'
+    '/scholarships': {
+      id: '/scholarships'
       path: '/scholarships'
-      fullPath: '/scholarships/'
-      preLoaderRoute: typeof ScholarshipsIndexRouteImport
+      fullPath: '/scholarships'
+      preLoaderRoute: typeof ScholarshipsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tags/': {
-      id: '/tags/'
+    '/tags': {
+      id: '/tags'
       path: '/tags'
-      fullPath: '/tags/'
-      preLoaderRoute: typeof TagsIndexRouteImport
+      fullPath: '/tags'
+      preLoaderRoute: typeof TagsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tools/': {
-      id: '/tools/'
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools': {
+      id: '/tools'
       path: '/tools'
-      fullPath: '/tools/'
-      preLoaderRoute: typeof ToolsIndexRouteImport
+      fullPath: '/tools'
+      preLoaderRoute: typeof ToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/universities/': {
-      id: '/universities/'
+    '/universities': {
+      id: '/universities'
       path: '/universities'
-      fullPath: '/universities/'
-      preLoaderRoute: typeof UniversitiesIndexRouteImport
+      fullPath: '/universities'
+      preLoaderRoute: typeof UniversitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -297,18 +417,24 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthorsIndexRoute: AuthorsIndexRoute,
-  BlogsIndexRoute: BlogsIndexRoute,
-  CareerIndexRoute: CareerIndexRoute,
-  CategoriesIndexRoute: CategoriesIndexRoute,
-  CompareIndexRoute: CompareIndexRoute,
-  CoursesIndexRoute: CoursesIndexRoute,
-  NewsIndexRoute: NewsIndexRoute,
-  ReviewsIndexRoute: ReviewsIndexRoute,
-  ScholarshipsIndexRoute: ScholarshipsIndexRoute,
-  TagsIndexRoute: TagsIndexRoute,
-  ToolsIndexRoute: ToolsIndexRoute,
-  UniversitiesIndexRoute: UniversitiesIndexRoute,
+  AboutRoute: AboutRoute,
+  AdmissionsRoute: AdmissionsRoute,
+  AuthorsRoute: AuthorsRoute,
+  BlogsRoute: BlogsRoute,
+  CareerRoute: CareerRoute,
+  CategoriesRoute: CategoriesRoute,
+  CompareRoute: CompareRoute,
+  ContactRoute: ContactRoute,
+  CoursesRoute: CoursesRoute,
+  NewsRoute: NewsRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RankingsRoute: RankingsRoute,
+  ReviewsRoute: ReviewsRoute,
+  ScholarshipsRoute: ScholarshipsRoute,
+  TagsRoute: TagsRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
+  ToolsRoute: ToolsRoute,
+  UniversitiesRoute: UniversitiesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

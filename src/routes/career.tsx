@@ -9,7 +9,7 @@ const title = "Career Guides for Online Learners";
 const description = "Role ladders, salary benchmarks and switch strategies for graduates of online and distance programmes.";
 const path = "/career";
 
-export const Route = createFileRoute("/career/")({
+export const Route = createFileRoute("/career")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

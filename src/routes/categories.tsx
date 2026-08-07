@@ -9,7 +9,7 @@ const title = "Browse Content Categories";
 const description = "Explore every topic cluster in the AVEDU knowledge hub, from admission guidance to career growth.";
 const path = "/categories";
 
-export const Route = createFileRoute("/categories/")({
+export const Route = createFileRoute("/categories")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

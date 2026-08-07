@@ -9,7 +9,7 @@ const title = "Online Degree Courses & Programmes";
 const description = "Programme guides covering duration, fee range, specialisations, eligibility and the universities that offer them.";
 const path = "/courses";
 
-export const Route = createFileRoute("/courses/")({
+export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

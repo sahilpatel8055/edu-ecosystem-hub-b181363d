@@ -9,7 +9,7 @@ const title = "Articles, Guides & Research";
 const description = "In-depth articles on choosing, funding and finishing an online or distance degree in India.";
 const path = "/blogs";
 
-export const Route = createFileRoute("/blogs/")({
+export const Route = createFileRoute("/blogs")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

@@ -9,7 +9,7 @@ const title = "Our Authors & Reviewers";
 const description = "The editors, analysts and subject experts behind every guide published on AVEDU Insights.";
 const path = "/authors";
 
-export const Route = createFileRoute("/authors/")({
+export const Route = createFileRoute("/authors")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

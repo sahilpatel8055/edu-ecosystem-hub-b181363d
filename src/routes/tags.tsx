@@ -9,7 +9,7 @@ const title = "Browse Content Tags";
 const description = "Granular tags that connect related guides, news and comparisons across the knowledge hub.";
 const path = "/tags";
 
-export const Route = createFileRoute("/tags/")({
+export const Route = createFileRoute("/tags")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

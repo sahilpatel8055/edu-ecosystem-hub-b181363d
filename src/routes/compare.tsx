@@ -9,7 +9,7 @@ const title = "University & Course Comparisons";
 const description = "Objective side-by-side comparisons of universities and programmes on fee, approvals, delivery and outcomes.";
 const path = "/compare";
 
-export const Route = createFileRoute("/compare/")({
+export const Route = createFileRoute("/compare")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

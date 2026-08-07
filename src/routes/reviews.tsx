@@ -9,7 +9,7 @@ const title = "Verified Student Reviews";
 const description = "Honest, verified reviews from learners enrolled in online and distance programmes across India.";
 const path = "/reviews";
 
-export const Route = createFileRoute("/reviews/")({
+export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

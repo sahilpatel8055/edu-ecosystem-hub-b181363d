@@ -9,7 +9,7 @@ const title = "Online & Distance Universities in India";
 const description = "Compare UGC-entitled online and DEB-approved distance universities by fee, approvals, ratings and programme catalogue.";
 const path = "/universities";
 
-export const Route = createFileRoute("/universities/")({
+export const Route = createFileRoute("/universities")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

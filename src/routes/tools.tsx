@@ -9,7 +9,7 @@ const title = "Free Student Tools & Calculators";
 const description = "Fee and EMI calculators, eligibility checks, university finders and comparison builders.";
 const path = "/tools";
 
-export const Route = createFileRoute("/tools/")({
+export const Route = createFileRoute("/tools")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),

@@ -9,7 +9,7 @@ const title = "Education News & Regulatory Updates";
 const description = "UGC notifications, admission deadline changes and programme launches, tracked as they happen.";
 const path = "/news";
 
-export const Route = createFileRoute("/news/")({
+export const Route = createFileRoute("/news")({
   head: () => ({
     meta: pageMeta({ title, description, path }),
     links: canonical(path),
