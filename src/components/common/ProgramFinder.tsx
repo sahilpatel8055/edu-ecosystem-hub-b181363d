@@ -32,7 +32,7 @@ const icons = [GraduationCap, Laptop, LineChart, Briefcase, Sparkles, MessagesSq
 function CourseTile({ item, index }: { item: Course; index: number }) {
   const Icon = icons[index % icons.length]!;
   return (
-    <article className="flex flex-col justify-between rounded-2xl bg-card p-3.5 shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
+    <article className="flex flex-col justify-between rounded-2xl bg-card text-card-foreground p-3.5 shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
       <div className="flex items-start gap-3">
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-soft text-brand sm:h-11 sm:w-11">
           <Icon className="h-5 w-5" aria-hidden="true" />
@@ -102,7 +102,7 @@ export function ProgramFinder({ items }: { items: Course[] }) {
                 <span
                   className={cn(
                     "mt-0.5 inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-[10px] font-medium",
-                    g.id === active ? "bg-[oklch(0.42_0.16_28)]/10" : "bg-white/10",
+                    g.id === active ? "bg-[oklch(0.42_0.16_28)]/12 text-[oklch(0.3_0.12_27)]" : "bg-white/10",
                   )}
                 >
                   {g.note}
