@@ -24,6 +24,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ScholarshipsRouteImport } from './routes/scholarships'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TagsRouteImport } from './routes/tags'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as ToolsRouteImport } from './routes/tools'
@@ -104,6 +105,11 @@ const ScholarshipsRoute = ScholarshipsRouteImport.update({
   path: '/scholarships',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TagsRoute = TagsRouteImport.update({
   id: '/tags',
   path: '/tags',
@@ -141,6 +147,7 @@ export interface FileRoutesByFullPath {
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
   '/scholarships': typeof ScholarshipsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
   '/scholarships': typeof ScholarshipsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
   '/scholarships': typeof ScholarshipsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/reviews'
     | '/scholarships'
+    | '/sitemap.xml'
     | '/tags'
     | '/terms-and-conditions'
     | '/tools'
@@ -228,6 +238,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/reviews'
     | '/scholarships'
+    | '/sitemap.xml'
     | '/tags'
     | '/terms-and-conditions'
     | '/tools'
@@ -249,6 +260,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/reviews'
     | '/scholarships'
+    | '/sitemap.xml'
     | '/tags'
     | '/terms-and-conditions'
     | '/tools'
@@ -271,6 +283,7 @@ export interface RootRouteChildren {
   RankingsRoute: typeof RankingsRoute
   ReviewsRoute: typeof ReviewsRoute
   ScholarshipsRoute: typeof ScholarshipsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TagsRoute: typeof TagsRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   ToolsRoute: typeof ToolsRoute
@@ -384,6 +397,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScholarshipsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tags': {
       id: '/tags'
       path: '/tags'
@@ -431,6 +451,7 @@ const rootRouteChildren: RootRouteChildren = {
   RankingsRoute: RankingsRoute,
   ReviewsRoute: ReviewsRoute,
   ScholarshipsRoute: ScholarshipsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TagsRoute: TagsRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
   ToolsRoute: ToolsRoute,
@@ -439,3 +460,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
