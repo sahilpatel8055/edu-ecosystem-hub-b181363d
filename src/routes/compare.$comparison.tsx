@@ -139,7 +139,7 @@ function Page() {
   const faqs = [
     {
       question: `${a.shortName} vs ${b.shortName}: which is better for an online degree?`,
-      answer: `${a.shortName} suits ${a.bestFor.join(", ").toLowerCase()}, while ${b.shortName} works better for ${b.bestFor.join(", ").toLowerCase()}. Both are UGC-entitled, so the decision comes down to fee, specialisation depth and delivery style.`,
+      answer: `${a.shortName} stands out for ${a.highlights[0]?.toLowerCase() ?? "its delivery model"}, while ${b.shortName} leads on ${b.highlights[0]?.toLowerCase() ?? "flexibility"}. Both are UGC-entitled, so the decision comes down to fee, specialisation depth and delivery style.`,
     },
     {
       question: `Which one is cheaper?`,
@@ -201,13 +201,14 @@ function Page() {
             caption={`${a.name} vs ${b.name}`}
             head={["Parameter", a.shortName, b.shortName]}
             rows={[
-              ["Established", a.established, b.established],
+              ["Established", a.establishedYear ?? "—", b.establishedYear ?? "—"],
               ["Location", `${a.city}, ${a.state}`, `${b.city}, ${b.state}`],
               ["Approvals", approvalText(a), approvalText(b)],
               ["Fee band", a.feeRangeLabel, b.feeRangeLabel],
               ["Programmes tracked", pair.left.offerings.length, pair.right.offerings.length],
               ["Learner rating", `${a.rating}/5 (${a.reviewCount} reviews)`, `${b.rating}/5 (${b.reviewCount} reviews)`],
-              ["Best for", a.bestFor.join(", "), b.bestFor.join(", ")],
+              ["Type", a.type, b.type],
+              ["Key strength", a.highlights[0] ?? "—", b.highlights[0] ?? "—"],
             ]}
           />
         </ContentSection>
@@ -253,11 +254,11 @@ function Page() {
 
         <ContentSection title="Which should you choose">
           <p>
-            <strong className="text-foreground">Choose {a.shortName}</strong> if you match: {a.bestFor.join(", ")}.{" "}
+            <strong className="text-foreground">Choose {a.shortName}</strong> if you want {a.highlights[0]?.toLowerCase() ?? "this delivery model"}.{" "}
             {a.verdict}
           </p>
           <p>
-            <strong className="text-foreground">Choose {b.shortName}</strong> if you match: {b.bestFor.join(", ")}.{" "}
+            <strong className="text-foreground">Choose {b.shortName}</strong> if you want {b.highlights[0]?.toLowerCase() ?? "this delivery model"}.{" "}
             {b.verdict}
           </p>
         </ContentSection>
