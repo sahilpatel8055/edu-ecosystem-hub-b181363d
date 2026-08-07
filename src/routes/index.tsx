@@ -1,24 +1,324 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { SearchBox } from "@/components/layout/SearchBox";
+import { AppLink } from "@/components/common/AppLink";
+import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Primitives";
+import { NewsletterSignup } from "@/components/common/NewsletterSignup";
+import { Faq } from "@/components/common/Faq";
+import {
+  ArticleCard,
+  CareerCard,
+  ComparisonCard,
+  CourseCard,
+  NewsCard,
+  ReviewCard,
+  ScholarshipCard,
+  ToolCard,
+  UniversityCard,
+} from "@/components/cards";
+import {
+  admissionUpdates,
+  allArticles,
+  articles,
+  careerGuides,
+  comparisons,
+  courses,
+  homeFaqs,
+  news,
+  reviews,
+  scholarships,
+  tools,
+  universities,
+} from "@/lib/content";
+import { canonical, collectionSchema, faqSchema, jsonLd, pageMeta } from "@/lib/seo";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Online & Distance Education Research, Reviews and Comparisons";
+const description =
+  "Independent research on UGC-entitled online and distance universities in India — compare fees, approvals, placements, scholarships and read verified student reviews.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: pageMeta({ title, description, path: "/" }),
+    links: canonical("/"),
+    scripts: [
+      jsonLd(collectionSchema({ name: title, description, path: "/" })),
+      jsonLd(faqSchema(homeFaqs)),
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const stats = [
+  { value: "480+", label: "Universities tracked" },
+  { value: "2,600+", label: "Programmes mapped" },
+  { value: "18,000+", label: "Verified reviews" },
+  { value: "100%", label: "Free guidance" },
+];
+
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      {/* Hero */}
+      <section className="hero-glow relative overflow-hidden border-b border-border">
+        <div className="container-page py-16 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium">
+              <Sparkles className="h-3.5 w-3.5 text-brand" />
+              Part of the AVEDU education ecosystem
+            </span>
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
+              <span className="text-gradient-brand">Decide your degree</span> with research, not guesswork.
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Verified data on India's online and distance universities — approvals, fees, placements and real
+              student reviews, in one knowledge hub.
+            </p>
+            <div className="mx-auto mt-8 max-w-2xl">
+              <SearchBox size="lg" />
+            </div>
+            <div className="mt-5 flex flex-wrap justify-center gap-2">
+              {["Online MBA", "LPU Online", "DU SOL", "Amity Online", "Fee comparison"].map((t) => (
+                <Chip key={t}>{t}</Chip>
+              ))}
+            </div>
+          </div>
+
+          <dl className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="surface-card p-5 text-center">
+                <dt className="sr-only">{s.label}</dt>
+                <dd>
+                  <span className="block font-display text-2xl font-bold sm:text-3xl">{s.value}</span>
+                  <span className="mt-1 block text-xs text-muted-foreground">{s.label}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Popular universities */}
+      <Section>
+        <SectionHeader
+          eyebrow="Universities"
+          title="Popular universities"
+          description="UGC-entitled and DEB-approved institutions, ranked by learner demand this cycle."
+          href="/universities"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {universities.slice(0, 6).map((u) => (
+            <UniversityCard key={u.slug} item={u} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Popular courses */}
+      <Section muted>
+        <SectionHeader
+          eyebrow="Courses"
+          title="Popular courses"
+          description="Programme-level guides with fees, duration, specialisations and eligibility."
+          href="/courses"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {courses.slice(0, 6).map((c) => (
+            <CourseCard key={c.slug} item={c} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Admission updates + latest news */}
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div>
+            <SectionHeader eyebrow="Admissions" title="Admission updates" href="/admissions" />
+            <ul className="surface-card divide-y divide-border">
+              {admissionUpdates.map((u) => (
+                <li key={u.title}>
+                  <AppLink
+                    to={u.href}
+                    className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 py-4 transition-colors hover:bg-secondary/60"
+                  >
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-semibold">{u.title}</span>
+                      <span className="text-xs text-muted-foreground">{u.date}</span>
+                    </span>
+                    <Chip tone={u.status === "Closing soon" ? "highlight" : "success"}>{u.status}</Chip>
+                  </AppLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <SectionHeader eyebrow="News" title="Latest news" href="/news" />
+            <div className="grid gap-6 sm:grid-cols-2">
+              {news.slice(0, 2).map((n) => (
+                <NewsCard key={n.slug} item={n} />
+              ))}
+            </div>
+            <div className="surface-card mt-6 px-5 py-2">
+              {news.map((n) => (
+                <ArticleCard key={`c-${n.slug}`} item={n} variant="compact" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Featured articles */}
+      <Section muted>
+        <SectionHeader
+          eyebrow="Knowledge hub"
+          title="Featured articles"
+          description="Long-form research from our editorial desk on approvals, ROI and admission strategy."
+          href="/blogs"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {articles.filter((a) => a.featured).map((a) => (
+            <ArticleCard key={a.slug} item={a} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Trending + comparisons */}
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <SectionHeader eyebrow="Comparisons" title="Top comparisons" href="/compare" />
+            <div className="grid gap-6 sm:grid-cols-2">
+              {comparisons.slice(0, 4).map((c) => (
+                <ComparisonCard key={c.slug} item={c} />
+              ))}
+            </div>
+          </div>
+          <div>
+            <SectionHeader eyebrow="Popular now" title="Trending articles" href="/blogs" />
+            <div className="surface-card px-5 py-2">
+              {allArticles.filter((a) => a.trending).map((a) => (
+                <ArticleCard key={a.slug} item={a} variant="compact" />
+              ))}
+              {articles.slice(0, 3).map((a) => (
+                <ArticleCard key={`t-${a.slug}`} item={a} variant="compact" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Student tools */}
+      <Section muted>
+        <SectionHeader
+          eyebrow="Student tools"
+          title="Plan with data, not brochures"
+          description="Calculators and finders that turn fee tables and eligibility rules into a clear decision."
+          href="/tools"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {tools.map((t) => (
+            <ToolCard key={t.slug} item={t} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Scholarships */}
+      <Section>
+        <SectionHeader
+          eyebrow="Funding"
+          title="Scholarships & fee waivers"
+          description="Merit, category and government funding routes that apply to online programmes."
+          href="/scholarships"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {scholarships.map((s) => (
+            <ScholarshipCard key={s.slug} item={s} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Career guides */}
+      <Section muted>
+        <SectionHeader
+          eyebrow="Career"
+          title="Career guides"
+          description="What happens after the degree — roles, salary bands and switch strategies."
+          href="/career"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {careerGuides.map((c) => (
+            <CareerCard key={c.slug} item={c} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Reviews */}
+      <Section>
+        <SectionHeader
+          eyebrow="Student voices"
+          title="Top reviews"
+          description="Verified feedback from learners currently enrolled or recently graduated."
+          href="/reviews"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {reviews.map((r) => (
+            <ReviewCard key={r.slug} item={r} />
+          ))}
+        </div>
+      </Section>
+
+      {/* Editor's picks */}
+      <Section muted>
+        <SectionHeader eyebrow="Editorial" title="Editor's picks" href="/blogs" />
+        <div className="grid gap-6 lg:grid-cols-2">
+          {allArticles.filter((a) => a.editorsPick).map((a) => (
+            <AppLink
+              key={a.slug}
+              to={`/blogs/${a.slug}`}
+              className="surface-card hover-lift group grid gap-5 p-7 sm:grid-cols-[auto_minmax(0,1fr)]"
+            >
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground">
+                <CheckCircle2 className="h-5 w-5" />
+              </span>
+              <span className="min-w-0">
+                <span className="block font-display text-lg font-bold group-hover:text-brand">{a.title}</span>
+                <span className="mt-2 block text-sm text-muted-foreground">{a.excerpt}</span>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+                  Read article <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </span>
+            </AppLink>
+          ))}
+        </div>
+      </Section>
+
+      {/* Newsletter */}
+      <Section>
+        <div className="surface-card grid gap-8 p-8 sm:p-12 lg:grid-cols-2 lg:items-center">
+          <NewsletterSignup />
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            {[
+              "Admission deadline alerts for your shortlist",
+              "Fee and scholarship changes as they happen",
+              "New programme approvals and rankings updates",
+            ].map((i) => (
+              <li key={i} className="flex gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand" /> {i}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section muted>
+        <div className="mx-auto max-w-3xl">
+          <Faq items={homeFaqs} />
+        </div>
+      </Section>
+
+      {/* Final CTA */}
+      <Section>
+        <CTASection />
+      </Section>
+    </>
   );
 }
