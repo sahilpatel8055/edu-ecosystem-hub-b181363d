@@ -238,3 +238,30 @@
       transparent 70%
     );
 }
+
+@utility panel-crimson {
+  background:
+    radial-gradient(90% 120% at 100% 0%, oklch(0.42 0.16 30 / 0.95), transparent 60%),
+    linear-gradient(150deg, oklch(0.26 0.09 26) 0%, oklch(0.35 0.145 27 / 0.96) 55%, oklch(0.22 0.06 24) 100%);
+  color: oklch(0.98 0.01 60);
+}
+
+@utility text-shine {
+  background-image: linear-gradient(
+    92deg,
+    var(--color-brand) 0%,
+    oklch(0.68 0.17 245) 35%,
+    oklch(0.55 0.19 265) 70%,
+    var(--color-brand) 100%
+  );
+  background-size: 220% 100%;
+  background-clip: text;
+  color: transparent;
+  animation: shine-pan 6s linear infinite;
+}
+
+@keyframes shine-pan {
+  to {
+    background-position: 220% 0;
+  }
+}
