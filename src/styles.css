@@ -235,16 +235,13 @@
 
 @utility hero-glow {
   background:
-    radial-gradient(
-      60% 70% at 15% 0%,
-      color-mix(in oklab, var(--color-brand) 22%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      50% 60% at 90% 10%,
-      color-mix(in oklab, var(--color-highlight) 20%, transparent),
-      transparent 70%
-    );
+    radial-gradient(70% 80% at 12% -10%, color-mix(in oklab, var(--color-brand) 16%, transparent), transparent 70%),
+    radial-gradient(55% 65% at 92% 0%, color-mix(in oklab, var(--color-highlight) 26%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--color-cream) 0%, var(--color-background) 100%);
+}
+
+@utility section-cream {
+  background-color: var(--color-cream);
 }
 
 @utility panel-crimson {
@@ -254,19 +251,79 @@
   color: oklch(0.98 0.01 60);
 }
 
+/* Deep maroon emphasis for bold words / headline fragments. */
 @utility text-shine {
   background-image: linear-gradient(
-    92deg,
+    95deg,
     var(--color-brand) 0%,
-    oklch(0.68 0.17 245) 35%,
-    oklch(0.55 0.19 265) 70%,
+    oklch(0.49 0.157 31.8) 45%,
+    oklch(0.62 0.16 42) 70%,
     var(--color-brand) 100%
   );
   background-size: 220% 100%;
   background-clip: text;
   color: transparent;
-  animation: shine-pan 6s linear infinite;
+  animation: shine-pan 7s linear infinite;
 }
+
+/* Editorial underline used behind emphasised words. */
+@utility mark-brand {
+  color: var(--color-brand);
+  font-weight: 700;
+  background-image: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--color-brand) 18%, transparent) 0 0.32em,
+    transparent 0.32em
+  );
+}
+
+/* Small uppercase label with a rule, used above section titles. */
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  &::before {
+    content: "";
+    width: 1.75rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-brand);
+  }
+}
+
+/* Card with a maroon accent rail that reveals on hover. */
+@utility card-pro {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px oklch(0 0 0 / 0.04), 0 14px 34px -22px oklch(0.39 0.139 28 / 0.4);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-brand), oklch(0.62 0.16 45));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
 
 @keyframes shine-pan {
   to {
