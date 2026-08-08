@@ -37,21 +37,24 @@ export function SectionHeader({
   return (
     <div className="mb-8 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4 sm:flex sm:flex-wrap sm:justify-between">
       <div className="min-w-0 max-w-2xl">
-        {eyebrow && (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand">{eyebrow}</p>
+        {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+        <h2 className="font-display text-[1.6rem] font-extrabold leading-tight tracking-tight sm:text-[2rem]">
+          {title}
+        </h2>
+        {description && (
+          <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground sm:text-base">{description}</p>
         )}
-        <h2 className="text-2xl font-bold sm:text-3xl">{title}</h2>
-        {description && <p className="mt-2 text-sm text-muted-foreground sm:text-base">{description}</p>}
       </div>
       {href && (
         <AppLink
           to={href}
-          className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-brand hover:underline"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-brand/25 bg-brand-soft px-4 py-2 text-sm font-semibold text-brand transition-colors hover:bg-brand hover:text-brand-foreground"
         >
           {linkLabel} <ArrowRight className="h-4 w-4" />
         </AppLink>
       )}
     </div>
+
   );
 }
 
