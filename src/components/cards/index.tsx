@@ -37,7 +37,7 @@ function Rating({ value, count }: { value: number; count?: number }) {
   );
 }
 
-const cardBase = "surface-card hover-lift group flex flex-col p-6";
+const cardBase = "card-pro hover-lift group flex flex-col p-5 sm:p-6";
 
 export function UniversityCard({ item }: { item: University }) {
   return (

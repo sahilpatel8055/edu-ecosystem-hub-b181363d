@@ -60,18 +60,22 @@ function HomePage() {
     <>
       {/* Hero */}
       <section className="hero-glow relative overflow-hidden border-b border-border">
-        <div className="container-page py-16 sm:py-24 lg:py-28">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:56px_56px]"
+        />
+        <div className="container-page relative py-14 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium">
-              <Sparkles className="h-3.5 w-3.5 text-brand" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand-soft px-4 py-1.5 text-xs font-semibold text-brand">
+              <Sparkles className="h-3.5 w-3.5" />
               Part of the AVEDU education ecosystem
             </span>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 font-display text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               <span className="text-shine">Decide your degree</span> with research, not guesswork.
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Verified data on India's online and distance universities — approvals, fees, placements and real
-              student reviews, in one knowledge hub.
+            <p className="mx-auto mt-5 max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
+              Verified data on India's online and distance universities — <span className="mark-brand">approvals</span>,{" "}
+              <span className="mark-brand">fees</span>, placements and real student reviews, in one knowledge hub.
             </p>
             <div className="mx-auto mt-8 max-w-2xl">
               <SearchBox size="lg" />
@@ -81,21 +85,33 @@ function HomePage() {
                 <Chip key={t}>{t}</Chip>
               ))}
             </div>
+            <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-muted-foreground">
+              {["UGC-DEB entitled data", "No sponsored rankings", "Updated every cycle"].map((t) => (
+                <li key={t} className="inline-flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand" /> {t}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <dl className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+          <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4">
             {stats.map((s) => (
-              <div key={s.label} className="surface-card p-5 text-center">
+              <div key={s.label} className="card-pro p-4 text-center sm:p-5">
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
-                  <span className="block font-display text-2xl font-bold sm:text-3xl">{s.value}</span>
-                  <span className="mt-1 block text-xs text-muted-foreground">{s.label}</span>
+                  <span className="block font-display text-2xl font-extrabold text-brand sm:text-3xl">
+                    {s.value}
+                  </span>
+                  <span className="mt-1 block text-[0.7rem] font-medium uppercase tracking-wider text-muted-foreground sm:text-xs">
+                    {s.label}
+                  </span>
                 </dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
+
 
       {/* Popular universities */}
       <Section>

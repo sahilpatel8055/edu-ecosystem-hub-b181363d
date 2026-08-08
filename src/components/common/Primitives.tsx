@@ -37,21 +37,24 @@ export function SectionHeader({
   return (
     <div className="mb-8 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4 sm:flex sm:flex-wrap sm:justify-between">
       <div className="min-w-0 max-w-2xl">
-        {eyebrow && (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand">{eyebrow}</p>
+        {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+        <h2 className="font-display text-[1.6rem] font-extrabold leading-tight tracking-tight sm:text-[2rem]">
+          {title}
+        </h2>
+        {description && (
+          <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground sm:text-base">{description}</p>
         )}
-        <h2 className="text-2xl font-bold sm:text-3xl">{title}</h2>
-        {description && <p className="mt-2 text-sm text-muted-foreground sm:text-base">{description}</p>}
       </div>
       {href && (
         <AppLink
           to={href}
-          className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-brand hover:underline"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-brand/25 bg-brand-soft px-4 py-2 text-sm font-semibold text-brand transition-colors hover:bg-brand hover:text-brand-foreground"
         >
           {linkLabel} <ArrowRight className="h-4 w-4" />
         </AppLink>
       )}
     </div>
+
   );
 }
 
@@ -202,23 +205,29 @@ export function CTASection({
   secondaryHref?: string;
 }) {
   return (
-    <div className="hero-glow surface-card relative overflow-hidden px-6 py-14 text-center sm:px-12">
-      <h2 className="mx-auto max-w-2xl text-2xl font-bold sm:text-4xl">{title}</h2>
-      <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground sm:text-base">{description}</p>
-      <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-        <AppLink
-          to={primaryHref}
-          className="rounded-full bg-brand px-7 py-3 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
-        >
-          {primaryLabel}
-        </AppLink>
-        <AppLink
-          to={secondaryHref}
-          className="rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
-        >
-          {secondaryLabel}
-        </AppLink>
+    <div className="panel-crimson relative overflow-hidden rounded-3xl px-6 py-14 text-center sm:px-12">
+      <span className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(currentColor_1px,transparent_1px)] [background-size:18px_18px]" />
+      <div className="relative">
+        <h2 className="mx-auto max-w-2xl font-display text-2xl font-extrabold tracking-tight sm:text-4xl">
+          {title}
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm opacity-85 sm:text-base">{description}</p>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <AppLink
+            to={primaryHref}
+            className="rounded-full bg-[oklch(0.99_0.01_70)] px-7 py-3 text-sm font-bold text-[oklch(0.32_0.12_28)] transition-transform hover:-translate-y-0.5"
+          >
+            {primaryLabel}
+          </AppLink>
+          <AppLink
+            to={secondaryHref}
+            className="rounded-full border border-white/30 px-7 py-3 text-sm font-semibold transition-colors hover:bg-white/10"
+          >
+            {secondaryLabel}
+          </AppLink>
+        </div>
       </div>
     </div>
+
   );
 }
