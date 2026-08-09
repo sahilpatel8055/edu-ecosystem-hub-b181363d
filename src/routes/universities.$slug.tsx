@@ -14,6 +14,7 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
+import { UniversityCourseCard } from "@/components/cards/UniversityCourseCard";
 
 import {
   approvalText,
@@ -23,7 +24,6 @@ import {
   universityLinks,
   universityProfile,
 } from "@/lib/entities";
-import { getProgramme } from "@/data";
 import {
   breadcrumbSchema,
   canonical,
@@ -158,6 +158,7 @@ function Page() {
           { name: "Universities", href: "/universities" },
           { name: u.shortName, href: path },
         ]}
+        hero={<UniversityMasthead university={u} />}
         eyebrow={`${u.type} university · ${u.modes.join(" / ")}`}
         title={`${u.name}: Fees, Courses, Approvals & Admission 2026`}
         subtitle={u.summary}
@@ -194,8 +195,6 @@ function Page() {
           />
         }
       >
-        <UniversityMasthead university={u} />
-
         <QuickFacts
 
           items={[
