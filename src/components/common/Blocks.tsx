@@ -10,7 +10,7 @@ export function QuickFacts({ items }: { items: { label: string; value: ReactNode
   return (
     <dl
       id="quick-facts"
-      className="scroll-mt-28 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4"
+      className="scroll-mt-36 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4"
     >
       {items.map((i) => (
         <div key={i.label} className="bg-card p-3 sm:p-4">
@@ -34,11 +34,28 @@ export function DataTable({
   rows: ReactNode[][];
 }) {
   return (
-    <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-      <table className="w-full min-w-[34rem] border-collapse overflow-hidden rounded-xl border border-border text-sm">
+    <>
+      {/* Mobile: each row becomes a stacked card — no horizontal scrolling. */}
+      <ul className="space-y-3 sm:hidden">
+        {rows.map((r, i) => (
+          <li key={i} className="overflow-hidden rounded-xl border border-border bg-card">
+            <div className="bg-brand px-3 py-2 text-sm font-bold text-brand-foreground">{r[0]}</div>
+            <dl className="divide-y divide-border">
+              {head.slice(1).map((h, j) => (
+                <div key={h} className="grid grid-cols-[42%_minmax(0,1fr)] gap-2 px-3 py-2">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{h}</dt>
+                  <dd className="min-w-0 text-sm font-medium">{r[j + 1]}</dd>
+                </div>
+              ))}
+            </dl>
+          </li>
+        ))}
+      </ul>
+
+      <table className="hidden w-full border-collapse overflow-hidden rounded-xl border border-border text-sm sm:table">
         {caption && <caption className="sr-only">{caption}</caption>}
         <thead>
-          <tr className="bg-secondary text-left">
+          <tr className="bg-brand text-left text-brand-foreground">
             {head.map((h) => (
               <th key={h} scope="col" className="px-3 py-2.5 text-xs font-semibold uppercase tracking-wide">
                 {h}
@@ -48,7 +65,7 @@ export function DataTable({
         </thead>
         <tbody>
           {rows.map((r, i) => (
-            <tr key={i} className="border-t border-border align-top">
+            <tr key={i} className="border-t border-border align-top odd:bg-surface-2">
               {r.map((cell, j) => (
                 <td key={j} className="px-3 py-2.5">
                   {cell}
@@ -58,9 +75,10 @@ export function DataTable({
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
+
 
 /* ------------------------------- Pros/cons ------------------------------- */
 
@@ -135,7 +153,7 @@ export function LinkCluster({ title, links }: { title: string; links: LinkRef[] 
 /** Dense related-links block placed at the bottom of every detail page. */
 export function RelatedLinkGrid({ groups }: { groups: { title: string; links: LinkRef[] }[] }) {
   return (
-    <section id="related-links" className="scroll-mt-28">
+    <section id="related-links" className="scroll-mt-36">
       <h2 className="text-xl font-bold sm:text-2xl">Explore next</h2>
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
         {groups.map((g) => (
@@ -172,7 +190,7 @@ export function AuthorBox({
   slug?: string;
 }) {
   return (
-    <section id="author" className="surface-card scroll-mt-28 grid grid-cols-[auto_minmax(0,1fr)] gap-4 p-4 sm:p-5">
+    <section id="author" className="surface-card scroll-mt-36 grid grid-cols-[auto_minmax(0,1fr)] gap-4 p-4 sm:p-5">
       <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-soft font-display text-sm font-bold text-brand">
         {name
           .split(" ")
@@ -199,7 +217,7 @@ export function AuthorBox({
 
 export function References({ items }: { items: { label: string; href?: string | undefined }[] }) {
   return (
-    <section id="references" className="scroll-mt-28">
+    <section id="references" className="scroll-mt-36">
       <h2 className="text-xl font-bold sm:text-2xl">References</h2>
       <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
         {items.map((r) => (

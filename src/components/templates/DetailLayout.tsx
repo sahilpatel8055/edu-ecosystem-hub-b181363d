@@ -2,7 +2,9 @@ import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/common/Breadcrumbs";
 import { Faq, placeholderFaqs, type FaqItem } from "@/components/common/Faq";
 import { LeadCaptureCard, TableOfContents, TrustCard } from "@/components/common/Sidebar";
+import { SectionNav } from "@/components/common/SectionNav";
 import { CTASection } from "@/components/common/Primitives";
+
 
 /**
  * Canonical detail template used by university, course, article, comparison,
@@ -49,7 +51,10 @@ export function DetailLayout({
         </div>
       </div>
 
+      {tocSections && tocSections.length > 1 && <SectionNav sections={tocSections} />}
+
       <div className="container-page grid gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14 lg:py-16">
+
         <main className="min-w-0 space-y-12">
           {children}
           <section id="faqs">
@@ -73,7 +78,7 @@ export function DetailLayout({
 /** Content section with an anchor id that matches the sticky TOC. */
 export function ContentSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section id={title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className="scroll-mt-28">
+    <section id={title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className="scroll-mt-36">
       <h2 className="text-2xl font-bold">{title}</h2>
       <div className="mt-4 space-y-4 text-[0.95rem] leading-relaxed text-muted-foreground">{children}</div>
     </section>

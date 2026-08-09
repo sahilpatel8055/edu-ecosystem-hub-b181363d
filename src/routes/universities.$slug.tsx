@@ -12,7 +12,9 @@ import {
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { LinkCluster } from "@/components/common/Blocks";
+import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
+
 import {
   approvalText,
   articleLinks,
@@ -161,6 +163,7 @@ function Page() {
         subtitle={u.summary}
         meta={<UpdatedStamp date={u.lastUpdated} verified={u.verified} />}
         tocSections={[
+          "Key highlights",
           "Quick facts",
           "Overview",
           "Approvals & recognition",
@@ -191,7 +194,10 @@ function Page() {
           />
         }
       >
+        <UniversityMasthead university={u} />
+
         <QuickFacts
+
           items={[
             { label: "Established", value: u.establishedYear ?? "—" },
             { label: "Type", value: u.type },
