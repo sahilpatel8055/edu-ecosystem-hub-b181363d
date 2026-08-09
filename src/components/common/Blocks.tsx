@@ -10,7 +10,7 @@ export function QuickFacts({ items }: { items: { label: string; value: ReactNode
   return (
     <dl
       id="quick-facts"
-      className="scroll-mt-28 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4"
+      className="scroll-mt-36 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4"
     >
       {items.map((i) => (
         <div key={i.label} className="bg-card p-3 sm:p-4">
@@ -153,7 +153,7 @@ export function LinkCluster({ title, links }: { title: string; links: LinkRef[] 
 /** Dense related-links block placed at the bottom of every detail page. */
 export function RelatedLinkGrid({ groups }: { groups: { title: string; links: LinkRef[] }[] }) {
   return (
-    <section id="related-links" className="scroll-mt-28">
+    <section id="related-links" className="scroll-mt-36">
       <h2 className="text-xl font-bold sm:text-2xl">Explore next</h2>
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
         {groups.map((g) => (
@@ -190,7 +190,7 @@ export function AuthorBox({
   slug?: string;
 }) {
   return (
-    <section id="author" className="surface-card scroll-mt-28 grid grid-cols-[auto_minmax(0,1fr)] gap-4 p-4 sm:p-5">
+    <section id="author" className="surface-card scroll-mt-36 grid grid-cols-[auto_minmax(0,1fr)] gap-4 p-4 sm:p-5">
       <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-soft font-display text-sm font-bold text-brand">
         {name
           .split(" ")
@@ -217,7 +217,7 @@ export function AuthorBox({
 
 export function References({ items }: { items: { label: string; href?: string | undefined }[] }) {
   return (
-    <section id="references" className="scroll-mt-28">
+    <section id="references" className="scroll-mt-36">
       <h2 className="text-xl font-bold sm:text-2xl">References</h2>
       <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
         {items.map((r) => (

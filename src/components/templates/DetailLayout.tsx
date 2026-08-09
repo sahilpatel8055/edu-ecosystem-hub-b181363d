@@ -78,7 +78,7 @@ export function DetailLayout({
 /** Content section with an anchor id that matches the sticky TOC. */
 export function ContentSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section id={title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className="scroll-mt-28">
+    <section id={title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className="scroll-mt-36">
       <h2 className="text-2xl font-bold">{title}</h2>
       <div className="mt-4 space-y-4 text-[0.95rem] leading-relaxed text-muted-foreground">{children}</div>
     </section>
