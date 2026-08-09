@@ -30,14 +30,14 @@ export function UniversityGrid({
                 aria-label={`${u.name} — fees, courses and admission`}
                 className="flex h-full flex-col items-center gap-2 rounded-2xl border border-border bg-card px-3 py-5 text-center transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_18px_36px_-24px_oklch(0_0_0/0.55)] sm:px-4 sm:py-6"
               >
-                <span className="grid h-12 w-full place-items-center sm:h-14">
+                <span className="flex h-12 w-full items-center justify-center overflow-hidden sm:h-14">
                   {logo ? (
                     <img
                       src={logo}
                       alt={`${u.name} logo`}
                       loading="lazy"
                       decoding="async"
-                      className="max-h-full max-w-[85%] object-contain"
+                      className="h-full w-auto max-w-[85%] object-contain"
                     />
                   ) : (
                     <span className="font-display text-sm font-extrabold text-brand">{u.shortName}</span>
