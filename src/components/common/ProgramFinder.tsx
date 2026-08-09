@@ -1,16 +1,8 @@
 import { useState } from "react";
-import {
-  ArrowUpRight,
-  Briefcase,
-  Clock,
-  GraduationCap,
-  Laptop,
-  LineChart,
-  MessagesSquare,
-  Sparkles,
-} from "lucide-react";
+import { ArrowUpRight, Clock } from "lucide-react";
 import { AppLink } from "./AppLink";
 import { cn } from "@/lib/utils";
+import { courseIcon } from "@/lib/course-icons";
 import type { Course } from "@/lib/content";
 
 type Group = {
@@ -27,10 +19,8 @@ const groups: Group[] = [
   { id: "certificate", label: "Certificate", note: "Skill tracks", match: (c) => c.level === "Certificate" },
 ];
 
-const icons = [GraduationCap, Laptop, LineChart, Briefcase, Sparkles, MessagesSquare];
-
-function CourseTile({ item, index }: { item: Course; index: number }) {
-  const Icon = icons[index % icons.length]!;
+function CourseTile({ item }: { item: Course }) {
+  const Icon = courseIcon(item.name, item.slug);
   return (
     <article className="flex flex-col justify-between rounded-2xl bg-card p-3 text-card-foreground shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
       <div className="flex items-start gap-2.5">
@@ -121,8 +111,8 @@ export function ProgramFinder({ items }: { items: Course[] }) {
         {/* Tiles */}
         <div>
           <div className="grid grid-cols-2 gap-2.5 sm:gap-3 xl:grid-cols-3">
-            {list.slice(0, 9).map((c, i) => (
-              <CourseTile key={c.slug} item={c} index={i} />
+            {list.slice(0, 9).map((c) => (
+              <CourseTile key={c.slug} item={c} />
             ))}
           </div>
           <div className="mt-4 text-right">

@@ -14,6 +14,7 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
+import { UniversityCourseCard } from "@/components/cards/UniversityCourseCard";
 
 import {
   approvalText,
@@ -23,7 +24,6 @@ import {
   universityLinks,
   universityProfile,
 } from "@/lib/entities";
-import { getProgramme } from "@/data";
 import {
   breadcrumbSchema,
   canonical,
@@ -158,6 +158,7 @@ function Page() {
           { name: "Universities", href: "/universities" },
           { name: u.shortName, href: path },
         ]}
+        hero={<UniversityMasthead university={u} />}
         eyebrow={`${u.type} university · ${u.modes.join(" / ")}`}
         title={`${u.name}: Fees, Courses, Approvals & Admission 2026`}
         subtitle={u.summary}
@@ -194,8 +195,6 @@ function Page() {
           />
         }
       >
-        <UniversityMasthead university={u} />
-
         <QuickFacts
 
           items={[
@@ -230,22 +229,16 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Courses & fees">
-          <DataTable
-            caption={`${u.shortName} programme fees`}
-            head={["Programme", "Duration", "Specialisations", "Fee"]}
-            rows={profile.offerings.map((o) => [
-              <AppLink
+          <div className="grid gap-4 sm:grid-cols-2">
+            {profile.offerings.map((o) => (
+              <UniversityCourseCard
                 key={o.id}
-                to={`/universities/${u.slug}/courses/${o.programmeSlug}`}
-                className="font-semibold text-brand hover:underline"
-              >
-                {getProgramme(o.programmeSlug)?.name ?? o.programmeSlug}
-              </AppLink>,
-              o.durationLabel,
-              o.specialisations.length,
-              o.fee.total ? `₹${o.fee.total.toLocaleString("en-IN")}` : u.feeRangeLabel,
-            ])}
-          />
+                offering={o}
+                universitySlug={u.slug}
+                feeFallback={u.feeRangeLabel}
+              />
+            ))}
+          </div>
         </ContentSection>
 
         <ContentSection title="Eligibility">

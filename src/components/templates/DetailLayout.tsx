@@ -12,6 +12,7 @@ import { CTASection } from "@/components/common/Primitives";
  */
 export function DetailLayout({
   crumbs,
+  hero,
   eyebrow,
   title,
   subtitle,
@@ -24,6 +25,7 @@ export function DetailLayout({
   children,
 }: {
   crumbs: Crumb[];
+  hero?: ReactNode;
   eyebrow?: string;
   title: string;
   subtitle?: string;
@@ -40,8 +42,9 @@ export function DetailLayout({
       <div className="hero-glow border-b border-border">
         <div className="container-page py-8 sm:py-12">
           <Breadcrumbs items={crumbs} />
+          {hero && <div className="mt-6">{hero}</div>}
           {eyebrow && (
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-brand">{eyebrow}</p>
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-brand">{eyebrow}</p>
           )}
           <h1 className="mt-2 max-w-4xl text-3xl font-bold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
             {title}
