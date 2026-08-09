@@ -7,7 +7,7 @@
  * when we do not have an asset yet, so callers can fall back gracefully.
  */
 
-import lpuLogo from "@/logo/lpu.png";
+import lpuLogo from "@/logo/lpu-logo.jpg";
 import amityLogo from "@/logo/amity-logo.jpg";
 import ignouLogo from "@/logo/ignou-logo.png";
 import jainLogo from "@/logo/jain.png";
