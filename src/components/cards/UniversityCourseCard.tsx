@@ -41,7 +41,8 @@ export function UniversityCourseCard({
 
       <div className="mt-3 flex flex-wrap gap-1.5">
         <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-2 py-1 text-[11px] font-semibold text-secondary-foreground">
-          <Layers className="h-3 w-3" aria-hidden="true" /> {offering.specialisations.length} specialisations
+          <Layers className="h-3 w-3" aria-hidden="true" /> {offering.specialisations.length}{" "}
+          {offering.specialisations.length === 1 ? "specialisation" : "specialisations"}
         </span>
         {offering.admissionOpen && (
           <span className="rounded-md bg-success/15 px-2 py-1 text-[11px] font-semibold text-success">
@@ -53,10 +54,14 @@ export function UniversityCourseCard({
       <div className="mt-3 flex items-end justify-between gap-3 border-t border-border pt-3">
         <span>
           <span className="block text-[11px] text-muted-foreground">Fee</span>
-          <span className="inline-flex items-center text-sm font-bold">
-            <IndianRupee className="mr-0.5 h-3.5 w-3.5" aria-hidden="true" />
-            {offering.fee.total ? offering.fee.total.toLocaleString("en-IN") : feeFallback.replace(/^₹/, "")}
-          </span>
+          {offering.fee.total ? (
+            <span className="inline-flex items-center text-sm font-bold">
+              <IndianRupee className="mr-0.5 h-3.5 w-3.5" aria-hidden="true" />
+              {offering.fee.total.toLocaleString("en-IN")}
+            </span>
+          ) : (
+            <span className="text-sm font-bold">{feeFallback}</span>
+          )}
         </span>
         <span className="rounded-lg bg-brand px-3 py-1.5 text-xs font-semibold text-brand-foreground">Know more</span>
       </div>
