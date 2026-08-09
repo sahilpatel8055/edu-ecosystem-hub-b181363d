@@ -113,20 +113,19 @@ function HomePage() {
       </section>
 
 
-      {/* Popular universities */}
+      {/* Popular universities — logo wall */}
       <Section>
-        <SectionHeader
-          eyebrow="Universities"
-          title="Popular universities"
-          description="UGC-entitled and DEB-approved institutions, ranked by learner demand this cycle."
-          href="/universities"
-        />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {universities.slice(0, 6).map((u) => (
-            <UniversityCard key={u.slug} item={u} />
-          ))}
+        <div className="mb-8 text-center">
+          <h2 className="font-display text-2xl font-extrabold tracking-tight sm:text-4xl">
+            Unlock Excellence with <span className="text-shine">Top Universities</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
+            UGC-entitled and DEB-approved institutions, ranked by learner demand this cycle.
+          </p>
         </div>
+        <LogoWall items={universities.slice(0, 12)} />
       </Section>
+
 
       {/* Popular courses */}
       <Section muted>

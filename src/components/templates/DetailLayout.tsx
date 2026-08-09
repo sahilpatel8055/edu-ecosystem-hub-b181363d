@@ -2,7 +2,9 @@ import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/common/Breadcrumbs";
 import { Faq, placeholderFaqs, type FaqItem } from "@/components/common/Faq";
 import { LeadCaptureCard, TableOfContents, TrustCard } from "@/components/common/Sidebar";
+import { SectionNav } from "@/components/common/SectionNav";
 import { CTASection } from "@/components/common/Primitives";
+
 
 /**
  * Canonical detail template used by university, course, article, comparison,
