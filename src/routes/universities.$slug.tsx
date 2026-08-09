@@ -229,22 +229,16 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Courses & fees">
-          <DataTable
-            caption={`${u.shortName} programme fees`}
-            head={["Programme", "Duration", "Specialisations", "Fee"]}
-            rows={profile.offerings.map((o) => [
-              <AppLink
+          <div className="grid gap-4 sm:grid-cols-2">
+            {profile.offerings.map((o) => (
+              <UniversityCourseCard
                 key={o.id}
-                to={`/universities/${u.slug}/courses/${o.programmeSlug}`}
-                className="font-semibold text-brand hover:underline"
-              >
-                {getProgramme(o.programmeSlug)?.name ?? o.programmeSlug}
-              </AppLink>,
-              o.durationLabel,
-              o.specialisations.length,
-              o.fee.total ? `₹${o.fee.total.toLocaleString("en-IN")}` : u.feeRangeLabel,
-            ])}
-          />
+                offering={o}
+                universitySlug={u.slug}
+                feeFallback={u.feeRangeLabel}
+              />
+            ))}
+          </div>
         </ContentSection>
 
         <ContentSection title="Eligibility">

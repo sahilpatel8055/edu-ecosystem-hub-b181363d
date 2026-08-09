@@ -6,7 +6,8 @@ import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Pr
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
 import { Faq } from "@/components/common/Faq";
 import { ProgramFinder } from "@/components/common/ProgramFinder";
-import { LogoWall } from "@/components/common/LogoWall";
+import { UniversityGrid } from "@/components/common/UniversityGrid";
+import { universities as universityRecords } from "@/data";
 
 import {
   ArticleCard,
@@ -30,7 +31,6 @@ import {
   reviews,
   scholarships,
   tools,
-  universities,
 } from "@/lib/content";
 import { canonical, collectionSchema, faqSchema, jsonLd, pageMeta } from "@/lib/seo";
 
@@ -115,17 +115,20 @@ function HomePage() {
       </section>
 
 
-      {/* Popular universities — logo wall */}
+      {/* Popular universities */}
       <Section>
         <div className="mb-8 text-center">
+          <p className="text-sm font-semibold text-muted-foreground sm:text-base">
+            {universityRecords.length}+ Online Universities
+          </p>
           <h2 className="font-display text-2xl font-extrabold tracking-tight sm:text-4xl">
             Unlock Excellence with <span className="text-shine">Top Universities</span>
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
-            UGC-entitled and DEB-approved institutions, ranked by learner demand this cycle.
+            UGC-approved universities, verified by us and reviewed by learners on 30+ factors.
           </p>
         </div>
-        <LogoWall items={universities.slice(0, 12)} />
+        <UniversityGrid items={universityRecords.slice(0, 12)} />
       </Section>
 
 
