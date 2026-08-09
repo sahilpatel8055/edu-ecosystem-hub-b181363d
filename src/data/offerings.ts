@@ -54,4 +54,29 @@ export const offerings: Offering[] = [
   row("du-sol", "online-bcom", ["accounting-and-taxation"], "3 years"),
   row("du-sol", "online-bba", ["digital-business"], "3 years"),
   row("du-sol", "online-mcom", ["international-business"], "2 years"),
+
+  row("nmims-online", "online-mba", ["finance", "marketing", "business-analytics", "operations-management"], "2 years"),
+  row("nmims-online", "online-bba", ["digital-business"], "3 years"),
+  row("nmims-online", "online-bcom", ["accounting-and-taxation"], "3 years"),
+
+  row("upes-online", "online-mba", ["finance", "marketing", "business-analytics"], "2 years"),
+  row("upes-online", "online-mca", ["data-science", "cyber-security"], "2 years"),
+  row("upes-online", "online-bba", ["digital-business"], "3 years"),
+
+  row("dpu-online", "online-mba", ["finance", "marketing", "human-resource-management"], "2 years"),
+  row("dpu-online", "online-bba", ["digital-business"], "3 years"),
+  row("dpu-online", "online-bcom", ["accounting-and-taxation"], "3 years"),
+
+  row("cu-online", "online-mba", ["finance", "marketing", "human-resource-management", "business-analytics"], "2 years"),
+  row("cu-online", "online-mca", ["data-science", "cloud-computing"], "2 years"),
+  row("cu-online", "online-bca", ["full-stack-development"], "3 years"),
+  row("cu-online", "online-bba", ["digital-business"], "3 years"),
+
+  row("vgu-online", "online-mba", ["finance", "marketing"], "2 years"),
+  row("vgu-online", "online-bba", ["digital-business"], "3 years"),
+  row("vgu-online", "online-bcom", ["accounting-and-taxation"], "3 years"),
+
+  row("smu-online", "online-mba", ["finance", "marketing", "human-resource-management"], "2 years"),
+  row("smu-online", "online-mca", ["data-science"], "2 years"),
+  row("smu-online", "online-bcom", ["accounting-and-taxation"], "3 years"),
 ];
