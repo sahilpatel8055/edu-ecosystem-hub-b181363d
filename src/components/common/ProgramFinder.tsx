@@ -121,7 +121,7 @@ export function ProgramFinder({ items }: { items: Course[] }) {
 
         {/* Tiles */}
         <div>
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3 xl:grid-cols-3">
             {list.slice(0, 9).map((c, i) => (
               <CourseTile key={c.slug} item={c} index={i} />
             ))}
