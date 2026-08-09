@@ -163,6 +163,7 @@ function Page() {
         subtitle={u.summary}
         meta={<UpdatedStamp date={u.lastUpdated} verified={u.verified} />}
         tocSections={[
+          "Key highlights",
           "Quick facts",
           "Overview",
           "Approvals & recognition",
