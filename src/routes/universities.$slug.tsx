@@ -12,7 +12,9 @@ import {
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { LinkCluster } from "@/components/common/Blocks";
+import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
+
 import {
   approvalText,
   articleLinks,
@@ -191,7 +193,10 @@ function Page() {
           />
         }
       >
+        <UniversityMasthead university={u} />
+
         <QuickFacts
+
           items={[
             { label: "Established", value: u.establishedYear ?? "—" },
             { label: "Type", value: u.type },
