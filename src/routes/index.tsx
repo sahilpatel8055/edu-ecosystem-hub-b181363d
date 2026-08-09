@@ -6,6 +6,8 @@ import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Pr
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
 import { Faq } from "@/components/common/Faq";
 import { ProgramFinder } from "@/components/common/ProgramFinder";
+import { LogoWall } from "@/components/common/LogoWall";
+
 import {
   ArticleCard,
   CareerCard,
