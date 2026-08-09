@@ -32,42 +32,41 @@ const icons = [GraduationCap, Laptop, LineChart, Briefcase, Sparkles, MessagesSq
 function CourseTile({ item, index }: { item: Course; index: number }) {
   const Icon = icons[index % icons.length]!;
   return (
-    <article className="flex flex-col justify-between rounded-2xl bg-card text-card-foreground p-3.5 shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
-      <div className="flex items-start gap-3">
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-soft text-brand sm:h-11 sm:w-11">
-          <Icon className="h-5 w-5" aria-hidden="true" />
+    <article className="flex flex-col justify-between rounded-2xl bg-card p-3 text-card-foreground shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
+      <div className="flex items-start gap-2.5">
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-soft text-brand sm:h-11 sm:w-11">
+          <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" aria-hidden="true" />
         </span>
         <div className="min-w-0">
-          <h3 className="truncate text-base font-bold leading-tight text-card-foreground">{item.name}</h3>
-          <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
+          <h3 className="truncate text-sm font-bold leading-tight text-card-foreground sm:text-base">{item.name}</h3>
+          <p className="mt-0.5 flex items-center gap-1 text-[11px] text-muted-foreground sm:text-xs">
             <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
             {item.duration}
           </p>
         </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        <span className="rounded-md bg-secondary px-2 py-1 text-[11px] font-semibold text-secondary-foreground">
+      <div className="mt-2.5 flex flex-wrap gap-1.5">
+        <span className="rounded-md bg-secondary px-1.5 py-1 text-[10px] font-semibold text-secondary-foreground sm:px-2 sm:text-[11px]">
           {item.specialisations.length}+ Specializations
         </span>
-        <span className="rounded-md bg-secondary px-2 py-1 text-[11px] font-semibold text-secondary-foreground">
+        <span className="rounded-md bg-secondary px-1.5 py-1 text-[10px] font-semibold text-secondary-foreground sm:px-2 sm:text-[11px]">
           {item.universities}+ Universities
         </span>
       </div>
 
-      <div className="mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-2 border-t border-border pt-3">
-        <div className="min-w-0">
-          <span className="block text-[11px] text-muted-foreground">Fee range</span>
-          <span className="block truncate text-sm font-bold text-card-foreground">{item.feeRange}</span>
-        </div>
+      <div className="mt-2.5 border-t border-border pt-2.5">
+        <span className="block text-[10px] text-muted-foreground sm:text-[11px]">Fee range</span>
+        <span className="block truncate text-[0.8rem] font-bold text-card-foreground sm:text-sm">{item.feeRange}</span>
         <AppLink
           to={`/courses/${item.slug}`}
-          className="shrink-0 rounded-lg bg-[oklch(0.42_0.16_28)] px-3 py-1.5 text-xs font-semibold text-white transition-opacity hover:opacity-90"
+          className="mt-2 block rounded-lg bg-brand px-3 py-1.5 text-center text-[11px] font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:text-xs"
         >
           Know More
         </AppLink>
       </div>
     </article>
+
   );
 }
 
