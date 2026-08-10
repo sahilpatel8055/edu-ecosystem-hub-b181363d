@@ -39,7 +39,7 @@ import {
 
 /* ------------------------------ small pieces ------------------------------ */
 
-export function DataSourceBadge({ status }: { status?: string | null }) {
+export function DataSourceBadge({ status }: { status?: string | null | undefined }) {
   if (!status) return null;
   if (isOfficialStatus(status)) {
     return (
