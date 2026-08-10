@@ -3,6 +3,7 @@ import type {} from "@tanstack/react-start";
 import { authors, categories, tags } from "@/lib/content";
 import { offerings, programmes, universities as universityRecords } from "@/data";
 import { universityPairs } from "@/lib/entities";
+import { universitySectionPages } from "@/lib/insightsData";
 
 // TODO: replace with your project URL once a project name or custom domain is set.
 const BASE_URL = "";
@@ -60,6 +61,13 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "weekly" as const,
             priority: "0.9",
           })),
+          ...universityRecords.flatMap((u) =>
+            universitySectionPages(u.slug).map((section) => ({
+              path: `/universities/${u.slug}/${section}`,
+              changefreq: "weekly" as const,
+              priority: "0.8",
+            })),
+          ),
           ...universityPairs().map((p) => ({ path: p.path, changefreq: "monthly" as const, priority: "0.7" })),
           ...categories.map((c) => ({ path: `/categories/${c.slug}`, changefreq: "weekly" as const })),
           ...tags.map((t) => ({ path: `/tags/${t.slug}`, changefreq: "weekly" as const })),

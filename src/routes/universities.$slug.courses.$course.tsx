@@ -7,12 +7,19 @@ import {
   QuickFacts,
   References,
   RelatedLinkGrid,
-  StepList,
   StickyMobileCTA,
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
 import { getSpecialisation } from "@/data";
+import {
+  AdmissionInsightSection,
+  CareerOpportunitiesSection,
+  ExaminationPatternSection,
+  RelatedPageLinks,
+  ScholarshipInsightSection,
+} from "@/components/university/InsightSections";
+import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
 import {
   approvalText,
   articleLinks,
@@ -158,8 +165,9 @@ function Page() {
           "Fee structure",
           "Eligibility",
           "Admission process",
-          "Career scope",
-          "Placements",
+          "Examination pattern",
+          "Career opportunities",
+          "Scholarships",
           "FAQs",
           "Related links",
         ]}
@@ -250,26 +258,60 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Admission process">
-          <StepList steps={u.admissionProcess} />
+          <AdmissionInsightSection
+            universitySlug={u.slug}
+            universityShort={u.shortName}
+            courseSlug={p.slug}
+            courseName={`${u.shortName} ${p.shortName}`}
+          />
         </ContentSection>
 
-        <ContentSection title="Career scope">
-          <ul className="grid gap-2 sm:grid-cols-2">
-            {p.whoIsItFor.map((w) => (
-              <li key={w} className="rounded-lg bg-secondary px-3 py-2 text-sm text-foreground">
-                {w}
-              </li>
-            ))}
-          </ul>
+        <ContentSection title="Examination pattern">
+          <ExaminationPatternSection
+            universitySlug={u.slug}
+            universityShort={u.shortName}
+            courseSlug={p.slug}
+            courseName={`${u.shortName} ${p.shortName}`}
+          />
         </ContentSection>
 
-        <ContentSection title="Placements">
-          <p>
-            {offering.placement?.supportAvailable
-              ? `${u.shortName} provides placement assistance to enrolled learners of this programme — resume support, interview preparation and access to the recruiter network.`
-              : "Placement support details for this programme are being confirmed with the university."}
-          </p>
+        <ContentSection title="Career opportunities">
+          {p.whoIsItFor.length > 0 && (
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {p.whoIsItFor.map((w) => (
+                <li key={w} className="rounded-lg bg-secondary px-3 py-2 text-sm text-foreground">
+                  {w}
+                </li>
+              ))}
+            </ul>
+          )}
+          <CareerOpportunitiesSection
+            universitySlug={u.slug}
+            universityShort={u.shortName}
+            courseSlug={p.slug}
+            courseName={`${u.shortName} ${p.shortName}`}
+          />
         </ContentSection>
+
+        <ContentSection title="Scholarships">
+          <ScholarshipInsightSection
+            universitySlug={u.slug}
+            universityShort={u.shortName}
+            courseSlug={p.slug}
+            courseName={`${u.shortName} ${p.shortName}`}
+          />
+        </ContentSection>
+
+        <RelatedPageLinks
+          title={`${u.shortName} reference pages`}
+          links={[
+            { label: `${u.shortName} overview`, href: `/universities/${u.slug}` },
+            ...universitySectionPages(u.slug).map((sec) => ({
+              label: `${u.shortName} ${sectionLabels[sec].toLowerCase()}`,
+              href: `/universities/${u.slug}/${sec}`,
+            })),
+          ]}
+        />
 
         <AuthorBox />
         <References
