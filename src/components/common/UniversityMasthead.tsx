@@ -37,8 +37,14 @@ export function UniversityMasthead({ university }: { university: University }) {
         <div className="min-w-0">
           <p className="truncate font-display text-base font-extrabold sm:text-xl">{university.name}</p>
           <p className="text-xs text-muted-foreground sm:text-sm">
-            {university.city}, {university.state} · Est. {university.establishedYear ?? "—"} ·{" "}
-            {university.type}
+            {[
+              [university.city, university.state].filter(Boolean).join(", "),
+              university.establishedYear ? `Est. ${university.establishedYear}` : null,
+              university.type,
+              university.modes.join(" / "),
+            ]
+              .filter(Boolean)
+              .join(" · ")}
           </p>
         </div>
       </div>
@@ -53,9 +59,8 @@ export function UniversityMasthead({ university }: { university: University }) {
               {icon && (
                 <img src={icon} alt="" aria-hidden="true" className="h-6 w-auto max-w-10 object-contain" />
               )}
-              <span className="text-[0.72rem] font-bold sm:text-xs">
+              <span className="text-[0.72rem] font-bold sm:text-xs" title={a.status}>
                 {a.body}
-                {a.status ? ` ${a.status}` : ""}
               </span>
             </li>
           );
