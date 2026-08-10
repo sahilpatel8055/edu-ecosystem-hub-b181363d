@@ -30,6 +30,10 @@ export interface University {
 export interface Course {
   slug: string;
   name: string;
+  /** Degree abbreviation, e.g. "MBA", "B.Com". */
+  shortName: string;
+  /** Short display label used on every card, e.g. "Online MBA". */
+  displayName: string;
   level: "UG" | "PG" | "Diploma" | "Certificate";
   duration: string;
   feeRange: string;
@@ -139,9 +143,23 @@ export const universities: University[] = allUniversities().map((u) => ({
   highlights: recognitionLabels(u).slice(0, 3),
 }));
 
+/** Degrees whose "short name" is not a real abbreviation — keep the full name. */
+const genericDegreeWords = new Set(["BACHELOR", "MASTER", "POST", "DIPLOMA", "B", "M", "ONLINE", ""]);
+
+const normaliseDegree = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, "");
+
+/** "MBA" -> "Online MBA"; falls back to the full programme name when needed. */
+function courseDisplayName(shortName: string, name: string): string {
+  const clean = (shortName ?? "").trim();
+  if (!clean || genericDegreeWords.has(normaliseDegree(clean))) return name.replace(/^Online\s+/i, "Online ");
+  return `Online ${clean}`;
+}
+
 export const courses: Course[] = programmeRecords.map((p) => ({
   slug: p.slug,
   name: p.name,
+  shortName: p.shortName,
+  displayName: courseDisplayName(p.shortName, p.name),
   level: p.level,
   duration: p.durationYears ? `${p.durationYears} years` : "",
   feeRange: p.feeRangeLabel,
@@ -153,6 +171,35 @@ export const courses: Course[] = programmeRecords.map((p) => ({
     .map((s) => s.name)
     .slice(0, 6),
 }));
+
+/**
+ * One card per course — duplicates such as "MBA", "Online MBA" and
+ * "Master of Business Administration" collapse into a single entry.
+ * Specialisations live on the course page, never as separate cards.
+ */
+export const courseFamilies: Course[] = (() => {
+  const map = new Map<string, Course>();
+  for (const c of courses) {
+    const key = genericDegreeWords.has(normaliseDegree(c.shortName))
+      ? `name:${normaliseDegree(c.name)}`
+      : `${normaliseDegree(c.shortName)}::${c.level}`;
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, { ...c });
+      continue;
+    }
+    existing.universities += c.universities;
+    existing.specialisations = Array.from(new Set([...existing.specialisations, ...c.specialisations])).slice(0, 6);
+    // Prefer the entry backed by the most universities as the canonical page.
+    if (c.universities > existing.universities - c.universities) {
+      existing.slug = c.slug;
+      existing.name = c.name;
+      existing.duration = c.duration || existing.duration;
+      existing.feeRange = c.feeRange || existing.feeRange;
+    }
+  }
+  return [...map.values()].sort((a, b) => b.universities - a.universities);
+})();
 
 export const articles: Article[] = [
   {
