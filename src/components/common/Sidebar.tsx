@@ -7,7 +7,9 @@ export function TableOfContents({
 }: {
   sections?: string[];
 }) {
+  if (sections.length === 0) return null;
   return (
+
     <nav aria-label="On this page" className="surface-card p-5">
       <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">On this page</p>
       <ol className="space-y-2 border-l border-border pl-4">
