@@ -306,7 +306,6 @@ function Page() {
         <AuthorBox />
         <References
           items={[
-            { label: `${u.name} official website`, href: u.websiteUrl },
             { label: "UGC-DEB entitled institutions list", href: "https://deb.ugc.ac.in/" },
             { label: "NAAC accreditation status", href: "https://www.naac.gov.in/" },
           ]}

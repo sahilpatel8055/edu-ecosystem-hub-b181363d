@@ -73,6 +73,8 @@ export function ScopeBadge({ inherited, label }: { inherited: boolean; label: st
 
 export function OfficialSourceLink({ href, label = "View source" }: { href?: string | null | undefined; label?: string }) {
   if (!href) return null;
+  // Aggregator references are not cited as sources.
+  if (/collegevidya/i.test(href)) return null;
   let host = "";
   try {
     host = new URL(href).hostname.replace(/^www\./, "");
