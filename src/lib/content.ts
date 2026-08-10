@@ -148,11 +148,19 @@ const genericDegreeWords = new Set(["BACHELOR", "MASTER", "POST", "DIPLOMA", "B"
 
 const normaliseDegree = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, "");
 
+/** Best available abbreviation for a programme: "(MLISc)" > degree > name. */
+function courseAbbrev(shortName: string, name: string): string {
+  const paren = name.match(/\(([A-Za-z.&\s]{2,14})\)\s*$/);
+  if (paren?.[1]) return paren[1].trim();
+  const clean = (shortName ?? "").trim();
+  if (clean && !genericDegreeWords.has(normaliseDegree(clean))) return clean;
+  return name.replace(/^Online\s+/i, "").trim();
+}
+
 /** "MBA" -> "Online MBA"; falls back to the full programme name when needed. */
 function courseDisplayName(shortName: string, name: string): string {
-  const clean = (shortName ?? "").trim();
-  if (!clean || genericDegreeWords.has(normaliseDegree(clean))) return name.replace(/^Online\s+/i, "Online ");
-  return `Online ${clean}`;
+  const abbrev = courseAbbrev(shortName, name);
+  return abbrev.length <= 14 ? `Online ${abbrev}` : name.replace(/^Online\s+/i, "Online ");
 }
 
 export const courses: Course[] = programmeRecords.map((p) => ({
@@ -180,9 +188,7 @@ export const courses: Course[] = programmeRecords.map((p) => ({
 export const courseFamilies: Course[] = (() => {
   const map = new Map<string, Course>();
   for (const c of courses) {
-    const key = genericDegreeWords.has(normaliseDegree(c.shortName))
-      ? `name:${normaliseDegree(c.name)}`
-      : `${normaliseDegree(c.shortName)}::${c.level}`;
+    const key = `${normaliseDegree(courseAbbrev(c.shortName, c.name))}::${c.level}`;
     const existing = map.get(key);
     if (!existing) {
       map.set(key, { ...c });

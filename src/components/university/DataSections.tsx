@@ -322,7 +322,11 @@ export function RecognitionTable({ university }: { university: UniversityRecordJ
 export function SourceInformation({ sources }: { sources: SourceEntry[] }) {
   // Aggregator pages and bare university-website links are not cited as sources.
   const visible = sources.filter(
-    (s) => !/collegevidya/i.test(s.source_url) && !/official\s*website|university\s*website/i.test(s.source_title),
+    (s) =>
+      !/collegevidya/i.test(s.source_url) &&
+      !/official\s*website|university\s*website/i.test(s.source_title) &&
+      s.source_type !== "official_website" &&
+      s.source_type !== "official_programme_page",
   );
   if (!visible.length) return null;
   return (
