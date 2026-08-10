@@ -36,6 +36,7 @@ import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
 import { Route as UniversitiesSlugIndexRouteImport } from './routes/universities.$slug.index'
+import { Route as UniversitiesSlugAdmissionRouteImport } from './routes/universities.$slug.admission'
 import { Route as UniversitiesSlugCoursesCourseRouteImport } from './routes/universities.$slug.courses.$course'
 
 const IndexRoute = IndexRouteImport.update({
@@ -173,6 +174,12 @@ const UniversitiesSlugIndexRoute = UniversitiesSlugIndexRouteImport.update({
   path: '/',
   getParentRoute: () => UniversitiesSlugRoute,
 } as any)
+const UniversitiesSlugAdmissionRoute =
+  UniversitiesSlugAdmissionRouteImport.update({
+    id: '/admission',
+    path: '/admission',
+    getParentRoute: () => UniversitiesSlugRoute,
+  } as any)
 const UniversitiesSlugCoursesCourseRoute =
   UniversitiesSlugCoursesCourseRouteImport.update({
     id: '/courses/$course',
@@ -207,6 +214,7 @@ export interface FileRoutesByFullPath {
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
+  '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -233,6 +241,7 @@ export interface FileRoutesByTo {
   '/compare': typeof CompareIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/universities': typeof UniversitiesIndexRoute
+  '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
   '/universities/$slug': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -264,6 +273,7 @@ export interface FileRoutesById {
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
+  '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -296,6 +306,7 @@ export interface FileRouteTypes {
     | '/compare/'
     | '/courses/'
     | '/universities/'
+    | '/universities/$slug/admission'
     | '/universities/$slug/'
     | '/universities/$slug/courses/$course'
   fileRoutesByTo: FileRoutesByTo
@@ -322,6 +333,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/courses'
     | '/universities'
+    | '/universities/$slug/admission'
     | '/universities/$slug'
     | '/universities/$slug/courses/$course'
   id:
@@ -352,6 +364,7 @@ export interface FileRouteTypes {
     | '/compare/'
     | '/courses/'
     | '/universities/'
+    | '/universities/$slug/admission'
     | '/universities/$slug/'
     | '/universities/$slug/courses/$course'
   fileRoutesById: FileRoutesById
@@ -570,6 +583,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesSlugIndexRouteImport
       parentRoute: typeof UniversitiesSlugRoute
     }
+    '/universities/$slug/admission': {
+      id: '/universities/$slug/admission'
+      path: '/admission'
+      fullPath: '/universities/$slug/admission'
+      preLoaderRoute: typeof UniversitiesSlugAdmissionRouteImport
+      parentRoute: typeof UniversitiesSlugRoute
+    }
     '/universities/$slug/courses/$course': {
       id: '/universities/$slug/courses/$course'
       path: '/courses/$course'
@@ -607,11 +627,13 @@ const CoursesRouteWithChildren =
   CoursesRoute._addFileChildren(CoursesRouteChildren)
 
 interface UniversitiesSlugRouteChildren {
+  UniversitiesSlugAdmissionRoute: typeof UniversitiesSlugAdmissionRoute
   UniversitiesSlugIndexRoute: typeof UniversitiesSlugIndexRoute
   UniversitiesSlugCoursesCourseRoute: typeof UniversitiesSlugCoursesCourseRoute
 }
 
 const UniversitiesSlugRouteChildren: UniversitiesSlugRouteChildren = {
+  UniversitiesSlugAdmissionRoute: UniversitiesSlugAdmissionRoute,
   UniversitiesSlugIndexRoute: UniversitiesSlugIndexRoute,
   UniversitiesSlugCoursesCourseRoute: UniversitiesSlugCoursesCourseRoute,
 }
