@@ -75,13 +75,13 @@ export function UniversitySectionPage({ slug, section }: { slug: string; section
         <div className="surface-card p-4 sm:p-5">
           <p className="text-sm font-bold">Programmes at {u.shortName}</p>
           <div className="mt-3 grid gap-1.5 sm:grid-cols-2">
-            {profile.offerings.slice(0, 12).map((o) => (
+            {offeringLinks(u.slug).slice(0, 12).map((l) => (
               <AppLink
-                key={o.id}
-                to={`/universities/${slug}/courses/${o.programmeSlug}`}
+                key={l.href}
+                to={l.href}
                 className="truncate rounded-lg px-2 py-1.5 text-sm text-foreground transition-colors hover:bg-secondary"
               >
-                {o.programmeSlug.replace(/-/g, " ")}
+                {l.label}
               </AppLink>
             ))}
           </div>
