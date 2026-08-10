@@ -47,7 +47,7 @@ import {
   pageMeta,
 } from "@/lib/seo";
 
-export const Route = createFileRoute("/universities/$slug")({
+export const Route = createFileRoute("/universities/$slug/")({
   loader: ({ params }) => {
     const profile = universityProfile(params.slug);
     if (!profile) throw notFound();
