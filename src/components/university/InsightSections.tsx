@@ -71,7 +71,7 @@ export function ScopeBadge({ inherited, label }: { inherited: boolean; label: st
   );
 }
 
-export function OfficialSourceLink({ href, label = "View source" }: { href?: string | null; label?: string }) {
+export function OfficialSourceLink({ href, label = "View source" }: { href?: string | null | undefined; label?: string }) {
   if (!href) return null;
   let host = "";
   try {
@@ -412,7 +412,7 @@ export function ScholarshipCard({
   scope,
 }: {
   name: string;
-  criterion?: string | null;
+  criterion?: string | null | undefined;
   scope: string;
 }) {
   return (
