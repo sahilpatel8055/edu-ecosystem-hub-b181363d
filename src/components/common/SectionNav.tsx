@@ -38,9 +38,12 @@ export function SectionNav({ sections }: { sections: string[] }) {
     const list = listRef.current;
     const chip = list?.querySelector<HTMLElement>(`[data-chip="${active}"]`);
     if (!list || !chip) return;
-    const target = chip.offsetLeft - list.clientWidth / 2 + chip.clientWidth / 2;
+    const listRect = list.getBoundingClientRect();
+    const chipRect = chip.getBoundingClientRect();
+    const target = list.scrollLeft + (chipRect.left - listRect.left) - listRect.width / 2 + chipRect.width / 2;
     list.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
   }, [active]);
+
 
   return (
     <nav
