@@ -37,6 +37,9 @@ import { Route as UniversitiesIndexRouteImport } from './routes/universities.ind
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
 import { Route as UniversitiesSlugIndexRouteImport } from './routes/universities.$slug.index'
 import { Route as UniversitiesSlugAdmissionRouteImport } from './routes/universities.$slug.admission'
+import { Route as UniversitiesSlugExaminationPatternRouteImport } from './routes/universities.$slug.examination-pattern'
+import { Route as UniversitiesSlugPlacementRouteImport } from './routes/universities.$slug.placement'
+import { Route as UniversitiesSlugScholarshipsRouteImport } from './routes/universities.$slug.scholarships'
 import { Route as UniversitiesSlugCoursesCourseRouteImport } from './routes/universities.$slug.courses.$course'
 
 const IndexRoute = IndexRouteImport.update({
@@ -180,6 +183,24 @@ const UniversitiesSlugAdmissionRoute =
     path: '/admission',
     getParentRoute: () => UniversitiesSlugRoute,
   } as any)
+const UniversitiesSlugExaminationPatternRoute =
+  UniversitiesSlugExaminationPatternRouteImport.update({
+    id: '/examination-pattern',
+    path: '/examination-pattern',
+    getParentRoute: () => UniversitiesSlugRoute,
+  } as any)
+const UniversitiesSlugPlacementRoute =
+  UniversitiesSlugPlacementRouteImport.update({
+    id: '/placement',
+    path: '/placement',
+    getParentRoute: () => UniversitiesSlugRoute,
+  } as any)
+const UniversitiesSlugScholarshipsRoute =
+  UniversitiesSlugScholarshipsRouteImport.update({
+    id: '/scholarships',
+    path: '/scholarships',
+    getParentRoute: () => UniversitiesSlugRoute,
+  } as any)
 const UniversitiesSlugCoursesCourseRoute =
   UniversitiesSlugCoursesCourseRouteImport.update({
     id: '/courses/$course',
@@ -215,6 +236,9 @@ export interface FileRoutesByFullPath {
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
+  '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
+  '/universities/$slug/placement': typeof UniversitiesSlugPlacementRoute
+  '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -242,6 +266,9 @@ export interface FileRoutesByTo {
   '/courses': typeof CoursesIndexRoute
   '/universities': typeof UniversitiesIndexRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
+  '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
+  '/universities/$slug/placement': typeof UniversitiesSlugPlacementRoute
+  '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
   '/universities/$slug': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -274,6 +301,9 @@ export interface FileRoutesById {
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
+  '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
+  '/universities/$slug/placement': typeof UniversitiesSlugPlacementRoute
+  '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -307,6 +337,9 @@ export interface FileRouteTypes {
     | '/courses/'
     | '/universities/'
     | '/universities/$slug/admission'
+    | '/universities/$slug/examination-pattern'
+    | '/universities/$slug/placement'
+    | '/universities/$slug/scholarships'
     | '/universities/$slug/'
     | '/universities/$slug/courses/$course'
   fileRoutesByTo: FileRoutesByTo
@@ -334,6 +367,9 @@ export interface FileRouteTypes {
     | '/courses'
     | '/universities'
     | '/universities/$slug/admission'
+    | '/universities/$slug/examination-pattern'
+    | '/universities/$slug/placement'
+    | '/universities/$slug/scholarships'
     | '/universities/$slug'
     | '/universities/$slug/courses/$course'
   id:
@@ -365,6 +401,9 @@ export interface FileRouteTypes {
     | '/courses/'
     | '/universities/'
     | '/universities/$slug/admission'
+    | '/universities/$slug/examination-pattern'
+    | '/universities/$slug/placement'
+    | '/universities/$slug/scholarships'
     | '/universities/$slug/'
     | '/universities/$slug/courses/$course'
   fileRoutesById: FileRoutesById
@@ -590,6 +629,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesSlugAdmissionRouteImport
       parentRoute: typeof UniversitiesSlugRoute
     }
+    '/universities/$slug/examination-pattern': {
+      id: '/universities/$slug/examination-pattern'
+      path: '/examination-pattern'
+      fullPath: '/universities/$slug/examination-pattern'
+      preLoaderRoute: typeof UniversitiesSlugExaminationPatternRouteImport
+      parentRoute: typeof UniversitiesSlugRoute
+    }
+    '/universities/$slug/placement': {
+      id: '/universities/$slug/placement'
+      path: '/placement'
+      fullPath: '/universities/$slug/placement'
+      preLoaderRoute: typeof UniversitiesSlugPlacementRouteImport
+      parentRoute: typeof UniversitiesSlugRoute
+    }
+    '/universities/$slug/scholarships': {
+      id: '/universities/$slug/scholarships'
+      path: '/scholarships'
+      fullPath: '/universities/$slug/scholarships'
+      preLoaderRoute: typeof UniversitiesSlugScholarshipsRouteImport
+      parentRoute: typeof UniversitiesSlugRoute
+    }
     '/universities/$slug/courses/$course': {
       id: '/universities/$slug/courses/$course'
       path: '/courses/$course'
@@ -628,12 +688,19 @@ const CoursesRouteWithChildren =
 
 interface UniversitiesSlugRouteChildren {
   UniversitiesSlugAdmissionRoute: typeof UniversitiesSlugAdmissionRoute
+  UniversitiesSlugExaminationPatternRoute: typeof UniversitiesSlugExaminationPatternRoute
+  UniversitiesSlugPlacementRoute: typeof UniversitiesSlugPlacementRoute
+  UniversitiesSlugScholarshipsRoute: typeof UniversitiesSlugScholarshipsRoute
   UniversitiesSlugIndexRoute: typeof UniversitiesSlugIndexRoute
   UniversitiesSlugCoursesCourseRoute: typeof UniversitiesSlugCoursesCourseRoute
 }
 
 const UniversitiesSlugRouteChildren: UniversitiesSlugRouteChildren = {
   UniversitiesSlugAdmissionRoute: UniversitiesSlugAdmissionRoute,
+  UniversitiesSlugExaminationPatternRoute:
+    UniversitiesSlugExaminationPatternRoute,
+  UniversitiesSlugPlacementRoute: UniversitiesSlugPlacementRoute,
+  UniversitiesSlugScholarshipsRoute: UniversitiesSlugScholarshipsRoute,
   UniversitiesSlugIndexRoute: UniversitiesSlugIndexRoute,
   UniversitiesSlugCoursesCourseRoute: UniversitiesSlugCoursesCourseRoute,
 }

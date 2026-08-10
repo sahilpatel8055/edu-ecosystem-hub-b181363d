@@ -22,6 +22,14 @@ import {
   SourceInformation,
 } from "@/components/university/DataSections";
 import {
+  AdmissionInsightSection,
+  CareerOpportunitiesSection,
+  ExaminationPatternSection,
+  RelatedPageLinks,
+  ScholarshipInsightSection,
+} from "@/components/university/InsightSections";
+import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
+import {
   admissionOf,
   getUniversityBySlug,
   scholarshipsOf,
@@ -183,6 +191,8 @@ function Page() {
           "Approvals & recognition",
           "Courses & fees",
           "Admission process",
+          "Examination pattern",
+          "Placement & career",
           "Scholarships",
           "FAQs",
           "Related links",
@@ -256,12 +266,34 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Admission process">
-          <AdmissionSection admissions={admissionOf(slug)} />
+          <div className="space-y-5">
+            <AdmissionInsightSection universitySlug={slug} universityShort={u.shortName} />
+            <AdmissionSection admissions={admissionOf(slug)} />
+          </div>
+        </ContentSection>
+
+        <ContentSection title="Examination pattern">
+          <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Placement & career">
+          <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
         </ContentSection>
 
         <ContentSection title="Scholarships">
-          <ScholarshipList items={scholarshipsOf(slug)} />
+          <div className="space-y-5">
+            <ScholarshipInsightSection universitySlug={slug} universityShort={u.shortName} />
+            <ScholarshipList items={scholarshipsOf(slug)} />
+          </div>
         </ContentSection>
+
+        <RelatedPageLinks
+          title={`${u.shortName} guides`}
+          links={universitySectionPages(slug).map((sec) => ({
+            label: `${u.shortName} ${sectionLabels[sec].toLowerCase()}`,
+            href: `/universities/${slug}/${sec}`,
+          }))}
+        />
 
         {u.pros.length > 0 && u.cons.length > 0 && (
           <ContentSection title="Pros and cons">
