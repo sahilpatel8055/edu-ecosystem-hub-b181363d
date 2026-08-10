@@ -1,411 +1,79 @@
-import type { University } from "./types";
+import type { Approval, Mode, University } from "./types";
+import {
+  academicSession,
+  allUniversities,
+  feeRangeLabel,
+  recognitionLabels,
+  type UniversityRecordJson,
+} from "@/lib/universityData";
 
 /**
- * Add a university by appending an entry here. Every field marked in the notes
- * below must be replaced with the official figure before you publish the page —
- * entries carry `verified: false` until you have confirmed them.
+ * Derived view of the master JSON dataset.
+ *
+ * This file contains NO university facts of its own — it only reshapes
+ * `university-master-data-2026-27.json` into the `University` shape the
+ * existing templates already consume. Update the JSON, not this file.
  */
-export const universities: University[] = [
-  {
-    slug: "lpu-online",
-    name: "Lovely Professional University Online",
-    shortName: "LPU Online",
-    city: "Phagwara",
-    state: "Punjab",
-    establishedYear: 2005,
-    type: "Private",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A++" },
-      { body: "AICTE", status: "Approved" },
-      { body: "AIU", status: "Member" },
-    ],
-    rating: 4.5,
-    reviewCount: 1284,
-    feeRangeLabel: "₹1.6L – ₹2.0L",
+
+function modes(mode: string): Mode[] {
+  const m = mode.toLowerCase();
+  if (m === "both") return ["Online", "Distance"];
+  if (m === "distance" || m === "odl") return ["Distance"];
+  if (m === "hybrid") return ["Hybrid"];
+  return ["Online"];
+}
+
+function approvals(u: UniversityRecordJson): Approval[] {
+  const r = u.recognition;
+  const rows: Array<[string, string | null]> = [
+    ["UGC", r.UGC_status],
+    ["UGC-DEB", r.UGC_DEB_status],
+    ["NAAC", r.NAAC_status],
+    ["NIRF", r.NIRF_information],
+    ["Accreditation", r.accreditation],
+  ];
+  return rows
+    .filter(([, status]) => typeof status === "string" && status.trim().length > 0)
+    .map(([body, status]) => ({ body, status: status as string }));
+}
+
+function locationParts(location: string | null): { city: string; state: string } {
+  if (!location) return { city: "", state: "" };
+  const [city, ...rest] = location.split(",").map((s) => s.trim());
+  return { city: city ?? "", state: rest.join(", ") };
+}
+
+function toUniversity(u: UniversityRecordJson): University {
+  const { city, state } = locationParts(u.basic_information.location);
+  const record: University = {
+    slug: u.slug,
+    name: u.university_name,
+    shortName: u.short_name,
+    city,
+    state: state || u.basic_information.state || "",
+    modes: modes(u.mode),
+    approvals: approvals(u),
+    feeRangeLabel: feeRangeLabel(u.slug),
     summary:
-      "UGC-entitled online degrees with a mature learning management system, recorded plus live sessions and placement assistance.",
-    highlights: ["No-cost EMI options", "Recorded + live classes", "Placement assistance"],
-    pros: ["Strong brand recall with employers", "Large elective catalogue", "Structured placement cell"],
-    cons: ["Fee is above the category average", "Live class timings suit evenings only"],
-    verdict:
-      "A solid default choice for working professionals who want a recognised private-university degree and are willing to pay a little above the category average for placement support.",
-    admissionProcess: [
-      "Register on the university's online admission portal",
-      "Fill the application and upload documents",
-      "Pay the registration fee",
-      "Document verification by the admission team",
-      "Fee payment (full or EMI) and enrolment confirmation",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://www.lpuonline.com/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "amity-online",
-    name: "Amity University Online",
-    shortName: "Amity Online",
-    city: "Noida",
-    state: "Uttar Pradesh",
-    establishedYear: 2005,
-    type: "Private",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A+" },
-      { body: "WES", status: "Recognised" },
-    ],
-    rating: 4.4,
-    reviewCount: 1106,
-    feeRangeLabel: "₹1.8L – ₹2.4L",
-    summary:
-      "One of India's most recognised online universities, with international credential evaluation and industry-aligned electives.",
-    highlights: ["WES recognised", "Global alumni network", "Industry electives"],
-    pros: ["Useful for learners planning to move abroad", "Wide specialisation catalogue", "Established online delivery"],
-    cons: ["Among the costlier options", "Specialisation availability varies by session"],
-    verdict:
-      "Best suited to learners who value international recognition — the WES pathway is the clearest differentiator over similarly priced peers.",
-    admissionProcess: [
-      "Create an account on the online admission portal",
-      "Submit the application with academic documents",
-      "Eligibility check and offer of admission",
-      "Fee payment (full, semester or EMI)",
-      "LMS access and orientation",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://amityonline.com/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "manipal-online",
-    name: "Manipal University Jaipur Online",
-    shortName: "Manipal Online",
-    city: "Jaipur",
-    state: "Rajasthan",
-    establishedYear: 2011,
-    type: "Private",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A+" },
-    ],
-    rating: 4.3,
-    reviewCount: 874,
-    feeRangeLabel: "₹1.5L – ₹1.8L",
-    summary: "Strong technology and management portfolio with a well-rated digital campus experience.",
-    highlights: ["Tech electives", "Active alumni network", "Merit scholarships"],
-    pros: ["Good value in the private-university bracket", "Well-built online campus", "Scholarship options"],
-    cons: ["Smaller elective catalogue than the largest players", "Placement support varies by programme"],
-    verdict:
-      "A balanced pick — close to the top private brands on delivery quality while sitting slightly lower on fee.",
-    admissionProcess: [
-      "Apply on the online admission portal",
-      "Upload academic documents",
-      "Eligibility verification",
-      "Select fee plan and pay",
-      "Onboarding to the online campus",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://onlinemanipal.com/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "jain-online",
-    name: "Jain (Deemed-to-be University) Online",
-    shortName: "Jain Online",
-    city: "Bengaluru",
-    state: "Karnataka",
-    establishedYear: 1990,
-    type: "Deemed",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A++" },
-    ],
-    rating: 4.2,
-    reviewCount: 640,
-    feeRangeLabel: "₹1.4L – ₹2.0L",
-    summary: "Bengaluru-based online university with strong specialisation depth in business and analytics.",
-    highlights: ["Analytics tracks", "Live mentoring", "Career services cell"],
-    pros: ["Deep specialisation choice in management", "Live mentoring sessions", "Competitive fee"],
-    cons: ["Brand recall is regionally concentrated", "Fewer technology programmes"],
-    verdict:
-      "Worth shortlisting if your target specialisation is in business analytics or management — that is where the catalogue is deepest.",
-    admissionProcess: [
-      "Fill the online application",
-      "Upload documents for eligibility review",
-      "Receive the admission offer",
-      "Pay the fee (full or EMI)",
-      "Start the programme in the next session",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://onlinejain.com/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "ignou",
-    name: "Indira Gandhi National Open University",
-    shortName: "IGNOU",
-    city: "New Delhi",
-    state: "Delhi",
-    establishedYear: 1985,
-    type: "Open",
-    modes: ["Distance", "Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Recognised" },
-      { body: "NAAC", status: "A++" },
-    ],
-    rating: 4.1,
-    reviewCount: 3120,
-    feeRangeLabel: "₹7K – ₹62K",
-    summary:
-      "India's largest open university, with the widest programme catalogue and study centres across the country.",
-    highlights: ["Widest catalogue", "Nationwide study centres", "Lowest fee bracket"],
-    pros: ["Extremely affordable", "Central university recognition", "Accepted widely for government roles"],
-    cons: ["Self-study heavy", "Administrative processes can be slow", "Limited placement support"],
-    verdict:
-      "The value benchmark. If cost and recognition matter more than placement support and polish, IGNOU is hard to beat.",
-    admissionProcess: [
-      "Register on the IGNOU Samarth admission portal",
-      "Fill the programme application",
-      "Upload documents and pay the fee",
-      "Confirmation and study material access",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Category certificate (if applicable)", "Photo ID"],
-    websiteUrl: "https://www.ignou.ac.in/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "du-sol",
-    name: "University of Delhi – School of Open Learning",
-    shortName: "DU SOL",
-    city: "New Delhi",
-    state: "Delhi",
-    establishedYear: 1962,
-    type: "Central",
-    modes: ["Distance"],
-    approvals: [
-      { body: "UGC-DEB", status: "Recognised" },
-      { body: "NAAC", status: "A+" },
-    ],
-    rating: 4.2,
-    reviewCount: 2310,
-    feeRangeLabel: "₹9K – ₹25K",
-    summary:
-      "Affordable University of Delhi degrees through open learning — popular with working students and competitive-exam aspirants.",
-    highlights: ["Lowest fee bracket", "Delhi University degree", "Personal contact programmes"],
-    pros: ["DU degree at open-learning cost", "Strong for exam aspirants", "Large peer community"],
-    cons: ["Limited programme choice", "Minimal placement support", "Exam scheduling can shift"],
-    verdict:
-      "The best cost-to-brand ratio in distance education, provided the programme you want is in DU SOL's short catalogue.",
-    admissionProcess: [
-      "Apply through the DU SOL admission portal",
-      "Enter academic details and upload documents",
-      "Pay the admission fee",
-      "Receive enrolment number and study material",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://sol.du.ac.in/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "nmims-online",
-    name: "NMIMS Online",
-    shortName: "NMIMS Online",
-    city: "Mumbai",
-    state: "Maharashtra",
-    establishedYear: 1981,
-    type: "Deemed",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A+" },
-    ],
-    rating: 4.3,
-    reviewCount: 720,
-    feeRangeLabel: "₹1.7L – ₹2.6L",
-    summary: "Management-first online university with a strong finance and analytics catalogue.",
-    highlights: ["Finance depth", "Corporate recognition", "Case-based delivery"],
-    pros: ["Well-known management brand", "Structured live sessions", "Strong alumni base"],
-    cons: ["Premium fee bracket", "Limited technology programmes"],
-    verdict:
-      "A strong option if your target is management or finance and employer recognition matters more than fee.",
-    admissionProcess: [
-      "Register on the online admission portal",
-      "Submit the application with documents",
-      "Eligibility verification",
-      "Fee payment and enrolment",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://online.nmims.edu/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "upes-online",
-    name: "UPES Online",
-    shortName: "UPES Online",
-    city: "Dehradun",
-    state: "Uttarakhand",
-    establishedYear: 2003,
-    type: "Private",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A" },
-    ],
-    rating: 4.2,
-    reviewCount: 460,
-    feeRangeLabel: "₹1.5L – ₹2.2L",
-    summary: "Industry-linked online programmes with energy, logistics and technology specialisations.",
-    highlights: ["Industry electives", "Placement cell", "Modern LMS"],
-    pros: ["Distinct specialisation mix", "Good digital campus", "Active career services"],
-    cons: ["Newer to online delivery", "Fee above category average"],
-    verdict: "Worth shortlisting for niche specialisations that generalist universities do not offer.",
-    admissionProcess: [
-      "Apply on the online admission portal",
-      "Upload academic documents",
-      "Eligibility check",
-      "Fee payment and onboarding",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://www.upesonline.ac.in/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "dpu-online",
-    name: "DY Patil University Online",
-    shortName: "DY Patil Online",
-    city: "Pune",
-    state: "Maharashtra",
-    establishedYear: 2003,
-    type: "Deemed",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A++" },
-    ],
-    rating: 4.1,
-    reviewCount: 380,
-    feeRangeLabel: "₹1.2L – ₹1.8L",
-    summary: "Affordable deemed-university online degrees with healthcare and management tracks.",
-    highlights: ["Value fee", "NAAC A++", "Flexible EMI"],
-    pros: ["Competitive fee", "Good accreditation", "Simple admission process"],
-    cons: ["Smaller elective catalogue", "Placement support still maturing"],
-    verdict: "A value pick for learners who want a NAAC A++ deemed university without the premium fee.",
-    admissionProcess: [
-      "Fill the online application",
-      "Upload documents",
-      "Eligibility verification",
-      "Fee payment and LMS access",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://onlinedypatil.com/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "cu-online",
-    name: "Chandigarh University Online",
-    shortName: "CU Online",
-    city: "Ludhiana",
-    state: "Punjab",
-    establishedYear: 2012,
-    type: "Private",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A+" },
-    ],
-    rating: 4.2,
-    reviewCount: 690,
-    feeRangeLabel: "₹1.1L – ₹1.7L",
-    summary: "Fast-growing online arm of Chandigarh University with a broad UG and PG catalogue.",
-    highlights: ["Broad catalogue", "Scholarships", "Placement assistance"],
-    pros: ["Wide programme choice", "Frequent fee waivers", "Responsive support"],
-    cons: ["Class sizes are large", "Specialisation depth varies"],
-    verdict: "A practical mid-fee choice with one of the widest online programme lists in North India.",
-    admissionProcess: [
-      "Register on the admission portal",
-      "Submit documents",
-      "Eligibility verification",
-      "Fee payment and enrolment",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://www.cuonline.ac.in/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "vgu-online",
-    name: "Vivekananda Global University Online",
-    shortName: "VGU Online",
-    city: "Jaipur",
-    state: "Rajasthan",
-    establishedYear: 2012,
-    type: "Private",
-    modes: ["Online"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A+" },
-    ],
-    rating: 4.0,
-    reviewCount: 210,
-    feeRangeLabel: "₹70K – ₹1.3L",
-    summary: "Budget-friendly online degrees from a Jaipur-based private university.",
-    highlights: ["Low fee", "Simple admissions", "Flexible exams"],
-    pros: ["One of the lowest private-university fees", "Quick admission cycle", "Recorded lectures"],
-    cons: ["Limited brand recall", "Fewer specialisations"],
-    verdict: "Best for cost-sensitive learners who need a UGC-entitled degree at the lowest private fee.",
-    admissionProcess: [
-      "Apply online",
-      "Upload documents",
-      "Verification",
-      "Fee payment and onboarding",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://vgu.ac.in/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-  {
-    slug: "smu-online",
-    name: "Sikkim Manipal University Online",
-    shortName: "SMU Online",
-    city: "Gangtok",
-    state: "Sikkim",
-    establishedYear: 1995,
-    type: "Private",
-    modes: ["Online", "Distance"],
-    approvals: [
-      { body: "UGC-DEB", status: "Entitled" },
-      { body: "NAAC", status: "A+" },
-    ],
-    rating: 4.0,
-    reviewCount: 540,
-    feeRangeLabel: "₹80K – ₹1.5L",
-    summary: "Long-running distance and online provider with a stable management and IT catalogue.",
-    highlights: ["Established provider", "Moderate fee", "Distance + online"],
-    pros: ["Decades of distance-education experience", "Reasonable fee", "Simple curriculum structure"],
-    cons: ["Dated learner experience in places", "Limited live sessions"],
-    verdict: "A dependable, moderately priced option, especially for learners already familiar with the SMU system.",
-    admissionProcess: [
-      "Register on the admission portal",
-      "Submit the application and documents",
-      "Eligibility verification",
-      "Fee payment and enrolment",
-    ],
-    documentsRequired: ["Class 10 marksheet", "Class 12 marksheet", "Graduation marksheet (for PG)", "Photo ID", "Passport photo"],
-    websiteUrl: "https://smu.edu.in/",
-    verified: false,
-    lastUpdated: "2026-08-07",
-  },
-];
+      u.notes[0] ??
+      `${u.university_name} lists ${u.programmes.length} ${u.mode.toLowerCase()} programme${
+        u.programmes.length === 1 ? "" : "s"
+      } for the ${academicSession} session.`,
+    highlights: recognitionLabels(u),
+    // Editorial fields are intentionally empty: the dataset publishes facts only.
+    pros: [],
+    cons: [],
+    admissionProcess: u.admissions.admission_steps ?? [],
+    documentsRequired: u.admissions.required_documents ?? [],
+    verified: (u.data_status ?? "").startsWith("verified_official"),
+    lastUpdated: u.last_verified ?? "",
+  };
+  if (u.basic_information.established_year) record.establishedYear = u.basic_information.established_year;
+  const site = u.basic_information.official_online_portal ?? u.basic_information.official_website;
+  if (site) record.websiteUrl = site;
+  const apply = u.admissions.application_url ?? u.basic_information.official_admission_portal;
+  if (apply) record.applyUrl = apply;
+  return record;
+}
+
+export const universities: University[] = allUniversities().map(toUniversity);
