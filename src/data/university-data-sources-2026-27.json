@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_name": "OnlineUniversityGuide.in University Data Sources",
+  "academic_session": "2026-27",
+  "last_master_verification": "2026-08-10",
+  "sources": [
+    {
+      "university": "Amity Online",
+      "programme": "all programmes / fees",
+      "source_type": "official_programme_page",
+      "source_url": "https://amityonline.com/programs",
+      "source_title": "Amity Online – Online Degree Programs",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "Online Manipal",
+      "programme": "all listed MUJ programmes / fees",
+      "source_type": "official_programme_page",
+      "source_url": "https://www.onlinemanipal.com/all-courses/online-masters",
+      "source_title": "Online Manipal – Online Master's Degree Programs",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "VGU",
+      "programme": "online programme list / fees",
+      "source_type": "official_programme_page",
+      "source_url": "https://www.onlinevgu.com/",
+      "source_title": "Online VGU",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "LPU Online",
+      "programme": "2026 online programme list",
+      "source_type": "official_university_news",
+      "source_url": "https://happenings.lpu.in/final-call-for-admissions-lpu-distance-and-online-education-admissions-for-february-2026-session-is-closing-soon/",
+      "source_title": "Final Call: LPU Online & Distance Admissions Feb 2026",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "DU SOL",
+      "programme": "2026-27 UG/PG programme list",
+      "source_type": "official_admission_page",
+      "source_url": "https://sol.du.ac.in/index.php/admission_23_24/PG_fee_structure.html",
+      "source_title": "SOL Admission – Academic Session 2026–2027",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "IGNOU",
+      "programme": "January 2026 programme summary / fees",
+      "source_type": "official_prospectus",
+      "source_url": "https://www.ignou.ac.in/viewFile/services/Common_Prospectus/Common-Prospectus-January-2026-V-1-2.pdf",
+      "source_title": "IGNOU Common Prospectus – January 2026",
+      "verification_status": "verified_official_prospectus",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "NMIMS Online",
+      "programme": "MBA / BBA / B.Com fees and admission",
+      "source_type": "official_programme_page",
+      "source_url": "https://online.nmims.edu/programs/hub/mba-online",
+      "source_title": "NMIMS Online MBA",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "Chandigarh University Online",
+      "programme": "online programme list / fees",
+      "source_type": "official_online_portal",
+      "source_url": "https://www.onlinecu.in/",
+      "source_title": "Chandigarh University Online",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "DPU Online",
+      "programme": "2026 active online programmes",
+      "source_type": "official_university_page",
+      "source_url": "https://dpu.edu.in/examination-time-table.aspx",
+      "source_title": "DPU Examination Time Table – Centre for Online Learning",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "DPU Online",
+      "programme": "2026 fee figures – secondary only",
+      "source_type": "secondary_source",
+      "source_url": "https://dpu.distanceeducationschool.com/blog/dy-patil-university-last-admission-date/",
+      "source_title": "DY Patil University Online Admission Last Date 2026",
+      "verification_status": "secondary_source",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "NSOU",
+      "programme": "2026-27 UG/PG admission information",
+      "source_type": "official_admission_page",
+      "source_url": "https://www.wbnsou.ac.in/student_zone/admissions/admission_information/admission_information_2026.shtml",
+      "source_title": "NSOU Admission Information 2026",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "KSOU",
+      "programme": "2026-27 prospectus / programmes",
+      "source_type": "official_prospectus",
+      "source_url": "https://www.ksoumysuru.ac.in/index.php/prospectus/",
+      "source_title": "KSOU Prospectus 2026-27 July Cycle",
+      "verification_status": "verified_official_prospectus",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "Subharti University",
+      "programme": "2026-27 session notice / fee page",
+      "source_type": "official_online_portal",
+      "source_url": "https://subhartidde.com/a25-fee-structure",
+      "source_title": "Subharti Distance Education Fee Structure",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "BAOU",
+      "programme": "online/ODL mandatory disclosure and programmes",
+      "source_type": "official_university_page",
+      "source_url": "https://baou.edu.in/newsannouncement/public-notice-regarding-precautions-to-be-taken-by-the-students-before-enrolling-in-programmes-",
+      "source_title": "BAOU UGC / Mandatory Disclosure",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    },
+    {
+      "university": "JAIN Online",
+      "programme": "programme / admissions overview",
+      "source_type": "official_online_portal",
+      "source_url": "https://www.jain-online.com/",
+      "source_title": "JAIN Online",
+      "verification_status": "verified_official",
+      "last_verified": "2026-08-10"
+    }
+  ],
+  "notes": [
+    "A source record is not a claim that every field on that source is current or complete; programme-level verification status in the master JSON controls publication.",
+    "Secondary-source fee data is not safe for public publication until replaced by a directly verified official university fee document."
+  ]
+}

@@ -1,0 +1,1397 @@
+[
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Bachelor of Business Administration (BBA)",
+    "programme_slug": "bachelor-of-business-administration-bba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/bachelor-of-business-administration-bba"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Bachelor of Computer Applications (BCA)",
+    "programme_slug": "bachelor-of-computer-applications-bca",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/bachelor-of-computer-applications-bca"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Bachelor of Commerce (B.Com)",
+    "programme_slug": "bachelor-of-commerce-b-com",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/bachelor-of-commerce-b-com"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Bachelor of Arts (BA)",
+    "programme_slug": "bachelor-of-arts-ba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/bachelor-of-arts-ba"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Master of Business Administration (MBA)",
+    "programme_slug": "master-of-business-administration-mba",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/master-of-business-administration-mba"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Master of Computer Applications (MCA)",
+    "programme_slug": "master-of-computer-applications-mca",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/master-of-computer-applications-mca"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Master of Commerce (M.Com)",
+    "programme_slug": "master-of-commerce-m-com",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/master-of-commerce-m-com"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Master of Arts (MA) in Journalism and Mass Communication",
+    "programme_slug": "master-of-arts-ma-in-journalism-and-mass-communication",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/master-of-arts-ma-in-journalism-and-mass-communication"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Master of Arts (MA) in Public Policy & Governance",
+    "programme_slug": "master-of-arts-ma-in-public-policy-governance",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/master-of-arts-ma-in-public-policy-governance"
+  },
+  {
+    "university_name": "Amity University Online",
+    "university_slug": "amity-online",
+    "programme_name": "Master of Science (M.Sc) Data Science",
+    "programme_slug": "master-of-science-m-sc-data-science",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/amity-online/courses/master-of-science-m-sc-data-science"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Bachelor of Business Administration",
+    "programme_slug": "bachelor-of-business-administration",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/bachelor-of-business-administration"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Bachelor of Computer Applications",
+    "programme_slug": "bachelor-of-computer-applications",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/bachelor-of-computer-applications"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Bachelor of Commerce",
+    "programme_slug": "bachelor-of-commerce",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/bachelor-of-commerce"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Business Administration",
+    "programme_slug": "master-of-business-administration",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-business-administration"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Computer Applications",
+    "programme_slug": "master-of-computer-applications",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-computer-applications"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Commerce",
+    "programme_slug": "master-of-commerce",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-commerce"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Science in Mathematics",
+    "programme_slug": "master-of-science-in-mathematics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-science-in-mathematics"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Arts in Economics",
+    "programme_slug": "master-of-arts-in-economics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-arts-in-economics"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Arts in Journalism & Mass Communication",
+    "programme_slug": "master-of-arts-in-journalism-mass-communication",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-arts-in-journalism-mass-communication"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Arts in English",
+    "programme_slug": "master-of-arts-in-english",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-arts-in-english"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Arts in Sociology",
+    "programme_slug": "master-of-arts-in-sociology",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-arts-in-sociology"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Arts in Political Science",
+    "programme_slug": "master-of-arts-in-political-science",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-arts-in-political-science"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Science in Data Science",
+    "programme_slug": "master-of-science-in-data-science",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-science-in-data-science"
+  },
+  {
+    "university_name": "Manipal University Jaipur / Online Manipal",
+    "university_slug": "manipal-university-jaipur",
+    "programme_name": "Master of Science in Business Analytics",
+    "programme_slug": "master-of-science-in-business-analytics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/manipal-university-jaipur/courses/master-of-science-in-business-analytics"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online BA",
+    "programme_slug": "online-ba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-ba"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online BBA",
+    "programme_slug": "online-bba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-bba"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online BCA",
+    "programme_slug": "online-bca",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-bca"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online MA",
+    "programme_slug": "online-ma",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-ma"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online MAJMC",
+    "programme_slug": "online-majmc",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-majmc"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online MBA",
+    "programme_slug": "online-mba",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-mba"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online MBA-IF",
+    "programme_slug": "online-mba-if",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-mba-if"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online MCA",
+    "programme_slug": "online-mca",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-mca"
+  },
+  {
+    "university_name": "Vivekananda Global University",
+    "university_slug": "vgu",
+    "programme_name": "Online M.Sc Mathematics",
+    "programme_slug": "online-m-sc-mathematics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/vgu/courses/online-m-sc-mathematics"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online MBA",
+    "programme_slug": "online-mba",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-mba"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online MCA",
+    "programme_slug": "online-mca",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-mca"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online M.Sc. (Mathematics)",
+    "programme_slug": "online-m-sc-mathematics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-m-sc-mathematics"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online M.Com",
+    "programme_slug": "online-m-com",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-m-com"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online M.A. English",
+    "programme_slug": "online-m-a-english",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-m-a-english"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online M.A. History",
+    "programme_slug": "online-m-a-history",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-m-a-history"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online M.A. Sociology",
+    "programme_slug": "online-m-a-sociology",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-m-a-sociology"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online M.A. Political Science",
+    "programme_slug": "online-m-a-political-science",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-m-a-political-science"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online BBA",
+    "programme_slug": "online-bba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-bba"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online BCA",
+    "programme_slug": "online-bca",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-bca"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online B.A.",
+    "programme_slug": "online-b-a",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-b-a"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online B.Com",
+    "programme_slug": "online-b-com",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-b-com"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online DBA",
+    "programme_slug": "online-dba",
+    "level": "Diploma",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-dba"
+  },
+  {
+    "university_name": "Lovely Professional University Online",
+    "university_slug": "lpu-online",
+    "programme_name": "Online DCA",
+    "programme_slug": "online-dca",
+    "level": "Diploma",
+    "mode": "Online",
+    "canonical_url": "/universities/lpu-online/courses/online-dca"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.Sc (Hons) - Computer Science",
+    "programme_slug": "b-sc-hons-computer-science",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-sc-hons-computer-science"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "Bachelor of Management Studies",
+    "programme_slug": "bachelor-of-management-studies",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/bachelor-of-management-studies"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "Bachelor of Business Administration (FIA)",
+    "programme_slug": "bachelor-of-business-administration-fia",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/bachelor-of-business-administration-fia"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Hons.) – English",
+    "programme_slug": "b-a-hons-english",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-hons-english"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Hons.) – Political Science",
+    "programme_slug": "b-a-hons-political-science",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-hons-political-science"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Hons.) – Economics",
+    "programme_slug": "b-a-hons-economics",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-hons-economics"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B. Com (Hons.)",
+    "programme_slug": "b-com-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-com-hons"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B. Com.",
+    "programme_slug": "b-com",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-com"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Programme) with Computer Applications",
+    "programme_slug": "b-a-programme-with-computer-applications",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-computer-applications"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Programme) with Economics",
+    "programme_slug": "b-a-programme-with-economics",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-economics"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. Programme with Education",
+    "programme_slug": "b-a-programme-with-education",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-education"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Programme) with English",
+    "programme_slug": "b-a-programme-with-english",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-english"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Programme) with Hindi",
+    "programme_slug": "b-a-programme-with-hindi",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-hindi"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Programme) with History",
+    "programme_slug": "b-a-programme-with-history",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-history"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Programme) with Mathematics",
+    "programme_slug": "b-a-programme-with-mathematics",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-mathematics"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. (Programme) with Political Science",
+    "programme_slug": "b-a-programme-with-political-science",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-political-science"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. Programme with Sanskrit",
+    "programme_slug": "b-a-programme-with-sanskrit",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-sanskrit"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "B.A. Programme with Urdu",
+    "programme_slug": "b-a-programme-with-urdu",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/b-a-programme-with-urdu"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "Master of Business Administration (MBA)",
+    "programme_slug": "master-of-business-administration-mba",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/master-of-business-administration-mba"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "MBA (Executive) Healthcare Administration",
+    "programme_slug": "mba-executive-healthcare-administration",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/mba-executive-healthcare-administration"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "Bachelor of Library and Information Science (BLISc)",
+    "programme_slug": "bachelor-of-library-and-information-science-blisc",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/bachelor-of-library-and-information-science-blisc"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "Master of Library and Information Science (MLISc)",
+    "programme_slug": "master-of-library-and-information-science-mlisc",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/master-of-library-and-information-science-mlisc"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "Post Graduate Diploma in Automated and Digital Library Management (PGDADLM)",
+    "programme_slug": "post-graduate-diploma-in-automated-and-digital-library-management-pgdadlm",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/post-graduate-diploma-in-automated-and-digital-library-management-pgdadlm"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "M.A. Hindi",
+    "programme_slug": "m-a-hindi",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/m-a-hindi"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "M.A. Sanskrit",
+    "programme_slug": "m-a-sanskrit",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/m-a-sanskrit"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "M.A. History",
+    "programme_slug": "m-a-history",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/m-a-history"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "M.A. Political Science",
+    "programme_slug": "m-a-political-science",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/m-a-political-science"
+  },
+  {
+    "university_name": "University of Delhi – School of Open Learning",
+    "university_slug": "du-sol",
+    "programme_name": "M. Com.",
+    "programme_slug": "m-com",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/du-sol/courses/m-com"
+  },
+  {
+    "university_name": "Indira Gandhi National Open University",
+    "university_slug": "ignou",
+    "programme_name": "Master of Commerce",
+    "programme_slug": "master-of-commerce",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ignou/courses/master-of-commerce"
+  },
+  {
+    "university_name": "Indira Gandhi National Open University",
+    "university_slug": "ignou",
+    "programme_name": "Master of Business Administration",
+    "programme_slug": "master-of-business-administration",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ignou/courses/master-of-business-administration"
+  },
+  {
+    "university_name": "Indira Gandhi National Open University",
+    "university_slug": "ignou",
+    "programme_name": "Master of Business Administration - Human Resource Management",
+    "programme_slug": "master-of-business-administration-human-resource-management",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ignou/courses/master-of-business-administration-human-resource-management"
+  },
+  {
+    "university_name": "Indira Gandhi National Open University",
+    "university_slug": "ignou",
+    "programme_name": "Bachelor of Commerce",
+    "programme_slug": "bachelor-of-commerce",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ignou/courses/bachelor-of-commerce"
+  },
+  {
+    "university_name": "Indira Gandhi National Open University",
+    "university_slug": "ignou",
+    "programme_name": "Bachelor of Arts",
+    "programme_slug": "bachelor-of-arts",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ignou/courses/bachelor-of-arts"
+  },
+  {
+    "university_name": "Indira Gandhi National Open University",
+    "university_slug": "ignou",
+    "programme_name": "Bachelor of Computer Applications",
+    "programme_slug": "bachelor-of-computer-applications",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ignou/courses/bachelor-of-computer-applications"
+  },
+  {
+    "university_name": "Indira Gandhi National Open University",
+    "university_slug": "ignou",
+    "programme_name": "Master of Computer Applications",
+    "programme_slug": "master-of-computer-applications",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ignou/courses/master-of-computer-applications"
+  },
+  {
+    "university_name": "NMIMS CDOE / NMIMS Online",
+    "university_slug": "nmims-online",
+    "programme_name": "BBA",
+    "programme_slug": "bba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/nmims-online/courses/bba"
+  },
+  {
+    "university_name": "NMIMS CDOE / NMIMS Online",
+    "university_slug": "nmims-online",
+    "programme_name": "B.Com",
+    "programme_slug": "b-com",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/nmims-online/courses/b-com"
+  },
+  {
+    "university_name": "NMIMS CDOE / NMIMS Online",
+    "university_slug": "nmims-online",
+    "programme_name": "Online MBA",
+    "programme_slug": "online-mba",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/nmims-online/courses/online-mba"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online BBA",
+    "programme_slug": "online-bba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-bba"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online BCA",
+    "programme_slug": "online-bca",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-bca"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online BA Journalism & Mass Communication",
+    "programme_slug": "online-ba-journalism-mass-communication",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-ba-journalism-mass-communication"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online BBA Business Analytics",
+    "programme_slug": "online-bba-business-analytics",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-bba-business-analytics"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online BBA ACCA",
+    "programme_slug": "online-bba-acca",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-bba-acca"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online MBA",
+    "programme_slug": "online-mba",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-mba"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online MBA Business Analytics",
+    "programme_slug": "online-mba-business-analytics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-mba-business-analytics"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online MCA",
+    "programme_slug": "online-mca",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-mca"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online MA English",
+    "programme_slug": "online-ma-english",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-ma-english"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online MA Economics",
+    "programme_slug": "online-ma-economics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-ma-economics"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online MA Journalism & Mass Communication",
+    "programme_slug": "online-ma-journalism-mass-communication",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-ma-journalism-mass-communication"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online M.Sc Data Science",
+    "programme_slug": "online-m-sc-data-science",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-m-sc-data-science"
+  },
+  {
+    "university_name": "Chandigarh University Online",
+    "university_slug": "chandigarh-university-online",
+    "programme_name": "Online M.Sc Mathematics",
+    "programme_slug": "online-m-sc-mathematics",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/chandigarh-university-online/courses/online-m-sc-mathematics"
+  },
+  {
+    "university_name": "Dr. D. Y. Patil Vidyapeeth / DPU Online",
+    "university_slug": "dpu-online",
+    "programme_name": "Online BBA",
+    "programme_slug": "online-bba",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/dpu-online/courses/online-bba"
+  },
+  {
+    "university_name": "Dr. D. Y. Patil Vidyapeeth / DPU Online",
+    "university_slug": "dpu-online",
+    "programme_name": "Online BBA (Hons.)",
+    "programme_slug": "online-bba-hons",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/dpu-online/courses/online-bba-hons"
+  },
+  {
+    "university_name": "Dr. D. Y. Patil Vidyapeeth / DPU Online",
+    "university_slug": "dpu-online",
+    "programme_name": "Online MBA",
+    "programme_slug": "online-mba",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/dpu-online/courses/online-mba"
+  },
+  {
+    "university_name": "Dr. D. Y. Patil Vidyapeeth / DPU Online",
+    "university_slug": "dpu-online",
+    "programme_name": "Online MCA",
+    "programme_slug": "online-mca",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/dpu-online/courses/online-mca"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in Bengali (Hons.)",
+    "programme_slug": "b-a-in-bengali-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-bengali-hons"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in English (Hons.)",
+    "programme_slug": "b-a-in-english-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-english-hons"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in History (Hons.)",
+    "programme_slug": "b-a-in-history-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-history-hons"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in Political Science (Hons.)",
+    "programme_slug": "b-a-in-political-science-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-political-science-hons"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in Public Administration (Hons.)",
+    "programme_slug": "b-a-in-public-administration-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-public-administration-hons"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in Sociology (Hons.)",
+    "programme_slug": "b-a-in-sociology-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-sociology-hons"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in Education (Hons.)",
+    "programme_slug": "b-a-in-education-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-education-hons"
+  },
+  {
+    "university_name": "Netaji Subhas Open University",
+    "university_slug": "nsou",
+    "programme_name": "B.A. in Economics (Hons.)",
+    "programme_slug": "b-a-in-economics-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/nsou/courses/b-a-in-economics-hons"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "BA",
+    "programme_slug": "ba",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/ba"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "B.Com",
+    "programme_slug": "b-com",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/b-com"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "BBA",
+    "programme_slug": "bba",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/bba"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "B.Sc. Information Technology",
+    "programme_slug": "b-sc-information-technology",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/b-sc-information-technology"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "B.Sc. General",
+    "programme_slug": "b-sc-general",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/b-sc-general"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "BCA",
+    "programme_slug": "bca",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/bca"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "B.Lib.I.Sc",
+    "programme_slug": "b-lib-i-sc",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/b-lib-i-sc"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "BSW",
+    "programme_slug": "bsw",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/bsw"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "MA",
+    "programme_slug": "ma",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/ma"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "M.Com",
+    "programme_slug": "m-com",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/m-com"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "MBA",
+    "programme_slug": "mba",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/mba"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "M.Sc",
+    "programme_slug": "m-sc",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/m-sc"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "M.Lib.I.Sc",
+    "programme_slug": "m-lib-i-sc",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/m-lib-i-sc"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "MSW",
+    "programme_slug": "msw",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/msw"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "MCA",
+    "programme_slug": "mca",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/mca"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "Diploma in Kannada",
+    "programme_slug": "diploma-in-kannada",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/diploma-in-kannada"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "Diploma in Journalism",
+    "programme_slug": "diploma-in-journalism",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/diploma-in-journalism"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "Diploma in Nutrition and Health Education",
+    "programme_slug": "diploma-in-nutrition-and-health-education",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/diploma-in-nutrition-and-health-education"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "Diploma in Information Technology",
+    "programme_slug": "diploma-in-information-technology",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/diploma-in-information-technology"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "Diploma in Computer Application",
+    "programme_slug": "diploma-in-computer-application",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/diploma-in-computer-application"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "Diploma in Early Childhood Care and Education",
+    "programme_slug": "diploma-in-early-childhood-care-and-education",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/diploma-in-early-childhood-care-and-education"
+  },
+  {
+    "university_name": "Karnataka State Open University (KSOU), Mysuru",
+    "university_slug": "ksou-mysuru",
+    "programme_name": "Diploma in Translation Studies",
+    "programme_slug": "diploma-in-translation-studies",
+    "level": "Diploma",
+    "mode": "ODL",
+    "canonical_url": "/universities/ksou-mysuru/courses/diploma-in-translation-studies"
+  },
+  {
+    "university_name": "Swami Vivekanand Subharti University, Meerut",
+    "university_slug": "subharti-university",
+    "programme_name": "BACHELOR OF ARTS",
+    "programme_slug": "bachelor-of-arts",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/subharti-university/courses/bachelor-of-arts"
+  },
+  {
+    "university_name": "Swami Vivekanand Subharti University, Meerut",
+    "university_slug": "subharti-university",
+    "programme_name": "BACHELOR OF LIBRARY AND INFORMATION SCIENCES",
+    "programme_slug": "bachelor-of-library-and-information-sciences",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/subharti-university/courses/bachelor-of-library-and-information-sciences"
+  },
+  {
+    "university_name": "Swami Vivekanand Subharti University, Meerut",
+    "university_slug": "subharti-university",
+    "programme_name": "BACHELOR OF BUSINESS ADMINISTRATION",
+    "programme_slug": "bachelor-of-business-administration",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/subharti-university/courses/bachelor-of-business-administration"
+  },
+  {
+    "university_name": "Swami Vivekanand Subharti University, Meerut",
+    "university_slug": "subharti-university",
+    "programme_name": "BACHELOR OF COMMERCE",
+    "programme_slug": "bachelor-of-commerce",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/subharti-university/courses/bachelor-of-commerce"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Arts In English (MEG)",
+    "programme_slug": "master-of-arts-in-english-meg",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-arts-in-english-meg"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Arts In Hindi (MHD)",
+    "programme_slug": "master-of-arts-in-hindi-mhd",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-arts-in-hindi-mhd"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Arts In Sociology (MSO)",
+    "programme_slug": "master-of-arts-in-sociology-mso",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-arts-in-sociology-mso"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Arts In Gujarati (MGT)",
+    "programme_slug": "master-of-arts-in-gujarati-mgt",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-arts-in-gujarati-mgt"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Arts in Journalism and Mass Communication (MAJMC)",
+    "programme_slug": "master-of-arts-in-journalism-and-mass-communication-majmc",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-arts-in-journalism-and-mass-communication-majmc"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Arts Indian Knowledge System (MAIKS)",
+    "programme_slug": "master-of-arts-indian-knowledge-system-maiks",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-arts-indian-knowledge-system-maiks"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Arts Hindu Studies (MAHS)",
+    "programme_slug": "master-of-arts-hindu-studies-mahs",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-arts-hindu-studies-mahs"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Library and Information Science (MLIS)",
+    "programme_slug": "master-of-library-and-information-science-mlis",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-library-and-information-science-mlis"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master in Social Work (MSW)",
+    "programme_slug": "master-in-social-work-msw",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-in-social-work-msw"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Computer Application (MCA)",
+    "programme_slug": "master-of-computer-application-mca",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-computer-application-mca"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Master of Science - Information Technology (MSCIT)",
+    "programme_slug": "master-of-science-information-technology-mscit",
+    "level": "PG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/master-of-science-information-technology-mscit"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Bachelor of Computer Application (BCA)",
+    "programme_slug": "bachelor-of-computer-application-bca",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/bachelor-of-computer-application-bca"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Bachelor of Commerce (B.Com.Hons)",
+    "programme_slug": "bachelor-of-commerce-b-com-hons",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/bachelor-of-commerce-b-com-hons"
+  },
+  {
+    "university_name": "Dr. Babasaheb Ambedkar Open University",
+    "university_slug": "baou",
+    "programme_name": "Bachelor of Business Administration (BBA)",
+    "programme_slug": "bachelor-of-business-administration-bba",
+    "level": "UG",
+    "mode": "ODL",
+    "canonical_url": "/universities/baou/courses/bachelor-of-business-administration-bba"
+  },
+  {
+    "university_name": "JAIN Online / JAIN University",
+    "university_slug": "jain-online",
+    "programme_name": "Online Bachelor of Business Administration",
+    "programme_slug": "online-bachelor-of-business-administration",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/jain-online/courses/online-bachelor-of-business-administration"
+  },
+  {
+    "university_name": "JAIN Online / JAIN University",
+    "university_slug": "jain-online",
+    "programme_name": "Online Bachelor of Computer Applications",
+    "programme_slug": "online-bachelor-of-computer-applications",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/jain-online/courses/online-bachelor-of-computer-applications"
+  },
+  {
+    "university_name": "JAIN Online / JAIN University",
+    "university_slug": "jain-online",
+    "programme_name": "Online Bachelor of Commerce",
+    "programme_slug": "online-bachelor-of-commerce",
+    "level": "UG",
+    "mode": "Online",
+    "canonical_url": "/universities/jain-online/courses/online-bachelor-of-commerce"
+  },
+  {
+    "university_name": "JAIN Online / JAIN University",
+    "university_slug": "jain-online",
+    "programme_name": "Online Master of Business Administration",
+    "programme_slug": "online-master-of-business-administration",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/jain-online/courses/online-master-of-business-administration"
+  },
+  {
+    "university_name": "JAIN Online / JAIN University",
+    "university_slug": "jain-online",
+    "programme_name": "Online Master of Computer Applications",
+    "programme_slug": "online-master-of-computer-applications",
+    "level": "PG",
+    "mode": "Online",
+    "canonical_url": "/universities/jain-online/courses/online-master-of-computer-applications"
+  }
+]
