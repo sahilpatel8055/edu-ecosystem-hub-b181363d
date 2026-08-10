@@ -29,6 +29,7 @@ import lpuCampus from "@/campus/lpu.png";
 import amityCampus from "@/campus/amity.jpg";
 import ignouCampus from "@/campus/ignou.jpg";
 import duSolCampus from "@/campus/dusol.jpg";
+import manipalLogo from "@/logo/manipal.png";
 import manipalCampus from "@/campus/muj-campus.jpg";
 import smuCampus from "@/campus/smu-campus.jpg";
 import vguCampus from "@/campus/vgu.jpg";
@@ -54,14 +55,15 @@ const logos: Record<string, string> = {
   "jain-online": jainLogo,
   "du-sol": duSolLogo,
   "smu-online": smuLogo,
-  "cu-online": cuLogo,
+  "chandigarh-university-online": cuLogo,
   "dpu-online": dpuLogo,
-  "vgu-online": vguLogo,
+  vgu: vguLogo,
+  "manipal-university-jaipur": manipalLogo,
+  "subharti-university": bhartiLogo,
   "uttaranchal-online": uttaranchalLogo,
   "nmims-online": nmimsLogo,
   "upes-online": upesLogo,
   "symbiosis-online": symbiosisLogo,
-  "subharti-online": bhartiLogo,
   "shoolini-online": shooliniLogo,
   "gna-online": gnaLogo,
 };
@@ -72,9 +74,9 @@ const campuses: Record<string, string> = {
   "amity-online": amityCampus,
   ignou: ignouCampus,
   "du-sol": duSolCampus,
-  "manipal-online": manipalCampus,
+  "manipal-university-jaipur": manipalCampus,
   "smu-online": smuCampus,
-  "vgu-online": vguCampus,
+  vgu: vguCampus,
   "uttaranchal-online": uttaranchalCampus,
 };
 
