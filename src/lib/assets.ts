@@ -29,7 +29,6 @@ import lpuCampus from "@/campus/lpu.png";
 import amityCampus from "@/campus/amity.jpg";
 import ignouCampus from "@/campus/ignou.jpg";
 import duSolCampus from "@/campus/dusol.jpg";
-import manipalLogo from "@/logo/manipal.png";
 import manipalCampus from "@/campus/muj-campus.jpg";
 import smuCampus from "@/campus/smu-campus.jpg";
 import vguCampus from "@/campus/vgu.jpg";
@@ -58,7 +57,6 @@ const logos: Record<string, string> = {
   "chandigarh-university-online": cuLogo,
   "dpu-online": dpuLogo,
   vgu: vguLogo,
-  "manipal-university-jaipur": manipalLogo,
   "subharti-university": bhartiLogo,
   "uttaranchal-online": uttaranchalLogo,
   "nmims-online": nmimsLogo,
