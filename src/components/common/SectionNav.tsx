@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /**
  * Sticky in-page section navigation (pill chips), sits under the site header
- * on every detail page. Horizontally scrollable on mobile, scroll-spy active state.
+ * on every detail page. Horizontally scrollable on mobile, scroll-spy active
+ * state, and the active chip is auto-scrolled into view so later sections stay
+ * reachable while reading.
  */
 export function SectionNav({ sections }: { sections: string[] }) {
   const [active, setActive] = useState(() => slugify(sections[0] ?? ""));
+  const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const ids = sections.map(slugify);
@@ -30,19 +33,32 @@ export function SectionNav({ sections }: { sections: string[] }) {
     return () => observer.disconnect();
   }, [sections]);
 
+  // Keep the active chip visible inside the horizontal strip.
+  useEffect(() => {
+    const list = listRef.current;
+    const chip = list?.querySelector<HTMLElement>(`[data-chip="${active}"]`);
+    if (!list || !chip) return;
+    const target = chip.offsetLeft - list.clientWidth / 2 + chip.clientWidth / 2;
+    list.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+  }, [active]);
+
   return (
     <nav
       aria-label="Page sections"
       className="sticky top-16 z-30 border-y border-border bg-card/95 backdrop-blur lg:top-[4.5rem]"
     >
       <div className="container-page">
-        <ul className="-mx-1 flex gap-2 overflow-x-auto px-1 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <ul
+          ref={listRef}
+          className="-mx-1 flex gap-2 overflow-x-auto px-1 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {sections.map((s) => {
             const id = slugify(s);
             return (
               <li key={s}>
                 <a
                   href={`#${id}`}
+                  data-chip={id}
                   aria-current={active === id ? "true" : undefined}
                   className={cn(
                     "block whitespace-nowrap rounded-lg px-3.5 py-2 text-[0.82rem] font-bold transition-colors sm:text-sm",
