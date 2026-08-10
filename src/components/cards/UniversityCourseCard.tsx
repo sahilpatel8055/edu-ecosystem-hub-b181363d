@@ -11,11 +11,11 @@ import type { Offering } from "@/data";
 export function UniversityCourseCard({
   offering,
   universitySlug,
-  feeFallback,
+  feeFallback = "Fee pending verification",
 }: {
   offering: Offering;
   universitySlug: string;
-  feeFallback: string;
+  feeFallback?: string;
 }) {
   const programme = getProgramme(offering.programmeSlug);
   const name = programme?.name ?? offering.programmeSlug;
@@ -33,17 +33,19 @@ export function UniversityCourseCard({
         <div className="min-w-0">
           <h3 className="truncate font-display text-base font-bold">{name}</h3>
           <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
-            <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden="true" /> {offering.durationLabel}
+            <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden="true" /> {offering.durationLabel || "Duration not published"}
             {programme?.level ? ` · ${programme.level}` : ""}
           </p>
         </div>
       </div>
 
       <div className="mt-3 flex flex-wrap gap-1.5">
-        <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-2 py-1 text-[11px] font-semibold text-secondary-foreground">
-          <Layers className="h-3 w-3" aria-hidden="true" /> {offering.specialisations.length}{" "}
-          {offering.specialisations.length === 1 ? "specialisation" : "specialisations"}
-        </span>
+        {offering.specialisations.length > 0 && (
+          <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-2 py-1 text-[11px] font-semibold text-secondary-foreground">
+            <Layers className="h-3 w-3" aria-hidden="true" /> {offering.specialisations.length}{" "}
+            {offering.specialisations.length === 1 ? "specialisation" : "specialisations"}
+          </span>
+        )}
         {offering.admissionOpen && (
           <span className="rounded-md bg-success/15 px-2 py-1 text-[11px] font-semibold text-success">
             Admission open

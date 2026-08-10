@@ -27,7 +27,8 @@ import type {
   University,
 } from "@/lib/content";
 
-function Rating({ value, count }: { value: number; count?: number }) {
+function Rating({ value, count }: { value: number | undefined; count?: number | undefined }) {
+  if (value == null) return null;
   return (
     <span className="inline-flex items-center gap-1 text-sm font-semibold">
       <Star className="h-4 w-4 fill-highlight text-highlight" />
@@ -55,15 +56,15 @@ export function UniversityCard({ item }: { item: University }) {
       </div>
       <p className="mt-4 line-clamp-2 text-sm text-muted-foreground">{item.summary}</p>
       <div className="mt-4 flex flex-wrap gap-1.5">
-        {item.approvals.slice(0, 3).map((a) => (
+        {item.approvals.slice(0, 2).map((a) => (
           <Chip key={a} tone="brand">
-            {a}
+            <span className="line-clamp-1 max-w-[16rem]">{a}</span>
           </Chip>
         ))}
       </div>
-      <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
+      <div className="mt-5 flex items-center justify-between gap-3 border-t border-border pt-4">
         <Rating value={item.rating} count={item.reviews} />
-        <span className="text-sm font-semibold">{item.feeRange}</span>
+        <span className="ml-auto text-sm font-semibold">{item.feeRange}</span>
       </div>
     </AppLink>
   );

@@ -15,6 +15,18 @@ import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
 import { UniversityCourseCard } from "@/components/cards/UniversityCourseCard";
+import {
+  AdmissionSection,
+  RecognitionTable,
+  ScholarshipList,
+  SourceInformation,
+} from "@/components/university/DataSections";
+import {
+  admissionOf,
+  getUniversityBySlug,
+  scholarshipsOf,
+  sourcesForUniversity,
+} from "@/lib/universityData";
 
 import {
   approvalText,
@@ -131,6 +143,7 @@ function Page() {
   const profile = universityProfile(slug)!;
   const u = profile.record;
   const path = profile.path;
+  const json = getUniversityBySlug(slug);
 
   const faqs = [
     {
@@ -169,11 +182,8 @@ function Page() {
           "Overview",
           "Approvals & recognition",
           "Courses & fees",
-          "Eligibility",
           "Admission process",
-          "Placements & career scope",
           "Scholarships",
-          "Pros and cons",
           "FAQs",
           "Related links",
         ]}
@@ -210,7 +220,7 @@ function Page() {
         />
 
         <ContentSection title="Overview">
-          <p>{u.verdict}</p>
+          {u.verdict && <p>{u.verdict}</p>}
           <ul className="grid gap-2 sm:grid-cols-2">
             {u.highlights.map((h) => (
               <li key={h} className="rounded-lg bg-secondary px-3 py-2 text-sm text-foreground">
@@ -221,11 +231,15 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Approvals & recognition">
-          <DataTable
-            caption={`${u.shortName} approvals`}
-            head={["Body", "Status", "Validity"]}
-            rows={u.approvals.map((a) => [a.body, a.status, a.validity ?? "Current cycle"])}
-          />
+          {json ? (
+            <RecognitionTable university={json} />
+          ) : (
+            <DataTable
+              caption={`${u.shortName} approvals`}
+              head={["Body", "Status"]}
+              rows={u.approvals.map((a) => [a.body, a.status])}
+            />
+          )}
         </ContentSection>
 
         <ContentSection title="Courses & fees">
@@ -241,41 +255,21 @@ function Page() {
           </div>
         </ContentSection>
 
-        <ContentSection title="Eligibility">
-          <p>
-            Undergraduate programmes require a 10+2 pass from a recognised board. Postgraduate programmes require a
-            bachelor's degree, usually with the minimum aggregate set by the university. Programme-specific criteria
-            are listed on each course page.
-          </p>
-          <ul className="list-inside list-disc">
-            {u.documentsRequired.map((d) => (
-              <li key={d}>{d}</li>
-            ))}
-          </ul>
-        </ContentSection>
-
         <ContentSection title="Admission process">
-          <StepList steps={u.admissionProcess} />
-        </ContentSection>
-
-        <ContentSection title="Placements & career scope">
-          <p>
-            {u.shortName} offers placement assistance across its online programmes. Verified placement figures are
-            published only once confirmed from the university's official disclosure, so this section shows support
-            structure rather than unverified salary claims.
-          </p>
+          <AdmissionSection admissions={admissionOf(slug)} />
         </ContentSection>
 
         <ContentSection title="Scholarships">
-          <p>
-            Merit waivers, defence-category concessions and instalment plans are commonly available. Check the
-            scholarships hub for the current cycle's live schemes and deadlines.
-          </p>
+          <ScholarshipList items={scholarshipsOf(slug)} />
         </ContentSection>
 
-        <ContentSection title="Pros and cons">
-          <ProsCons pros={u.pros} cons={u.cons} />
-        </ContentSection>
+        {u.pros.length > 0 && u.cons.length > 0 && (
+          <ContentSection title="Pros and cons">
+            <ProsCons pros={u.pros} cons={u.cons} />
+          </ContentSection>
+        )}
+
+        {json && <SourceInformation sources={sourcesForUniversity(json)} />}
 
         <AuthorBox />
         <References

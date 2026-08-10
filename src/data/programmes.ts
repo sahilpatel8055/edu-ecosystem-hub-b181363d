@@ -1,181 +1,79 @@
-import type { Programme, Specialisation } from "./types";
+import type { Level, Mode, Programme, Specialisation } from "./types";
+import {
+  academicSession,
+  allProgrammePairs,
+  courseIndexByProgramme,
+  programmeFeeRangeLabel,
+  slugify,
+} from "@/lib/universityData";
 
-export const programmes: Programme[] = [
-  {
-    slug: "online-mba",
-    name: "Online MBA",
-    shortName: "MBA",
-    level: "PG",
-    durationYears: 2,
-    mode: ["Online"],
-    eligibility: "Bachelor's degree in any discipline with a minimum aggregate set by the university (typically 50%).",
-    summary: "The most demanded online postgraduate degree in India, with 20+ specialisation tracks.",
-    whoIsItFor: ["Working professionals targeting a managerial move", "Founders formalising business skills", "Career switchers"],
-    feeRangeLabel: "₹1.2L – ₹3.5L",
-    verified: false,
-  },
-  {
-    slug: "online-mca",
-    name: "Online MCA",
-    shortName: "MCA",
-    level: "PG",
-    durationYears: 2,
-    mode: ["Online"],
-    eligibility: "Bachelor's degree with mathematics/computer science at 10+2 or graduation level, as specified by the university.",
-    summary: "A computing postgraduate degree built for working software and IT professionals.",
-    whoIsItFor: ["Developers seeking a PG credential", "IT support staff moving into engineering", "BCA graduates"],
-    feeRangeLabel: "₹1.0L – ₹2.2L",
-    verified: false,
-  },
-  {
-    slug: "online-bba",
-    name: "Online BBA",
-    shortName: "BBA",
-    level: "UG",
-    durationYears: 3,
-    mode: ["Online"],
-    eligibility: "Passed 10+2 from a recognised board in any stream.",
-    summary: "An undergraduate management degree that pairs well with early-career work experience.",
-    whoIsItFor: ["Students working alongside study", "Family-business successors", "Aspiring managers"],
-    feeRangeLabel: "₹90K – ₹1.8L",
-    verified: false,
-  },
-  {
-    slug: "online-bca",
-    name: "Online BCA",
-    shortName: "BCA",
-    level: "UG",
-    durationYears: 3,
-    mode: ["Online"],
-    eligibility: "Passed 10+2 from a recognised board; some universities require mathematics.",
-    summary: "A programming-first undergraduate degree for aspiring developers and analysts.",
-    whoIsItFor: ["Self-taught coders wanting a degree", "Support engineers", "Students planning an MCA"],
-    feeRangeLabel: "₹85K – ₹1.6L",
-    verified: false,
-  },
-  {
-    slug: "online-bcom",
-    name: "Online B.Com",
-    shortName: "B.Com",
-    level: "UG",
-    durationYears: 3,
-    mode: ["Online", "Distance"],
-    eligibility: "Passed 10+2 from a recognised board.",
-    summary: "A commerce degree favoured by CA, CS and competitive-exam aspirants.",
-    whoIsItFor: ["CA/CS aspirants", "Accounts executives", "Exam aspirants needing a flexible degree"],
-    feeRangeLabel: "₹45K – ₹1.2L",
-    verified: false,
-  },
-  {
-    slug: "online-mcom",
-    name: "Online M.Com",
-    shortName: "M.Com",
-    level: "PG",
-    durationYears: 2,
-    mode: ["Online", "Distance"],
-    eligibility: "Bachelor's degree in commerce or an allied discipline.",
-    summary: "Advanced commerce specialisation for finance, audit and academia career paths.",
-    whoIsItFor: ["Finance professionals", "NET/JRF aspirants", "Audit and taxation staff"],
-    feeRangeLabel: "₹60K – ₹1.4L",
-    verified: false,
-  },
-];
+/**
+ * Derived view of the master JSON dataset: the union of every programme any
+ * university in the dataset offers. No programme facts are authored here.
+ */
 
-export const specialisations: Specialisation[] = [
-  {
-    slug: "finance",
-    name: "Finance",
-    programme: "online-mba",
-    summary: "Corporate finance, valuation, financial markets and risk — the highest-demand MBA track in India.",
-    careerPaths: ["Financial analyst", "Investment banking associate", "Corporate finance manager", "Credit analyst"],
-    coreSubjects: ["Corporate Finance", "Financial Markets", "Investment Analysis", "Risk Management"],
-  },
-  {
-    slug: "marketing",
-    name: "Marketing",
-    programme: "online-mba",
-    summary: "Brand, digital performance, consumer behaviour and go-to-market strategy.",
-    careerPaths: ["Brand manager", "Digital marketing manager", "Product marketer", "Growth lead"],
-    coreSubjects: ["Consumer Behaviour", "Digital Marketing", "Brand Management", "Sales & Distribution"],
-  },
-  {
-    slug: "human-resource-management",
-    name: "Human Resource Management",
-    programme: "online-mba",
-    summary: "Talent acquisition, performance systems, labour law and organisational development.",
-    careerPaths: ["HR business partner", "Talent acquisition lead", "L&D manager", "Compensation analyst"],
-    coreSubjects: ["Organisational Behaviour", "Talent Management", "Labour Law", "Compensation & Benefits"],
-  },
-  {
-    slug: "business-analytics",
-    name: "Business Analytics",
-    programme: "online-mba",
-    summary: "Data-led decision making with SQL, visualisation and predictive modelling for business problems.",
-    careerPaths: ["Business analyst", "Data analyst", "Analytics consultant", "Product analyst"],
-    coreSubjects: ["Statistics for Business", "Data Visualisation", "Predictive Analytics", "Decision Modelling"],
-  },
-  {
-    slug: "operations-management",
-    name: "Operations Management",
-    programme: "online-mba",
-    summary: "Supply chain, quality systems and process optimisation for manufacturing and services.",
-    careerPaths: ["Operations manager", "Supply chain analyst", "Quality manager", "Process consultant"],
-    coreSubjects: ["Supply Chain Management", "Operations Research", "Quality Management", "Project Management"],
-  },
-  {
-    slug: "data-science",
-    name: "Data Science",
-    programme: "online-mca",
-    summary: "Machine learning, statistics and large-scale data engineering foundations.",
-    careerPaths: ["Data scientist", "ML engineer", "Data engineer"],
-    coreSubjects: ["Machine Learning", "Python for Data Science", "Big Data Systems", "Statistics"],
-  },
-  {
-    slug: "cyber-security",
-    name: "Cyber Security",
-    programme: "online-mca",
-    summary: "Network defence, application security, cryptography and incident response.",
-    careerPaths: ["Security analyst", "SOC engineer", "Penetration tester"],
-    coreSubjects: ["Network Security", "Cryptography", "Ethical Hacking", "Digital Forensics"],
-  },
-  {
-    slug: "cloud-computing",
-    name: "Cloud Computing",
-    programme: "online-mca",
-    summary: "Cloud architecture, containers and DevOps practice across major providers.",
-    careerPaths: ["Cloud engineer", "DevOps engineer", "Solutions architect"],
-    coreSubjects: ["Cloud Architecture", "Virtualisation", "DevOps", "Distributed Systems"],
-  },
-  {
-    slug: "digital-business",
-    name: "Digital Business",
-    programme: "online-bba",
-    summary: "E-commerce, digital channels and platform business models for undergraduates.",
-    careerPaths: ["Digital executive", "E-commerce associate", "Growth associate"],
-    coreSubjects: ["E-Commerce", "Digital Marketing", "Business Analytics Basics", "Entrepreneurship"],
-  },
-  {
-    slug: "full-stack-development",
-    name: "Full Stack Development",
-    programme: "online-bca",
-    summary: "Front-end, back-end and database development with deployment fundamentals.",
-    careerPaths: ["Web developer", "Front-end developer", "Junior full stack engineer"],
-    coreSubjects: ["Web Technologies", "Databases", "Java/Python Programming", "Software Engineering"],
-  },
-  {
-    slug: "accounting-and-taxation",
-    name: "Accounting & Taxation",
-    programme: "online-bcom",
-    summary: "Financial accounting, direct and indirect taxation and compliance practice.",
-    careerPaths: ["Accountant", "Tax assistant", "Audit associate"],
-    coreSubjects: ["Financial Accounting", "Income Tax", "GST", "Auditing"],
-  },
-  {
-    slug: "international-business",
-    name: "International Business",
-    programme: "online-mcom",
-    summary: "Cross-border trade, forex and global commerce regulation.",
-    careerPaths: ["Trade analyst", "Export executive", "Finance associate"],
-    coreSubjects: ["International Trade", "Forex Management", "Global Marketing", "Trade Law"],
-  },
-];
+function toLevel(level: string): Level {
+  if (level === "UG" || level === "PG" || level === "Diploma" || level === "Certificate") return level;
+  return "Certificate";
+}
+
+function toModes(mode: string): Mode[] {
+  const m = mode.toLowerCase();
+  if (m === "both") return ["Online", "Distance"];
+  if (m === "distance" || m === "odl") return ["Distance"];
+  if (m === "hybrid") return ["Hybrid"];
+  return ["Online"];
+}
+
+function durationYears(duration: string | null): number {
+  const match = duration?.match(/(\d+(?:\.\d+)?)\s*year/i);
+  return match ? Number(match[1]) : 0;
+}
+
+const map = new Map<string, Programme>();
+const specMap = new Map<string, Specialisation>();
+
+for (const { programme } of allProgrammePairs()) {
+  const existing = map.get(programme.slug);
+  const providers = courseIndexByProgramme(programme.slug).length;
+  if (!existing) {
+    map.set(programme.slug, {
+      slug: programme.slug,
+      name: programme.programme_name,
+      shortName: programme.degree ?? programme.programme_name,
+      level: toLevel(String(programme.level)),
+      durationYears: durationYears(programme.duration),
+      mode: toModes(programme.mode),
+      eligibility: programme.eligibility.summary ?? "",
+      summary: `${programme.programme_name} is listed by ${providers} universit${
+        providers === 1 ? "y" : "ies"
+      } in the ${academicSession} dataset.`,
+      whoIsItFor: [],
+      feeRangeLabel: programmeFeeRangeLabel(programme.slug),
+      verified: (programme.data_status ?? "").startsWith("verified_official"),
+    });
+  } else {
+    // Merge modes and fill an eligibility summary if the first record lacked one.
+    for (const m of toModes(programme.mode)) if (!existing.mode.includes(m)) existing.mode.push(m);
+    if (!existing.eligibility && programme.eligibility.summary) existing.eligibility = programme.eligibility.summary;
+    if (!existing.durationYears) existing.durationYears = durationYears(programme.duration);
+  }
+
+  for (const s of programme.specializations) {
+    const slug = slugify(s.specialisation_name);
+    const key = `${programme.slug}::${slug}`;
+    if (!specMap.has(key)) {
+      specMap.set(key, {
+        slug,
+        name: s.official_name ?? s.specialisation_name,
+        programme: programme.slug,
+        summary: "",
+        careerPaths: [],
+        coreSubjects: [],
+      });
+    }
+  }
+}
+
+export const programmes: Programme[] = [...map.values()];
+export const specialisations: Specialisation[] = [...specMap.values()];

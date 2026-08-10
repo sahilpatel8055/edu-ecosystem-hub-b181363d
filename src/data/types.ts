@@ -51,19 +51,20 @@ export interface University {
   city: string;
   state: string;
   establishedYear?: number;
-  type: "Private" | "State" | "Central" | "Deemed" | "Open";
+  /** Only set when the dataset publishes it — never inferred. */
+  type?: "Private" | "State" | "Central" | "Deemed" | "Open";
   modes: Mode[];
   approvals: Approval[];
-  /** 0–5, computed from reviews once you have them. */
-  rating: number;
-  reviewCount: number;
+  /** 0–5, only present once real reviews exist. */
+  rating?: number;
+  reviewCount?: number;
   feeRangeLabel: string;
   summary: string;
   highlights: string[];
   pros: string[];
   cons: string[];
-  /** One-paragraph editorial verdict shown near the top of the page. */
-  verdict: string;
+  /** One-paragraph editorial verdict — omitted when not written yet. */
+  verdict?: string;
   admissionProcess: string[];
   documentsRequired: string[];
   examPattern?: string;
@@ -110,7 +111,8 @@ export interface Offering {
   fee: FeeBreakdown;
   placement?: PlacementData;
   approvalNote?: string;
-  admissionOpen: boolean;
+  /** Only set when the dataset publishes an application status. */
+  admissionOpen?: boolean;
   nextSessionLabel?: string;
   verified: boolean;
   lastUpdated: string;

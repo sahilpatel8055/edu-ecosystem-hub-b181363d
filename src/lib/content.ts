@@ -3,6 +3,15 @@
  * CMS / database later only means replacing the getters below.
  */
 
+import { programmes as programmeRecords, specialisations as specialisationRecords } from "@/data";
+import {
+  academicSession,
+  allUniversities,
+  courseIndexByProgramme,
+  feeRangeLabel,
+  recognitionLabels,
+} from "@/lib/universityData";
+
 export interface University {
   slug: string;
   name: string;
@@ -10,8 +19,8 @@ export interface University {
   location: string;
   mode: "Online" | "Distance" | "Hybrid";
   approvals: string[];
-  rating: number;
-  reviews: number;
+  rating?: number;
+  reviews?: number;
   feeRange: string;
   courses: number;
   summary: string;
@@ -111,164 +120,39 @@ export interface Tool {
   status: "Live" | "Beta" | "Coming soon";
 }
 
-export const universities: University[] = [
-  {
-    slug: "lpu-online",
-    name: "Lovely Professional University Online",
-    shortName: "LPU Online",
-    location: "Phagwara, Punjab",
-    mode: "Online",
-    approvals: ["UGC Entitled", "NAAC A++", "AICTE"],
-    rating: 4.5,
-    reviews: 1284,
-    feeRange: "₹1.6L – ₹2.0L",
-    courses: 18,
-    summary:
-      "UGC-entitled online degrees with strong placement support and a fully digital learning management system.",
-    highlights: ["Flexible EMI", "Recorded + live classes", "Placement assistance"],
-  },
-  {
-    slug: "amity-online",
-    name: "Amity University Online",
-    shortName: "Amity Online",
-    location: "Noida, Uttar Pradesh",
-    mode: "Online",
-    approvals: ["UGC Entitled", "NAAC A+", "WES Recognised"],
-    rating: 4.4,
-    reviews: 1106,
-    feeRange: "₹1.8L – ₹2.4L",
-    courses: 22,
-    summary:
-      "One of India's most recognised online universities, with international credential evaluation and industry electives.",
-    highlights: ["WES recognised", "Global alumni", "Industry electives"],
-  },
-  {
-    slug: "du-sol",
-    name: "University of Delhi – School of Open Learning",
-    shortName: "DU SOL",
-    location: "New Delhi",
-    mode: "Distance",
-    approvals: ["UGC-DEB", "NAAC A+"],
-    rating: 4.2,
-    reviews: 2310,
-    feeRange: "₹9K – ₹25K",
-    courses: 12,
-    summary:
-      "Affordable Delhi University degrees through open learning, ideal for working students and competitive-exam aspirants.",
-    highlights: ["Lowest fee", "DU degree", "PCP support"],
-  },
-  {
-    slug: "manipal-online",
-    name: "Manipal University Jaipur Online",
-    shortName: "Manipal Online",
-    location: "Jaipur, Rajasthan",
-    mode: "Online",
-    approvals: ["UGC Entitled", "NAAC A+"],
-    rating: 4.3,
-    reviews: 874,
-    feeRange: "₹1.5L – ₹1.8L",
-    courses: 14,
-    summary: "Strong tech and management portfolio with a well-rated digital campus experience.",
-    highlights: ["Tech electives", "Alumni network", "Scholarships"],
-  },
-  {
-    slug: "ignou",
-    name: "Indira Gandhi National Open University",
-    shortName: "IGNOU",
-    location: "New Delhi",
-    mode: "Distance",
-    approvals: ["UGC-DEB", "NAAC A++"],
-    rating: 4.1,
-    reviews: 3120,
-    feeRange: "₹7K – ₹62K",
-    courses: 30,
-    summary: "India's largest open university with the widest programme catalogue and nationwide study centres.",
-    highlights: ["Widest catalogue", "Nationwide centres", "Very low fee"],
-  },
-  {
-    slug: "jain-online",
-    name: "Jain University Online",
-    shortName: "Jain Online",
-    location: "Bengaluru, Karnataka",
-    mode: "Online",
-    approvals: ["UGC Entitled", "NAAC A++"],
-    rating: 4.2,
-    reviews: 640,
-    feeRange: "₹1.4L – ₹2.0L",
-    courses: 16,
-    summary: "Bengaluru-based online university with strong specialisation depth in business and analytics.",
-    highlights: ["Analytics tracks", "Live mentoring", "Career cell"],
-  },
-];
+/**
+ * Universities and courses are derived from the master JSON dataset — the
+ * single source of truth. Nothing about a university is authored here.
+ */
+export const universities: University[] = allUniversities().map((u) => ({
+  slug: u.slug,
+  name: u.university_name,
+  shortName: u.short_name,
+  location: u.basic_information.location ?? u.basic_information.state ?? "",
+  mode: (u.mode === "Distance" || u.mode === "ODL" ? "Distance" : u.mode === "Both" ? "Hybrid" : "Online") as University["mode"],
+  approvals: recognitionLabels(u),
+  feeRange: feeRangeLabel(u.slug),
+  courses: u.programmes.length,
+  summary:
+    u.notes[0] ??
+    `${u.university_name} lists ${u.programmes.length} ${u.mode.toLowerCase()} programme${u.programmes.length === 1 ? "" : "s"} for the ${academicSession} session.`,
+  highlights: recognitionLabels(u).slice(0, 3),
+}));
 
-export const courses: Course[] = [
-  {
-    slug: "online-mba",
-    name: "Online MBA",
-    level: "PG",
-    duration: "2 years",
-    feeRange: "₹1.2L – ₹3.5L",
-    mode: "Online",
-    universities: 38,
-    summary: "The most demanded online postgraduate degree in India, with 20+ specialisation tracks.",
-    specialisations: ["Finance", "Marketing", "HR", "Business Analytics", "Operations"],
-  },
-  {
-    slug: "online-mca",
-    name: "Online MCA",
-    level: "PG",
-    duration: "2 years",
-    feeRange: "₹1.0L – ₹2.2L",
-    mode: "Online",
-    universities: 24,
-    summary: "A computing postgraduate degree built for working software and IT professionals.",
-    specialisations: ["Data Science", "Cloud Computing", "Cyber Security", "AI/ML"],
-  },
-  {
-    slug: "online-bba",
-    name: "Online BBA",
-    level: "UG",
-    duration: "3 years",
-    feeRange: "₹90K – ₹1.8L",
-    mode: "Online",
-    universities: 29,
-    summary: "An undergraduate management degree that pairs well with early-career work experience.",
-    specialisations: ["Marketing", "Finance", "Entrepreneurship", "Digital Business"],
-  },
-  {
-    slug: "online-bca",
-    name: "Online BCA",
-    level: "UG",
-    duration: "3 years",
-    feeRange: "₹85K – ₹1.6L",
-    mode: "Online",
-    universities: 21,
-    summary: "A programming-first undergraduate degree for aspiring developers and analysts.",
-    specialisations: ["Full Stack", "Data Analytics", "Cloud", "Cyber Security"],
-  },
-  {
-    slug: "online-bcom",
-    name: "Online B.Com",
-    level: "UG",
-    duration: "3 years",
-    feeRange: "₹45K – ₹1.2L",
-    mode: "Online",
-    universities: 26,
-    summary: "A commerce degree favoured by CA, CS and competitive-exam aspirants.",
-    specialisations: ["Accounting", "Taxation", "Banking", "FinTech"],
-  },
-  {
-    slug: "online-mcom",
-    name: "Online M.Com",
-    level: "PG",
-    duration: "2 years",
-    feeRange: "₹60K – ₹1.4L",
-    mode: "Online",
-    universities: 18,
-    summary: "Advanced commerce specialisation for finance, audit and academia career paths.",
-    specialisations: ["Accounting & Finance", "International Business", "Taxation"],
-  },
-];
+export const courses: Course[] = programmeRecords.map((p) => ({
+  slug: p.slug,
+  name: p.name,
+  level: p.level,
+  duration: p.durationYears ? `${p.durationYears} years` : "",
+  feeRange: p.feeRangeLabel,
+  mode: p.mode.join(" / "),
+  universities: courseIndexByProgramme(p.slug).length,
+  summary: p.summary,
+  specialisations: specialisationRecords
+    .filter((s) => s.programme === p.slug)
+    .map((s) => s.name)
+    .slice(0, 6),
+}));
 
 export const articles: Article[] = [
   {
