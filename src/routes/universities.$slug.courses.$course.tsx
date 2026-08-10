@@ -316,7 +316,6 @@ function Page() {
         <AuthorBox />
         <References
           items={[
-            { label: `${u.name} official website`, href: u.websiteUrl },
             { label: "UGC-DEB entitled programme list", href: "https://deb.ugc.ac.in/" },
           ]}
         />

@@ -20,7 +20,7 @@ const groups: Group[] = [
 ];
 
 function CourseTile({ item }: { item: Course }) {
-  const Icon = courseIcon(item.name, item.slug);
+  const Icon = courseIcon(item.name, item.shortName);
   return (
     <article className="flex flex-col justify-between rounded-2xl bg-card p-3 text-card-foreground shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
       <div className="flex items-start gap-2.5">
@@ -28,7 +28,7 @@ function CourseTile({ item }: { item: Course }) {
           <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" aria-hidden="true" />
         </span>
         <div className="min-w-0">
-          <h3 className="truncate text-sm font-bold leading-tight text-card-foreground sm:text-base">{item.name}</h3>
+          <h3 className="truncate text-sm font-bold leading-tight text-card-foreground sm:text-base">{item.displayName}</h3>
           <p className="mt-0.5 flex items-center gap-1 text-[11px] text-muted-foreground sm:text-xs">
             <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
             {item.duration}

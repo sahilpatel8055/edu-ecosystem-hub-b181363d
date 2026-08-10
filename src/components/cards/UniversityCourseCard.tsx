@@ -2,6 +2,7 @@ import { Clock, IndianRupee, Layers } from "lucide-react";
 import { AppLink } from "@/components/common/AppLink";
 import { courseIcon } from "@/lib/course-icons";
 import { getProgramme } from "@/data";
+import { getCourse } from "@/lib/content";
 import type { Offering } from "@/data";
 
 /**
@@ -18,8 +19,10 @@ export function UniversityCourseCard({
   feeFallback?: string;
 }) {
   const programme = getProgramme(offering.programmeSlug);
-  const name = programme?.name ?? offering.programmeSlug;
-  const Icon = courseIcon(name, programme?.shortName);
+  const fullName = programme?.name ?? offering.programmeSlug;
+  const name = getCourse(offering.programmeSlug)?.displayName ?? fullName;
+  const Icon = courseIcon(fullName, programme?.shortName);
+
 
   return (
     <AppLink

@@ -77,7 +77,8 @@ export function CourseCard({ item }: { item: Course }) {
         <Chip tone="brand">{item.level}</Chip>
         <span className="text-xs text-muted-foreground">{item.universities} universities</span>
       </div>
-      <h3 className="mt-4 font-display text-lg font-bold">{item.name}</h3>
+      <h3 className="mt-4 font-display text-lg font-bold">{item.displayName}</h3>
+      <p className="mt-1 text-xs text-muted-foreground">{item.name}</p>
       <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{item.summary}</p>
       <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 text-sm">
         <div>

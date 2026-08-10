@@ -320,12 +320,20 @@ export function RecognitionTable({ university }: { university: UniversityRecordJ
 /* --------------------------------- sources -------------------------------- */
 
 export function SourceInformation({ sources }: { sources: SourceEntry[] }) {
-  if (!sources.length) return null;
+  // Aggregator pages and bare university-website links are not cited as sources.
+  const visible = sources.filter(
+    (s) =>
+      !/collegevidya/i.test(s.source_url) &&
+      !/official\s*website|university\s*website/i.test(s.source_title) &&
+      s.source_type !== "official_website" &&
+      s.source_type !== "official_programme_page",
+  );
+  if (!visible.length) return null;
   return (
     <section id="sources" className="scroll-mt-36 rounded-2xl border border-border bg-card p-4">
       <h2 className="text-base font-bold">Official sources</h2>
       <ul className="mt-3 space-y-2 text-sm">
-        {sources.map((s, i) => (
+        {visible.map((s, i) => (
           <li key={`${s.source_url}-${i}`} className="flex flex-wrap items-center gap-2">
             <a
               href={s.source_url}

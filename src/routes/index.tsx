@@ -25,7 +25,7 @@ import {
   articles,
   careerGuides,
   comparisons,
-  courses,
+  courseFamilies,
   homeFaqs,
   news,
   reviews,
@@ -137,7 +137,7 @@ function HomePage() {
         <h2 className="mb-6 font-display text-3xl font-extrabold sm:text-4xl">
           Top <span className="text-shine">Online Programs</span>
         </h2>
-        <ProgramFinder items={courses} />
+        <ProgramFinder items={courseFamilies} />
       </Section>
 
       {/* Admission updates + latest news */}

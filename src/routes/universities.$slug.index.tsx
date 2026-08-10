@@ -14,7 +14,7 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
-import { UniversityCourseCard } from "@/components/cards/UniversityCourseCard";
+import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
 import {
   AdmissionSection,
   RecognitionTable,
@@ -253,17 +253,13 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Courses & fees">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {profile.offerings.map((o) => (
-              <UniversityCourseCard
-                key={o.id}
-                offering={o}
-                universitySlug={u.slug}
-                feeFallback={u.feeRangeLabel}
-              />
-            ))}
-          </div>
+          <CourseLevelTabs
+            offerings={profile.offerings}
+            universitySlug={u.slug}
+            feeFallback={u.feeRangeLabel}
+          />
         </ContentSection>
+
 
         <ContentSection title="Admission process">
           <div className="space-y-5">
@@ -306,7 +302,6 @@ function Page() {
         <AuthorBox />
         <References
           items={[
-            { label: `${u.name} official website`, href: u.websiteUrl },
             { label: "UGC-DEB entitled institutions list", href: "https://deb.ugc.ac.in/" },
             { label: "NAAC accreditation status", href: "https://www.naac.gov.in/" },
           ]}

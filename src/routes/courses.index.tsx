@@ -3,7 +3,7 @@ import { PageShell } from "@/components/templates/PageShell";
 import { CTASection } from "@/components/common/Primitives";
 import { CourseExplorer } from "@/components/common/Filters";
 import { RelatedLinkGrid } from "@/components/common/Blocks";
-import { courses } from "@/lib/content";
+import { courseFamilies } from "@/lib/content";
 import { articleLinks, comparisonLinks, scholarshipLinks, universityLinks } from "@/lib/entities";
 import {
   breadcrumbSchema,
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/courses/")({
       jsonLd(webPageSchema({ name: title, description, path })),
       jsonLd(
         itemListSchema(
-          courses.map((c) => ({ name: c.name, href: `/courses/${c.slug}` })),
+          courseFamilies.map((c) => ({ name: c.displayName, href: `/courses/${c.slug}` })),
           "Online degree programmes",
         ),
       ),
@@ -52,7 +52,7 @@ function Page() {
       title="Online Degree Courses & Programmes"
       description={description}
     >
-      <CourseExplorer items={courses} />
+      <CourseExplorer items={courseFamilies} />
       <div className="mt-12">
         <RelatedLinkGrid
           groups={[
