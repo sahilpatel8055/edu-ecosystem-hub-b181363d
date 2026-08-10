@@ -60,7 +60,7 @@ export function UniversitySectionPage({ slug, section }: { slug: string; section
         hideLeadForm={false}
         sidebarExtras={
           <>
-            <LinkCluster title={`${u.shortName} programmes`} links={offeringLinks(u.slug, 8)} />
+            <LinkCluster title={`${u.shortName} programmes`} links={offeringLinks(u.slug)} />
             <LinkCluster title="Compare with" links={comparisonLinks(u.slug, 5)} />
           </>
         }
