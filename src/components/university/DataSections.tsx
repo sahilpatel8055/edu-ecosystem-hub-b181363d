@@ -1,6 +1,7 @@
 import { BadgeCheck, ExternalLink, Info } from "lucide-react";
 import { DataTable, StepList } from "@/components/common/Blocks";
 import { Chip } from "@/components/common/Primitives";
+import { SpecialisationBoxes } from "@/components/common/BoxMarquee";
 import {
   formatFee,
   isVerifiedFee,
@@ -136,24 +137,12 @@ export function SpecialisationTable({ programme }: { programme: ProgrammeRecord 
     return <EmptyNote>The university has not published specialisations for this programme.</EmptyNote>;
   }
   return (
-    <DataTable
-      caption={`${programme.programme_name} specialisations`}
-      head={["Specialisation", "Official source"]}
-      rows={programme.specializations.map((s) => [
-        s.official_name ?? s.specialisation_name,
-        s.official_source_url ? (
-          <a
-            href={s.official_source_url}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="font-semibold text-brand hover:underline"
-          >
-            Official page
-          </a>
-        ) : (
-          "—"
-        ),
-      ])}
+    <SpecialisationBoxes
+      scrolling
+      label={`${programme.programme_name} specialisations`}
+      items={programme.specializations.map((s) => ({
+        name: s.official_name ?? s.specialisation_name,
+      }))}
     />
   );
 }
