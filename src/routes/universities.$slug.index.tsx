@@ -28,6 +28,8 @@ import {
   RelatedPageLinks,
   ScholarshipInsightSection,
 } from "@/components/university/InsightSections";
+import { FeeStructureTable } from "@/components/university/FeeStructureTable";
+import { SampleDegreeSection } from "@/components/university/SampleDegreeSection";
 import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
 import {
   admissionOf,
@@ -190,6 +192,8 @@ function Page() {
           "Overview",
           "Approvals & recognition",
           "Courses & fees",
+          "Fee structure",
+          "Sample degree",
           "Admission process",
           "Examination pattern",
           "Placement & career",
@@ -260,6 +264,14 @@ function Page() {
           />
         </ContentSection>
 
+
+        <ContentSection title="Fee structure">
+          <FeeStructureTable universitySlug={slug} universityShort={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Sample degree">
+          <SampleDegreeSection universityName={u.name} universitySlug={slug} />
+        </ContentSection>
 
         <ContentSection title="Admission process">
           <div className="space-y-5">
