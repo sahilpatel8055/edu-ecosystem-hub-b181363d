@@ -5,13 +5,15 @@
  * other course) is hardcoded, so the same components render MCA, BBA, BCA,
  * M.Com, MA and specialisation pages.
  */
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   ArrowRight,
   Check,
+  ChevronDown,
   GraduationCap,
   IndianRupee,
   Minus,
+  Sparkles,
   ShieldCheck,
   X,
 } from "lucide-react";
