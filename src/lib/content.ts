@@ -204,8 +204,19 @@ export const courseFamilies: Course[] = (() => {
       existing.feeRange = c.feeRange || existing.feeRange;
     }
   }
-  return [...map.values()].sort((a, b) => b.universities - a.universities);
+  return [...map.values()].sort(
+    (a, b) => familyRank(a) - familyRank(b) || b.universities - a.universities,
+  );
 })();
+
+/** Editorial ordering: MBA, MCA, MCom, MA first for PG; BBA, BCA, BCom, BA for UG. */
+const preferredOrder = ["MBA", "MCA", "MCOM", "MA", "BBA", "BCA", "BCOM", "BA"];
+
+function familyRank(c: Course): number {
+  const key = normaliseDegree(courseAbbrev(c.shortName, c.name));
+  const i = preferredOrder.indexOf(key);
+  return i === -1 ? preferredOrder.length : i;
+}
 
 export const articles: Article[] = [
   {
