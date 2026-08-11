@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Check, Plus, X } from "lucide-react";
+import { Check, Plus } from "lucide-react";
 import { AppLink } from "@/components/common/AppLink";
 import { NOT_SPECIFIED, fee } from "@/components/course/CourseSections";
 import type { CourseFamily, FamilyOffer } from "@/lib/courseFamily";
