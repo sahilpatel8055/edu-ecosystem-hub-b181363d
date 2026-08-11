@@ -9,7 +9,9 @@ import type { CourseFamily, FamilyOffer } from "@/lib/courseFamily";
  * universities and the table/cards render whatever the dataset publishes.
  */
 export function CompareUniversities({ family }: { family: CourseFamily }) {
-  const [selected, setSelected] = useState<string[]>(() => family.offers.slice(0, 3).map((o) => o.key));
+  const [selected, setSelected] = useState<string[]>(() =>
+    family.offers.slice(0, 3).map((o) => o.key),
+  );
 
   const chosen = useMemo(
     () => family.offers.filter((o) => selected.includes(o.key)),
@@ -17,7 +19,9 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
   );
 
   const toggle = (key: string) =>
-    setSelected((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key].slice(-4)));
+    setSelected((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key].slice(-4),
+    );
 
   const rows: { label: string; value: (o: FamilyOffer) => string }[] = [
     { label: "Duration", value: (o) => o.duration ?? NOT_SPECIFIED },
@@ -28,9 +32,15 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
     { label: "UGC-DEB", value: (o) => o.debStatus ?? NOT_SPECIFIED },
     { label: "NAAC", value: (o) => o.naac ?? NOT_SPECIFIED },
     { label: "Ranking", value: (o) => o.nirf ?? NOT_SPECIFIED },
-    { label: "Specialisations", value: (o) => (o.specialisations.length ? String(o.specialisations.length) : NOT_SPECIFIED) },
+    {
+      label: "Specialisations",
+      value: (o) => (o.specialisations.length ? String(o.specialisations.length) : NOT_SPECIFIED),
+    },
     { label: "Learning mode", value: (o) => o.mode },
-    { label: "Scholarships", value: (o) => (o.scholarships.length ? o.scholarships.slice(0, 2).join(", ") : NOT_SPECIFIED) },
+    {
+      label: "Scholarships",
+      value: (o) => (o.scholarships.length ? o.scholarships.slice(0, 2).join(", ") : NOT_SPECIFIED),
+    },
     { label: "Eligibility", value: (o) => o.eligibility ?? NOT_SPECIFIED },
     { label: "Entrance", value: (o) => o.entranceExam ?? "Not published" },
     { label: "Application fee", value: (o) => fee(o.fees.application) },
@@ -49,10 +59,16 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
                 onClick={() => toggle(o.key)}
                 aria-pressed={active}
                 className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-[0.78rem] font-semibold transition-colors ${
-                  active ? "bg-brand text-brand-foreground" : "bg-secondary text-brand hover:bg-brand-soft"
+                  active
+                    ? "bg-brand text-brand-foreground"
+                    : "bg-secondary text-brand hover:bg-brand-soft"
                 }`}
               >
-                {active ? <Check className="h-3.5 w-3.5" aria-hidden="true" /> : <Plus className="h-3.5 w-3.5" aria-hidden="true" />}
+                {active ? (
+                  <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                ) : (
+                  <Plus className="h-3.5 w-3.5" aria-hidden="true" />
+                )}
                 {o.universityShortName}
               </button>
             </li>
@@ -60,7 +76,8 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
         })}
       </ul>
       <p className="mt-2 text-[0.75rem] text-muted-foreground">
-        Select up to four universities. Fields the university has not published are marked “{NOT_SPECIFIED}”.
+        Select up to four universities. Fields the university has not published are marked “
+        {NOT_SPECIFIED}”.
       </p>
 
       {chosen.length === 0 ? (
@@ -75,11 +92,18 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
               <caption className="sr-only">{family.name} university comparison</caption>
               <thead>
                 <tr className="bg-brand text-brand-foreground">
-                  <th scope="col" className="sticky left-0 z-10 bg-brand px-2.5 py-2.5 text-[0.66rem] font-semibold uppercase tracking-wide sm:px-4 sm:py-3 sm:text-[0.75rem]">
+                  <th
+                    scope="col"
+                    className="sticky left-0 z-10 bg-brand px-2.5 py-2.5 text-[0.66rem] font-semibold uppercase tracking-wide sm:px-4 sm:py-3 sm:text-[0.75rem]"
+                  >
                     Parameter
                   </th>
                   {chosen.map((o) => (
-                    <th key={o.key} scope="col" className="px-2.5 py-2.5 text-[0.7rem] font-semibold sm:px-4 sm:py-3 sm:text-[0.8rem]">
+                    <th
+                      key={o.key}
+                      scope="col"
+                      className="px-2.5 py-2.5 text-[0.7rem] font-semibold sm:px-4 sm:py-3 sm:text-[0.8rem]"
+                    >
                       {o.universityShortName}
                     </th>
                   ))}
@@ -88,23 +112,35 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
               <tbody className="divide-y divide-border">
                 {rows.map((r) => (
                   <tr key={r.label} className="align-top even:bg-secondary/40">
-                    <th scope="row" className="sticky left-0 z-10 bg-card px-2.5 py-2.5 text-[0.7rem] font-semibold text-foreground sm:px-4 sm:py-3 sm:text-[0.8rem]">
+                    <th
+                      scope="row"
+                      className="sticky left-0 z-10 bg-card px-2.5 py-2.5 text-[0.7rem] font-semibold text-foreground sm:px-4 sm:py-3 sm:text-[0.8rem]"
+                    >
                       {r.label}
                     </th>
                     {chosen.map((o) => (
-                      <td key={o.key} className="px-2.5 py-2.5 text-[0.74rem] leading-snug text-muted-foreground sm:px-4 sm:py-3 sm:text-[0.84rem]">
+                      <td
+                        key={o.key}
+                        className="px-2.5 py-2.5 text-[0.74rem] leading-snug text-muted-foreground sm:px-4 sm:py-3 sm:text-[0.84rem]"
+                      >
                         {r.value(o)}
                       </td>
                     ))}
                   </tr>
                 ))}
                 <tr>
-                  <th scope="row" className="sticky left-0 z-10 bg-card px-2.5 py-2.5 text-[0.7rem] font-semibold sm:px-4 sm:py-3 sm:text-[0.8rem]">
+                  <th
+                    scope="row"
+                    className="sticky left-0 z-10 bg-card px-2.5 py-2.5 text-[0.7rem] font-semibold sm:px-4 sm:py-3 sm:text-[0.8rem]"
+                  >
                     Course page
                   </th>
                   {chosen.map((o) => (
                     <td key={o.key} className="px-2.5 py-2.5 sm:px-4 sm:py-3">
-                      <AppLink to={o.path} className="text-[0.74rem] font-semibold text-brand hover:underline sm:text-[0.82rem]">
+                      <AppLink
+                        to={o.path}
+                        className="text-[0.74rem] font-semibold text-brand hover:underline sm:text-[0.82rem]"
+                      >
                         View details
                       </AppLink>
                     </td>
@@ -113,7 +149,9 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
               </tbody>
             </table>
           </div>
-          <p className="mt-2 text-[0.72rem] text-muted-foreground sm:hidden">Swipe the table sideways to see all columns.</p>
+          <p className="mt-2 text-[0.72rem] text-muted-foreground sm:hidden">
+            Swipe the table sideways to see all columns.
+          </p>
         </>
       )}
     </div>

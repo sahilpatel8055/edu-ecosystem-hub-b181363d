@@ -94,14 +94,24 @@ export function CoursePageTemplate({
           <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-brand">
             {family.level === "PG" ? "Postgraduate" : "Undergraduate"} · {family.degreeName}
           </p>
-          <h1 className="mt-2 max-w-4xl font-display text-[1.6rem] font-bold leading-tight sm:text-4xl">{h1}</h1>
-          <p className="mt-3 max-w-2xl text-[0.92rem] leading-relaxed text-muted-foreground">{content.intro}</p>
+          <h1 className="mt-2 max-w-4xl font-display text-[1.6rem] font-bold leading-tight sm:text-4xl">
+            {h1}
+          </h1>
+          <p className="mt-3 max-w-2xl text-[0.92rem] leading-relaxed text-muted-foreground">
+            {content.intro}
+          </p>
 
           <div className="mt-5 flex flex-wrap gap-2.5">
-            <a href="#compare-universities" className="rounded-lg bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground">
+            <a
+              href="#compare-universities"
+              className="rounded-lg bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground"
+            >
               Compare universities
             </a>
-            <AppLink to="/contact" className="rounded-lg border border-brand/30 bg-card px-5 py-2.5 text-sm font-bold text-brand">
+            <AppLink
+              to="/contact"
+              className="rounded-lg border border-brand/30 bg-card px-5 py-2.5 text-sm font-bold text-brand"
+            >
               Get free counselling
             </AppLink>
           </div>
@@ -111,9 +121,17 @@ export function CoursePageTemplate({
               items={[
                 { label: "Duration", value: family.durationLabel },
                 { label: "Mode", value: "100% Online" },
-                { label: "Eligibility", value: family.level === "PG" ? "Bachelor's degree" : "10+2 or equivalent" },
+                {
+                  label: "Eligibility",
+                  value: family.level === "PG" ? "Bachelor's degree" : "10+2 or equivalent",
+                },
                 { label: "Fee range", value: family.feeRangeLabel },
-                { label: "Specialisations", value: family.specialisations.length ? `${family.specialisations.length} tracked` : "University dependent" },
+                {
+                  label: "Specialisations",
+                  value: family.specialisations.length
+                    ? `${family.specialisations.length} tracked`
+                    : "University dependent",
+                },
                 { label: "Learning", value: "Live + recorded" },
               ]}
             />
@@ -129,17 +147,45 @@ export function CoursePageTemplate({
             <GlanceTable
               rows={[
                 { parameter: "Course", detail: family.name },
-                { parameter: "Level", detail: family.level === "PG" ? "Postgraduate" : "Undergraduate" },
+                {
+                  parameter: "Level",
+                  detail: family.level === "PG" ? "Postgraduate" : "Undergraduate",
+                },
                 { parameter: "Duration", detail: family.durationLabel },
-                { parameter: "Semesters", detail: family.semesters ? String(family.semesters) : "University dependent" },
+                {
+                  parameter: "Semesters",
+                  detail: family.semesters ? String(family.semesters) : "University dependent",
+                },
                 { parameter: "Mode", detail: "Online" },
-                { parameter: "Eligibility", detail: family.level === "PG" ? "Bachelor's degree from a recognised institution" : "10+2 or equivalent" },
-                { parameter: "Entrance exam", detail: family.entranceUniversities.length ? "University dependent" : "Not published by the universities tracked here" },
+                {
+                  parameter: "Eligibility",
+                  detail:
+                    family.level === "PG"
+                      ? "Bachelor's degree from a recognised institution"
+                      : "10+2 or equivalent",
+                },
+                {
+                  parameter: "Entrance exam",
+                  detail: family.entranceUniversities.length
+                    ? "University dependent"
+                    : "Not published by the universities tracked here",
+                },
                 { parameter: "Fee range", detail: family.feeRangeLabel },
                 { parameter: "Learning", detail: "Live classes + recorded lectures" },
                 { parameter: "Assessment", detail: "University dependent" },
-                { parameter: "Specialisations", detail: family.specialisations.length ? `${family.specialisations.length} across ${family.offers.length} universities` : "University dependent" },
-                { parameter: "Suitable for", detail: family.level === "PG" ? "Graduates and working professionals" : "Students and early-career learners" },
+                {
+                  parameter: "Specialisations",
+                  detail: family.specialisations.length
+                    ? `${family.specialisations.length} across ${family.offers.length} universities`
+                    : "University dependent",
+                },
+                {
+                  parameter: "Suitable for",
+                  detail:
+                    family.level === "PG"
+                      ? "Graduates and working professionals"
+                      : "Students and early-career learners",
+                },
               ]}
             />
           </Section>
@@ -179,25 +225,36 @@ export function CoursePageTemplate({
             </div>
           </Section>
 
-          <Section title="Compare universities" intro={`Pick the universities you are shortlisting and compare them field by field.`} tone="cream">
+          <Section
+            title="Compare universities"
+            intro={`Pick the universities you are shortlisting and compare them field by field.`}
+            tone="cream"
+          >
             <CompareUniversities family={family} />
           </Section>
 
           <Section
             title="Specialisations"
-            intro={family.specialisations.length ? `Specialisations published by the universities offering ${family.name}. Each links to the universities that run it.` : undefined}
+            intro={
+              family.specialisations.length
+                ? `Specialisations published by the universities offering ${family.name}. Each links to the universities that run it.`
+                : undefined
+            }
           >
             {family.specialisations.length ? (
               <SpecialisationShowcase items={family.specialisations} />
             ) : (
               <p className="text-sm text-muted-foreground">
-                No specialisation list has been published by the universities tracked for this course yet.
+                No specialisation list has been published by the universities tracked for this
+                course yet.
               </p>
             )}
 
             {content.specialisationGuide.length > 0 && (
               <div className="mt-6">
-                <h3 className="font-display text-base font-bold">Which specialisation should you choose?</h3>
+                <h3 className="font-display text-base font-bold">
+                  Which specialisation should you choose?
+                </h3>
                 <div className="mt-3">
                   <ResponsiveTable
                     caption="Career goal to specialisation guide"
@@ -206,8 +263,8 @@ export function CoursePageTemplate({
                   />
                 </div>
                 <Note>
-                  This mapping is guidance for shortlisting, not a guarantee of any outcome. Confirm the specialisation is
-                  actually running at the university you choose.
+                  This mapping is guidance for shortlisting, not a guarantee of any outcome. Confirm
+                  the specialisation is actually running at the university you choose.
                 </Note>
               </div>
             )}
@@ -249,13 +306,19 @@ export function CoursePageTemplate({
             {content.careers.length ? (
               <LabelledAccordion items={content.careers} />
             ) : (
-              <ChipList items={[...new Set(family.offers.flatMap((o) => o.careerRoles))].slice(0, 12)} />
+              <ChipList
+                items={[...new Set(family.offers.flatMap((o) => o.careerRoles))].slice(0, 12)}
+              />
             )}
             <div className="mt-6">
               <h3 className="font-display text-base font-bold">Industries and career areas</h3>
               <div className="mt-3">
                 <ChipList
-                  items={content.industries.length ? content.industries : [...new Set(family.offers.flatMap((o) => o.industries))]}
+                  items={
+                    content.industries.length
+                      ? content.industries
+                      : [...new Set(family.offers.flatMap((o) => o.industries))]
+                  }
                 />
               </div>
             </div>
@@ -312,11 +375,21 @@ export function CoursePageTemplate({
               </div>
               <p className="mt-4 text-[0.82rem] text-muted-foreground">
                 Official sources:{" "}
-                <a href="https://deb.ugc.ac.in/" rel="nofollow noopener" target="_blank" className="font-semibold text-brand hover:underline">
+                <a
+                  href="https://deb.ugc.ac.in/"
+                  rel="nofollow noopener"
+                  target="_blank"
+                  className="font-semibold text-brand hover:underline"
+                >
                   UGC-DEB
                 </a>{" "}
                 ·{" "}
-                <a href="https://www.ugc.gov.in/" rel="nofollow noopener" target="_blank" className="font-semibold text-brand hover:underline">
+                <a
+                  href="https://www.ugc.gov.in/"
+                  rel="nofollow noopener"
+                  target="_blank"
+                  className="font-semibold text-brand hover:underline"
+                >
                   University Grants Commission
                 </a>
               </p>

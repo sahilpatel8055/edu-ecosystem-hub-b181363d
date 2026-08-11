@@ -18,7 +18,14 @@ import {
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
 import { getUniversity } from "@/data";
-import { articleLinks, comparisonLinks, programmeLinks, programmeProfile, providerLinks, scholarshipLinks } from "@/lib/entities";
+import {
+  articleLinks,
+  comparisonLinks,
+  programmeLinks,
+  programmeProfile,
+  providerLinks,
+  scholarshipLinks,
+} from "@/lib/entities";
 import {
   breadcrumbSchema,
   canonical,
@@ -74,7 +81,10 @@ export const Route = createFileRoute("/courses/$course")({
           jsonLd(faqSchema(content.faqs.map((f) => ({ question: f.question, answer: f.answer })))),
           jsonLd(
             itemListSchema(
-              family.offers.map((o) => ({ name: `${o.universityShortName} ${family.name}`, href: o.path })),
+              family.offers.map((o) => ({
+                name: `${o.universityShortName} ${family.name}`,
+                href: o.path,
+              })),
               `Universities offering ${family.name}`,
             ),
           ),
@@ -133,7 +143,10 @@ export const Route = createFileRoute("/courses/$course")({
   notFoundComponent: () => (
     <div className="container-page py-24 text-center">
       <h1 className="text-2xl font-bold">Course not found</h1>
-      <AppLink to="/courses" className="mt-6 inline-block text-sm font-semibold text-brand hover:underline">
+      <AppLink
+        to="/courses"
+        className="mt-6 inline-block text-sm font-semibold text-brand hover:underline"
+      >
         Browse all courses →
       </AppLink>
     </div>
@@ -170,9 +183,10 @@ function Page() {
     },
     {
       question: `Which universities offer ${p.name} online?`,
-      answer: profile.offerings
-        .map((o) => getUniversity(o.universitySlug)?.shortName ?? o.universitySlug)
-        .join(", ") + ".",
+      answer:
+        profile.offerings
+          .map((o) => getUniversity(o.universitySlug)?.shortName ?? o.universitySlug)
+          .join(", ") + ".",
     },
     {
       question: `Is an online ${p.shortName} valid for government jobs?`,
@@ -236,9 +250,9 @@ function Page() {
         <ContentSection title="Overview">
           <p>{p.summary}</p>
           <p>
-            The programme runs {p.durationYears} years in {p.mode.join(" / ")} mode and is offered by{" "}
-            {profile.offerings.length} universities tracked on this platform, all of them UGC-entitled or DEB-approved
-            for the award.
+            The programme runs {p.durationYears} years in {p.mode.join(" / ")} mode and is offered
+            by {profile.offerings.length} universities tracked on this platform, all of them
+            UGC-entitled or DEB-approved for the award.
           </p>
         </ContentSection>
 
@@ -288,9 +302,10 @@ function Page() {
 
         <ContentSection title="Fee structure">
           <p>
-            The {p.name} fee band across tracked universities is {p.feeRangeLabel} for the full programme. Most
-            universities allow semester-wise payment and no-cost EMI. University-specific totals are published on the
-            university-course pages once confirmed officially.
+            The {p.name} fee band across tracked universities is {p.feeRangeLabel} for the full
+            programme. Most universities allow semester-wise payment and no-cost EMI.
+            University-specific totals are published on the university-course pages once confirmed
+            officially.
           </p>
         </ContentSection>
 
@@ -312,11 +327,14 @@ function Page() {
 
         <ContentSection title="Career scope">
           <ul className="grid gap-2 sm:grid-cols-2">
-            {profile.specialisations.flatMap((s) => s.careerPaths).slice(0, 8).map((c) => (
-              <li key={c} className="rounded-lg bg-secondary px-3 py-2 text-sm text-foreground">
-                {c}
-              </li>
-            ))}
+            {profile.specialisations
+              .flatMap((s) => s.careerPaths)
+              .slice(0, 8)
+              .map((c) => (
+                <li key={c} className="rounded-lg bg-secondary px-3 py-2 text-sm text-foreground">
+                  {c}
+                </li>
+              ))}
           </ul>
         </ContentSection>
 
@@ -329,7 +347,10 @@ function Page() {
         />
       </DetailLayout>
       <StickyMobileCTA label={`Get ${p.shortName} guidance`} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
