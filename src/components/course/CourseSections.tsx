@@ -454,3 +454,262 @@ export function FinalCta({ family }: { family: CourseFamily }) {
 }
 
 export { X as CrossIcon };
+
+/* ------------------------------- accordions ------------------------------- */
+
+const accordionTones = [
+  { closed: "bg-brand-soft text-brand", open: "bg-brand text-brand-foreground" },
+  { closed: "bg-highlight/25 text-highlight-foreground", open: "bg-highlight text-highlight-foreground" },
+  { closed: "bg-success/15 text-success", open: "bg-success text-white" },
+  { closed: "bg-accent text-accent-foreground", open: "bg-accent-foreground text-accent" },
+];
+
+export interface AccordionItem {
+  title: string;
+  content: ReactNode;
+}
+
+/**
+ * Colour-cycled accordion. First panel open by default; opening another closes
+ * the previous one, which keeps long course pages short on mobile.
+ */
+export function AccordionList({ items, defaultOpen = 0 }: { items: AccordionItem[]; defaultOpen?: number }) {
+  const [open, setOpen] = useState<number | null>(defaultOpen);
+  return (
+    <div className="space-y-2.5">
+      {items.map((item, i) => {
+        const isOpen = open === i;
+        const tone = accordionTones[i % accordionTones.length]!;
+        return (
+          <div key={item.title} className="overflow-hidden rounded-2xl border border-border bg-card">
+            <h3>
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                className={`flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left font-display text-[0.92rem] font-bold transition-colors sm:text-base ${
+                  isOpen ? tone.open : tone.closed
+                }`}
+              >
+                <span className="min-w-0">{item.title}</span>
+                <ChevronDown
+                  className={`h-4.5 w-4.5 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+            </h3>
+            {isOpen && <div className="px-4 py-4 text-[0.88rem] leading-relaxed text-muted-foreground">{item.content}</div>}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/** Labelled[] rendered as an accordion (heading = title, body = detail). */
+export function LabelledAccordion({ items, defaultOpen = 0 }: { items: Labelled[]; defaultOpen?: number }) {
+  return <AccordionList defaultOpen={defaultOpen} items={items.map((i) => ({ title: i.title, content: <p>{i.detail}</p> }))} />;
+}
+
+/* --------------------------- audience highlight --------------------------- */
+
+export function AudienceCards({ items }: { items: Labelled[] }) {
+  return (
+    <div className="grid gap-3 sm:grid-cols-2">
+      {items.map((item, i) => (
+        <div
+          key={item.title}
+          className="relative overflow-hidden rounded-2xl border border-brand/15 bg-gradient-to-br from-brand-soft/70 to-card p-4 pl-5 shadow-[0_14px_30px_-26px_oklch(0_0_0/0.6)]"
+        >
+          <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1.5 bg-brand" />
+          <div className="flex items-center gap-2.5">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand text-[0.78rem] font-bold text-brand-foreground">
+              {i + 1}
+            </span>
+            <p className="font-display text-[0.95rem] font-bold leading-snug text-foreground">{item.title}</p>
+          </div>
+          <p className="mt-2.5 text-[0.86rem] leading-relaxed text-foreground/75">{item.detail}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ----------------------------- fee summary -------------------------------- */
+
+export function FeeSummaryTable({ offers }: { offers: FamilyOffer[] }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-card">
+      <table className="w-full text-left">
+        <caption className="sr-only">University-wise total fee and duration</caption>
+        <thead>
+          <tr className="bg-brand text-brand-foreground">
+            <th scope="col" className="px-3 py-2.5 text-[0.7rem] font-semibold uppercase tracking-wide sm:px-4 sm:text-[0.78rem]">
+              University
+            </th>
+            <th scope="col" className="px-3 py-2.5 text-[0.7rem] font-semibold uppercase tracking-wide sm:px-4 sm:text-[0.78rem]">
+              Duration
+            </th>
+            <th scope="col" className="px-3 py-2.5 text-right text-[0.7rem] font-semibold uppercase tracking-wide sm:px-4 sm:text-[0.78rem]">
+              Total fee
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-border">
+          {offers.map((o) => (
+            <tr key={o.key} className="even:bg-secondary/40">
+              <td className="px-3 py-3 sm:px-4">
+                <AppLink to={o.path} className="text-[0.83rem] font-semibold text-brand hover:underline sm:text-[0.9rem]">
+                  {o.universityShortName}
+                </AppLink>
+              </td>
+              <td className="px-3 py-3 text-[0.8rem] text-muted-foreground sm:px-4 sm:text-[0.86rem]">
+                {o.duration ?? NOT_SPECIFIED}
+              </td>
+              <td className="px-3 py-3 text-right text-[0.8rem] font-semibold text-foreground sm:px-4 sm:text-[0.88rem]">
+                {fee(o.fees.total)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/* ------------------------- university card (2-up) -------------------------- */
+
+export function UniversityTile({ offer }: { offer: FamilyOffer }) {
+  return (
+    <article className="flex h-full flex-col items-center gap-2 rounded-2xl border border-border bg-card px-3 py-4 text-center transition-all hover:-translate-y-0.5 hover:border-brand/40 sm:px-4 sm:py-5">
+      <span className="flex h-11 w-full items-center justify-center overflow-hidden sm:h-14">
+        {offer.logo ? (
+          <img
+            src={offer.logo}
+            alt={`${offer.universityName} logo`}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-auto max-w-[85%] object-contain"
+          />
+        ) : (
+          <span className="font-display text-sm font-extrabold text-brand">{offer.universityShortName}</span>
+        )}
+      </span>
+      <h3 className="text-[0.82rem] font-extrabold leading-snug sm:text-[0.95rem]">{offer.universityShortName}</h3>
+      <p className="text-[0.72rem] leading-snug text-muted-foreground sm:text-[0.8rem]">{offer.universityName}</p>
+      <p className="text-[0.72rem] font-semibold text-foreground sm:text-[0.8rem]">
+        {offer.fees.total ? `${fee(offer.fees.total)} total` : NOT_SPECIFIED}
+      </p>
+      <AppLink
+        to={offer.path}
+        className="mt-auto inline-flex w-full items-center justify-center gap-1 rounded-lg bg-brand px-3 py-2 pt-2 text-[0.75rem] font-bold text-brand-foreground sm:text-[0.82rem]"
+      >
+        View course <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+      </AppLink>
+    </article>
+  );
+}
+
+/* ----------------------------- specialisations ---------------------------- */
+
+export function SpecialisationShowcase({
+  items,
+}: {
+  items: { slug: string; name: string; universities: { name: string; slug: string; path: string }[] }[];
+}) {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? items : items.slice(0, 6);
+  return (
+    <div>
+      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((s, i) => (
+          <li
+            key={s.slug}
+            className={`group relative overflow-hidden rounded-2xl border p-4 transition-transform hover:-translate-y-0.5 ${
+              i % 3 === 0
+                ? "border-brand/20 bg-gradient-to-br from-brand-soft to-card"
+                : i % 3 === 1
+                  ? "border-highlight/30 bg-gradient-to-br from-highlight/20 to-card"
+                  : "border-success/25 bg-gradient-to-br from-success/12 to-card"
+            }`}
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-card/80 px-2 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-brand">
+              <Sparkles className="h-3 w-3" aria-hidden="true" /> Specialisation
+            </span>
+            <p className="mt-2 font-display text-[0.95rem] font-bold leading-snug text-foreground">{s.name}</p>
+            <p className="mt-1 text-[0.74rem] text-foreground/65">
+              {s.universities.length} universit{s.universities.length === 1 ? "y" : "ies"} offer this
+            </p>
+            <ul className="mt-2.5 flex flex-wrap gap-1.5">
+              {s.universities.slice(0, 3).map((u) => (
+                <li key={u.slug}>
+                  <AppLink to={u.path} className="rounded-md bg-card px-2 py-1 text-[0.68rem] font-semibold text-brand">
+                    {u.name}
+                  </AppLink>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+      {items.length > 6 && (
+        <div className="mt-5 text-center">
+          <button
+            type="button"
+            onClick={() => setShowAll((v) => !v)}
+            className="inline-flex items-center gap-2 rounded-xl bg-brand-soft px-5 py-2.5 text-[0.82rem] font-bold text-brand transition-colors hover:bg-brand hover:text-brand-foreground"
+          >
+            {showAll ? "Show less" : `See more (${items.length - 6})`}
+            <ChevronDown className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`} aria-hidden="true" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* --------------------------- side-by-side table --------------------------- */
+
+/** Always a real table — no mobile stacking — so columns stay comparable. */
+export function SideBySideTable({
+  caption,
+  head,
+  rows,
+}: {
+  caption: string;
+  head: string[];
+  rows: ReactNode[][];
+}) {
+  return (
+    <div className="overflow-x-auto rounded-2xl border border-border bg-card">
+      <table className="w-full min-w-[22rem] text-left">
+        <caption className="sr-only">{caption}</caption>
+        <thead>
+          <tr className="bg-brand text-brand-foreground">
+            {head.map((h) => (
+              <th key={h} scope="col" className="px-2.5 py-2.5 text-[0.68rem] font-semibold uppercase tracking-wide sm:px-4 sm:py-3 sm:text-[0.78rem]">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-border">
+          {rows.map((r, i) => (
+            <tr key={i} className="align-top even:bg-secondary/40">
+              {r.map((cell, j) => (
+                <td
+                  key={j}
+                  className={`px-2.5 py-2.5 text-[0.75rem] leading-snug sm:px-4 sm:py-3 sm:text-[0.86rem] ${
+                    j === 0 ? "font-semibold text-foreground" : "text-muted-foreground"
+                  }`}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
