@@ -28,6 +28,8 @@ import {
   RelatedPageLinks,
   ScholarshipInsightSection,
 } from "@/components/university/InsightSections";
+import { feeTableFor } from "@/data/university-fee-tables";
+import { degreeSample } from "@/lib/assets";
 import { FeeStructureTable } from "@/components/university/FeeStructureTable";
 import { SampleDegreeSection } from "@/components/university/SampleDegreeSection";
 import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
@@ -154,6 +156,8 @@ function Page() {
   const u = profile.record;
   const path = profile.path;
   const json = getUniversityBySlug(slug);
+  const hasFeeTable = Boolean(feeTableFor(slug));
+  const hasDegreeSample = Boolean(degreeSample(slug));
 
   const faqs = [
     {
@@ -192,8 +196,8 @@ function Page() {
           "Overview",
           "Approvals & recognition",
           "Courses & fees",
-          "Fee structure",
-          "Sample degree",
+          ...(hasFeeTable ? ["Fee structure"] : []),
+          ...(hasDegreeSample ? ["Sample degree"] : []),
           "Admission process",
           "Examination pattern",
           "Placement & career",
@@ -265,13 +269,17 @@ function Page() {
         </ContentSection>
 
 
-        <ContentSection title="Fee structure">
-          <FeeStructureTable universitySlug={slug} universityShort={u.shortName} />
-        </ContentSection>
+        {hasFeeTable && (
+          <ContentSection title="Fee structure">
+            <FeeStructureTable universitySlug={slug} universityShort={u.shortName} />
+          </ContentSection>
+        )}
 
-        <ContentSection title="Sample degree">
-          <SampleDegreeSection universityName={u.name} universitySlug={slug} />
-        </ContentSection>
+        {hasDegreeSample && (
+          <ContentSection title="Sample degree">
+            <SampleDegreeSection universityName={u.name} universitySlug={slug} />
+          </ContentSection>
+        )}
 
         <ContentSection title="Admission process">
           <div className="space-y-5">
