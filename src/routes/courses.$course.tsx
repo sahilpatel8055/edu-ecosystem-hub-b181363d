@@ -91,6 +91,9 @@ export const Route = createFileRoute("/courses/$course")({
     if (!loaderData) {
       return { meta: [{ title: "Course not found" }, { name: "robots", content: "noindex" }] };
     }
+    if (loaderData.kind !== "programme") {
+      return { meta: [{ title: loaderData.name }] };
+    }
     const title = `${loaderData.name}: Fees, Eligibility, Specialisations & Best Universities 2026`;
     const description = `${loaderData.name} in India — ${loaderData.durationYears}-year ${loaderData.level} degree, ${loaderData.feeRangeLabel} fee range, ${loaderData.providers} universities compared, specialisations, eligibility and career scope.`;
     return {
