@@ -277,7 +277,7 @@ function buildFamily(def: FamilyDef, offers: FamilyOffer[]): CourseFamily {
           ? (formatFee(feeMin) ?? "Not specified")
           : `${formatFee(feeMin)} – ${formatFee(feeMax)}`
         : "University dependent",
-    path: `/online-courses/${def.level.toLowerCase()}/${def.slug}`,
+    path: `/courses/${def.slug}`,
     entranceUniversities: offers.filter((o) => o.entranceExam).map((o) => o.universityShortName),
     lastVerified: mostCommon(offers.map((o) => o.lastVerified)),
   };
