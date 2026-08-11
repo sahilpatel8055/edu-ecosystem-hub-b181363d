@@ -1,4 +1,9 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
+import { CoursePageTemplate } from "@/components/templates/CoursePageTemplate";
+import { courseContentBySlug } from "@/data/course-pages";
+import { ADMISSION_YEAR } from "@/data/course-pages/types";
+import { courseFamilyList, familyForProgrammeSlug } from "@/lib/courseFamily";
+import { webPageSchema } from "@/lib/seo";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
 import {
   AuthorBox,
@@ -26,10 +31,17 @@ import {
 
 export const Route = createFileRoute("/courses/$course")({
   loader: ({ params }) => {
+    const family = courseContentBySlug(params.course);
+    if (family) return { kind: "family" as const, name: family.family.name };
     const profile = programmeProfile(params.course);
-    if (!profile) throw notFound();
+    if (!profile) {
+      const rollup = familyForProgrammeSlug(params.course);
+      if (rollup) throw redirect({ to: "/courses/$course", params: { course: rollup.slug } });
+      throw notFound();
+    }
     const p = profile.record;
     return {
+      kind: "programme" as const,
       name: p.name,
       summary: p.summary,
       level: p.level,
@@ -40,6 +52,42 @@ export const Route = createFileRoute("/courses/$course")({
   },
   head: ({ params, loaderData }) => {
     const path = `/courses/${params.course}`;
+    const found = courseContentBySlug(params.course);
+    if (found) {
+      const { family, content } = found;
+      const title = content.seo.title.replace("{year}", String(ADMISSION_YEAR));
+      const description = content.seo.description.replace("{year}", String(ADMISSION_YEAR));
+      return {
+        meta: pageMeta({ title, description, path, keywords: content.seo.keywords }),
+        links: canonical(path),
+        scripts: [
+          jsonLd(webPageSchema({ name: title, description, path })),
+          jsonLd(
+            courseSchema({
+              name: family.name,
+              description,
+              path,
+              mode: "online",
+              level: family.level === "PG" ? "Postgraduate" : "Undergraduate",
+            }),
+          ),
+          jsonLd(faqSchema(content.faqs.map((f) => ({ question: f.question, answer: f.answer })))),
+          jsonLd(
+            itemListSchema(
+              family.offers.map((o) => ({ name: `${o.universityShortName} ${family.name}`, href: o.path })),
+              `Universities offering ${family.name}`,
+            ),
+          ),
+          jsonLd(
+            breadcrumbSchema([
+              { name: "Home", href: "/" },
+              { name: "Courses", href: "/courses" },
+              { name: family.name, href: path },
+            ]),
+          ),
+        ],
+      };
+    }
     if (!loaderData) {
       return { meta: [{ title: "Course not found" }, { name: "robots", content: "noindex" }] };
     }
@@ -91,6 +139,23 @@ export const Route = createFileRoute("/courses/$course")({
 
 function Page() {
   const { course } = Route.useParams();
+  const found = courseContentBySlug(course);
+  if (found) {
+    const { family, content } = found;
+    const relatedCourses = courseFamilyList()
+      .filter((f) => f.slug !== family.slug)
+      .slice(0, 8)
+      .map((f) => ({ label: f.name, href: f.path, note: f.feeRangeLabel }));
+    return (
+      <CoursePageTemplate
+        family={family}
+        content={content}
+        year={ADMISSION_YEAR}
+        relatedCourses={relatedCourses}
+        relatedArticles={articleLinks(4).map((a) => ({ label: a.label, href: a.href }))}
+      />
+    );
+  }
   const profile = programmeProfile(course)!;
   const p = profile.record;
 
