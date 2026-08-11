@@ -5,10 +5,14 @@ import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import { AppLink } from "@/components/common/AppLink";
 import { CompareUniversities } from "@/components/course/CompareUniversities";
 import {
+  AccordionList,
+  AudienceCards,
   CardGrid,
   ChipList,
+  FeeSummaryTable,
   FinalCta,
   GlanceTable,
+  LabelledAccordion,
   LinkTiles,
   Note,
   PlatformTrust,
@@ -17,11 +21,13 @@ import {
   ResponsiveTable,
   ReviewList,
   Section,
+  SideBySideTable,
+  SpecialisationShowcase,
   StepFlow,
   SyllabusGrid,
   TickList,
   TwoColumnLists,
-  UniversityOfferCard,
+  UniversityTile,
   type CourseReview,
 } from "@/components/course/CourseSections";
 import type { CourseContent } from "@/data/course-pages/types";
@@ -51,7 +57,6 @@ export function CoursePageTemplate({
 
   const sections = [
     "Overview",
-    "How it works",
     "Eligibility",
     "Fees",
     "Universities",
@@ -60,6 +65,7 @@ export function CoursePageTemplate({
     ...(content.syllabus.length ? ["Syllabus"] : []),
     "Admission",
     "Documents",
+    "How it works",
     "Learning & exams",
     "Career",
     "Salary",
@@ -81,8 +87,7 @@ export function CoursePageTemplate({
         <div className="container-page py-6 sm:py-10">
           <Breadcrumbs
             items={[
-              { name: "Online Courses", href: "/online-courses" },
-              { name: `${family.level} Courses`, href: `/online-courses/${family.level.toLowerCase()}` },
+              { name: "Courses", href: "/courses" },
               { name: family.name, href: family.path },
             ]}
           />
@@ -143,16 +148,12 @@ export function CoursePageTemplate({
             <Prose paragraphs={content.overview} />
           </Section>
 
-          <Section title="How it works">
-            <StepFlow steps={content.howItWorks} />
-          </Section>
-
           <Section title="Who should consider it">
-            <CardGrid items={content.audience} />
+            <AudienceCards items={content.audience} />
           </Section>
 
           <Section title="Eligibility">
-            <CardGrid items={content.eligibility} />
+            <LabelledAccordion items={content.eligibility} />
             <Note>{content.eligibilityNote}</Note>
           </Section>
 
@@ -164,29 +165,16 @@ export function CoursePageTemplate({
                 </li>
               ))}
             </ul>
-            <ResponsiveTable
-              caption={`${family.name} university-wise fee comparison`}
-              head={["University", "Duration", "Total fee", "Semester fee", "EMI from", "Scholarships"]}
-              rows={family.offers.map((o) => [
-                <AppLink key={o.key} to={o.path} className="font-semibold text-brand hover:underline">
-                  {o.universityShortName}
-                </AppLink>,
-                o.duration ?? "Not specified",
-                o.fees.total ? `₹${o.fees.total.toLocaleString("en-IN")}` : "Not specified",
-                o.fees.semester ? `₹${o.fees.semester.toLocaleString("en-IN")}` : "Not specified",
-                o.fees.emi ? `₹${o.fees.emi.toLocaleString("en-IN")}/mo` : "Not specified",
-                o.scholarships.length ? "Available" : "Not specified",
-              ])}
-            />
+            <FeeSummaryTable offers={family.offers} />
           </Section>
 
           <Section
             title="Universities"
             intro={`${family.offers.length} universities in our dataset publish ${family.name}. Figures below are what each university states officially — nothing is estimated.`}
           >
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
               {family.offers.map((o) => (
-                <UniversityOfferCard key={o.key} offer={o} />
+                <UniversityTile key={o.key} offer={o} />
               ))}
             </div>
           </Section>
@@ -200,28 +188,7 @@ export function CoursePageTemplate({
             intro={family.specialisations.length ? `Specialisations published by the universities offering ${family.name}. Each links to the universities that run it.` : undefined}
           >
             {family.specialisations.length ? (
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {family.specialisations.map((s) => (
-                  <div key={s.slug} className="rounded-2xl border border-border bg-card p-4">
-                    <p className="font-display text-sm font-bold">{s.name}</p>
-                    <p className="mt-1 text-[0.75rem] text-muted-foreground">
-                      Offered by {s.universities.length} universit{s.universities.length === 1 ? "y" : "ies"}
-                    </p>
-                    <ul className="mt-2.5 flex flex-wrap gap-1.5">
-                      {s.universities.slice(0, 4).map((u) => (
-                        <li key={u.slug}>
-                          <AppLink
-                            to={u.path}
-                            className="rounded-md bg-secondary px-2 py-1 text-[0.7rem] font-semibold text-brand"
-                          >
-                            {u.name}
-                          </AppLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+              <SpecialisationShowcase items={family.specialisations} />
             ) : (
               <p className="text-sm text-muted-foreground">
                 No specialisation list has been published by the universities tracked for this course yet.
@@ -262,13 +229,17 @@ export function CoursePageTemplate({
             <Note>{content.documentsNote}</Note>
           </Section>
 
+          <Section title="How it works">
+            <StepFlow steps={content.howItWorks} />
+          </Section>
+
           <Section title="Learning & exams">
-            <CardGrid items={content.learningFormat} columns={3} />
+            <LabelledAccordion items={content.learningFormat} />
             <Note>{content.learningNote}</Note>
             <div className="mt-6">
               <h3 className="font-display text-base font-bold">Examination pattern</h3>
               <div className="mt-3">
-                <CardGrid items={content.examPattern} />
+                <LabelledAccordion items={content.examPattern} />
               </div>
               <Note>{content.examNote}</Note>
             </div>
@@ -276,7 +247,7 @@ export function CoursePageTemplate({
 
           <Section title="Career">
             {content.careers.length ? (
-              <CardGrid items={content.careers} columns={3} />
+              <LabelledAccordion items={content.careers} />
             ) : (
               <ChipList items={[...new Set(family.offers.flatMap((o) => o.careerRoles))].slice(0, 12)} />
             )}
@@ -296,7 +267,7 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title="Placement support">
-            <CardGrid items={content.placementServices} columns={3} />
+            <LabelledAccordion items={content.placementServices} />
             <Note>{content.placementNote}</Note>
           </Section>
 
@@ -308,14 +279,16 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title="Advantages & limitations">
-            <TwoColumnLists
-              left={{ title: "Advantages", items: content.advantages }}
-              right={{ title: "Limitations", items: content.limitations }}
+            <AccordionList
+              items={[
+                { title: "Advantages", content: <TickList items={content.advantages} /> },
+                { title: "Limitations", content: <TickList items={content.limitations} /> },
+              ]}
             />
           </Section>
 
           <Section title={`${family.name} vs regular`}>
-            <ResponsiveTable
+            <SideBySideTable
               caption={`${family.name} compared with a regular campus programme`}
               head={["Factor", family.name, `Regular ${family.shortName}`]}
               rows={content.vsRegular.map((r) => [r.factor, r.online, r.regular])}
@@ -323,7 +296,7 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title={`${family.name} vs distance`}>
-            <ResponsiveTable
+            <SideBySideTable
               caption={`${family.name} compared with the distance mode`}
               head={["Factor", family.name, `Distance ${family.shortName}`]}
               rows={content.vsDistance.map((r) => [r.factor, r.online, r.distance])}
@@ -351,7 +324,7 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title="How to choose">
-            <CardGrid items={content.selectionGuide} />
+            <LabelledAccordion items={content.selectionGuide} />
           </Section>
 
           <Section title={`Why compare ${family.name} here`}>
