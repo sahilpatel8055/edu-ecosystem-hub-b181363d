@@ -69,17 +69,17 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
         </p>
       ) : (
         <>
-          {/* Desktop: comparison table */}
-          <div className="mt-5 hidden overflow-x-auto rounded-2xl border border-border bg-card lg:block">
-            <table className="w-full text-left text-sm">
+          {/* Side-by-side on every screen; the first column stays pinned. */}
+          <div className="mt-5 overflow-x-auto rounded-2xl border border-border bg-card">
+            <table className="w-full min-w-[30rem] text-left text-sm">
               <caption className="sr-only">{family.name} university comparison</caption>
               <thead>
                 <tr className="bg-brand text-brand-foreground">
-                  <th scope="col" className="px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide">
+                  <th scope="col" className="sticky left-0 z-10 bg-brand px-2.5 py-2.5 text-[0.66rem] font-semibold uppercase tracking-wide sm:px-4 sm:py-3 sm:text-[0.75rem]">
                     Parameter
                   </th>
                   {chosen.map((o) => (
-                    <th key={o.key} scope="col" className="px-4 py-3 text-[0.8rem] font-semibold">
+                    <th key={o.key} scope="col" className="px-2.5 py-2.5 text-[0.7rem] font-semibold sm:px-4 sm:py-3 sm:text-[0.8rem]">
                       {o.universityShortName}
                     </th>
                   ))}
@@ -88,23 +88,23 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
               <tbody className="divide-y divide-border">
                 {rows.map((r) => (
                   <tr key={r.label} className="align-top even:bg-secondary/40">
-                    <th scope="row" className="px-4 py-3 text-[0.8rem] font-semibold text-foreground">
+                    <th scope="row" className="sticky left-0 z-10 bg-card px-2.5 py-2.5 text-[0.7rem] font-semibold text-foreground sm:px-4 sm:py-3 sm:text-[0.8rem]">
                       {r.label}
                     </th>
                     {chosen.map((o) => (
-                      <td key={o.key} className="px-4 py-3 text-[0.84rem] text-muted-foreground">
+                      <td key={o.key} className="px-2.5 py-2.5 text-[0.74rem] leading-snug text-muted-foreground sm:px-4 sm:py-3 sm:text-[0.84rem]">
                         {r.value(o)}
                       </td>
                     ))}
                   </tr>
                 ))}
                 <tr>
-                  <th scope="row" className="px-4 py-3 text-[0.8rem] font-semibold">
+                  <th scope="row" className="sticky left-0 z-10 bg-card px-2.5 py-2.5 text-[0.7rem] font-semibold sm:px-4 sm:py-3 sm:text-[0.8rem]">
                     Course page
                   </th>
                   {chosen.map((o) => (
-                    <td key={o.key} className="px-4 py-3">
-                      <AppLink to={o.path} className="text-[0.82rem] font-semibold text-brand hover:underline">
+                    <td key={o.key} className="px-2.5 py-2.5 sm:px-4 sm:py-3">
+                      <AppLink to={o.path} className="text-[0.74rem] font-semibold text-brand hover:underline sm:text-[0.82rem]">
                         View details
                       </AppLink>
                     </td>
@@ -113,39 +113,7 @@ export function CompareUniversities({ family }: { family: CourseFamily }) {
               </tbody>
             </table>
           </div>
-
-          {/* Mobile: stacked comparison cards */}
-          <div className="mt-5 space-y-3 lg:hidden">
-            {chosen.map((o) => (
-              <div key={o.key} className="rounded-2xl border border-border bg-card p-4">
-                <div className="flex items-start justify-between gap-3">
-                  <p className="font-display text-sm font-bold">{o.universityShortName}</p>
-                  <button
-                    type="button"
-                    onClick={() => toggle(o.key)}
-                    aria-label={`Remove ${o.universityShortName} from comparison`}
-                    className="rounded-md p-1 text-muted-foreground"
-                  >
-                    <X className="h-4 w-4" aria-hidden="true" />
-                  </button>
-                </div>
-                <dl className="mt-2 divide-y divide-border">
-                  {rows.map((r) => (
-                    <div key={r.label} className="flex justify-between gap-4 py-1.5">
-                      <dt className="text-[0.76rem] font-semibold text-muted-foreground">{r.label}</dt>
-                      <dd className="text-right text-[0.8rem] text-foreground">{r.value(o)}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <AppLink
-                  to={o.path}
-                  className="mt-3 block rounded-lg bg-brand px-3 py-2 text-center text-[0.78rem] font-semibold text-brand-foreground"
-                >
-                  View course details
-                </AppLink>
-              </div>
-            ))}
-          </div>
+          <p className="mt-2 text-[0.72rem] text-muted-foreground sm:hidden">Swipe the table sideways to see all columns.</p>
         </>
       )}
     </div>
