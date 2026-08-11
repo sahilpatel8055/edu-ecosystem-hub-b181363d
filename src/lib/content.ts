@@ -180,6 +180,15 @@ export const courses: Course[] = programmeRecords.map((p) => ({
     .slice(0, 6),
 }));
 
+/** Editorial ordering: MBA, MCA, MCom, MA first for PG; BBA, BCA, BCom, BA for UG. */
+const preferredOrder = ["MBA", "MCA", "MCOM", "MA", "BBA", "BCA", "BCOM", "BA"];
+
+function familyRank(c: Course): number {
+  const key = normaliseDegree(courseAbbrev(c.shortName, c.name));
+  const i = preferredOrder.indexOf(key);
+  return i === -1 ? preferredOrder.length : i;
+}
+
 /**
  * One card per course — duplicates such as "MBA", "Online MBA" and
  * "Master of Business Administration" collapse into a single entry.
@@ -209,14 +218,6 @@ export const courseFamilies: Course[] = (() => {
   );
 })();
 
-/** Editorial ordering: MBA, MCA, MCom, MA first for PG; BBA, BCA, BCom, BA for UG. */
-const preferredOrder = ["MBA", "MCA", "MCOM", "MA", "BBA", "BCA", "BCOM", "BA"];
-
-function familyRank(c: Course): number {
-  const key = normaliseDegree(courseAbbrev(c.shortName, c.name));
-  const i = preferredOrder.indexOf(key);
-  return i === -1 ? preferredOrder.length : i;
-}
 
 export const articles: Article[] = [
   {
