@@ -11,6 +11,7 @@ import {
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
+import { ApprovalMarquee, SpecialisationBoxes } from "@/components/common/BoxMarquee";
 import { getSpecialisation } from "@/data";
 import {
   AdmissionInsightSection,
@@ -208,28 +209,24 @@ function Page() {
             {approvalText(u)} backing the award.
           </p>
           <p>{u.verdict}</p>
+          <ApprovalMarquee approvals={u.approvals} />
         </ContentSection>
 
         <ContentSection title="Specialisations">
-          <DataTable
-            caption={`${p.name} specialisations at ${u.shortName}`}
-            head={["Specialisation", "Focus", "Career paths"]}
-            rows={offering.specialisations.map((s) => {
+          <SpecialisationBoxes
+            scrolling
+            label={`${p.name} specialisations at ${u.shortName}`}
+            items={offering.specialisations.map((s) => {
               const spec = getSpecialisation(p.slug, s);
-              return [
-                <AppLink
-                  key={s}
-                  to={`/courses/${p.slug}`}
-                  className="font-semibold text-brand hover:underline"
-                >
-                  {spec?.name ?? s}
-                </AppLink>,
-                spec?.summary ?? "—",
-                spec?.careerPaths.slice(0, 3).join(", ") ?? "—",
-              ];
+              return {
+                name: spec?.name ?? s,
+                href: `/courses/${p.slug}`,
+                meta: spec?.careerPaths.slice(0, 2).join(", ") || undefined,
+              };
             })}
           />
         </ContentSection>
+
 
         <ContentSection title="Fee structure">
           <DataTable

@@ -14,6 +14,7 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
+import { ApprovalMarquee } from "@/components/common/BoxMarquee";
 import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
 import {
   AdmissionSection,
@@ -249,6 +250,7 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Approvals & recognition">
+          <ApprovalMarquee approvals={u.approvals} />
           {json ? (
             <RecognitionTable university={json} />
           ) : (
