@@ -71,11 +71,11 @@ export function ProgramFinder({ items }: { items: Course[] }) {
     <div className="panel-crimson overflow-hidden rounded-3xl p-3 sm:p-5 lg:p-6">
       <div className="grid gap-4 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-6">
         {/* Finder */}
-        <div className="rounded-2xl bg-white/8 p-3 backdrop-blur-sm sm:p-4">
+        <div className="min-w-0 rounded-2xl bg-white/8 p-3 backdrop-blur-sm sm:p-4">
           <h3 className="font-display text-lg font-bold text-white sm:text-xl">Program Finder</h3>
           <p className="mt-0.5 text-xs text-white/70">Explore curated degrees</p>
 
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible lg:pb-0">
+          <div className="-mx-1 mt-3 flex gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:flex-col lg:px-0 lg:overflow-visible lg:pb-0">
             {available.map((g) => (
               <button
                 key={g.id}
@@ -109,7 +109,7 @@ export function ProgramFinder({ items }: { items: Course[] }) {
         </div>
 
         {/* Tiles */}
-        <div>
+        <div className="min-w-0">
           <div className="grid grid-cols-2 gap-2.5 sm:gap-3 xl:grid-cols-3">
             {list.slice(0, 9).map((c) => (
               <CourseTile key={c.slug} item={c} />

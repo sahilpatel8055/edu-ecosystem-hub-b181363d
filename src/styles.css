@@ -174,11 +174,18 @@
     border-color: var(--color-border);
   }
 
+  html {
+    /* No page-level horizontal scroll on any viewport. */
+    overflow-x: clip;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    max-width: 100vw;
   }
 
   h1,
