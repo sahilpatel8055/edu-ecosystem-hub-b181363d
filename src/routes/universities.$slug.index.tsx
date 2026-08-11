@@ -249,6 +249,7 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Approvals & recognition">
+          <ApprovalMarquee approvals={u.approvals} />
           {json ? (
             <RecognitionTable university={json} />
           ) : (
