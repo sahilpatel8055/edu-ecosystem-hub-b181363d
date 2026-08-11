@@ -11,6 +11,7 @@ import {
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
+import { ApprovalMarquee, SpecialisationBoxes } from "@/components/common/BoxMarquee";
 import { getSpecialisation } from "@/data";
 import {
   AdmissionInsightSection,
