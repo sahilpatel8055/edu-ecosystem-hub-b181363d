@@ -98,3 +98,12 @@ export const campusImage = (slug: string): string | undefined => campuses[slug];
 export const approvalIcon = (body: string): string | undefined =>
   approvalIcons[body.trim().toLowerCase()] ??
   approvalIcons[body.trim().toLowerCase().split(/[\s-]/)[0] ?? ""];
+
+/**
+ * Sample degree specimens keyed by university slug.
+ * Drop the image into `src/degree/` and register it here — the sample-degree
+ * section on the university page hides itself while an entry is missing.
+ */
+const degreeSamples: Record<string, string> = {};
+
+export const degreeSample = (slug: string): string | undefined => degreeSamples[slug];
