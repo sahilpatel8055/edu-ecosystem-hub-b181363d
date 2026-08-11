@@ -34,8 +34,8 @@ export function Section({
   children,
 }: {
   title: string;
-  intro?: string;
-  tone?: "plain" | "cream";
+  intro?: string | undefined;
+  tone?: "plain" | "cream" | undefined;
   children: ReactNode;
 }) {
   return (
