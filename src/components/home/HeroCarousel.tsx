@@ -66,7 +66,6 @@ export function HeroCarousel({ banners = heroBanners }: { banners?: typeof heroB
                 to={b.to}
                 className="block h-full w-full shrink-0 grow-0 basis-full"
                 aria-hidden={i !== index}
-                tabIndex={i === index ? 0 : -1}
               >
                 <img
                   src={b.src}
