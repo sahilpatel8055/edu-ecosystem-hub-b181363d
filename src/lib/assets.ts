@@ -44,6 +44,17 @@ import nbaIcon from "@/approvals/nba-icon.png";
 import bciIcon from "@/approvals/bci-icon.png";
 import qsIcon from "@/approvals/qs-icon.png";
 
+import amityDegree from "@/degree/amity.png";
+import cuDegree from "@/degree/cu.jpg";
+import dpuDegree from "@/degree/dpu.jpg";
+import duSolDegree from "@/degree/du-sol.jpg";
+import ignouDegree from "@/degree/ignou.png";
+import ksouDegree from "@/degree/ksou.jpg";
+import lpuDegree from "@/degree/lpu.png";
+import manipalDegree from "@/degree/manipal.jpg";
+import nmimsDegree from "@/degree/nmims.jpg";
+import vguDegree from "@/degree/vgu.jpg";
+
 export const brandLogo = avedu;
 
 /** Logos keyed by university slug. */
