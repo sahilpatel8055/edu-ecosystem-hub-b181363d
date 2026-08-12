@@ -317,7 +317,15 @@ function Page() {
             </ul>
           )}
           <CareerRolePackages
-            roles={getCareerInfo(u.slug, p.slug)?.data.roles ?? []}
+            roles={
+              getCareerInfo(u.slug, p.slug)?.data.roles?.length
+                ? getCareerInfo(u.slug, p.slug)!.data.roles!
+                : Array.from(
+                    new Set(
+                      offering.specialisations.flatMap((s) => getSpecialisation(p.slug, s)?.careerPaths ?? []),
+                    ),
+                  ).slice(0, 10)
+            }
             universitySlug={u.slug}
             universityShort={u.shortName}
           />
