@@ -5,14 +5,13 @@ import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import { AppLink } from "@/components/common/AppLink";
 import { CompareUniversities } from "@/components/course/CompareUniversities";
 import {
-  AccordionList,
   AudienceCards,
   CardGrid,
   ChipList,
   FeeSummaryTable,
   FinalCta,
   GlanceTable,
-  LabelledAccordion,
+  InfoBoxGrid,
   LinkTiles,
   Note,
   PlatformTrust,
@@ -27,9 +26,10 @@ import {
   SyllabusGrid,
   TickList,
   TwoColumnLists,
-  UniversityTile,
+  UniversityTileGrid,
   type CourseReview,
 } from "@/components/course/CourseSections";
+import { PromoBanner } from "@/components/course/PromoBanner";
 import type { CourseContent } from "@/data/course-pages/types";
 import type { CourseFamily } from "@/lib/courseFamily";
 
@@ -57,14 +57,15 @@ export function CoursePageTemplate({
 
   const sections = [
     "Overview",
-    "Eligibility",
-    "Fees",
+    "Who should consider it",
     "Universities",
-    "Compare universities",
     "Specialisations",
-    ...(content.syllabus.length ? ["Syllabus"] : []),
+    ...(content.syllabus.length ? ["Curriculum"] : []),
+    "Fees",
+    "Eligibility",
     "Admission",
     "Documents",
+    "Compare universities",
     "How it works",
     "Learning & exams",
     "Career",
