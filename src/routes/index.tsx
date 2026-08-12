@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { SearchBox } from "@/components/layout/SearchBox";
+import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { AppLink } from "@/components/common/AppLink";
 import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Primitives";
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
@@ -61,6 +62,8 @@ const stats = [
 function HomePage() {
   return (
     <>
+      <HeroCarousel />
+
       {/* Hero */}
       <section className="hero-glow relative overflow-hidden border-b border-border">
         <span

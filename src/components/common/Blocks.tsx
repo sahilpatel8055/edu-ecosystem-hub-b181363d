@@ -268,7 +268,7 @@ export function StickyMobileCTA({
   ];
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
-      <div className="border-t border-white/15 bg-[#7f1813]/75 pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-10px_30px_-18px_oklch(0_0_0/0.6)] backdrop-blur-xl backdrop-saturate-150">
+      <div className="border-t border-white/25 bg-[#7f1813]/45 pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-10px_30px_-18px_oklch(0_0_0/0.55)] backdrop-blur-2xl backdrop-saturate-200 [background-image:linear-gradient(to_bottom,rgba(255,255,255,0.14),rgba(255,255,255,0))]">
         <nav className="grid grid-cols-5 items-end px-1 pt-2 pb-1.5">
           {items.slice(0, 2).map((i) => (
             <NavItem key={i.to} {...i} />
@@ -276,7 +276,7 @@ export function StickyMobileCTA({
           <AppLink
             to={href}
             aria-label={label}
-            className="mx-auto -mt-7 grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-[#7f1813]/70 bg-brand text-center text-[0.6rem] font-extrabold uppercase leading-tight tracking-wide text-brand-foreground shadow-lg backdrop-blur"
+            className="mx-auto -mt-7 grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-white/40 bg-brand text-center text-[0.6rem] font-extrabold uppercase leading-tight tracking-wide text-brand-foreground shadow-lg backdrop-blur"
           >
             <span className="px-1">Apply now</span>
           </AppLink>
@@ -335,9 +335,9 @@ function NavItem({
   return (
     <AppLink
       to={to}
-      className="flex flex-col items-center gap-1 px-1 py-1 text-[0.6rem] font-bold uppercase tracking-wide text-white/85"
+      className="flex flex-col items-center gap-1 px-1 py-1 text-[0.62rem] font-extrabold uppercase tracking-wide text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.65)]"
     >
-      <Icon className="h-5 w-5" aria-hidden="true" />
+      <Icon className="h-[1.4rem] w-[1.4rem]" strokeWidth={2.4} aria-hidden="true" />
       <span className="truncate">{label}</span>
     </AppLink>
   );

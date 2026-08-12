@@ -221,7 +221,7 @@ export function ComparisonCard({ item }: { item: Comparison }) {
         <span className="truncate text-right text-sm font-bold">{item.right}</span>
       </div>
       <p className="mt-4 line-clamp-2 text-sm text-muted-foreground">{item.summary}</p>
-      <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+      <span className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-xl bg-[#7f1813] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-transform group-hover:-translate-y-0.5">
         See full comparison <ArrowRight className="h-3.5 w-3.5" />
       </span>
       </div>
