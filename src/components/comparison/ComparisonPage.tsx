@@ -405,7 +405,11 @@ export function ComparisonPage({
       </ContentSection>
 
       <ContentSection title="Sources and last verified">
-        <References items={[...progSources, ...sources]} />
+        <References
+          items={[...progSources, ...sources].filter(
+            (item, i, all) => all.findIndex((x) => x.href === item.href) === i,
+          )}
+        />
         <p className="text-sm text-muted-foreground">
           Session: {ACADEMIC_SESSION}. Last verified: {text(uniA.last_verified)} ({uniA.short_name}),{" "}
           {text(uniB.last_verified)} ({uniB.short_name}).
