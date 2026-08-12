@@ -104,6 +104,18 @@ export const approvalIcon = (body: string): string | undefined =>
  * Drop the image into `src/degree/` and register it here — the sample-degree
  * section on the university page hides itself while an entry is missing.
  */
-const degreeSamples: Record<string, string> = {};
+const degreeSamples: Record<string, string> = {
+  "amity-online": amityDegree,
+  "chandigarh-university-online": cuDegree,
+  "dpu-online": dpuDegree,
+  "du-sol": duSolDegree,
+  ignou: ignouDegree,
+  "ksou-mysuru": ksouDegree,
+  "lpu-online": lpuDegree,
+  "manipal-university-jaipur": manipalDegree,
+  "nmims-online": nmimsDegree,
+  vgu: vguDegree,
+};
 
 export const degreeSample = (slug: string): string | undefined => degreeSamples[slug];
+
