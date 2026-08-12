@@ -6,13 +6,13 @@ import banner6 from "@/assets/banner_6_compare_universities.png";
 import banner3 from "@/assets/banner_3_online_programs.png";
 import banner4 from "@/assets/banner_4_trusted_guidance.png";
 
-type Banner = { src: string; alt: string; to: string };
+type Banner = { src: string; alt: string; to: string; mobile: string };
 
 const banners: Banner[] = [
-  { src: banner5, alt: "Learn from India's best online universities — UG & PG UGC-entitled degrees", to: "/universities" },
-  { src: banner6, alt: "Compare online universities side by side on fees, approvals and placements", to: "/compare" },
-  { src: banner3, alt: "Explore top online programs — MBA, MCA, BBA, BCA and more", to: "/courses" },
-  { src: banner4, alt: "Trusted, unbiased admission guidance from AVEDU Insights", to: "/contact" },
+  { src: banner5, alt: "Learn from India's best online universities — UG & PG UGC-entitled degrees", to: "/universities", mobile: "h-[215px]" },
+  { src: banner6, alt: "Compare online universities side by side on fees, approvals and placements", to: "/compare", mobile: "h-[215px]" },
+  { src: banner3, alt: "Explore top online programs — MBA, MCA, BBA, BCA and more", to: "/courses", mobile: "h-[140px]" },
+  { src: banner4, alt: "Trusted, unbiased admission guidance from AVEDU Insights", to: "/contact", mobile: "h-[140px]" },
 ];
 
 export function HeroCarousel() {
@@ -58,7 +58,7 @@ export function HeroCarousel() {
             <AppLink
               key={b.src}
               to={b.to}
-              className="flex min-h-[230px] w-full shrink-0 items-center sm:min-h-0"
+              className="flex w-full shrink-0 items-center"
               aria-hidden={i !== index}
             >
               <img
@@ -69,7 +69,7 @@ export function HeroCarousel() {
                 loading={i === 0 ? "eager" : "lazy"}
                 fetchPriority={i === 0 ? "high" : "low"}
                 decoding={i === 0 ? "sync" : "async"}
-                className="h-auto w-full max-w-full object-contain"
+                className={`w-full max-w-full ${b.mobile} object-cover object-left sm:h-auto sm:object-contain`}
               />
             </AppLink>
           ))}
