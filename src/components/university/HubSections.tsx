@@ -34,7 +34,7 @@ import {
   relatedUniversities,
   type UniversityRecordJson,
 } from "@/lib/universityData";
-import { getCareerInfo, getExamPattern, getScholarshipInfo } from "@/lib/insightsData";
+import { getCareerInfo, getExamPattern, getScholarshipInfo, type ScholarshipCriterion } from "@/lib/insightsData";
 
 /**
  * University pillar-page hub sections.
@@ -137,7 +137,7 @@ export function UniversityGlance({ slug }: { slug: string }) {
 
 export function UniversityLearningExperience({ slug, shortName }: { slug: string; shortName: string }) {
   const u = getUniversityBySlug(slug);
-  const exam = getExamPattern(slug)?.value;
+  const exam = getExamPattern(slug)?.data;
   if (!u) return null;
 
   const cards: Array<{ icon: typeof Award; title: string; body: string }> = [];
@@ -176,7 +176,7 @@ export function UniversityLearningExperience({ slug, shortName }: { slug: string
 /* ------------------------ PART 3 — career & placement -------------------- */
 
 export function UniversityCareerSupport({ slug, shortName }: { slug: string; shortName: string }) {
-  const career = getCareerInfo(slug)?.value;
+  const career = getCareerInfo(slug)?.data;
   const summary = career?.university_level_summary;
   const reference = career?.placement_support_reference;
 
@@ -215,13 +215,13 @@ export function UniversityCareerSupport({ slug, shortName }: { slug: string; sho
 /* --------------------------- PART 4 — scholarships ----------------------- */
 
 export function UniversityScholarshipCTA({ slug, shortName }: { slug: string; shortName: string }) {
-  const info = getScholarshipInfo(slug)?.value;
+  const info = getScholarshipInfo(slug)?.data;
   const criteria = info?.criteria ?? [];
   return (
     <div className="space-y-3">
       {criteria.length > 0 && (
         <div className="grid gap-2.5 sm:grid-cols-2">
-          {criteria.map((c) => (
+          {criteria.map((c: ScholarshipCriterion) => (
             <details key={c.name ?? c.criterion} className="group rounded-xl border border-border bg-card p-3.5">
               <summary className="cursor-pointer list-none text-sm font-bold marker:hidden">
                 {c.name ?? "Scholarship"}
@@ -328,7 +328,7 @@ export function UniversityAdvantages({ slug, shortName }: { slug: string; shortN
   const fees = feeRangeLabel(slug);
   if (fees !== "Fee pending verification")
     points.push({ icon: Wallet, title: "Published fee range", body: `Programme fees listed between ${fees}.` });
-  if ((u.scholarships?.length ?? 0) > 0 || (getScholarshipInfo(slug)?.value?.criteria?.length ?? 0) > 0)
+  if ((u.scholarships?.length ?? 0) > 0 || (getScholarshipInfo(slug)?.data?.criteria?.length ?? 0) > 0)
     points.push({ icon: Sparkles, title: "Scholarship options", body: `${shortName} publishes scholarship criteria for eligible applicants.` });
   if (u.admissions.admission_steps.length)
     points.push({ icon: ClipboardCheck, title: "Documented admission process", body: `${u.admissions.admission_steps.length}-step official application process.` });
@@ -363,7 +363,7 @@ export function UniversityConsiderations({ slug, shortName }: { slug: string; sh
   ];
   if (u.admissions.admission_cycle || u.admissions.next_expected_intake)
     points.push("Admission cycles and intake dates can change; confirm the current cycle on the official portal.");
-  if ((getScholarshipInfo(slug)?.value?.criteria?.length ?? 0) > 0)
+  if ((getScholarshipInfo(slug)?.data?.criteria?.length ?? 0) > 0)
     points.push("Scholarship eligibility varies by programme and by the current scholarship notice.");
   if (u.programmes.some((p) => !(p.fees.fee_verification_status ?? "").startsWith("verified_official")))
     points.push("Some fee figures are pending official verification and are marked accordingly on this page.");
