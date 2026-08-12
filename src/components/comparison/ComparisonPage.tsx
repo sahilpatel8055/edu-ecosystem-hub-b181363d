@@ -83,7 +83,7 @@ export function ComparisonPage({
 }: {
   pair: MasterPair;
   /** Present on `/compare/{course}/{a}-vs-{b}` pages. */
-  course?: string;
+  course?: string | undefined;
 }) {
   const { a: uniA, b: uniB } = pairUniversities(pair);
   if (!uniA || !uniB) return null;
@@ -415,7 +415,7 @@ export function ComparisonPage({
   );
 }
 
-function CourseSelector({ pair, active }: { pair: MasterPair; active?: string }) {
+function CourseSelector({ pair, active }: { pair: MasterPair; active?: string | undefined }) {
   return (
     <div className="surface-card p-4">
       <p className="text-sm font-bold">Compare a specific course</p>
