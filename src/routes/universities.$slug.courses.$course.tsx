@@ -28,6 +28,9 @@ import {
   ScholarshipCategories,
   SpecialisationElectives,
 } from "@/components/university/MasterCourseSections";
+import { FeeHighlight } from "@/components/university/FeeHighlight";
+import { CareerRolePackages } from "@/components/university/CareerRolePackages";
+import { getCareerInfo } from "@/lib/insightsData";
 import {
   approvalText,
   articleLinks,
@@ -254,6 +257,7 @@ function Page() {
         )}
 
         <ContentSection title="Fee structure">
+          <FeeHighlight fee={offering.fee} duration={offering.durationLabel} />
           <DataTable
             caption="Fee components"
             head={["Component", "Amount"]}
@@ -283,12 +287,14 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Admission process">
-          <AdmissionInsightSection
-            universitySlug={u.slug}
-            universityShort={u.shortName}
-            courseSlug={p.slug}
-            courseName={`${u.shortName} ${p.shortName}`}
-          />
+          <div className="rounded-2xl border-2 border-brand p-4 sm:p-5">
+            <AdmissionInsightSection
+              universitySlug={u.slug}
+              universityShort={u.shortName}
+              courseSlug={p.slug}
+              courseName={`${u.shortName} ${p.shortName}`}
+            />
+          </div>
         </ContentSection>
 
         <ContentSection title="Examination pattern">
@@ -310,6 +316,11 @@ function Page() {
               ))}
             </ul>
           )}
+          <CareerRolePackages
+            roles={getCareerInfo(u.slug, p.slug)?.data.roles ?? []}
+            universitySlug={u.slug}
+            universityShort={u.shortName}
+          />
           <CareerOpportunitiesSection
             universitySlug={u.slug}
             universityShort={u.shortName}
