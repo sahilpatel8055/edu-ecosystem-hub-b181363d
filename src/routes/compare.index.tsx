@@ -3,7 +3,9 @@ import { PageShell } from "@/components/templates/PageShell";
 import { CTASection } from "@/components/common/Primitives";
 import { ComparisonCard } from "@/components/cards";
 import { LinkCluster, RelatedLinkGrid } from "@/components/common/Blocks";
+import { AppLink } from "@/components/common/AppLink";
 import { comparisons } from "@/lib/content";
+import { ACADEMIC_SESSION, masterPairs } from "@/lib/comparisonMaster";
 import { comparisonLinks, programmeLinks, universityLinks, universityPairs } from "@/lib/entities";
 import {
   breadcrumbSchema,
