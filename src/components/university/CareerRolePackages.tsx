@@ -15,9 +15,9 @@ export function CareerRolePackages({
   universitySlug: string;
   universityShort: string;
 }) {
-  if (!roles.length) return null;
   return (
     <div className="space-y-4">
+      {roles.length > 0 && (
       <div className="overflow-hidden rounded-2xl border border-border">
         <table className="w-full border-collapse text-sm">
           <caption className="sr-only">Career roles and indicative average packages</caption>
@@ -48,10 +48,13 @@ export function CareerRolePackages({
           </tbody>
         </table>
       </div>
+      )}
+      {roles.length > 0 && (
       <p className="text-xs text-subtle">
         Average packages are indicative market ranges for these roles in India, not {universityShort} placement
         guarantees.
       </p>
+      )}
       <HiringPartners universitySlug={universitySlug} universityShort={universityShort} />
     </div>
   );
