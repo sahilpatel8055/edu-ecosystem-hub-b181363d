@@ -2,7 +2,6 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
 import {
   AuthorBox,
-  DataTable,
   ProsCons,
   References,
   RelatedLinkGrid,
@@ -13,11 +12,10 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
-import { ApprovalMarquee } from "@/components/common/BoxMarquee";
+import { ApprovalsSection } from "@/components/university/ApprovalsSection";
 import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
 import {
   AdmissionSection,
-  RecognitionTable,
   ScholarshipList,
   SourceInformation,
 } from "@/components/university/DataSections";
@@ -261,16 +259,12 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Approvals & recognition">
-          <ApprovalMarquee approvals={u.approvals} />
-          {json ? (
-            <RecognitionTable university={json} />
-          ) : (
-            <DataTable
-              caption={`${u.shortName} approvals`}
-              head={["Body", "Status"]}
-              rows={u.approvals.map((a) => [a.body, a.status])}
-            />
-          )}
+          <ApprovalsSection
+            approvals={u.approvals}
+            shortName={u.shortName}
+            json={json ?? undefined}
+            fallbackRows={u.approvals.map((a) => [a.body, a.status] as [string, string])}
+          />
         </ContentSection>
 
         <ContentSection title="Courses & fees">

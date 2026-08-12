@@ -229,12 +229,45 @@
 }
 
 @utility hover-lift {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 2px 4px oklch(0 0 0 / 0.05), 0 22px 44px -22px oklch(0 0 0 / 0.35);
     border-color: color-mix(in oklab, var(--color-brand) 35%, var(--color-border));
   }
+
+  /* Touch devices have no hover: give the same feedback on press. */
+  &:active {
+    transform: translateY(-1px) scale(0.995);
+    border-color: color-mix(in oklab, var(--color-brand) 45%, var(--color-border));
+    background-color: color-mix(in oklab, var(--color-brand-soft) 45%, var(--color-card));
+  }
 }
+
+/* Shared hover/press tint for every info box on the site. */
+@utility box-hover {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: color-mix(in oklab, var(--color-brand) 45%, var(--color-border));
+    background-color: color-mix(in oklab, var(--color-brand-soft) 55%, var(--color-card));
+    box-shadow: 0 10px 26px -20px oklch(0 0 0 / 0.4);
+  }
+
+  &:active {
+    border-color: color-mix(in oklab, var(--color-brand) 55%, var(--color-border));
+    background-color: color-mix(in oklab, var(--color-brand-soft) 70%, var(--color-card));
+  }
+}
+
 
 @utility text-gradient-brand {
   background-image: linear-gradient(

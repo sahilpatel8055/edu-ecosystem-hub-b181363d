@@ -16,7 +16,7 @@ export function HiringPartners({
   if (!image) return null;
 
   return (
-    <figure className="min-w-0 overflow-hidden rounded-2xl border border-border bg-card p-3 sm:p-4">
+    <figure className="box-hover min-w-0 overflow-hidden rounded-2xl border border-border bg-card p-3 sm:p-4">
       <figcaption className="text-sm font-bold text-card-foreground">
         Recruiters hiring {universityShort} learners
       </figcaption>

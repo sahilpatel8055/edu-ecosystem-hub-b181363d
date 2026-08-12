@@ -50,7 +50,7 @@ export function SampleDegreeSection({
       </div>
 
       <figure className="min-w-0">
-        <div className="rounded-2xl border border-border bg-card p-3 shadow-[0_18px_40px_-26px_oklch(0_0_0/0.6)]">
+        <div className="box-hover rounded-2xl border border-border bg-card p-3 shadow-[0_18px_40px_-26px_oklch(0_0_0/0.6)]">
           <img
             src={image}
             alt={`${universityName} sample degree certificate`}

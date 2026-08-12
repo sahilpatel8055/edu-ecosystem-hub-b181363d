@@ -56,7 +56,7 @@ function IconCard({
   value: ReactNode;
 }) {
   return (
-    <div className="flex items-start gap-2.5 rounded-xl border border-border bg-card p-3">
+    <div className="box-hover flex items-start gap-2.5 rounded-xl border border-border bg-card p-3">
       <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand">
         <Icon className="h-4 w-4" aria-hidden="true" />
       </span>
@@ -161,7 +161,7 @@ export function UniversityLearningExperience({ slug, shortName }: { slug: string
   return (
     <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
       {cards.map((c) => (
-        <div key={c.title} className="rounded-xl border border-border bg-card p-3.5">
+        <div key={c.title} className="box-hover rounded-xl border border-border bg-card p-3.5">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-brand">
             <c.icon className="h-4 w-4" aria-hidden="true" />
           </span>
@@ -222,7 +222,7 @@ export function UniversityScholarshipCTA({ slug, shortName }: { slug: string; sh
       {criteria.length > 0 && (
         <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2">
           {criteria.map((c: ScholarshipCriterion) => (
-            <details key={c.name ?? c.criterion} className="group rounded-xl border border-border bg-card p-3.5">
+            <details key={c.name ?? c.criterion} className="box-hover group rounded-xl border border-border bg-card p-3.5">
               <summary className="cursor-pointer list-none text-sm font-bold marker:hidden">
                 {c.name ?? "Scholarship"}
                 <span className="float-right text-brand transition-transform group-open:rotate-45">+</span>
@@ -259,7 +259,7 @@ export function UniversityDegreeFacts({ slug }: { slug: string }) {
   return (
     <dl className="grid grid-cols-2 gap-2.5 sm:grid-cols-2">
       {rows.map(([label, value]) => (
-        <div key={label} className="rounded-xl border border-border bg-card p-3">
+        <div key={label} className="box-hover rounded-xl border border-border bg-card p-3">
           <dt className="text-[0.66rem] font-bold uppercase tracking-[0.12em] text-muted-foreground">{label}</dt>
           <dd className="mt-1 text-sm font-semibold leading-snug">{value}</dd>
         </div>
@@ -278,7 +278,7 @@ export function UniversitySpecialisations({ slug }: { slug: string }) {
   return (
     <div className="space-y-3">
       {top.map((p) => (
-        <div key={p.slug} className="rounded-xl border border-border bg-card p-3.5">
+        <div key={p.slug} className="box-hover rounded-xl border border-border bg-card p-3.5">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h3 className="text-sm font-bold">{p.programme_name}</h3>
             <AppLink
@@ -338,7 +338,7 @@ export function UniversityAdvantages({ slug, shortName }: { slug: string; shortN
   return (
     <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
       {points.slice(0, 7).map((p) => (
-        <div key={p.title} className="rounded-xl border border-border bg-card p-3.5">
+        <div key={p.title} className="box-hover rounded-xl border border-border bg-card p-3.5">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-brand">
             <p.icon className="h-4 w-4" aria-hidden="true" />
           </span>
@@ -405,7 +405,7 @@ export function UniversitySuitability({ slug }: { slug: string }) {
 
   return (
     <div className="grid gap-3 lg:grid-cols-2">
-      <div className="rounded-2xl border border-border bg-card p-4">
+      <div className="box-hover rounded-2xl border border-border bg-card p-4">
         <h3 className="text-sm font-bold text-success">May suit</h3>
         <ul className="mt-2.5 space-y-2">
           {suits.map((s) => (
@@ -416,7 +416,7 @@ export function UniversitySuitability({ slug }: { slug: string }) {
           ))}
         </ul>
       </div>
-      <div className="rounded-2xl border border-border bg-card p-4">
+      <div className="box-hover rounded-2xl border border-border bg-card p-4">
         <h3 className="text-sm font-bold">May not suit</h3>
         <ul className="mt-2.5 space-y-2">
           {notSuits.map((s) => (
@@ -450,7 +450,7 @@ export function UniversityReviews({
     );
   }
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4">
+    <div className="box-hover flex items-center gap-3 rounded-2xl border border-border bg-card p-4">
       <Star className="h-6 w-6 text-brand" aria-hidden="true" />
       <p className="text-sm font-bold">
         {rating}/5 <span className="font-medium text-muted-foreground">based on {reviewCount} reviews</span>
@@ -474,7 +474,7 @@ export function UniversityComparison({ slug, shortName }: { slug: string; shortN
         return (
           <article
             key={p.slug}
-            className="flex w-[80vw] shrink-0 snap-start flex-col rounded-2xl border border-border bg-card p-3.5 sm:w-auto"
+            className="box-hover flex w-[80vw] shrink-0 snap-start flex-col rounded-2xl border border-border bg-card p-3.5 sm:w-auto"
           >
             <div className="flex items-center gap-2.5">
               {logo ? (
