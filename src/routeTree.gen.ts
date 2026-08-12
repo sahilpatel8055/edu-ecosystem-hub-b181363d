@@ -43,6 +43,7 @@ import { Route as UniversitiesSlugExaminationPatternRouteImport } from './routes
 import { Route as UniversitiesSlugPlacementRouteImport } from './routes/universities.$slug.placement'
 import { Route as UniversitiesSlugScholarshipsRouteImport } from './routes/universities.$slug.scholarships'
 import { Route as UniversitySlugCourseRouteImport } from './routes/university.$slug.$course'
+import { Route as CoursesCourseSpecialisationSpecRouteImport } from './routes/courses.$course.specialisation.$spec'
 import { Route as UniversitiesSlugCoursesCourseRouteImport } from './routes/universities.$slug.courses.$course'
 
 const IndexRoute = IndexRouteImport.update({
@@ -220,6 +221,12 @@ const UniversitySlugCourseRoute = UniversitySlugCourseRouteImport.update({
   path: '/university/$slug/$course',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesCourseSpecialisationSpecRoute =
+  CoursesCourseSpecialisationSpecRouteImport.update({
+    id: '/specialisation/$spec',
+    path: '/specialisation/$spec',
+    getParentRoute: () => CoursesCourseRoute,
+  } as any)
 const UniversitiesSlugCoursesCourseRoute =
   UniversitiesSlugCoursesCourseRouteImport.update({
     id: '/courses/$course',
@@ -262,6 +269,7 @@ export interface FileRoutesByFullPath {
   '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
   '/university/$slug/$course': typeof UniversitySlugCourseRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
+  '/courses/$course/specialisation/$spec': typeof CoursesCourseSpecialisationSpecRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
 export interface FileRoutesByTo {
@@ -295,6 +303,7 @@ export interface FileRoutesByTo {
   '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
   '/university/$slug/$course': typeof UniversitySlugCourseRoute
   '/universities/$slug': typeof UniversitiesSlugIndexRoute
+  '/courses/$course/specialisation/$spec': typeof CoursesCourseSpecialisationSpecRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
 export interface FileRoutesById {
@@ -333,6 +342,7 @@ export interface FileRoutesById {
   '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
   '/university/$slug/$course': typeof UniversitySlugCourseRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
+  '/courses/$course/specialisation/$spec': typeof CoursesCourseSpecialisationSpecRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
 export interface FileRouteTypes {
@@ -372,6 +382,7 @@ export interface FileRouteTypes {
     | '/universities/$slug/scholarships'
     | '/university/$slug/$course'
     | '/universities/$slug/'
+    | '/courses/$course/specialisation/$spec'
     | '/universities/$slug/courses/$course'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -405,6 +416,7 @@ export interface FileRouteTypes {
     | '/universities/$slug/scholarships'
     | '/university/$slug/$course'
     | '/universities/$slug'
+    | '/courses/$course/specialisation/$spec'
     | '/universities/$slug/courses/$course'
   id:
     | '__root__'
@@ -442,6 +454,7 @@ export interface FileRouteTypes {
     | '/universities/$slug/scholarships'
     | '/university/$slug/$course'
     | '/universities/$slug/'
+    | '/courses/$course/specialisation/$spec'
     | '/universities/$slug/courses/$course'
   fileRoutesById: FileRoutesById
 }
@@ -710,6 +723,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitySlugCourseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses/$course/specialisation/$spec': {
+      id: '/courses/$course/specialisation/$spec'
+      path: '/specialisation/$spec'
+      fullPath: '/courses/$course/specialisation/$spec'
+      preLoaderRoute: typeof CoursesCourseSpecialisationSpecRouteImport
+      parentRoute: typeof CoursesCourseRoute
+    }
     '/universities/$slug/courses/$course': {
       id: '/universities/$slug/courses/$course'
       path: '/courses/$course'
@@ -735,10 +755,12 @@ const CompareRouteWithChildren =
 
 interface CoursesCourseRouteChildren {
   CoursesCourseSectionRoute: typeof CoursesCourseSectionRoute
+  CoursesCourseSpecialisationSpecRoute: typeof CoursesCourseSpecialisationSpecRoute
 }
 
 const CoursesCourseRouteChildren: CoursesCourseRouteChildren = {
   CoursesCourseSectionRoute: CoursesCourseSectionRoute,
+  CoursesCourseSpecialisationSpecRoute: CoursesCourseSpecialisationSpecRoute,
 }
 
 const CoursesCourseRouteWithChildren = CoursesCourseRoute._addFileChildren(
