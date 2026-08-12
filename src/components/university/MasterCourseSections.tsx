@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import type { CourseMaster, UniversityCourseMaster } from "@/lib/courseMaster";
 
 /* ----------------------------- Curriculum ----------------------------- */
 
 /**
- * Semester-wise curriculum. Accordion on mobile, open cards on desktop.
+ * Semester-wise curriculum. Always-open cards, two semesters per row
+ * (Sem 1–2, then Sem 3–4), with the semester label on the brand bar.
  * Uses the common course structure when the university publishes no
  * verified syllabus of its own — always labelled as such.
  */
@@ -18,7 +18,6 @@ export function CurriculumSection({
   universityShort: string;
   universitySpecificNote?: string | undefined;
 }) {
-  const [open, setOpen] = useState<number>(0);
   return (
     <div className="space-y-4">
       <p className="text-sm text-muted-foreground">
@@ -28,32 +27,22 @@ export function CurriculumSection({
       </p>
       <p className="text-xs text-subtle">Indicative duration: {course.duration}</p>
 
-      <div className="grid gap-3 md:grid-cols-2">
-        {course.semesters.map((sem, i) => {
-          const expanded = open === i;
-          return (
-            <div key={sem.label} className="surface-card overflow-hidden">
-              <button
-                type="button"
-                aria-expanded={expanded}
-                onClick={() => setOpen(expanded ? -1 : i)}
-                className="flex w-full items-center justify-between gap-3 bg-brand px-4 py-3 text-left text-brand-foreground md:cursor-default"
-              >
-                <span className="font-display text-base font-extrabold">{sem.label}</span>
-                <ChevronDown
-                  className={`h-4 w-4 shrink-0 transition-transform md:hidden ${expanded ? "rotate-180" : ""}`}
-                />
-              </button>
-              <ul className={`${expanded ? "block" : "hidden"} space-y-1.5 border-t border-border px-4 py-3 md:block`}>
-                {sem.subjects.map((s) => (
-                  <li key={s} className="text-sm leading-relaxed text-muted-foreground">
-                    {s}
-                  </li>
-                ))}
-              </ul>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {course.semesters.map((sem) => (
+          <div key={sem.label} className="surface-card overflow-hidden">
+            <div className="bg-brand px-4 py-3 text-brand-foreground">
+              <span className="font-display text-base font-extrabold">{sem.label}</span>
             </div>
-          );
-        })}
+            <ul className="space-y-1.5 border-t border-border px-4 py-3">
+              {sem.subjects.map((s) => (
+                <li key={s} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                  <span aria-hidden="true" className="mt-0.5 text-brand">✓</span>
+                  <span className="min-w-0">{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );
