@@ -81,11 +81,19 @@ export function UniversityExplorer({ items }: { items: University[] }) {
         <FacetRow label="Approval" options={approvals} value={approval} onChange={setApproval} />
         <FacetRow label="Fee" options={["Any", "Under ₹1L", "₹1L and above"]} value={fee} onChange={setFee} />
       </Shell>
-      <div className={cn("grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3")}>
+      <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {filtered.map((i) => (
-          <UniversityCard key={i.slug} item={i} />
+          <li key={i.slug}>
+            <UniversityTile
+              slug={i.slug}
+              name={i.name}
+              shortName={i.shortName}
+              location={i.location}
+              courseCount={i.courses}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
       {filtered.length === 0 && (
         <p className="py-12 text-center text-sm text-muted-foreground">
           No university matches these filters. Try widening the fee or approval facet.
@@ -113,9 +121,9 @@ export function CourseExplorer({ items }: { items: Course[] }) {
         <FacetRow label="Level" options={["All", "UG", "PG", "Diploma", "Certificate"]} value={level} onChange={setLevel} />
         <FacetRow label="Duration" options={durations} value={duration} onChange={setDuration} />
       </Shell>
-      <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4">
         {filtered.map((i) => (
-          <CourseCard key={i.slug} item={i} />
+          <CourseTile key={i.slug} item={i} />
         ))}
       </div>
       {filtered.length === 0 && (
