@@ -187,25 +187,32 @@ function Page() {
           { name: u.shortName, href: path },
         ]}
         hero={<UniversityMasthead university={u} />}
-        eyebrow={`${u.type} university · ${u.modes.join(" / ")}`}
+        eyebrow={`${u.type ? `${u.type} university · ` : ""}${u.modes.join(" / ")}`}
         title={`${u.name}: Fees, Courses, Approvals & Admission 2026`}
         subtitle={u.summary}
         meta={<UpdatedStamp date={u.lastUpdated} verified={u.verified} />}
         tocSections={[
-          "Key highlights",
-          "Quick facts",
+          "At a glance",
           "Overview",
           "Approvals & recognition",
           "Courses & fees",
           ...(hasFeeTable ? ["Fee structure"] : []),
-          ...(hasDegreeSample ? ["Sample degree"] : []),
+          "Specialisations",
           "Admission process",
           "Examination pattern",
+          "Learning experience",
           "Placement & career",
           "Scholarships",
+          ...(hasDegreeSample ? ["Degree & certificate"] : []),
+          "Why consider",
+          "Things to consider",
+          "Who it suits",
+          "Student reviews",
+          "Compare universities",
           "FAQs",
           "Related links",
         ]}
+
         faqs={faqs}
         sidebarExtras={
           <>
