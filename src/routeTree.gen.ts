@@ -35,6 +35,7 @@ import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
+import { Route as CoursesCourseSectionRouteImport } from './routes/courses.$course.$section'
 import { Route as OnlineCoursesLevelCourseRouteImport } from './routes/online-courses.$level.$course'
 import { Route as UniversitiesSlugIndexRouteImport } from './routes/universities.$slug.index'
 import { Route as UniversitiesSlugAdmissionRouteImport } from './routes/universities.$slug.admission'
@@ -174,6 +175,11 @@ const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => UniversitiesRoute,
 } as any)
+const CoursesCourseSectionRoute = CoursesCourseSectionRouteImport.update({
+  id: '/$section',
+  path: '/$section',
+  getParentRoute: () => CoursesCourseRoute,
+} as any)
 const OnlineCoursesLevelCourseRoute =
   OnlineCoursesLevelCourseRouteImport.update({
     id: '/online-courses/$level/$course',
@@ -243,11 +249,12 @@ export interface FileRoutesByFullPath {
   '/tools': typeof ToolsRoute
   '/universities': typeof UniversitiesRouteWithChildren
   '/compare/$comparison': typeof CompareComparisonRoute
-  '/courses/$course': typeof CoursesCourseRoute
+  '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
+  '/courses/$course/$section': typeof CoursesCourseSectionRoute
   '/online-courses/$level/$course': typeof OnlineCoursesLevelCourseRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
   '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
@@ -276,10 +283,11 @@ export interface FileRoutesByTo {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
   '/compare/$comparison': typeof CompareComparisonRoute
-  '/courses/$course': typeof CoursesCourseRoute
+  '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/compare': typeof CompareIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/universities': typeof UniversitiesIndexRoute
+  '/courses/$course/$section': typeof CoursesCourseSectionRoute
   '/online-courses/$level/$course': typeof OnlineCoursesLevelCourseRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
   '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
@@ -312,11 +320,12 @@ export interface FileRoutesById {
   '/tools': typeof ToolsRoute
   '/universities': typeof UniversitiesRouteWithChildren
   '/compare/$comparison': typeof CompareComparisonRoute
-  '/courses/$course': typeof CoursesCourseRoute
+  '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
+  '/courses/$course/$section': typeof CoursesCourseSectionRoute
   '/online-courses/$level/$course': typeof OnlineCoursesLevelCourseRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
   '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
@@ -355,6 +364,7 @@ export interface FileRouteTypes {
     | '/compare/'
     | '/courses/'
     | '/universities/'
+    | '/courses/$course/$section'
     | '/online-courses/$level/$course'
     | '/universities/$slug/admission'
     | '/universities/$slug/examination-pattern'
@@ -387,6 +397,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/courses'
     | '/universities'
+    | '/courses/$course/$section'
     | '/online-courses/$level/$course'
     | '/universities/$slug/admission'
     | '/universities/$slug/examination-pattern'
@@ -423,6 +434,7 @@ export interface FileRouteTypes {
     | '/compare/'
     | '/courses/'
     | '/universities/'
+    | '/courses/$course/$section'
     | '/online-courses/$level/$course'
     | '/universities/$slug/admission'
     | '/universities/$slug/examination-pattern'
@@ -642,6 +654,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesSlugRouteImport
       parentRoute: typeof UniversitiesRoute
     }
+    '/courses/$course/$section': {
+      id: '/courses/$course/$section'
+      path: '/$section'
+      fullPath: '/courses/$course/$section'
+      preLoaderRoute: typeof CoursesCourseSectionRouteImport
+      parentRoute: typeof CoursesCourseRoute
+    }
     '/online-courses/$level/$course': {
       id: '/online-courses/$level/$course'
       path: '/online-courses/$level/$course'
@@ -714,13 +733,25 @@ const CompareRouteChildren: CompareRouteChildren = {
 const CompareRouteWithChildren =
   CompareRoute._addFileChildren(CompareRouteChildren)
 
+interface CoursesCourseRouteChildren {
+  CoursesCourseSectionRoute: typeof CoursesCourseSectionRoute
+}
+
+const CoursesCourseRouteChildren: CoursesCourseRouteChildren = {
+  CoursesCourseSectionRoute: CoursesCourseSectionRoute,
+}
+
+const CoursesCourseRouteWithChildren = CoursesCourseRoute._addFileChildren(
+  CoursesCourseRouteChildren,
+)
+
 interface CoursesRouteChildren {
-  CoursesCourseRoute: typeof CoursesCourseRoute
+  CoursesCourseRoute: typeof CoursesCourseRouteWithChildren
   CoursesIndexRoute: typeof CoursesIndexRoute
 }
 
 const CoursesRouteChildren: CoursesRouteChildren = {
-  CoursesCourseRoute: CoursesCourseRoute,
+  CoursesCourseRoute: CoursesCourseRouteWithChildren,
   CoursesIndexRoute: CoursesIndexRoute,
 }
 
