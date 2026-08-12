@@ -5,6 +5,8 @@ import { ADMISSION_YEAR } from "@/data/course-pages/types";
 import { courseFamilyList, familyForProgrammeSlug } from "@/lib/courseFamily";
 import { webPageSchema } from "@/lib/seo";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
+import { SectionUrlGrid } from "@/components/course/SectionHub";
+import { PromoBanner } from "@/components/course/PromoBanner";
 import {
   AuthorBox,
   DataTable,
@@ -337,6 +339,15 @@ function Page() {
               ))}
           </ul>
         </ContentSection>
+
+        <SectionUrlGrid base={pillarBase} title={`More on the ${p.name}`} />
+
+        <PromoBanner
+          variant="guidance"
+          title={`Not sure which university fits your ${p.shortName}?`}
+          subtitle="Talk to an AVEDU counsellor — free, unbiased and 15 minutes is all it takes."
+          ctaLabel="Get free counselling"
+        />
 
         <AuthorBox />
         <References
