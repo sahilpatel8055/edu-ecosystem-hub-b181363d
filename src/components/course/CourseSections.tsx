@@ -967,7 +967,11 @@ export function UniversityTileGrid({
   initial?: number;
 }) {
   const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? offers : offers.slice(0, initial);
+  // One tile per university — specialisation variants of the same course must not duplicate.
+  const unique = offers.filter(
+    (o, i) => offers.findIndex((x) => x.universitySlug === o.universitySlug) === i,
+  );
+  const visible = showAll ? unique : unique.slice(0, initial);
   return (
     <div>
       <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
@@ -975,14 +979,14 @@ export function UniversityTileGrid({
           <UniversityTile key={o.key} offer={o} />
         ))}
       </div>
-      {offers.length > initial && (
+      {unique.length > initial && (
         <div className="mt-5 text-center">
           <button
             type="button"
             onClick={() => setShowAll((v) => !v)}
             className="inline-flex items-center gap-2 rounded-xl bg-brand-soft px-5 py-2.5 text-[0.82rem] font-bold text-brand transition-colors hover:bg-brand hover:text-brand-foreground"
           >
-            {showAll ? "Show less" : `See more universities (${offers.length - initial})`}
+            {showAll ? "Show less" : `See more universities (${unique.length - initial})`}
             <ChevronDown
               className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`}
               aria-hidden="true"
