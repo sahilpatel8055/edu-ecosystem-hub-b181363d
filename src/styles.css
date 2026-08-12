@@ -74,6 +74,8 @@
   --color-surface-2: var(--surface-2);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
+  --color-tint-admission: var(--tint-admission);
+  --color-tint-exam: var(--tint-exam);
 }
 
 :root {
@@ -100,6 +102,8 @@
   --brand: oklch(0.39 0.139 28.4);
   --brand-foreground: oklch(0.99 0.008 80);
   --brand-soft: oklch(0.945 0.032 44);
+  --tint-admission: oklch(0.955 0.028 44);
+  --tint-exam: #EFA4A4;
   --highlight: oklch(0.8 0.135 74);
   --highlight-foreground: oklch(0.36 0.09 58);
   --success: oklch(0.52 0.11 155);
@@ -141,6 +145,8 @@
   --brand: oklch(0.68 0.15 30);
   --brand-foreground: oklch(0.18 0.03 30);
   --brand-soft: oklch(0.3 0.06 30);
+  --tint-admission: oklch(0.28 0.045 32);
+  --tint-exam: oklch(0.42 0.075 22);
   --highlight: oklch(0.82 0.145 75);
   --highlight-foreground: oklch(0.9 0.09 78);
   --success: oklch(0.72 0.13 162);

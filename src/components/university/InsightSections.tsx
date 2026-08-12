@@ -126,7 +126,7 @@ function InsightPanel({
 function FactGrid({ items }: { items: Array<{ label: string; value: string }> }) {
   if (!items.length) return null;
   return (
-    <dl className="grid gap-3 sm:grid-cols-2">
+    <dl className="grid grid-cols-2 gap-3 sm:grid-cols-2">
       {items.map((f) => (
         <div key={f.label} className="rounded-xl border border-border bg-card px-3.5 py-3">
           <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{f.label}</dt>
@@ -391,7 +391,7 @@ export function CareerRoles({ roles }: { roles: string[] }) {
   return (
     <div>
       <p className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">Job roles</p>
-      <ul className="grid gap-2 sm:grid-cols-2">
+      <ul className="grid grid-cols-2 gap-2 sm:grid-cols-2">
         {roles.map((r) => (
           <li
             key={r}

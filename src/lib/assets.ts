@@ -55,6 +55,10 @@ import manipalDegree from "@/degree/manipal.jpg";
 import nmimsDegree from "@/degree/nmims.jpg";
 import vguDegree from "@/degree/vgu.jpg";
 
+import cuHiring from "@/assets/hiring-partners/cu-hiring-partner.jpg";
+import manipalHiring from "@/assets/hiring-partners/manipal-university-hiring-partners.webp";
+import nmimsHiring from "@/assets/hiring-partners/nmims-hiring-partners.webp";
+
 export const brandLogo = avedu;
 
 /** Logos keyed by university slug. */
@@ -129,4 +133,18 @@ const degreeSamples: Record<string, string> = {
 };
 
 export const degreeSample = (slug: string): string | undefined => degreeSamples[slug];
+
+/**
+ * Hiring-partner boards. We hold a handful of specimen boards, so each
+ * university gets one assigned deterministically from its slug.
+ */
+const hiringBoards: string[] = [cuHiring, manipalHiring, nmimsHiring];
+
+export function hiringPartnerBoard(slug: string): string | undefined {
+  if (!hiringBoards.length) return undefined;
+  let hash = 0;
+  for (let i = 0; i < slug.length; i += 1) hash = (hash * 31 + slug.charCodeAt(i)) % 100000;
+  return hiringBoards[hash % hiringBoards.length];
+}
+
 
