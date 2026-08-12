@@ -869,3 +869,127 @@ export function SideBySideTable({
     </div>
   );
 }
+
+/* ------------------------------- info boxes ------------------------------- */
+
+const ICON_RULES: [RegExp, typeof Check][] = [
+  [/educat|qualif|degree|graduat/i, GraduationCap],
+  [/mark|percent|aggregate|score/i, Percent],
+  [/entrance|exam|test|assess|proctor/i, ClipboardCheck],
+  [/work experience|experience|professional/i, Briefcase],
+  [/fee|cost|payment|emi|scholar/i, Banknote],
+  [/live|class|session/i, Video],
+  [/record|lecture|video/i, PlayCircle],
+  [/lms|platform|digital|portal/i, Laptop],
+  [/material|book|syllab|curricul|study/i, BookOpen],
+  [/assignment|project|capstone|submission/i, PenLine],
+  [/forum|discussion|mentor|support|counsel/i, MessagesSquare],
+  [/intern|placement|job|career|role/i, TrendingUp],
+  [/resume|document|certificat|marksheet/i, FileText],
+  [/interview|network|industry|event/i, Users],
+  [/recognition|approval|ugc|entitle|valid|accredit/i, BadgeCheck],
+  [/duration|time|schedule|semester|timetable/i, Clock],
+  [/salary|growth|outcome/i, LineChart],
+  [/choose|select|goal|target|decide/i, Target],
+  [/compare|specialis|special|track|option/i, Layers],
+  [/global|anywhere|city|location|state/i, Globe],
+  [/watch|demo|walkthrough/i, MonitorPlay],
+  [/date|deadline|cycle|year/i, CalendarDays],
+  [/award|advantage|benefit|merit/i, Award],
+  [/verify|check|research/i, Search],
+];
+
+const iconFor = (title: string) => ICON_RULES.find(([re]) => re.test(title))?.[1] ?? Sparkles;
+
+const boxTones = [
+  "border-brand/20 bg-gradient-to-br from-brand-soft/80 to-card",
+  "border-highlight/30 bg-gradient-to-br from-highlight/18 to-card",
+  "border-success/25 bg-gradient-to-br from-success/12 to-card",
+  "border-border bg-gradient-to-br from-secondary/70 to-card",
+];
+
+const iconTones = [
+  "bg-brand text-brand-foreground",
+  "bg-highlight text-highlight-foreground",
+  "bg-success text-white",
+  "bg-foreground text-background",
+];
+
+/**
+ * Replaces the old dropdowns: every point is an always-visible icon box.
+ * Two per row on mobile, up to four on desktop.
+ */
+export function InfoBoxGrid({
+  items,
+  columns = 4,
+  headingLevel = "h3",
+}: {
+  items: Labelled[];
+  columns?: 2 | 3 | 4;
+  headingLevel?: "h3" | "h4";
+}) {
+  const Heading = headingLevel;
+  const cols =
+    columns === 2 ? "sm:grid-cols-2" : columns === 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-4";
+  return (
+    <div className={`grid grid-cols-2 gap-2.5 sm:gap-3.5 ${cols}`}>
+      {items.map((item, i) => {
+        const Icon = iconFor(item.title);
+        return (
+          <div
+            key={item.title}
+            className={`flex h-full flex-col rounded-2xl border p-3 transition-transform hover:-translate-y-0.5 sm:p-4 ${boxTones[i % boxTones.length]}`}
+          >
+            <span
+              className={`grid h-8 w-8 shrink-0 place-items-center rounded-xl sm:h-9 sm:w-9 ${iconTones[i % iconTones.length]}`}
+            >
+              <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5" aria-hidden="true" />
+            </span>
+            <Heading className="mt-2.5 font-display text-[0.82rem] font-bold leading-snug text-foreground sm:text-[0.95rem]">
+              {item.title}
+            </Heading>
+            <p className="mt-1.5 text-[0.75rem] leading-relaxed text-foreground/70 sm:text-[0.84rem]">
+              {item.detail}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/** University tiles with a top-6 default and a see-more toggle. */
+export function UniversityTileGrid({
+  offers,
+  initial = 6,
+}: {
+  offers: FamilyOffer[];
+  initial?: number;
+}) {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? offers : offers.slice(0, initial);
+  return (
+    <div>
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+        {visible.map((o) => (
+          <UniversityTile key={o.key} offer={o} />
+        ))}
+      </div>
+      {offers.length > initial && (
+        <div className="mt-5 text-center">
+          <button
+            type="button"
+            onClick={() => setShowAll((v) => !v)}
+            className="inline-flex items-center gap-2 rounded-xl bg-brand-soft px-5 py-2.5 text-[0.82rem] font-bold text-brand transition-colors hover:bg-brand hover:text-brand-foreground"
+          >
+            {showAll ? "Show less" : `See more universities (${offers.length - initial})`}
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`}
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
