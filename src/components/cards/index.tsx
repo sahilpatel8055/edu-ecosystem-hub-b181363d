@@ -204,7 +204,7 @@ export function ComparisonCard({ item }: { item: Comparison }) {
           VS
         </span>
       </div>
-      <span className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
       <Chip>{item.category} comparison</Chip>
       <div className="mt-4 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
         <span className="truncate text-sm font-bold">{item.left}</span>
@@ -217,7 +217,7 @@ export function ComparisonCard({ item }: { item: Comparison }) {
       <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
         See full comparison <ArrowRight className="h-3.5 w-3.5" />
       </span>
-      </span>
+      </div>
     </AppLink>
   );
 }
