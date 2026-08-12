@@ -7,6 +7,8 @@ import {
   ExternalLink,
   Home,
   Minus,
+  MessageCircle,
+  Phone,
   Search,
   ShieldCheck,
 } from "lucide-react";
@@ -266,7 +268,7 @@ export function StickyMobileCTA({
   ];
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
-      <div className="border-t border-border bg-ink/95 pb-[env(safe-area-inset-bottom)] text-white backdrop-blur">
+      <div className="border-t border-white/15 bg-[#7f1813]/75 pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-10px_30px_-18px_oklch(0_0_0/0.6)] backdrop-blur-xl backdrop-saturate-150">
         <nav className="grid grid-cols-5 items-end px-1 pt-2 pb-1.5">
           {items.slice(0, 2).map((i) => (
             <NavItem key={i.to} {...i} />
@@ -274,7 +276,7 @@ export function StickyMobileCTA({
           <AppLink
             to={href}
             aria-label={label}
-            className="mx-auto -mt-7 grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-ink bg-brand text-center text-[0.6rem] font-extrabold uppercase leading-tight tracking-wide text-brand-foreground shadow-lg"
+            className="mx-auto -mt-7 grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-[#7f1813]/70 bg-brand text-center text-[0.6rem] font-extrabold uppercase leading-tight tracking-wide text-brand-foreground shadow-lg backdrop-blur"
           >
             <span className="px-1">Apply now</span>
           </AppLink>
@@ -282,6 +284,40 @@ export function StickyMobileCTA({
             <NavItem key={i.to} {...i} />
           ))}
         </nav>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Desktop counterpart: a slim, professional floating counselling dock in the
+ * bottom-right corner instead of the mobile app-style bottom bar.
+ */
+export function DesktopStickyCTA({
+  href = "/contact",
+  phone = "+91 90000 00000",
+}: {
+  href?: string;
+  phone?: string;
+}) {
+  return (
+    <div className="pointer-events-none fixed bottom-6 right-6 z-40 hidden lg:block">
+      <div className="pointer-events-auto flex items-center gap-4 rounded-2xl border border-white/15 bg-[#7f1813]/85 px-5 py-3.5 text-white shadow-[0_24px_60px_-28px_oklch(0_0_0/0.75)] backdrop-blur-xl">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/15">
+          <MessageCircle className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <span className="block leading-tight">
+          <span className="block text-sm font-bold">Free admission counselling</span>
+          <span className="mt-0.5 flex items-center gap-1.5 text-xs text-white/80">
+            <Phone className="h-3.5 w-3.5" aria-hidden="true" /> {phone}
+          </span>
+        </span>
+        <AppLink
+          to={href}
+          className="ml-2 shrink-0 rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-[#7f1813] transition-transform hover:-translate-y-0.5"
+        >
+          Talk to an expert
+        </AppLink>
       </div>
     </div>
   );

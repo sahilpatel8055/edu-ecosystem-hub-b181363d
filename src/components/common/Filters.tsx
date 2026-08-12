@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import { Chip } from "./Primitives";
-import { UniversityCard, CourseCard } from "@/components/cards";
+import { UniversityTile } from "./UniversityGrid";
+import { CourseTile } from "./ProgramFinder";
 import type { Course, University } from "@/lib/content";
-import { cn } from "@/lib/utils";
 
 /**
  * Client-side facet filtering. Filters intentionally never write URL
@@ -61,14 +61,18 @@ export function UniversityExplorer({ items }: { items: University[] }) {
   const [approval, setApproval] = useState("All");
   const [fee, setFee] = useState("Any");
 
-  const approvals = useMemo(
-    () => ["All", ...Array.from(new Set(items.flatMap((i) => i.approvals)))],
-    [items],
-  );
+  // Raw approval strings are long source citations; expose short body names.
+  const approvals = useMemo(() => {
+    const bodies = ["UGC", "UGC-DEB", "NAAC", "AICTE", "AIU", "WES", "NIRF"];
+    return [
+      "All",
+      ...bodies.filter((b) => items.some((i) => i.approvals.some((a) => a.toUpperCase().includes(b)))),
+    ];
+  }, [items]);
 
   const filtered = items.filter((i) => {
     if (mode !== "All" && i.mode !== mode) return false;
-    if (approval !== "All" && !i.approvals.includes(approval)) return false;
+    if (approval !== "All" && !i.approvals.some((a) => a.toUpperCase().includes(approval))) return false;
     if (fee === "Under ₹1L" && !/₹\d+K/.test(i.feeRange)) return false;
     if (fee === "₹1L and above" && !/₹\d(\.\d)?L/.test(i.feeRange)) return false;
     return true;
@@ -81,11 +85,19 @@ export function UniversityExplorer({ items }: { items: University[] }) {
         <FacetRow label="Approval" options={approvals} value={approval} onChange={setApproval} />
         <FacetRow label="Fee" options={["Any", "Under ₹1L", "₹1L and above"]} value={fee} onChange={setFee} />
       </Shell>
-      <div className={cn("grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3")}>
+      <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {filtered.map((i) => (
-          <UniversityCard key={i.slug} item={i} />
+          <li key={i.slug}>
+            <UniversityTile
+              slug={i.slug}
+              name={i.name}
+              shortName={i.shortName}
+              location={i.location}
+              courseCount={i.courses}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
       {filtered.length === 0 && (
         <p className="py-12 text-center text-sm text-muted-foreground">
           No university matches these filters. Try widening the fee or approval facet.
@@ -113,9 +125,9 @@ export function CourseExplorer({ items }: { items: Course[] }) {
         <FacetRow label="Level" options={["All", "UG", "PG", "Diploma", "Certificate"]} value={level} onChange={setLevel} />
         <FacetRow label="Duration" options={durations} value={duration} onChange={setDuration} />
       </Shell>
-      <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4">
         {filtered.map((i) => (
-          <CourseCard key={i.slug} item={i} />
+          <CourseTile key={i.slug} item={i} />
         ))}
       </div>
       {filtered.length === 0 && (

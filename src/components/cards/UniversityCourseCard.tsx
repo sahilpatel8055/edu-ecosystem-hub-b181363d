@@ -33,7 +33,7 @@ export function UniversityCourseCard({
 
   return (
     <article className="hover-lift flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground">
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
+      <AppLink to={href} aria-label={name} className="relative block aspect-[16/10] w-full overflow-hidden bg-secondary">
         <img
           src={courseImage(fullName)}
           alt={`${name} online programme`}
@@ -47,7 +47,7 @@ export function UniversityCourseCard({
             <img src={logo} alt="" aria-hidden="true" loading="lazy" className="h-full w-full object-contain" />
           </span>
         )}
-      </div>
+      </AppLink>
 
       <div className="flex min-w-0 flex-1 flex-col p-3.5 sm:p-4">
         <div className="flex items-start justify-between gap-2">

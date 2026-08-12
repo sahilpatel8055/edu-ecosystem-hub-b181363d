@@ -13,6 +13,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { AppLink } from "@/components/common/AppLink";
+import { campusImage, universityLogo } from "@/lib/assets";
 import { Chip } from "@/components/common/Primitives";
 import { formatDate } from "@/lib/content";
 import type {
@@ -169,8 +170,48 @@ export function ReviewCard({ item }: { item: Review }) {
 }
 
 export function ComparisonCard({ item }: { item: Comparison }) {
+  const [leftSlug = "", rightSlug = ""] = item.slug.split("-vs-");
+  const sideOf = (slug: string, name: string) => {
+    const campus = campusImage(slug);
+    return { img: campus ?? universityLogo(slug), isCampus: Boolean(campus), name };
+  };
   return (
-    <AppLink to={`/compare/${item.slug}`} className={cardBase}>
+    <AppLink to={`/compare/${item.slug}`} className={`${cardBase} !p-0 overflow-hidden`}>
+      <div className="relative grid h-36 grid-cols-2 gap-px bg-border">
+        {[sideOf(leftSlug, item.left), sideOf(rightSlug, item.right)].map((side, idx) => (
+          <span key={idx} className="relative block overflow-hidden bg-secondary">
+            {side.img ? (
+              <img
+                src={side.img}
+                alt={`${side.name} campus`}
+                loading="lazy"
+                decoding="async"
+                className={
+                  side.isCampus
+                    ? "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    : "absolute inset-0 m-auto max-h-[55%] max-w-[80%] object-contain"
+                }
+              />
+            ) : (
+              <span className="grid h-full w-full place-items-center px-2 text-center font-display text-sm font-bold text-muted-foreground">
+                {side.name}
+              </span>
+            )}
+            {side.isCampus && <span className="absolute inset-0 bg-gradient-to-t from-ink/75 to-transparent" />}
+            <span
+              className={`absolute inset-x-2 bottom-2 line-clamp-2 text-[0.7rem] font-bold leading-tight ${
+                side.isCampus ? "text-white" : "text-muted-foreground"
+              }`}
+            >
+              {side.name}
+            </span>
+          </span>
+        ))}
+        <span className="absolute left-1/2 top-1/2 z-10 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-card bg-brand text-[0.65rem] font-extrabold uppercase text-brand-foreground shadow-lg">
+          VS
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
       <Chip>{item.category} comparison</Chip>
       <div className="mt-4 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
         <span className="truncate text-sm font-bold">{item.left}</span>
@@ -183,6 +224,7 @@ export function ComparisonCard({ item }: { item: Comparison }) {
       <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
         See full comparison <ArrowRight className="h-3.5 w-3.5" />
       </span>
+      </div>
     </AppLink>
   );
 }

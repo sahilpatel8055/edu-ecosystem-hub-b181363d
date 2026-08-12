@@ -19,10 +19,10 @@ const groups: Group[] = [
   { id: "certificate", label: "Certificate", note: "Skill tracks", match: (c) => c.level === "Certificate" },
 ];
 
-function CourseTile({ item }: { item: Course }) {
+export function CourseTile({ item }: { item: Course }) {
   const Icon = courseIcon(item.name, item.shortName);
   return (
-    <article className="flex flex-col justify-between rounded-2xl bg-card p-3 text-card-foreground shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
+    <article className="flex flex-col justify-between rounded-2xl border border-border bg-card p-3 text-card-foreground shadow-[0_10px_30px_-22px_oklch(0_0_0/0.7)] sm:p-4">
       <div className="flex items-start gap-2.5">
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-soft text-brand sm:h-11 sm:w-11">
           <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" aria-hidden="true" />
