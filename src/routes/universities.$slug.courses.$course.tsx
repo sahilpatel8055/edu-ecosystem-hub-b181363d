@@ -1,5 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
+import { SectionUrlGrid } from "@/components/course/SectionHub";
+import { PromoBanner } from "@/components/course/PromoBanner";
 import {
   AuthorBox,
   DataTable,
@@ -7,7 +9,6 @@ import {
   QuickFacts,
   References,
   RelatedLinkGrid,
-  StickyMobileCTA,
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
@@ -354,6 +355,17 @@ function Page() {
           />
         </ContentSection>
 
+        <SectionUrlGrid
+          base={`/universities/${u.slug}/courses/${p.slug}`}
+          title={`More on ${u.shortName} ${p.shortName}`}
+        />
+
+        <PromoBanner
+          title={`Fee offers & scholarships on ${u.shortName} ${p.shortName}`}
+          subtitle="Check the live scholarship slabs and EMI options before you apply."
+          ctaLabel="Check my eligibility"
+        />
+
         <RelatedPageLinks
           title={`${u.shortName} reference pages`}
           links={[
@@ -372,7 +384,6 @@ function Page() {
           ]}
         />
       </DetailLayout>
-      <StickyMobileCTA label={`Apply for ${p.shortName}`} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
     </>
   );

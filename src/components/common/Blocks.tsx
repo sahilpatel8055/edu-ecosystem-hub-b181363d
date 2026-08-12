@@ -1,5 +1,15 @@
 import type { ReactNode } from "react";
-import { CalendarClock, Check, ExternalLink, Minus, ShieldCheck } from "lucide-react";
+import {
+  BookOpen,
+  Building2,
+  CalendarClock,
+  Check,
+  ExternalLink,
+  Home,
+  Minus,
+  Search,
+  ShieldCheck,
+} from "lucide-react";
 import { AppLink } from "./AppLink";
 import { Chip } from "./Primitives";
 import type { LinkRef } from "@/lib/entities";
@@ -242,30 +252,58 @@ export function References({ items }: { items: { label: string; href?: string | 
 export function StickyMobileCTA({
   label = "Get free guidance",
   href = "/contact",
-  secondaryLabel = "Compare",
-  secondaryHref = "/compare",
 }: {
   label?: string;
   href?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
 }) {
+  const items = [
+    { to: "/", icon: Home, label: "Home" },
+    { to: "/universities", icon: Building2, label: "Universities" },
+    { to: "/courses", icon: BookOpen, label: "Courses" },
+    { to: "/compare", icon: Search, label: "Compare" },
+  ];
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 p-3 backdrop-blur lg:hidden">
-      <div className="flex gap-2">
-        <AppLink
-          to={secondaryHref}
-          className="flex h-11 flex-1 items-center justify-center rounded-xl border border-border text-sm font-semibold"
-        >
-          {secondaryLabel}
-        </AppLink>
-        <AppLink
-          to={href}
-          className="flex h-11 flex-[1.4] items-center justify-center rounded-xl bg-brand text-sm font-semibold text-brand-foreground"
-        >
-          {label}
-        </AppLink>
+    <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
+      <div className="border-t border-border bg-ink/95 pb-[env(safe-area-inset-bottom)] text-white backdrop-blur">
+        <nav className="grid grid-cols-5 items-end px-1 pt-2 pb-1.5">
+          {items.slice(0, 2).map((i) => (
+            <NavItem key={i.to} {...i} />
+          ))}
+          <AppLink
+            to={href}
+            aria-label={label}
+            className="mx-auto -mt-7 grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-ink bg-brand text-center text-[0.6rem] font-extrabold uppercase leading-tight tracking-wide text-brand-foreground shadow-lg"
+          >
+            <span className="px-1">Apply now</span>
+          </AppLink>
+          {items.slice(2).map((i) => (
+            <NavItem key={i.to} {...i} />
+          ))}
+        </nav>
       </div>
     </div>
   );
 }
+
+function NavItem({
+  to,
+  icon: Icon,
+  label,
+}: {
+  to: string;
+  icon: typeof Home;
+  label: string;
+}) {
+  return (
+    <AppLink
+      to={to}
+      className="flex flex-col items-center gap-1 px-1 py-1 text-[0.6rem] font-bold uppercase tracking-wide text-white/85"
+    >
+      <Icon className="h-5 w-5" aria-hidden="true" />
+      <span className="truncate">{label}</span>
+    </AppLink>
+  );
+}
+

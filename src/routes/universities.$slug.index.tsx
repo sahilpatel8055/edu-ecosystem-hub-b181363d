@@ -6,7 +6,6 @@ import {
   References,
   RelatedLinkGrid,
   StepList,
-  StickyMobileCTA,
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { LinkCluster } from "@/components/common/Blocks";
@@ -371,7 +370,6 @@ function Page() {
           ]}
         />
       </DetailLayout>
-      <StickyMobileCTA label={`Apply to ${u.shortName}`} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}

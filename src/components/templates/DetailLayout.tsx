@@ -95,11 +95,14 @@ export function ContentSection({
       : "rounded-2xl bg-tint-exam p-4 sm:p-6"
     : "";
   return (
-    <section id={title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className={`scroll-mt-36 ${toned}`}>
-      <h2 className="text-2xl font-bold">
+    <section
+      id={title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+      className={`scroll-mt-36 ${toned || "content-block"}`}
+    >
+      <h2 className="border-b border-border pb-3 text-2xl font-bold">
         <AccentHeadline text={title} words={1} />
       </h2>
-      <div className="mt-4 space-y-4 text-[0.95rem] leading-relaxed text-muted-foreground">{children}</div>
+      <div className="content-prose mt-5 space-y-5">{children}</div>
     </section>
   );
 }
