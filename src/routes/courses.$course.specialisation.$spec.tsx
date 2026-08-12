@@ -151,7 +151,7 @@ function Page() {
 
           {content && content.eligibility.length > 0 && (
             <Section title="Eligibility">
-              <ChipList items={content.eligibility.map((e) => e.label)} />
+              <ChipList items={content.eligibility.map((e) => e.title)} />
               <Note>{content.eligibilityNote}</Note>
             </Section>
           )}
