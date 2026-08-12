@@ -30,6 +30,14 @@ interface UniversityResearchJson {
 }
 
 const curriculumData = master.course_curriculum as unknown as Record<string, CourseCurriculumJson>;
+
+/** Keeps third-party aggregator names out of published copy. */
+function neutral(text: string): string {
+  return text
+    .replace(/CollegeSathi[’']?s?/gi, "the referenced programme source")
+    .replace(/\bCited page\b/gi, "The referenced source")
+    .replace(/\bthe cited\b/gi, "the referenced");
+}
 const researchData = master.university_research as unknown as Record<string, UniversityResearchJson>;
 const masterUniversities = master.universities as Array<{ id: string; name: string; slug: string }>;
 export const masterResearchDate: string = master.meta.research_date;
@@ -135,14 +143,14 @@ export function getUniversityResearch(siteSlug: string): UniversityResearch | un
   const r = researchData[id];
   if (!r) return undefined;
   const out: UniversityResearch = { verifiedPrograms: r.verified_programs ?? [] };
-  if (r.mba_fee) out.feeNote = r.mba_fee;
+  if (r.mba_fee) out.feeNote = neutral(r.mba_fee);
   if (r.mba_specialisations) out.specialisations = r.mba_specialisations;
-  if (r.mba_curriculum_note) out.curriculumNote = r.mba_curriculum_note;
-  if (r.exam_pattern) out.examPattern = r.exam_pattern;
-  if (r.eligibility) out.eligibility = r.eligibility;
+  if (r.mba_curriculum_note) out.curriculumNote = neutral(r.mba_curriculum_note);
+  if (r.exam_pattern) out.examPattern = neutral(r.exam_pattern);
+  if (r.eligibility) out.eligibility = neutral(r.eligibility);
   if (Array.isArray(r.scholarships)) out.scholarships = r.scholarships;
-  else if (typeof r.scholarships === "string") out.scholarshipNote = r.scholarships;
-  if (r.university_notes) out.universityNote = r.university_notes;
+  else if (typeof r.scholarships === "string") out.scholarshipNote = neutral(r.scholarships);
+  if (r.university_notes) out.universityNote = neutral(r.university_notes);
   return out;
 }
 
