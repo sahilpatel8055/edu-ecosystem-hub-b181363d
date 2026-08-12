@@ -73,6 +73,26 @@ function Page() {
         ))}
       </div>
 
+      <h2 className="mb-2 mt-12 text-xl font-bold sm:text-2xl">All verified university pairs ({masterPairs.length})</h2>
+      <p className="mb-4 text-sm text-muted-foreground">
+        Every credible pair from our {ACADEMIC_SESSION} master dataset, with course-level comparisons inside each page.
+      </p>
+      <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {masterPairs.map((p) => (
+          <li key={p.comparison_id} className="rounded-xl border border-border bg-card px-3 py-2.5">
+            <AppLink
+              to={`/compare/${p.comparison_id}`}
+              className="text-sm font-semibold text-brand hover:underline"
+            >
+              {p.university_a} vs {p.university_b}
+            </AppLink>
+            <span className="mt-1 block text-xs text-muted-foreground">
+              {p.common_courses.length} common courses · default {p.default_course}
+            </span>
+          </li>
+        ))}
+      </ul>
+
       <h2 className="mb-4 mt-12 text-xl font-bold sm:text-2xl">Editorial comparisons</h2>
       <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {comparisons.map((c) => (
