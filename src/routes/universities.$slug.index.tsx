@@ -45,6 +45,7 @@ import { feeTableFor } from "@/data/university-fee-tables";
 import { degreeSample } from "@/lib/assets";
 import { FeeStructureTable } from "@/components/university/FeeStructureTable";
 import { SampleDegreeSection } from "@/components/university/SampleDegreeSection";
+import { HiringPartners } from "@/components/university/HiringPartners";
 import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
 import {
   admissionOf,
@@ -210,12 +211,12 @@ function Page() {
           "Courses & fees",
           ...(hasFeeTable ? ["Fee structure"] : []),
           "Specialisations",
+          ...(hasDegreeSample ? ["Degree & certificate"] : []),
           "Admission process",
           "Examination pattern",
           "Learning experience",
           "Placement & career",
           "Scholarships",
-          ...(hasDegreeSample ? ["Degree & certificate"] : []),
           "Why consider",
           "Things to consider",
           "Who it suits",
@@ -291,14 +292,23 @@ function Page() {
           <UniversitySpecialisations slug={slug} />
         </ContentSection>
 
-        <ContentSection title="Admission process">
+        {hasDegreeSample && (
+          <ContentSection title="Degree & certificate">
+            <div className="space-y-5">
+              <SampleDegreeSection universityName={u.name} universitySlug={slug} />
+              <UniversityDegreeFacts slug={slug} />
+            </div>
+          </ContentSection>
+        )}
+
+        <ContentSection title="Admission process" tone="admission">
           <div className="space-y-5">
             <AdmissionInsightSection universitySlug={slug} universityShort={u.shortName} />
             <AdmissionSection admissions={admissionOf(slug)} />
           </div>
         </ContentSection>
 
-        <ContentSection title="Examination pattern">
+        <ContentSection title="Examination pattern" tone="exam">
           <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />
         </ContentSection>
 
@@ -309,6 +319,7 @@ function Page() {
         <ContentSection title="Placement & career">
           <div className="space-y-5">
             <UniversityCareerSupport slug={slug} shortName={u.shortName} />
+            <HiringPartners universitySlug={slug} universityShort={u.shortName} />
             <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
           </div>
         </ContentSection>
@@ -320,15 +331,6 @@ function Page() {
             <UniversityScholarshipCTA slug={slug} shortName={u.shortName} />
           </div>
         </ContentSection>
-
-        {hasDegreeSample && (
-          <ContentSection title="Degree & certificate">
-            <div className="space-y-5">
-              <SampleDegreeSection universityName={u.name} universitySlug={slug} />
-              <UniversityDegreeFacts slug={slug} />
-            </div>
-          </ContentSection>
-        )}
 
         <ContentSection title="Why consider">
           <UniversityAdvantages slug={slug} shortName={u.shortName} />
