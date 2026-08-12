@@ -49,6 +49,7 @@ export const Route = createFileRoute("/courses/$course")({
       throw notFound();
     }
     const p = profile.record;
+  const pillarBase = `/courses/${p.slug}`;
     return {
       kind: "programme" as const,
       name: p.name,
