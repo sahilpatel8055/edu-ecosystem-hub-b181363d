@@ -1,5 +1,15 @@
 import type { ReactNode } from "react";
-import { CalendarClock, Check, ExternalLink, Minus, ShieldCheck } from "lucide-react";
+import {
+  BookOpen,
+  Building2,
+  CalendarClock,
+  Check,
+  ExternalLink,
+  Home,
+  Minus,
+  Search,
+  ShieldCheck,
+} from "lucide-react";
 import { AppLink } from "./AppLink";
 import { Chip } from "./Primitives";
 import type { LinkRef } from "@/lib/entities";
