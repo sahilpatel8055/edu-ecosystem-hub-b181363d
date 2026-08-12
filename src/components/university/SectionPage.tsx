@@ -1,7 +1,6 @@
 import { AppLink } from "@/components/common/AppLink";
 import { AuthorBox, LinkCluster, UpdatedStamp } from "@/components/common/Blocks";
 import { DetailLayout } from "@/components/templates/DetailLayout";
-import { StickyMobileCTA } from "@/components/common/Blocks";
 import {
   AdmissionInsightSection,
   CareerOpportunitiesSection,
@@ -89,7 +88,6 @@ export function UniversitySectionPage({ slug, section }: { slug: string; section
 
         <AuthorBox />
       </DetailLayout>
-      <StickyMobileCTA label={`Apply to ${u.shortName}`} />
     </>
   );
 }

@@ -8,8 +8,7 @@ import {
   LinkCluster,
   QuickFacts,
   References,
-  RelatedLinkGrid,
-  StickyMobileCTA,
+  RelatedLinkGrid
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
@@ -385,7 +384,6 @@ function Page() {
           ]}
         />
       </DetailLayout>
-      <StickyMobileCTA label={`Apply for ${p.shortName}`} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
     </>
   );

@@ -7,8 +7,7 @@ import {
   ProsCons,
   QuickFacts,
   References,
-  RelatedLinkGrid,
-  StickyMobileCTA,
+  RelatedLinkGrid
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
@@ -125,7 +124,6 @@ function Page() {
           </ContentSection>
           <AuthorBox />
         </DetailLayout>
-        <StickyMobileCTA label="Talk to a counsellor" />
       </>
     );
   }
@@ -272,7 +270,6 @@ function Page() {
           ]}
         />
       </DetailLayout>
-      <StickyMobileCTA label="Get a free comparison call" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
       <script
         type="application/ld+json"

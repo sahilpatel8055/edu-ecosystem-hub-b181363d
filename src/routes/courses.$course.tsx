@@ -14,8 +14,7 @@ import {
   QuickFacts,
   References,
   RelatedLinkGrid,
-  StepList,
-  StickyMobileCTA,
+  StepList
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
@@ -358,7 +357,6 @@ function Page() {
           ]}
         />
       </DetailLayout>
-      <StickyMobileCTA label={`Get ${p.shortName} guidance`} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
