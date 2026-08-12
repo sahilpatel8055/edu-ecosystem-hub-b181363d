@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import { Chip } from "./Primitives";
-import { UniversityCard, CourseCard } from "@/components/cards";
+import { UniversityTile } from "./UniversityGrid";
+import { CourseTile } from "./ProgramFinder";
 import type { Course, University } from "@/lib/content";
-import { cn } from "@/lib/utils";
 
 /**
  * Client-side facet filtering. Filters intentionally never write URL
