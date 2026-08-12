@@ -178,6 +178,13 @@ export function recognitionRows(u: MasterUniversity) {
   ];
 }
 
+/** "partial_verification" → "Partial verification" */
+export function humanise(value: string | null | undefined) {
+  if (!value) return UNVERIFIED;
+  const t = value.replace(/_/g, " ").trim();
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
 export function pairLabel(pair: MasterPair) {
   return `${pair.university_a} vs ${pair.university_b}`;
 }

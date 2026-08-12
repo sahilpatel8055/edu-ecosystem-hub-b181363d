@@ -8,6 +8,7 @@ import {
   coursePairPath,
   courseSlug,
   feeLabel,
+  humanise,
   pairPath,
   pairUniversities,
   recognitionRows,
@@ -202,7 +203,7 @@ export function ComparisonPage({
             twoCol("Location", uniA.location, uniB.location),
             twoCol("Mode", uniA.mode, uniB.mode),
             twoCol("Programmes tracked", String(uniA.programme_count ?? "—"), String(uniB.programme_count ?? "—")),
-            twoCol("Data status", text(uniA.data_status), text(uniB.data_status)),
+            twoCol("Data status", humanise(uniA.data_status), humanise(uniB.data_status)),
             ...(course
               ? [
                   twoCol("Programme", text(progA?.programme_name), text(progB?.programme_name)),
@@ -252,7 +253,7 @@ export function ComparisonPage({
             head={["Parameter", aName, bName]}
             rows={[
               twoCol("Total programme fee", feeLabel(progA), feeLabel(progB)),
-              twoCol("Fee verification", text(progA?.fee_status), text(progB?.fee_status)),
+              twoCol("Fee verification", humanise(progA?.fee_status), humanise(progB?.fee_status)),
               twoCol("Semesters", String(progA?.semesters ?? "—"), String(progB?.semesters ?? "—")),
               twoCol("Last verified", text(progA?.last_verified), text(progB?.last_verified)),
             ]}
@@ -389,7 +390,7 @@ export function ComparisonPage({
             <div key={u.slug} className="surface-card p-4">
               <p className="text-sm font-bold">{u.short_name}</p>
               <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
-                <li>Data status: {text(u.data_status)}</li>
+                <li>Data status: {humanise(u.data_status)}</li>
                 <li>Programmes tracked: {u.programme_count ?? "—"}</li>
                 {(u.notes ?? []).map((n) => (
                   <li key={n}>{n}</li>
