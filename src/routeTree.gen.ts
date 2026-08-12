@@ -41,6 +41,7 @@ import { Route as UniversitiesSlugAdmissionRouteImport } from './routes/universi
 import { Route as UniversitiesSlugExaminationPatternRouteImport } from './routes/universities.$slug.examination-pattern'
 import { Route as UniversitiesSlugPlacementRouteImport } from './routes/universities.$slug.placement'
 import { Route as UniversitiesSlugScholarshipsRouteImport } from './routes/universities.$slug.scholarships'
+import { Route as UniversitySlugCourseRouteImport } from './routes/university.$slug.$course'
 import { Route as UniversitiesSlugCoursesCourseRouteImport } from './routes/universities.$slug.courses.$course'
 
 const IndexRoute = IndexRouteImport.update({
@@ -208,6 +209,11 @@ const UniversitiesSlugScholarshipsRoute =
     path: '/scholarships',
     getParentRoute: () => UniversitiesSlugRoute,
   } as any)
+const UniversitySlugCourseRoute = UniversitySlugCourseRouteImport.update({
+  id: '/university/$slug/$course',
+  path: '/university/$slug/$course',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UniversitiesSlugCoursesCourseRoute =
   UniversitiesSlugCoursesCourseRouteImport.update({
     id: '/courses/$course',
@@ -247,6 +253,7 @@ export interface FileRoutesByFullPath {
   '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
   '/universities/$slug/placement': typeof UniversitiesSlugPlacementRoute
   '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
+  '/university/$slug/$course': typeof UniversitySlugCourseRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -278,6 +285,7 @@ export interface FileRoutesByTo {
   '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
   '/universities/$slug/placement': typeof UniversitiesSlugPlacementRoute
   '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
+  '/university/$slug/$course': typeof UniversitySlugCourseRoute
   '/universities/$slug': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -314,6 +322,7 @@ export interface FileRoutesById {
   '/universities/$slug/examination-pattern': typeof UniversitiesSlugExaminationPatternRoute
   '/universities/$slug/placement': typeof UniversitiesSlugPlacementRoute
   '/universities/$slug/scholarships': typeof UniversitiesSlugScholarshipsRoute
+  '/university/$slug/$course': typeof UniversitySlugCourseRoute
   '/universities/$slug/': typeof UniversitiesSlugIndexRoute
   '/universities/$slug/courses/$course': typeof UniversitiesSlugCoursesCourseRoute
 }
@@ -351,6 +360,7 @@ export interface FileRouteTypes {
     | '/universities/$slug/examination-pattern'
     | '/universities/$slug/placement'
     | '/universities/$slug/scholarships'
+    | '/university/$slug/$course'
     | '/universities/$slug/'
     | '/universities/$slug/courses/$course'
   fileRoutesByTo: FileRoutesByTo
@@ -382,6 +392,7 @@ export interface FileRouteTypes {
     | '/universities/$slug/examination-pattern'
     | '/universities/$slug/placement'
     | '/universities/$slug/scholarships'
+    | '/university/$slug/$course'
     | '/universities/$slug'
     | '/universities/$slug/courses/$course'
   id:
@@ -417,6 +428,7 @@ export interface FileRouteTypes {
     | '/universities/$slug/examination-pattern'
     | '/universities/$slug/placement'
     | '/universities/$slug/scholarships'
+    | '/university/$slug/$course'
     | '/universities/$slug/'
     | '/universities/$slug/courses/$course'
   fileRoutesById: FileRoutesById
@@ -443,6 +455,7 @@ export interface RootRouteChildren {
   ToolsRoute: typeof ToolsRoute
   UniversitiesRoute: typeof UniversitiesRouteWithChildren
   OnlineCoursesLevelCourseRoute: typeof OnlineCoursesLevelCourseRoute
+  UniversitySlugCourseRoute: typeof UniversitySlugCourseRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -671,6 +684,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesSlugScholarshipsRouteImport
       parentRoute: typeof UniversitiesSlugRoute
     }
+    '/university/$slug/$course': {
+      id: '/university/$slug/$course'
+      path: '/university/$slug/$course'
+      fullPath: '/university/$slug/$course'
+      preLoaderRoute: typeof UniversitySlugCourseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/universities/$slug/courses/$course': {
       id: '/universities/$slug/courses/$course'
       path: '/courses/$course'
@@ -765,7 +785,18 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsRoute: ToolsRoute,
   UniversitiesRoute: UniversitiesRouteWithChildren,
   OnlineCoursesLevelCourseRoute: OnlineCoursesLevelCourseRoute,
+  UniversitySlugCourseRoute: UniversitySlugCourseRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -1,0 +1,1237 @@
+{
+  "meta": {
+    "file_name": "university_course_master_content_14.json",
+    "purpose": "Single source of truth for building university-specific online UG/PG course pages.",
+    "research_date": "2026-08-12",
+    "scope": "14 universities + reusable course curriculum/elective content + page/SEO architecture.",
+    "important": "This file intentionally separates verified university facts from common course curriculum. University-specific official data must override common curriculum when available."
+  },
+  "universities": [
+    {
+      "id": "amity-online",
+      "name": "Amity University Online",
+      "slug": "amity-university-online"
+    },
+    {
+      "id": "nmims-online",
+      "name": "NMIMS Online",
+      "slug": "nmims-online"
+    },
+    {
+      "id": "manipal-online",
+      "name": "Manipal University Jaipur Online",
+      "slug": "manipal-university-online"
+    },
+    {
+      "id": "jain-online",
+      "name": "JAIN University Online",
+      "slug": "jain-university"
+    },
+    {
+      "id": "sharda-online",
+      "name": "Sharda University Online",
+      "slug": "sharda-university"
+    },
+    {
+      "id": "chandigarh-online",
+      "name": "Chandigarh University Online",
+      "slug": "chandigarh-university"
+    },
+    {
+      "id": "lpu-online",
+      "name": "Lovely Professional University Online",
+      "slug": "lovely-professional-university-online"
+    },
+    {
+      "id": "dy-patil-online",
+      "name": "Dr. D. Y. Patil Vidyapeeth Online",
+      "slug": "dy-patil-vidyapeeth-online"
+    },
+    {
+      "id": "op-jindal-online",
+      "name": "O.P. Jindal Global University Online",
+      "slug": "op-jindal-university-online"
+    },
+    {
+      "id": "smu-online",
+      "name": "Sikkim Manipal University Online",
+      "slug": "sikkim-manipal-university"
+    },
+    {
+      "id": "vgu-online",
+      "name": "Vivekananda Global University Online",
+      "slug": "vivekananda-global-university-online"
+    },
+    {
+      "id": "galgotias-online",
+      "name": "Galgotias University Online",
+      "slug": "galgotias-university-online"
+    },
+    {
+      "id": "parul-online",
+      "name": "Parul University Online",
+      "slug": "parul-university"
+    },
+    {
+      "id": "mahe-online",
+      "name": "Manipal Academy of Higher Education Online",
+      "slug": "manipal-academy-of-higher-education"
+    }
+  ],
+  "course_curriculum": {
+    "online-mba": {
+      "title": "Online MBA",
+      "duration": "2 years / 4 semesters (standard structure; verify university-specific academic calendar)",
+      "common_semesters": {
+        "semester_1": [
+          "Principles/Foundations of Management",
+          "Managerial Economics",
+          "Accounting/Financial Accounting for Managers",
+          "Business Communication/Professional Communication",
+          "Marketing Management",
+          "Organizational Behaviour",
+          "Quantitative Methods/Statistics for Management"
+        ],
+        "semester_2": [
+          "Human Resource Management",
+          "Financial Management",
+          "Operations Management",
+          "Business Research Methods",
+          "Legal Aspects of Business",
+          "Management Information Systems/Business Analytics",
+          "Business Environment/Global Economic Environment"
+        ],
+        "semester_3": [
+          "Strategic Management",
+          "International Business/Business Environment",
+          "Specialisation Elective 1",
+          "Specialisation Elective 2",
+          "Specialisation Elective 3",
+          "Specialisation Elective 4",
+          "Project/Term Paper where prescribed"
+        ],
+        "semester_4": [
+          "Advanced/Applied Management Core",
+          "Specialisation Elective 5",
+          "Specialisation Elective 6",
+          "Major Project/Dissertation",
+          "Industry/Capstone component where prescribed"
+        ]
+      },
+      "specialisation_electives": {
+        "Finance": [
+          "Corporate Finance",
+          "Investment Analysis",
+          "Financial Markets",
+          "Financial Risk Management",
+          "Financial Modelling",
+          "Banking & Financial Services"
+        ],
+        "Marketing": [
+          "Consumer Behaviour",
+          "Digital Marketing",
+          "Brand Management",
+          "Sales & Distribution Management",
+          "Marketing Analytics",
+          "Integrated Marketing Communications"
+        ],
+        "Human Resource Management": [
+          "Talent Management",
+          "Performance Management",
+          "Learning & Development",
+          "Compensation Management",
+          "HR Analytics",
+          "Strategic HRM"
+        ],
+        "Business Analytics": [
+          "Business Intelligence",
+          "Data Visualization",
+          "Predictive Analytics",
+          "Business Statistics",
+          "Data-driven Decision Making",
+          "Analytics for Managers"
+        ],
+        "International Business": [
+          "International Trade",
+          "Global Marketing",
+          "International Finance",
+          "Cross-Cultural Management",
+          "Global Supply Chain",
+          "International Business Strategy"
+        ],
+        "Operations": [
+          "Supply Chain Management",
+          "Quality Management",
+          "Operations Strategy",
+          "Project Management",
+          "Procurement Management",
+          "Lean/Process Management"
+        ],
+        "IT/Systems": [
+          "IT Strategy",
+          "Information Systems Management",
+          "Digital Transformation",
+          "Cyber Security for Managers",
+          "IT Project Management",
+          "Enterprise Systems"
+        ],
+        "Healthcare": [
+          "Healthcare Operations",
+          "Healthcare Marketing",
+          "Hospital Management",
+          "Health Economics",
+          "Healthcare Quality",
+          "Healthcare Strategy"
+        ],
+        "Entrepreneurship": [
+          "New Venture Creation",
+          "Startup Management",
+          "Entrepreneurial Finance",
+          "Innovation Management",
+          "Business Model Development",
+          "Family Business Management"
+        ]
+      },
+      "note": "The common-semester model is a reusable editorial layer. Where an official university syllabus differs, the official university syllabus must override this layer. Do not invent university-specific subjects."
+    },
+    "online-mca": {
+      "title": "Online MCA",
+      "duration": "2 years / 4 semesters (verify university-specific duration)",
+      "common_semesters": {
+        "semester_1": [
+          "Programming Fundamentals",
+          "Data Structures",
+          "Computer Organization/Architecture",
+          "Database Management Systems",
+          "Operating Systems",
+          "Web/Internet Fundamentals",
+          "Mathematical/Discrete Foundations where prescribed"
+        ],
+        "semester_2": [
+          "Object-Oriented Programming",
+          "Computer Networks",
+          "Software Engineering",
+          "Advanced DBMS",
+          "Web Technologies",
+          "Computer Graphics/Multimedia where prescribed",
+          "Probability/Statistics or equivalent computing foundation where prescribed"
+        ],
+        "semester_3": [
+          "Advanced Programming",
+          "Cloud Computing",
+          "Artificial Intelligence/Machine Learning foundation",
+          "Cyber Security/Information Security",
+          "Elective 1",
+          "Elective 2",
+          "Project/Practical component where prescribed"
+        ],
+        "semester_4": [
+          "Advanced Elective 3",
+          "Advanced Elective 4",
+          "Major Project/Dissertation",
+          "Industry/Capstone component",
+          "Emerging Technology module where prescribed"
+        ]
+      },
+      "specialisation_electives": {
+        "AI & Machine Learning": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Deep Learning",
+          "Natural Language Processing",
+          "Computer Vision",
+          "Applied AI"
+        ],
+        "Data Science & Analytics": [
+          "Data Mining",
+          "Statistical Computing",
+          "Data Visualization",
+          "Big Data Analytics",
+          "Machine Learning for Data Science",
+          "Predictive Analytics"
+        ],
+        "Cyber Security": [
+          "Network Security",
+          "Ethical Hacking",
+          "Digital Forensics",
+          "Cyber Security Management",
+          "Cryptography",
+          "Security Operations"
+        ],
+        "Cloud Computing": [
+          "Cloud Architecture",
+          "Virtualization",
+          "Cloud Security",
+          "DevOps",
+          "Distributed Systems",
+          "Cloud Application Development"
+        ],
+        "Full Stack Development": [
+          "Advanced JavaScript",
+          "Frontend Frameworks",
+          "Backend Development",
+          "API Development",
+          "Database Engineering",
+          "Full Stack Project"
+        ],
+        "Computer Science & IT": [
+          "Advanced Algorithms",
+          "Distributed Systems",
+          "Advanced DBMS",
+          "Software Architecture",
+          "Enterprise Application Development",
+          "IT Project Management"
+        ]
+      }
+    },
+    "online-bba": {
+      "title": "Online BBA",
+      "duration": "3 years / 6 semesters (verify university-specific duration)",
+      "common_semesters": {
+        "semester_1": [
+          "Principles of Management",
+          "Business Communication",
+          "Financial Accounting",
+          "Business Economics",
+          "Business Mathematics/Quantitative Techniques",
+          "Computer Applications/IT Fundamentals"
+        ],
+        "semester_2": [
+          "Organizational Behaviour",
+          "Marketing Management",
+          "Cost/Management Accounting",
+          "Business Environment",
+          "Business Statistics",
+          "Human Resource Management"
+        ],
+        "semester_3": [
+          "Financial Management",
+          "Operations Management",
+          "Business Law",
+          "Research Methodology",
+          "Entrepreneurship",
+          "Management Information Systems"
+        ],
+        "semester_4": [
+          "Strategic Management",
+          "Production/Service Management",
+          "Digital Business",
+          "Business Analytics",
+          "Elective 1",
+          "Elective 2"
+        ],
+        "semester_5": [
+          "Specialisation Elective 1",
+          "Specialisation Elective 2",
+          "Specialisation Elective 3",
+          "Elective/Core module",
+          "Project/Internship where prescribed"
+        ],
+        "semester_6": [
+          "Specialisation Elective 4",
+          "Specialisation Elective 5",
+          "Strategic/Applied module",
+          "Major Project/Capstone",
+          "Industry component where prescribed"
+        ]
+      },
+      "specialisation_electives": {
+        "Marketing": [
+          "Digital Marketing",
+          "Consumer Behaviour",
+          "Brand Management",
+          "Sales Management",
+          "Marketing Analytics"
+        ],
+        "Finance": [
+          "Investment Management",
+          "Financial Markets",
+          "Corporate Finance",
+          "Banking",
+          "Financial Analytics"
+        ],
+        "HR": [
+          "Talent Management",
+          "Recruitment & Selection",
+          "Performance Management",
+          "Training & Development",
+          "HR Analytics"
+        ],
+        "International Business": [
+          "International Trade",
+          "Global Marketing",
+          "International Finance",
+          "Cross-Cultural Management"
+        ],
+        "Business Analytics": [
+          "Business Intelligence",
+          "Data Visualization",
+          "Business Statistics",
+          "Predictive Analytics"
+        ]
+      }
+    },
+    "online-bca": {
+      "title": "Online BCA",
+      "duration": "3 years / 6 semesters (verify university-specific duration)",
+      "common_semesters": {
+        "semester_1": [
+          "Programming in C/Python",
+          "Computer Fundamentals",
+          "Mathematics for Computing",
+          "Digital Logic/Computer Organization",
+          "Communication Skills",
+          "Web Fundamentals"
+        ],
+        "semester_2": [
+          "Data Structures",
+          "Object-Oriented Programming",
+          "Database Management Systems",
+          "Operating Systems",
+          "Computer Networks",
+          "Web Programming"
+        ],
+        "semester_3": [
+          "Java/Advanced Programming",
+          "Software Engineering",
+          "Computer Graphics",
+          "Data Communication",
+          "Advanced DBMS",
+          "Practical/Project"
+        ],
+        "semester_4": [
+          "Python/Advanced Development",
+          "Cloud Computing",
+          "Cyber Security Fundamentals",
+          "Mobile/Web Application Development",
+          "Elective 1",
+          "Elective 2"
+        ],
+        "semester_5": [
+          "AI/ML Fundamentals",
+          "Data Analytics",
+          "Elective 3",
+          "Elective 4",
+          "Project/Practical"
+        ],
+        "semester_6": [
+          "Advanced Electives",
+          "Major Project",
+          "Industry/Capstone",
+          "Emerging Technology module"
+        ]
+      },
+      "specialisation_electives": {
+        "Data Science": [
+          "Python for Data Science",
+          "Statistics",
+          "Data Visualization",
+          "Machine Learning",
+          "Big Data",
+          "Applied Data Science"
+        ],
+        "AI & ML": [
+          "Machine Learning",
+          "Deep Learning",
+          "NLP",
+          "Computer Vision",
+          "Applied AI"
+        ],
+        "Cyber Security": [
+          "Network Security",
+          "Ethical Hacking",
+          "Digital Forensics",
+          "Cyber Security Operations"
+        ],
+        "Cloud Computing": [
+          "Cloud Architecture",
+          "Virtualization",
+          "DevOps",
+          "Cloud Security",
+          "Cloud Application Development"
+        ],
+        "Full Stack Development": [
+          "Frontend Development",
+          "Backend Development",
+          "APIs",
+          "Database Engineering",
+          "Full Stack Project"
+        ]
+      }
+    },
+    "online-bcom": {
+      "title": "Online B.Com",
+      "duration": "3 years / 6 semesters (verify university-specific duration)",
+      "common_semesters": {
+        "semester_1": [
+          "Financial Accounting",
+          "Business Economics",
+          "Business Communication",
+          "Business Organization/Management",
+          "Business Mathematics",
+          "Environmental Studies/Value Education where prescribed"
+        ],
+        "semester_2": [
+          "Corporate Accounting",
+          "Business Law",
+          "Cost Accounting",
+          "Marketing/Business Management",
+          "Business Statistics",
+          "Human Resource Management"
+        ],
+        "semester_3": [
+          "Financial Management",
+          "Income Tax",
+          "Management Accounting",
+          "Auditing",
+          "Operations/Business Research",
+          "Computer Applications/IT"
+        ],
+        "semester_4": [
+          "Corporate Law",
+          "Indirect Tax/GST",
+          "Banking & Financial Services",
+          "Business Analytics",
+          "Entrepreneurship",
+          "Elective"
+        ],
+        "semester_5": [
+          "Advanced Accounting/Finance",
+          "Elective 1",
+          "Elective 2",
+          "Project/Practical where prescribed"
+        ],
+        "semester_6": [
+          "Advanced Elective",
+          "Financial/Business Analytics",
+          "Major Project/Internship where prescribed",
+          "Strategic/Applied Commerce module"
+        ]
+      },
+      "specialisation_electives": {
+        "Accounting & Finance": [
+          "Advanced Financial Accounting",
+          "Financial Reporting",
+          "Investment Analysis",
+          "Corporate Finance",
+          "Financial Analytics"
+        ],
+        "Banking & Finance": [
+          "Banking Operations",
+          "Financial Markets",
+          "Risk Management",
+          "Insurance",
+          "FinTech"
+        ],
+        "International Accounting/Finance": [
+          "International Financial Reporting",
+          "International Finance",
+          "Global Taxation",
+          "Cross-border Business"
+        ]
+      }
+    },
+    "online-ba": {
+      "title": "Online BA",
+      "duration": "3 years / 6 semesters (verify university-specific duration)",
+      "common_semesters": {
+        "semester_1": [
+          "Language/Communication",
+          "Introduction to Social Sciences/Humanities",
+          "Environmental Studies",
+          "Digital Literacy",
+          "Discipline Core 1",
+          "Discipline Core 2"
+        ],
+        "semester_2": [
+          "Communication/Language",
+          "Discipline Core 3",
+          "Discipline Core 4",
+          "Indian Society/Constitution where prescribed",
+          "Skill Enhancement"
+        ],
+        "semester_3": [
+          "Discipline Core 5",
+          "Discipline Core 6",
+          "Research/Methodology foundation",
+          "Skill Enhancement",
+          "Elective"
+        ],
+        "semester_4": [
+          "Discipline Core 7",
+          "Discipline Core 8",
+          "Applied/Contemporary Studies",
+          "Elective",
+          "Project/Field component where prescribed"
+        ],
+        "semester_5": [
+          "Advanced Discipline Core",
+          "Elective 1",
+          "Elective 2",
+          "Research/Project component"
+        ],
+        "semester_6": [
+          "Advanced Discipline Core",
+          "Elective 3",
+          "Major Project/Dissertation where prescribed",
+          "Applied/Skill module"
+        ]
+      },
+      "specialisation_electives": {
+        "English": [
+          "Literary Criticism",
+          "Indian Writing in English",
+          "British Literature",
+          "American Literature",
+          "Creative Writing",
+          "Linguistics"
+        ],
+        "Economics": [
+          "Microeconomics",
+          "Macroeconomics",
+          "Econometrics",
+          "Development Economics",
+          "Public Economics",
+          "International Economics"
+        ],
+        "Psychology": [
+          "Cognitive Psychology",
+          "Social Psychology",
+          "Developmental Psychology",
+          "Counselling Foundations",
+          "Organizational Psychology"
+        ],
+        "Political Science": [
+          "Indian Government & Politics",
+          "International Relations",
+          "Political Theory",
+          "Public Policy",
+          "Comparative Politics"
+        ],
+        "Public Policy": [
+          "Policy Analysis",
+          "Public Administration",
+          "Governance",
+          "Development Policy",
+          "Regulatory Policy"
+        ]
+      }
+    },
+    "online-ma": {
+      "title": "Online MA",
+      "duration": "2 years / 4 semesters (verify university-specific duration)",
+      "common_semesters": {
+        "semester_1": [
+          "Research Methodology",
+          "Academic/Professional Communication",
+          "Core Discipline Paper 1",
+          "Core Discipline Paper 2",
+          "Core Discipline Paper 3"
+        ],
+        "semester_2": [
+          "Core Discipline Paper 4",
+          "Core Discipline Paper 5",
+          "Core Discipline Paper 6",
+          "Contemporary Issues",
+          "Research/Skill module"
+        ],
+        "semester_3": [
+          "Advanced Core 1",
+          "Advanced Core 2",
+          "Elective 1",
+          "Elective 2",
+          "Research/Project component"
+        ],
+        "semester_4": [
+          "Advanced Core 3",
+          "Elective 3",
+          "Elective 4",
+          "Dissertation/Major Project",
+          "Viva/Applied component where prescribed"
+        ]
+      },
+      "specialisation_electives": {
+        "English": [
+          "Advanced Literary Studies",
+          "Literary Theory",
+          "Indian Literature",
+          "World Literature",
+          "Creative Writing",
+          "Linguistics"
+        ],
+        "Economics": [
+          "Advanced Microeconomics",
+          "Advanced Macroeconomics",
+          "Econometrics",
+          "Development Economics",
+          "Public Economics"
+        ],
+        "Public Policy": [
+          "Policy Research",
+          "Governance",
+          "Public Administration",
+          "Development Policy",
+          "Regulatory Governance"
+        ],
+        "Psychology": [
+          "Advanced Social Psychology",
+          "Counselling Psychology",
+          "Organizational Psychology",
+          "Research Methods",
+          "Psychological Assessment"
+        ]
+      }
+    },
+    "online-msc": {
+      "title": "Online M.Sc (Data Science/IT/related)",
+      "duration": "2 years / 4 semesters (verify university-specific programme)",
+      "common_semesters": {
+        "semester_1": [
+          "Statistics/Mathematical Foundations",
+          "Programming for Data/Computing",
+          "Database Systems",
+          "Data Structures/Algorithms",
+          "Research/Professional Skills"
+        ],
+        "semester_2": [
+          "Machine Learning/Advanced Computing",
+          "Data Visualization",
+          "Data Mining/Analytics",
+          "Cloud/Distributed Computing",
+          "Elective"
+        ],
+        "semester_3": [
+          "Advanced Analytics/Computing",
+          "AI/ML elective",
+          "Advanced Elective",
+          "Research Methodology",
+          "Project"
+        ],
+        "semester_4": [
+          "Advanced Electives",
+          "Dissertation/Major Project",
+          "Industry/Capstone"
+        ]
+      },
+      "specialisation_electives": {
+        "Data Science": [
+          "Machine Learning",
+          "Deep Learning",
+          "NLP",
+          "Data Mining",
+          "Big Data Analytics",
+          "Applied Statistics"
+        ],
+        "AI": [
+          "Artificial Intelligence",
+          "Deep Learning",
+          "Computer Vision",
+          "NLP",
+          "Reinforcement Learning"
+        ],
+        "Information Technology": [
+          "Cloud Computing",
+          "Cyber Security",
+          "Software Architecture",
+          "Enterprise Systems",
+          "DevOps"
+        ]
+      }
+    },
+    "online-mcom": {
+      "title": "Online M.Com",
+      "duration": "2 years / 4 semesters (verify university-specific duration)",
+      "common_semesters": {
+        "semester_1": [
+          "Advanced Financial Accounting",
+          "Managerial Economics",
+          "Business Environment",
+          "Research Methodology",
+          "Management/Organizational Behaviour"
+        ],
+        "semester_2": [
+          "Corporate Finance",
+          "Advanced Cost & Management Accounting",
+          "Marketing/Business Strategy",
+          "Taxation",
+          "Statistics/Business Analytics"
+        ],
+        "semester_3": [
+          "Advanced Elective 1",
+          "Advanced Elective 2",
+          "Financial/Business Analytics",
+          "Corporate/International Business",
+          "Research/Project"
+        ],
+        "semester_4": [
+          "Advanced Elective 3",
+          "Advanced Elective 4",
+          "Dissertation/Major Project",
+          "Applied Commerce/Industry component"
+        ]
+      },
+      "specialisation_electives": {
+        "Accounting & Finance": [
+          "Advanced Financial Reporting",
+          "Corporate Finance",
+          "Investment Analysis",
+          "Risk Management",
+          "Financial Analytics"
+        ],
+        "Banking & Finance": [
+          "Banking Management",
+          "Financial Markets",
+          "Insurance",
+          "Risk Management",
+          "FinTech"
+        ]
+      }
+    }
+  },
+  "university_research": {
+    "amity-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online MCA",
+        "Online BBA",
+        "Online BCA",
+        "Online M.Sc Data Science",
+        "Online B.Com",
+        "Online BA",
+        "Online M.Com"
+      ],
+      "mba_fee": "₹2,25,000 total; ₹56,300 per semester shown by CollegeSathi for 2026 (verify before publishing).",
+      "mba_specialisations": [
+        "Business Analytics",
+        "Human Resource Management",
+        "Data Science",
+        "Information Technology Management",
+        "International Business Management",
+        "General Management",
+        "International Finance",
+        "Dual Specialization",
+        "Entrepreneurship and Leadership Management"
+      ],
+      "mba_curriculum_note": "CollegeSathi lists Sem 1/2 core subjects and Sem 3/4 specialization electives, with minor/major project components.",
+      "exam_pattern": "CollegeSathi states 30% internal assessment and 70% term-end examination for the referenced online MBA page.",
+      "eligibility": "Graduation is required; the cited CollegeSathi page states no minimum grade range for its MBA page and no mandatory work experience.",
+      "scholarships": [
+        "Divyaang",
+        "Defence Personnel",
+        "Amity Alumni",
+        "Merit",
+        "Sports (CHAMPS)"
+      ]
+    },
+    "manipal-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online BCA",
+        "Online B.Com",
+        "Online BA",
+        "Online MCA",
+        "Online M.Com",
+        "Online MA"
+      ],
+      "mba_fee": "₹1,80,000 total; ₹45,000 per semester on the cited 2026 CollegeSathi page.",
+      "mba_specialisations": [
+        "Analytics & Data Science",
+        "International Business",
+        "Finance",
+        "Marketing",
+        "Human Resource Management",
+        "Digital Marketing",
+        "Operations Management",
+        "IT & FinTech",
+        "BFSI",
+        "Supply Chain Management",
+        "Retail Management",
+        "Healthcare Management",
+        "Project Management"
+      ],
+      "mba_curriculum_note": "CollegeSathi/CollegeVidya list common first-year core subjects; semesters 3/4 use specialization/elective modules plus strategic/international core and project components.",
+      "exam_pattern": "CollegeSathi states 30% internal assessment and 70% term-end examination for the referenced MBA page.",
+      "eligibility": "Graduation with 50% (45% reserved categories) is stated on the cited CollegeSathi page; an online aptitude test is required where applicable, with CAT/MAT/CMAT/XAT/GMAT 40%+ exemption stated there.",
+      "scholarships": [
+        "Merit",
+        "Defence",
+        "Divyaang",
+        "Government Employees",
+        "Manipal Group Alumni"
+      ]
+    },
+    "smu-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online MCA",
+        "Online BBA",
+        "Online M.Com",
+        "Online BA",
+        "Online MA"
+      ],
+      "mba_fee": "₹1,20,000 total; ₹30,000 per semester on the cited 2026 CollegeSathi page.",
+      "mba_specialisations": [
+        "Finance",
+        "Marketing",
+        "Human Resource Management",
+        "Operations",
+        "IT & Systems",
+        "Healthcare"
+      ],
+      "mba_curriculum_note": "Cited page lists Sem 1/2 common core and Sem 3/4 specialization subjects/electives plus project work.",
+      "exam_pattern": "CollegeSathi states 30% internal assessment and 70% term-end examination for the referenced MBA page.",
+      "eligibility": "The cited page states bachelor's degree, 50% (45% reserved categories), with an online test in specified cases and exemption for qualifying CAT/MAT/CMAT/XAT/GMAT scores.",
+      "scholarships": "Use only the current official scholarship list after verification; do not copy generic scholarship claims."
+    },
+    "lpu-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online MCA",
+        "Online BBA",
+        "Online BCA",
+        "Online BA",
+        "Online M.Com",
+        "Online MA",
+        "Online M.Sc"
+      ],
+      "university_notes": [
+        "CollegeSathi states LPU Online offers UGC-DEB and AICTE-approved online programmes.",
+        "CollegeSathi lists NAAC A++ and a large recruiting-company network; ranking figures must be date-stamped before publication."
+      ]
+    },
+    "jain-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online MCA",
+        "Online BBA",
+        "Online BCA",
+        "Online M.Com",
+        "Online MA",
+        "other programmes vary by intake"
+      ],
+      "university_notes": [
+        "CollegeSathi's Jain Online MA page lists UGC entitlement and NAAC A++ branding and shows specialisations including English, Economics and Public Policy.",
+        "Scholarship examples shown include merit, armed forces, gender-focused and freshers; verify against the specific current programme before publishing."
+      ]
+    },
+    "nmims-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online BBA",
+        "Online B.Com",
+        "Online Diploma and other online programmes"
+      ],
+      "university_notes": [
+        "CollegeSathi lists NMIMS Online diploma curriculum with common first-year management subjects and specialization-specific second-year/elective subjects. Course-specific MBA data must be pulled from the current NMIMS programme page rather than inferred from the diploma."
+      ]
+    },
+    "sharda-online": {
+      "verified_programs": [
+        "Online BCA",
+        "Online MBA and other programmes; verify current intake"
+      ],
+      "university_notes": [
+        "CollegeSathi's Online BCA page describes programming, data structures, cloud computing and cybersecurity as curriculum areas and highlights online delivery, live/recorded learning and practical projects."
+      ]
+    },
+    "chandigarh-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online BBA",
+        "Online BCA",
+        "Online MCA and other programmes; verify current intake"
+      ],
+      "university_notes": [
+        "Use programme-specific current university syllabus/fee pages for final factual fields."
+      ]
+    },
+    "dy-patil-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online BBA",
+        "Online BCA/MCA or other programmes depending on current offering"
+      ],
+      "university_notes": [
+        "Do not assume course availability; verify the current programme catalogue before publishing."
+      ]
+    },
+    "op-jindal-online": {
+      "verified_programs": [
+        "Online MBA and other online programmes depending on current catalogue"
+      ],
+      "university_notes": [
+        "Use official current programme documentation for exact syllabus, fee and eligibility."
+      ]
+    },
+    "vgu-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online MCA",
+        "Online BBA",
+        "Online BCA",
+        "Online B.Com and other programmes depending on current catalogue"
+      ],
+      "university_notes": [
+        "Current CollegeSathi university page confirms an online-course presence; exact programme data must be verified programme-by-programme."
+      ]
+    },
+    "galgotias-online": {
+      "verified_programs": [
+        "Online MBA",
+        "Online MCA",
+        "Online M.Com",
+        "Online BCA",
+        "Online BA and more"
+      ],
+      "university_notes": [
+        "CollegeSathi states online courses are UGC approved and that exams are conducted online; exact fee/curriculum should be pulled from the current programme page."
+      ]
+    },
+    "parul-online": {
+      "verified_programs": [
+        "Online MBA and other online programmes; verify current catalogue"
+      ],
+      "university_notes": [
+        "Use current programme-level source for exact curriculum, fee and specialisation data."
+      ]
+    },
+    "mahe-online": {
+      "verified_programs": [
+        "Online MBA and other online programmes"
+      ],
+      "mba_fee": "₹2,92,000 total; ₹73,000 per semester on the cited 2026 CollegeSathi MAHE MBA page; fee may vary by specialization.",
+      "university_notes": [
+        "CollegeSathi page lists UGC-entitled, AICTE, NAAC and NIRF-related recognition claims. Verify each accreditation/ranking against the issuing body before publication."
+      ]
+    }
+  },
+  "page_structure": {
+    "title": "University × Course Master Page",
+    "url_pattern": "/university/{university-slug}/{course-slug}",
+    "indexable_rule": "Index the main university-course page when it has unique, useful programme information. Do not create thin indexable pages for every section.",
+    "sections": [
+      {
+        "id": "hero",
+        "h1": "{University} Online {Course}: Fees, Admission, Eligibility, Syllabus & Career",
+        "content": "University-specific facts, duration, mode, fee, key recognition and primary CTA."
+      },
+      {
+        "id": "overview",
+        "heading": "{University} Online {Course} Overview",
+        "content": "300-500 words; explain programme, learner fit, delivery, duration and outcomes without generic filler."
+      },
+      {
+        "id": "recognition",
+        "heading": "Approvals, Recognition & Accreditation",
+        "content": "Only verified claims; distinguish UGC entitlement, AICTE approval, NAAC accreditation and rankings."
+      },
+      {
+        "id": "specialisations",
+        "heading": "{Course} Specialisations at {University}",
+        "content": "University-specific list. Each specialisation links to an anchor or dedicated page only if enough unique content exists."
+      },
+      {
+        "id": "fees",
+        "heading": "{University} Online {Course} Fees",
+        "content": "Total fee, semester fee, one-time fee, exam fee, EMI/scholarship notes, verified date."
+      },
+      {
+        "id": "curriculum",
+        "heading": "{University} Online {Course} Curriculum & Syllabus",
+        "content": "Use official university curriculum where available. Otherwise use the common course curriculum as the fallback and label it as common/reference curriculum. Specialisation modules appear as electives."
+      },
+      {
+        "id": "eligibility",
+        "heading": "Eligibility Criteria",
+        "content": "Qualification, minimum marks, entrance/aptitude requirements, work experience, nationality/international requirements."
+      },
+      {
+        "id": "admission",
+        "heading": "Online Admission Process",
+        "content": "1 programme selection, 2 application, 3 document upload, 4 fee payment, 5 confirmation/LMS activation. Replace generic steps with university-specific process where verified."
+      },
+      {
+        "id": "exam",
+        "heading": "Examination Pattern",
+        "content": "Assessment split, exam mode, proctoring, passing rules and exam schedule; verify programme-specific rules."
+      },
+      {
+        "id": "scholarship",
+        "heading": "Scholarships & Financial Support",
+        "content": "Only verified categories/amounts; include eligibility criteria and validity date."
+      },
+      {
+        "id": "learning",
+        "heading": "Learning Experience & LMS",
+        "content": "Live classes, recorded lectures, LMS, doubt support, study material, assessments and flexibility where verified."
+      },
+      {
+        "id": "degree",
+        "heading": "Degree, Certificate & Academic Value",
+        "content": "Explain what credential is awarded and recognition/equivalence only when supported."
+      },
+      {
+        "id": "career",
+        "heading": "Career Opportunities After {Course}",
+        "content": "Map course/specialisation to realistic job families; do not promise salary or placement."
+      },
+      {
+        "id": "placement",
+        "heading": "Placement & Career Support",
+        "content": "Separate 'placement assistance' from guaranteed placement. Show hiring partners only if university officially publishes them."
+      },
+      {
+        "id": "pros-cons",
+        "heading": "Pros, Limitations & Who Should Choose It",
+        "content": "Balanced decision-support content; no promotional-only copy."
+      },
+      {
+        "id": "comparison",
+        "heading": "{University} Online {Course} vs Other Universities",
+        "content": "Compare fee, duration, specialisations, curriculum, assessment, support and recognition only using verified data."
+      },
+      {
+        "id": "faq",
+        "heading": "Frequently Asked Questions",
+        "content": "10-18 programme-specific questions generated from real search intent. Answers must match page facts."
+      }
+    ],
+    "seo_rules": {
+      "one_primary_h1": true,
+      "canonical": "Self-canonical for the main university-course URL.",
+      "section_urls": "Use one indexable main page with hash anchors for sections. Do NOT create separate indexable URLs for every section merely to target keywords.",
+      "specialisation_urls": "Create /specialisation child URLs only when the page has substantial unique content; otherwise use anchors.",
+      "duplicate_control": "University pillar page explains university-level facts; university-course page explains course-specific facts. Reuse factual data through structured components, but rewrite contextual copy and avoid identical long paragraphs.",
+      "breadcrumbs": "Home > Universities > {University} > Online {Course}.",
+      "internal_links": [
+        "university pillar",
+        "course pillar",
+        "other courses at same university",
+        "same course at other universities",
+        "specialisation pages where substantial"
+      ],
+      "schema": [
+        "BreadcrumbList",
+        "Course where valid",
+        "FAQPage only when visible FAQ content meets search-engine requirements",
+        "Organization/CollegeOrUniversity where appropriate"
+      ],
+      "freshness": "Store last_verified_at and source_url(s) for every volatile field such as fee, scholarship, admission deadline, ranking and exam rules."
+    }
+  },
+  "data_quality_rules": {
+    "source_priority": [
+      "Official university programme page / official prospectus / official syllabus PDF",
+      "UGC/DEB or other statutory regulator source for recognition",
+      "Official university fee/scholarship/admission policy",
+      "Reputable secondary education platform for cross-checking only"
+    ],
+    "do_not_invent": [
+      "fees",
+      "deadlines",
+      "scholarship percentages",
+      "placement percentages",
+      "salary figures",
+      "accreditation status",
+      "specialisations",
+      "semester subjects"
+    ],
+    "fallback_logic": "If university-specific curriculum is unavailable, show the common course curriculum with a visible 'Common curriculum reference' label and a source/verification note. Do not fabricate university-specific subjects.",
+    "content_deduplication": "University-level facts belong on the university pillar. Course pages may repeat concise verified facts needed for user decision-making, but should add course-specific context, curriculum, specialisation, eligibility, fees, exam, admission and career information.",
+    "editorial_tone": "Clear, neutral, student-friendly, evidence-led. Avoid 'best', 'No.1', 'guaranteed placement', or salary promises unless a dated, authoritative source supports the claim."
+  },
+  "sources": [
+    {
+      "source": "CollegeSathi – Sikkim Manipal University Online MBA",
+      "url": "https://www.collegesathi.com/university/sikkim-manipal-university/online-mba",
+      "used_for": [
+        "SMU MBA fee",
+        "curriculum structure",
+        "specialisations",
+        "exam pattern",
+        "eligibility",
+        "admission process"
+      ]
+    },
+    {
+      "source": "CollegeSathi – Manipal University Online MBA",
+      "url": "https://www.collegesathi.com/university/manipal-university-online/online-mba",
+      "used_for": [
+        "Manipal MBA fee",
+        "curriculum structure",
+        "specialisations",
+        "exam pattern",
+        "eligibility",
+        "admission process"
+      ]
+    },
+    {
+      "source": "CollegeVidya – Manipal Online MBA Syllabus",
+      "url": "https://collegevidya.com/university/manipal-university-online/mba/syllabus/",
+      "used_for": [
+        "common first-year curriculum and specialization-elective model"
+      ]
+    },
+    {
+      "source": "CollegeSathi – Amity Online MBA",
+      "url": "https://www.collegesathi.com/university/amity-university-online/online-mba",
+      "used_for": [
+        "Amity MBA fee",
+        "curriculum",
+        "specialisations",
+        "scholarship examples",
+        "exam pattern",
+        "eligibility"
+      ]
+    },
+    {
+      "source": "CollegeSathi – LPU Online",
+      "url": "https://www.collegesathi.com/university/lovely-professional-university-online",
+      "used_for": [
+        "LPU programme catalogue and university-level online-learning claims"
+      ]
+    },
+    {
+      "source": "CollegeSathi – Jain Online MA",
+      "url": "https://www.collegesathi.com/university/jain-university/online-ma",
+      "used_for": [
+        "Jain MA specialisations, recognition and scholarship examples"
+      ]
+    },
+    {
+      "source": "CollegeSathi – Sharda Online BCA",
+      "url": "https://www.collegesathi.com/university/sharda-university/online-bca",
+      "used_for": [
+        "Sharda BCA curriculum-area and learning-experience claims"
+      ]
+    },
+    {
+      "source": "CollegeSathi – Galgotias University Online",
+      "url": "https://www.collegesathi.com/university/galgotias-university-online",
+      "used_for": [
+        "Galgotias online programme and exam-mode claims"
+      ]
+    },
+    {
+      "source": "CollegeSathi – MAHE Online MBA",
+      "url": "https://www.collegesathi.com/university/manipal-academy-of-higher-education/online-mba",
+      "used_for": [
+        "MAHE MBA fee and recognition claims"
+      ]
+    },
+    {
+      "source": "CollegeSathi – NMIMS Online Diploma",
+      "url": "https://www.collegesathi.com/university/nmims-online/online-1-year-diploma",
+      "used_for": [
+        "NMIMS online management curriculum pattern; not used as MBA-specific evidence"
+      ]
+    },
+    {
+      "source": "CollegeSathi – CollegeSathi university sitemap",
+      "url": "https://www.collegesathi.com/map-page",
+      "used_for": [
+        "cross-checking university/course ecosystem and naming"
+      ]
+    }
+  ]
+}
