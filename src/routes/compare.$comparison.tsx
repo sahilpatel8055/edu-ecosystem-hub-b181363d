@@ -12,6 +12,8 @@ import {
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
 import { getProgramme } from "@/data";
+import { ComparisonPage } from "@/components/comparison/ComparisonPage";
+import { getMasterPair } from "@/lib/comparisonMaster";
 import {
   approvalText,
   comparisonBySlug,
@@ -24,6 +26,21 @@ import { breadcrumbSchema, canonical, faqSchema, itemListSchema, jsonLd, pageMet
 
 export const Route = createFileRoute("/compare/$comparison")({
   loader: ({ params }) => {
+    const master = getMasterPair(params.comparison);
+    if (master) {
+      return {
+        kind: "master" as const,
+        leftName: master.pair.university_a,
+        leftShort: master.pair.university_a,
+        rightName: master.pair.university_b,
+        rightShort: master.pair.university_b,
+        title: master.pair.seo.title_template,
+        description: master.pair.seo.meta_description_template.replace(
+          "{Course}",
+          master.pair.default_course,
+        ),
+      };
+    }
     const pair = comparisonBySlug(params.comparison);
     if (pair) {
       return {
@@ -50,8 +67,13 @@ export const Route = createFileRoute("/compare/$comparison")({
     if (!loaderData) {
       return { meta: [{ title: "Comparison not found" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${loaderData.leftShort} vs ${loaderData.rightShort}: Fees, Approvals & Which Is Better (2026)`;
-    const description = `Side-by-side comparison of ${loaderData.leftName} and ${loaderData.rightName} on fees, UGC approvals, programmes, delivery model, placements and learner ratings.`;
+    const title =
+      "title" in loaderData && loaderData.title
+        ? loaderData.title
+        : `${loaderData.leftShort} vs ${loaderData.rightShort}: Fees, Approvals & Which Is Better (2026)`;
+    const description = "description" in loaderData && loaderData.description
+      ? loaderData.description
+      : `Side-by-side comparison of ${loaderData.leftName} and ${loaderData.rightName} on fees, UGC approvals, programmes, delivery model, placements and learner ratings.`;
     return {
       meta: pageMeta({
         title,
@@ -88,6 +110,8 @@ export const Route = createFileRoute("/compare/$comparison")({
 
 function Page() {
   const { comparison } = Route.useParams();
+  const master = getMasterPair(comparison);
+  if (master) return <ComparisonPage pair={master.pair} />;
   const pair = comparisonBySlug(comparison);
 
   if (!pair) {
