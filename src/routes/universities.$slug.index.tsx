@@ -231,19 +231,10 @@ function Page() {
           />
         }
       >
-        <QuickFacts
+        <ContentSection title="At a glance">
+          <UniversityGlance slug={slug} />
+        </ContentSection>
 
-          items={[
-            { label: "Established", value: u.establishedYear ?? "—" },
-            { label: "Type", value: u.type },
-            { label: "Location", value: `${u.city}, ${u.state}` },
-            { label: "Mode", value: u.modes.join(", ") },
-            { label: "Fee range", value: u.feeRangeLabel },
-            { label: "Rating", value: `${u.rating}/5 (${u.reviewCount})` },
-            { label: "Programmes", value: profile.offerings.length },
-            { label: "Approvals", value: u.approvals.map((a) => a.body).join(", ") },
-          ]}
-        />
 
         <ContentSection title="Overview">
           {u.verdict && <p>{u.verdict}</p>}
