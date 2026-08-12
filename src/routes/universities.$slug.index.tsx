@@ -275,11 +275,9 @@ function Page() {
           </ContentSection>
         )}
 
-        {hasDegreeSample && (
-          <ContentSection title="Sample degree">
-            <SampleDegreeSection universityName={u.name} universitySlug={slug} />
-          </ContentSection>
-        )}
+        <ContentSection title="Specialisations">
+          <UniversitySpecialisations slug={slug} />
+        </ContentSection>
 
         <ContentSection title="Admission process">
           <div className="space-y-5">
@@ -292,16 +290,54 @@ function Page() {
           <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />
         </ContentSection>
 
+        <ContentSection title="Learning experience">
+          <UniversityLearningExperience slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
         <ContentSection title="Placement & career">
-          <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
+          <div className="space-y-5">
+            <UniversityCareerSupport slug={slug} shortName={u.shortName} />
+            <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
+          </div>
         </ContentSection>
 
         <ContentSection title="Scholarships">
           <div className="space-y-5">
             <ScholarshipInsightSection universitySlug={slug} universityShort={u.shortName} />
             <ScholarshipList items={scholarshipsOf(slug)} />
+            <UniversityScholarshipCTA slug={slug} shortName={u.shortName} />
           </div>
         </ContentSection>
+
+        {hasDegreeSample && (
+          <ContentSection title="Degree & certificate">
+            <div className="space-y-5">
+              <SampleDegreeSection universityName={u.name} universitySlug={slug} />
+              <UniversityDegreeFacts slug={slug} />
+            </div>
+          </ContentSection>
+        )}
+
+        <ContentSection title="Why consider">
+          <UniversityAdvantages slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Things to consider">
+          <UniversityConsiderations slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Who it suits">
+          <UniversitySuitability slug={slug} />
+        </ContentSection>
+
+        <ContentSection title="Student reviews">
+          <UniversityReviews rating={u.rating} reviewCount={u.reviewCount} shortName={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Compare universities">
+          <UniversityComparison slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
 
         <RelatedPageLinks
           title={`${u.shortName} guides`}
