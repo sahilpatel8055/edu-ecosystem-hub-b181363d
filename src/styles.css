@@ -74,6 +74,8 @@
   --color-surface-2: var(--surface-2);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
+  --color-tint-admission: var(--tint-admission);
+  --color-tint-exam: var(--tint-exam);
 }
 
 :root {
