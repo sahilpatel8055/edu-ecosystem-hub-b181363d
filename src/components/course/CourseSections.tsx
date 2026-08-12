@@ -8,6 +8,29 @@
 import { useState, type ReactNode } from "react";
 import {
   ArrowRight,
+  Award,
+  BadgeCheck,
+  Banknote,
+  BookOpen,
+  Briefcase,
+  CalendarDays,
+  ClipboardCheck,
+  Clock,
+  FileText,
+  Globe,
+  Laptop,
+  Layers,
+  LineChart,
+  MessagesSquare,
+  MonitorPlay,
+  PenLine,
+  Percent,
+  PlayCircle,
+  Search,
+  Target,
+  TrendingUp,
+  Users,
+  Video,
   Check,
   ChevronDown,
   GraduationCap,
@@ -42,17 +65,21 @@ export function Section({
 }: {
   title: string;
   intro?: string | undefined;
-  tone?: "plain" | "cream" | undefined;
+  tone?: "plain" | "cream" | "tint" | "mint" | undefined;
   children: ReactNode;
 }) {
+  const toneClass =
+    tone === "cream"
+      ? "rounded-3xl border border-border bg-cream p-5 sm:p-7"
+      : tone === "tint"
+        ? "rounded-3xl border border-brand/15 bg-gradient-to-br from-brand-soft/70 via-card to-card p-5 sm:p-7"
+        : tone === "mint"
+          ? "rounded-3xl border border-success/20 bg-gradient-to-br from-success/10 via-card to-card p-5 sm:p-7"
+          : "";
   return (
     <section
       id={sectionId(title)}
-      className={
-        tone === "cream"
-          ? "scroll-mt-36 rounded-3xl border border-border bg-cream p-5 sm:p-7"
-          : "scroll-mt-36"
-      }
+      className={`scroll-mt-36 ${toneClass}`}
     >
       <h2 className="font-display text-xl font-bold tracking-tight sm:text-2xl">{title}</h2>
       {intro && (
