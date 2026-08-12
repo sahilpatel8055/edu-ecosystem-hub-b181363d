@@ -44,6 +44,17 @@ import nbaIcon from "@/approvals/nba-icon.png";
 import bciIcon from "@/approvals/bci-icon.png";
 import qsIcon from "@/approvals/qs-icon.png";
 
+import amityDegree from "@/degree/amity.png";
+import cuDegree from "@/degree/cu.jpg";
+import dpuDegree from "@/degree/dpu.jpg";
+import duSolDegree from "@/degree/du-sol.jpg";
+import ignouDegree from "@/degree/ignou.png";
+import ksouDegree from "@/degree/ksou.jpg";
+import lpuDegree from "@/degree/lpu.png";
+import manipalDegree from "@/degree/manipal.jpg";
+import nmimsDegree from "@/degree/nmims.jpg";
+import vguDegree from "@/degree/vgu.jpg";
+
 export const brandLogo = avedu;
 
 /** Logos keyed by university slug. */
@@ -104,6 +115,18 @@ export const approvalIcon = (body: string): string | undefined =>
  * Drop the image into `src/degree/` and register it here — the sample-degree
  * section on the university page hides itself while an entry is missing.
  */
-const degreeSamples: Record<string, string> = {};
+const degreeSamples: Record<string, string> = {
+  "amity-online": amityDegree,
+  "chandigarh-university-online": cuDegree,
+  "dpu-online": dpuDegree,
+  "du-sol": duSolDegree,
+  ignou: ignouDegree,
+  "ksou-mysuru": ksouDegree,
+  "lpu-online": lpuDegree,
+  "manipal-university-jaipur": manipalDegree,
+  "nmims-online": nmimsDegree,
+  vgu: vguDegree,
+};
 
 export const degreeSample = (slug: string): string | undefined => degreeSamples[slug];
+

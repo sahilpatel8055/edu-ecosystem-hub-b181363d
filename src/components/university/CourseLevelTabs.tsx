@@ -65,7 +65,7 @@ export function CourseLevelTabs({
         </div>
       )}
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {current.items.map((o) => (
           <UniversityCourseCard
             key={o.id}

@@ -4,7 +4,6 @@ import {
   AuthorBox,
   DataTable,
   ProsCons,
-  QuickFacts,
   References,
   RelatedLinkGrid,
   StepList,
@@ -29,6 +28,19 @@ import {
   RelatedPageLinks,
   ScholarshipInsightSection,
 } from "@/components/university/InsightSections";
+import {
+  UniversityAdvantages,
+  UniversityCareerSupport,
+  UniversityComparison,
+  UniversityConsiderations,
+  UniversityDegreeFacts,
+  UniversityGlance,
+  UniversityLearningExperience,
+  UniversityReviews,
+  UniversityScholarshipCTA,
+  UniversitySpecialisations,
+  UniversitySuitability,
+} from "@/components/university/HubSections";
 import { feeTableFor } from "@/data/university-fee-tables";
 import { degreeSample } from "@/lib/assets";
 import { FeeStructureTable } from "@/components/university/FeeStructureTable";
@@ -187,25 +199,32 @@ function Page() {
           { name: u.shortName, href: path },
         ]}
         hero={<UniversityMasthead university={u} />}
-        eyebrow={`${u.type} university · ${u.modes.join(" / ")}`}
+        eyebrow={`${u.type ? `${u.type} university · ` : ""}${u.modes.join(" / ")}`}
         title={`${u.name}: Fees, Courses, Approvals & Admission 2026`}
         subtitle={u.summary}
         meta={<UpdatedStamp date={u.lastUpdated} verified={u.verified} />}
         tocSections={[
-          "Key highlights",
-          "Quick facts",
+          "At a glance",
           "Overview",
           "Approvals & recognition",
           "Courses & fees",
           ...(hasFeeTable ? ["Fee structure"] : []),
-          ...(hasDegreeSample ? ["Sample degree"] : []),
+          "Specialisations",
           "Admission process",
           "Examination pattern",
+          "Learning experience",
           "Placement & career",
           "Scholarships",
+          ...(hasDegreeSample ? ["Degree & certificate"] : []),
+          "Why consider",
+          "Things to consider",
+          "Who it suits",
+          "Student reviews",
+          "Compare universities",
           "FAQs",
           "Related links",
         ]}
+
         faqs={faqs}
         sidebarExtras={
           <>
@@ -224,19 +243,10 @@ function Page() {
           />
         }
       >
-        <QuickFacts
+        <ContentSection title="At a glance">
+          <UniversityGlance slug={slug} />
+        </ContentSection>
 
-          items={[
-            { label: "Established", value: u.establishedYear ?? "—" },
-            { label: "Type", value: u.type },
-            { label: "Location", value: `${u.city}, ${u.state}` },
-            { label: "Mode", value: u.modes.join(", ") },
-            { label: "Fee range", value: u.feeRangeLabel },
-            { label: "Rating", value: `${u.rating}/5 (${u.reviewCount})` },
-            { label: "Programmes", value: profile.offerings.length },
-            { label: "Approvals", value: u.approvals.map((a) => a.body).join(", ") },
-          ]}
-        />
 
         <ContentSection title="Overview">
           {u.verdict && <p>{u.verdict}</p>}
@@ -277,11 +287,9 @@ function Page() {
           </ContentSection>
         )}
 
-        {hasDegreeSample && (
-          <ContentSection title="Sample degree">
-            <SampleDegreeSection universityName={u.name} universitySlug={slug} />
-          </ContentSection>
-        )}
+        <ContentSection title="Specialisations">
+          <UniversitySpecialisations slug={slug} />
+        </ContentSection>
 
         <ContentSection title="Admission process">
           <div className="space-y-5">
@@ -294,16 +302,54 @@ function Page() {
           <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />
         </ContentSection>
 
+        <ContentSection title="Learning experience">
+          <UniversityLearningExperience slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
         <ContentSection title="Placement & career">
-          <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
+          <div className="space-y-5">
+            <UniversityCareerSupport slug={slug} shortName={u.shortName} />
+            <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
+          </div>
         </ContentSection>
 
         <ContentSection title="Scholarships">
           <div className="space-y-5">
             <ScholarshipInsightSection universitySlug={slug} universityShort={u.shortName} />
             <ScholarshipList items={scholarshipsOf(slug)} />
+            <UniversityScholarshipCTA slug={slug} shortName={u.shortName} />
           </div>
         </ContentSection>
+
+        {hasDegreeSample && (
+          <ContentSection title="Degree & certificate">
+            <div className="space-y-5">
+              <SampleDegreeSection universityName={u.name} universitySlug={slug} />
+              <UniversityDegreeFacts slug={slug} />
+            </div>
+          </ContentSection>
+        )}
+
+        <ContentSection title="Why consider">
+          <UniversityAdvantages slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Things to consider">
+          <UniversityConsiderations slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Who it suits">
+          <UniversitySuitability slug={slug} />
+        </ContentSection>
+
+        <ContentSection title="Student reviews">
+          <UniversityReviews rating={u.rating} reviewCount={u.reviewCount} shortName={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Compare universities">
+          <UniversityComparison slug={slug} shortName={u.shortName} />
+        </ContentSection>
+
 
         <RelatedPageLinks
           title={`${u.shortName} guides`}
