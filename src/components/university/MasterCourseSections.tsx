@@ -37,11 +37,11 @@ export function CurriculumSection({
                 type="button"
                 aria-expanded={expanded}
                 onClick={() => setOpen(expanded ? -1 : i)}
-                className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left md:cursor-default"
+                className="flex w-full items-center justify-between gap-3 bg-brand px-4 py-3 text-left text-brand-foreground md:cursor-default"
               >
-                <span className="text-sm font-bold text-foreground">{sem.label}</span>
+                <span className="font-display text-base font-extrabold">{sem.label}</span>
                 <ChevronDown
-                  className={`h-4 w-4 shrink-0 text-brand transition-transform md:hidden ${expanded ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 shrink-0 transition-transform md:hidden ${expanded ? "rotate-180" : ""}`}
                 />
               </button>
               <ul className={`${expanded ? "block" : "hidden"} space-y-1.5 border-t border-border px-4 py-3 md:block`}>

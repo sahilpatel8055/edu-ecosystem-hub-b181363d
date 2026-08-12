@@ -2,7 +2,7 @@ import type { Offering } from "@/data/types";
 
 const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
-function Cell({ label, value, note, strike }: { label: string; value: string; note?: string; strike?: string }) {
+function Cell({ label, value, note, strike }: { label: string; value: string; note?: string | undefined; strike?: string | undefined }) {
   return (
     <div className="min-w-0">
       <p className="text-sm font-semibold text-muted-foreground">{label}</p>
