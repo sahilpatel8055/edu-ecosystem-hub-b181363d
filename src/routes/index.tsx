@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
-import { SearchBox } from "@/components/layout/SearchBox";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
+import { SearchBox } from "@/components/layout/SearchBox";
 import { AppLink } from "@/components/common/AppLink";
 import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Primitives";
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
@@ -62,21 +62,17 @@ const stats = [
 function HomePage() {
   return (
     <>
-      <HeroCarousel />
-
       {/* Hero */}
       <section className="hero-glow relative overflow-hidden border-b border-border">
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:56px_56px]"
         />
-        <div className="container-page relative py-14 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand-soft px-4 py-1.5 text-xs font-semibold text-brand">
-              <Sparkles className="h-3.5 w-3.5" />
-              Part of the AVEDU education ecosystem
-            </span>
-            <h1 className="mt-6 font-display text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+        <div className="container-page relative py-8 sm:py-14 lg:py-16">
+          <HeroCarousel />
+          <div className="mx-auto mt-10 max-w-3xl text-center sm:mt-14">
+            <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+
               <span className="text-shine">Decide your degree</span> with research, not guesswork.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
