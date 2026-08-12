@@ -159,7 +159,7 @@ export function UniversityLearningExperience({ slug, shortName }: { slug: string
     return <EmptyNote>Learning-delivery details are not published in our verified sources for this university yet.</EmptyNote>;
 
   return (
-    <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
       {cards.map((c) => (
         <div key={c.title} className="rounded-xl border border-border bg-card p-3.5">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-brand">
@@ -220,7 +220,7 @@ export function UniversityScholarshipCTA({ slug, shortName }: { slug: string; sh
   return (
     <div className="space-y-3">
       {criteria.length > 0 && (
-        <div className="grid gap-2.5 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2">
           {criteria.map((c: ScholarshipCriterion) => (
             <details key={c.name ?? c.criterion} className="group rounded-xl border border-border bg-card p-3.5">
               <summary className="cursor-pointer list-none text-sm font-bold marker:hidden">
@@ -257,7 +257,7 @@ export function UniversityDegreeFacts({ slug }: { slug: string }) {
   if (rec.length) rows.push(["Recognition published", rec.join(" · ")]);
 
   return (
-    <dl className="grid gap-2.5 sm:grid-cols-2">
+    <dl className="grid grid-cols-2 gap-2.5 sm:grid-cols-2">
       {rows.map(([label, value]) => (
         <div key={label} className="rounded-xl border border-border bg-card p-3">
           <dt className="text-[0.66rem] font-bold uppercase tracking-[0.12em] text-muted-foreground">{label}</dt>
@@ -336,7 +336,7 @@ export function UniversityAdvantages({ slug, shortName }: { slug: string; shortN
   if (!points.length) return null;
 
   return (
-    <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
       {points.slice(0, 7).map((p) => (
         <div key={p.title} className="rounded-xl border border-border bg-card p-3.5">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-brand">
