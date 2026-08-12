@@ -61,14 +61,18 @@ export function UniversityExplorer({ items }: { items: University[] }) {
   const [approval, setApproval] = useState("All");
   const [fee, setFee] = useState("Any");
 
-  const approvals = useMemo(
-    () => ["All", ...Array.from(new Set(items.flatMap((i) => i.approvals)))],
-    [items],
-  );
+  // Raw approval strings are long source citations; expose short body names.
+  const approvals = useMemo(() => {
+    const bodies = ["UGC", "UGC-DEB", "NAAC", "AICTE", "AIU", "WES", "NIRF"];
+    return [
+      "All",
+      ...bodies.filter((b) => items.some((i) => i.approvals.some((a) => a.toUpperCase().includes(b)))),
+    ];
+  }, [items]);
 
   const filtered = items.filter((i) => {
     if (mode !== "All" && i.mode !== mode) return false;
-    if (approval !== "All" && !i.approvals.includes(approval)) return false;
+    if (approval !== "All" && !i.approvals.some((a) => a.toUpperCase().includes(approval))) return false;
     if (fee === "Under ₹1L" && !/₹\d+K/.test(i.feeRange)) return false;
     if (fee === "₹1L and above" && !/₹\d(\.\d)?L/.test(i.feeRange)) return false;
     return true;
