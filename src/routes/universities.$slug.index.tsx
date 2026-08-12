@@ -29,6 +29,19 @@ import {
   RelatedPageLinks,
   ScholarshipInsightSection,
 } from "@/components/university/InsightSections";
+import {
+  UniversityAdvantages,
+  UniversityCareerSupport,
+  UniversityComparison,
+  UniversityConsiderations,
+  UniversityDegreeFacts,
+  UniversityGlance,
+  UniversityLearningExperience,
+  UniversityReviews,
+  UniversityScholarshipCTA,
+  UniversitySpecialisations,
+  UniversitySuitability,
+} from "@/components/university/HubSections";
 import { feeTableFor } from "@/data/university-fee-tables";
 import { degreeSample } from "@/lib/assets";
 import { FeeStructureTable } from "@/components/university/FeeStructureTable";
