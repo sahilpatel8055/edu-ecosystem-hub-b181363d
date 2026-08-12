@@ -49,7 +49,6 @@ export const Route = createFileRoute("/courses/$course")({
       throw notFound();
     }
     const p = profile.record;
-  const pillarBase = `/courses/${p.slug}`;
     return {
       kind: "programme" as const,
       name: p.name,
@@ -177,6 +176,7 @@ function Page() {
   }
   const profile = programmeProfile(course)!;
   const p = profile.record;
+  const pillarBase = `/courses/${p.slug}`;
 
   const faqs = [
     { question: `What is the eligibility for ${p.name}?`, answer: p.eligibility },
