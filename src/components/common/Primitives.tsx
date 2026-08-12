@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ArrowRight, Inbox, Loader2 } from "lucide-react";
 import { AppLink } from "./AppLink";
+import { AccentHeadline } from "./Headline";
 import { cn } from "@/lib/utils";
 
 /* ------------------------------- Section ------------------------------- */
@@ -39,7 +40,7 @@ export function SectionHeader({
       <div className="min-w-0 max-w-2xl">
         {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
         <h2 className="font-display text-[1.6rem] font-extrabold leading-tight tracking-tight sm:text-[2rem]">
-          {title}
+          <AccentHeadline text={title} />
         </h2>
         {description && (
           <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground sm:text-base">{description}</p>

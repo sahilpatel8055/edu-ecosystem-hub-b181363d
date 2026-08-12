@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/common/Breadcrumbs";
+import { AccentHeadline } from "@/components/common/Headline";
 import { Faq, placeholderFaqs, type FaqItem } from "@/components/common/Faq";
 import { LeadCaptureCard, TableOfContents, TrustCard } from "@/components/common/Sidebar";
 import { SectionNav } from "@/components/common/SectionNav";
@@ -47,7 +48,7 @@ export function DetailLayout({
             <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-brand">{eyebrow}</p>
           )}
           <h1 className="mt-2 max-w-4xl text-3xl font-bold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            {title}
+            <AccentHeadline text={title} />
           </h1>
           {subtitle && <p className="mt-4 max-w-2xl text-base text-muted-foreground">{subtitle}</p>}
           {meta && <div className="mt-6">{meta}</div>}
@@ -95,7 +96,9 @@ export function ContentSection({
     : "";
   return (
     <section id={title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className={`scroll-mt-36 ${toned}`}>
-      <h2 className="text-2xl font-bold">{title}</h2>
+      <h2 className="text-2xl font-bold">
+        <AccentHeadline text={title} words={1} />
+      </h2>
       <div className="mt-4 space-y-4 text-[0.95rem] leading-relaxed text-muted-foreground">{children}</div>
     </section>
   );
@@ -115,7 +118,9 @@ export function ContentPlaceholder({ lines = 3 }: { lines?: number }) {
 export function RelatedContent({ title = "Related reading", children }: { title?: string; children: ReactNode }) {
   return (
     <section id="related">
-      <h2 className="text-2xl font-bold">{title}</h2>
+      <h2 className="text-2xl font-bold">
+        <AccentHeadline text={title} words={1} />
+      </h2>
       <div className="mt-6 grid gap-6 sm:grid-cols-2">{children}</div>
     </section>
   );

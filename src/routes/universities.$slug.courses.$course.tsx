@@ -21,6 +21,13 @@ import {
   ScholarshipInsightSection,
 } from "@/components/university/InsightSections";
 import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
+import { getUniversityCourse, masterResearchDate } from "@/lib/courseMaster";
+import {
+  CurriculumSection,
+  MasterFacts,
+  ScholarshipCategories,
+  SpecialisationElectives,
+} from "@/components/university/MasterCourseSections";
 import {
   approvalText,
   articleLinks,
@@ -125,6 +132,7 @@ function Page() {
   const { offering, university, programme } = profile;
   const u = university.record;
   const p = programme.record;
+  const master = getUniversityCourse(u.slug, p.slug);
 
   const faqs = [
     {
@@ -163,6 +171,7 @@ function Page() {
           "Quick facts",
           "Overview",
           "Specialisations",
+          "Curriculum",
           "Fee structure",
           "Eligibility",
           "Admission process",
@@ -225,8 +234,24 @@ function Page() {
               };
             })}
           />
+          {master.course && (
+            <SpecialisationElectives
+              course={master.course}
+              universitySpecialisations={master.specialisations}
+              universityShort={u.shortName}
+            />
+          )}
         </ContentSection>
 
+        {master.course && (
+          <ContentSection title="Curriculum">
+            <CurriculumSection
+              course={master.course}
+              universityShort={u.shortName}
+              universitySpecificNote={master.curriculumNote}
+            />
+          </ContentSection>
+        )}
 
         <ContentSection title="Fee structure">
           <DataTable
@@ -243,10 +268,13 @@ function Page() {
             Figures are published only after verification against the university's own fee schedule — nothing on this
             page is estimated.
           </p>
+          <MasterFacts data={master} universityShort={u.shortName} />
+          <p className="text-xs">Research data last reviewed {masterResearchDate}.</p>
         </ContentSection>
 
         <ContentSection title="Eligibility">
           <p>{p.eligibility}</p>
+          {master.eligibility && <p>{master.eligibility}</p>}
           <ul className="list-inside list-disc">
             {u.documentsRequired.map((d) => (
               <li key={d}>{d}</li>
@@ -291,6 +319,11 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Scholarships">
+          <ScholarshipCategories
+            scholarships={master.scholarships}
+            note={master.scholarshipNote}
+            universityShort={u.shortName}
+          />
           <ScholarshipInsightSection
             universitySlug={u.slug}
             universityShort={u.shortName}

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/common/Breadcrumbs";
+import { AccentHeadline } from "@/components/common/Headline";
 
 /** Shared listing/collection page shell: hero band + breadcrumbs + content slot. */
 export function PageShell({
@@ -27,7 +28,9 @@ export function PageShell({
               {eyebrow && (
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand">{eyebrow}</p>
               )}
-              <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">{title}</h1>
+              <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+                <AccentHeadline text={title} />
+              </h1>
               {description && (
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">{description}</p>
               )}
