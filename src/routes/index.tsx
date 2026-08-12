@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { SearchBox } from "@/components/layout/SearchBox";
 import { AppLink } from "@/components/common/AppLink";
 import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Primitives";
