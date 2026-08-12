@@ -268,7 +268,7 @@ export function StickyMobileCTA({
   ];
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
-      <div className="border-t border-white/25 bg-[#7f1813]/45 pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-10px_30px_-18px_oklch(0_0_0/0.55)] backdrop-blur-2xl backdrop-saturate-200 [background-image:linear-gradient(to_bottom,rgba(255,255,255,0.14),rgba(255,255,255,0))]">
+      <div className="border-t border-white/25 bg-[#7f1813]/60 pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-10px_30px_-18px_oklch(0_0_0/0.55)] backdrop-blur-2xl backdrop-saturate-200 [background-image:linear-gradient(to_bottom,rgba(255,255,255,0.18),rgba(0,0,0,0.18))]">
         <nav className="grid grid-cols-5 items-end px-1 pt-2 pb-1.5">
           {items.slice(0, 2).map((i) => (
             <NavItem key={i.to} {...i} />
