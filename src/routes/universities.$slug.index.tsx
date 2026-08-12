@@ -2,7 +2,6 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
 import {
   AuthorBox,
-  DataTable,
   ProsCons,
   References,
   RelatedLinkGrid,
@@ -13,12 +12,10 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityMasthead } from "@/components/common/UniversityMasthead";
 import { AppLink } from "@/components/common/AppLink";
-import { ApprovalMarquee } from "@/components/common/BoxMarquee";
 import { ApprovalsSection } from "@/components/university/ApprovalsSection";
 import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
 import {
   AdmissionSection,
-  RecognitionTable,
   ScholarshipList,
   SourceInformation,
 } from "@/components/university/DataSections";
