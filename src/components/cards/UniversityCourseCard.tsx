@@ -33,7 +33,7 @@ export function UniversityCourseCard({
 
   return (
     <article className="hover-lift flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground">
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
+      <AppLink to={href} aria-label={name} className="relative block aspect-[16/10] w-full overflow-hidden bg-secondary">
         <img
           src={courseImage(fullName)}
           alt={`${name} online programme`}
