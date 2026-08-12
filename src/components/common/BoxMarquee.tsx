@@ -49,7 +49,7 @@ export function BoxMarquee({
 export function ApprovalBox({ body, status }: { body: string; status?: string | undefined }) {
   const icon = approvalIcon(body);
   return (
-    <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-brand/35 bg-card p-4 text-center shadow-[0_12px_28px_-24px_oklch(0.39_0.139_28/0.7)]">
+    <div className="box-hover flex h-full flex-col items-center gap-3 rounded-2xl border border-brand/35 bg-card p-4 text-center shadow-[0_12px_28px_-24px_oklch(0.39_0.139_28/0.7)]">
       <div className="grid h-14 w-full place-items-center rounded-xl bg-brand-soft/40 px-3">
         {icon ? (
           <img src={icon} alt={`${body} logo`} loading="lazy" decoding="async" className="max-h-10 object-contain" />
@@ -87,7 +87,7 @@ export interface SpecialisationBoxItem {
 
 function SpecBoxInner({ item }: { item: SpecialisationBoxItem }) {
   return (
-    <div className="flex h-full min-h-[5.5rem] flex-col justify-center gap-1 rounded-2xl border border-brand/30 bg-card p-4 text-center transition-colors hover:border-brand/60 hover:bg-brand-soft/25">
+    <div className="box-hover flex h-full min-h-[5.5rem] flex-col justify-center gap-1 rounded-2xl border border-brand/30 bg-card p-4 text-center">
       <p className="text-sm font-bold leading-snug text-card-foreground">{item.name}</p>
       {item.meta && <p className="text-[11px] text-muted-foreground">{item.meta}</p>}
     </div>
