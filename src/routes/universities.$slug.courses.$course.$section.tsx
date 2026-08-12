@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { AuthorBox, LinkCluster, References UpdatedStamp } from "@/components/common/Blocks";
+import { AuthorBox, LinkCluster, References, UpdatedStamp } from "@/components/common/Blocks";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
 import { SectionUrlGrid } from "@/components/course/SectionHub";
 import { UniCourseSectionBody } from "@/components/university/UniCourseSectionBody";
