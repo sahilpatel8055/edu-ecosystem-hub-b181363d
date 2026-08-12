@@ -60,7 +60,6 @@ export function HeroCarousel() {
               to={b.to}
               className="flex min-h-[230px] w-full shrink-0 items-center sm:min-h-0"
               aria-hidden={i !== index}
-              tabIndex={i === index ? 0 : -1}
             >
               <img
                 src={b.src}
