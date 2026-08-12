@@ -4,7 +4,6 @@ import {
   AuthorBox,
   DataTable,
   ProsCons,
-  QuickFacts,
   References,
   RelatedLinkGrid,
   StepList,
