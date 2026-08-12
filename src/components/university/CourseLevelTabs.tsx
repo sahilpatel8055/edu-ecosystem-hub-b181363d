@@ -1,17 +1,46 @@
 import { useMemo, useState } from "react";
 import { UniversityCourseCard } from "@/components/cards/UniversityCourseCard";
 import { getProgramme } from "@/data";
+import { familyDefs } from "@/lib/courseFamily";
 import type { Offering } from "@/data";
 import { cn } from "@/lib/utils";
 
 const levelOrder = ["PG", "UG", "Diploma", "Certificate"] as const;
 
 /**
+ * One card per pillar course: several specialisation offerings of the same
+ * degree (MBA Finance, MBA Marketing …) collapse into a single "Online MBA"
+ * card, and the specialisations live inside that course page.
+ */
+function pillarKey(o: Offering): string {
+  const name = (getProgramme(o.programmeSlug)?.name ?? o.programmeSlug).toUpperCase();
+  const def = familyDefs.find((f) => f.match.some((re) => re.test(name)));
+  return def?.slug ?? name;
+}
+
+function dedupe(items: Offering[]): Offering[] {
+  const seen = new Map<string, Offering>();
+  for (const o of items) {
+    const key = pillarKey(o);
+    const existing = seen.get(key);
+    // Prefer the plainest offering (shortest programme name) as the pillar card.
+    if (
+      !existing ||
+      (getProgramme(o.programmeSlug)?.name ?? "").length <
+        (getProgramme(existing.programmeSlug)?.name ?? "").length
+    ) {
+      seen.set(key, o);
+    }
+  }
+  return [...seen.values()];
+}
+
+/**
  * "Courses & fees" list with PG / UG level tabs so a university with 30+
  * programmes does not force a long scroll.
  */
 export function CourseLevelTabs({
-  offerings,
+  offerings: rawOfferings,
   universitySlug,
   feeFallback,
 }: {
@@ -19,6 +48,7 @@ export function CourseLevelTabs({
   universitySlug: string;
   feeFallback?: string;
 }) {
+  const offerings = useMemo(() => dedupe(rawOfferings), [rawOfferings]);
   const buckets = useMemo(() => {
     const map = new Map<string, Offering[]>();
     for (const o of offerings) {
