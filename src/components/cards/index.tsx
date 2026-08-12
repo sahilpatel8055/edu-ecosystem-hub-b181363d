@@ -171,15 +171,14 @@ export function ReviewCard({ item }: { item: Review }) {
 
 export function ComparisonCard({ item }: { item: Comparison }) {
   const [leftSlug = "", rightSlug = ""] = item.slug.split("-vs-");
-  const leftImg = campusImage(leftSlug) ?? universityLogo(leftSlug);
-  const rightImg = campusImage(rightSlug) ?? universityLogo(rightSlug);
+  const sideOf = (slug: string, name: string) => {
+    const campus = campusImage(slug);
+    return { img: campus ?? universityLogo(slug), isCampus: Boolean(campus), name };
+  };
   return (
     <AppLink to={`/compare/${item.slug}`} className={`${cardBase} !p-0 overflow-hidden`}>
       <div className="relative grid h-36 grid-cols-2 gap-px bg-border">
-        {[
-          { img: leftImg, name: item.left },
-          { img: rightImg, name: item.right },
-        ].map((side, idx) => (
+        {[sideOf(leftSlug, item.left), sideOf(rightSlug, item.right)].map((side, idx) => (
           <span key={idx} className="relative block overflow-hidden bg-secondary">
             {side.img ? (
               <img
@@ -187,15 +186,23 @@ export function ComparisonCard({ item }: { item: Comparison }) {
                 alt={`${side.name} campus`}
                 loading="lazy"
                 decoding="async"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className={
+                  side.isCampus
+                    ? "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    : "absolute inset-0 m-auto max-h-[55%] max-w-[80%] object-contain"
+                }
               />
             ) : (
               <span className="grid h-full w-full place-items-center px-2 text-center font-display text-sm font-bold text-muted-foreground">
                 {side.name}
               </span>
             )}
-            <span className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
-            <span className="absolute inset-x-2 bottom-2 line-clamp-2 text-[0.7rem] font-bold leading-tight text-white">
+            {side.isCampus && <span className="absolute inset-0 bg-gradient-to-t from-ink/75 to-transparent" />}
+            <span
+              className={`absolute inset-x-2 bottom-2 line-clamp-2 text-[0.7rem] font-bold leading-tight ${
+                side.isCampus ? "text-white" : "text-muted-foreground"
+              }`}
+            >
               {side.name}
             </span>
           </span>
