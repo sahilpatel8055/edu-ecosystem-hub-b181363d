@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { StickyMobileCTA } from "@/components/common/Blocks";
+import { DesktopStickyCTA, StickyMobileCTA } from "@/components/common/Blocks";
 import { jsonLd, organizationSchema, SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
 
 function NotFoundComponent() {
@@ -136,6 +136,7 @@ function RootComponent() {
         </div>
         <Footer />
         <StickyMobileCTA />
+        <DesktopStickyCTA />
       </div>
     </QueryClientProvider>
   );
