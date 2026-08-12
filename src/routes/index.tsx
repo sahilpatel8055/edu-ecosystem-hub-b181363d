@@ -4,6 +4,7 @@ import { SearchBox } from "@/components/layout/SearchBox";
 import { AppLink } from "@/components/common/AppLink";
 import { Chip, CTASection, Section, SectionHeader } from "@/components/common/Primitives";
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
+import { PromoBanner } from "@/components/course/PromoBanner";
 import { Faq } from "@/components/common/Faq";
 import { ProgramFinder } from "@/components/common/ProgramFinder";
 import { UniversityGrid } from "@/components/common/UniversityGrid";
@@ -140,6 +141,14 @@ function HomePage() {
         <ProgramFinder items={courseFamilies} />
       </Section>
 
+      <div className="container-page py-4">
+        <PromoBanner
+          title="Save up to ₹15,000 on 2026 online admissions"
+          subtitle="Limited-period university scholarships across MBA, MCA, M.Com and BBA — check what you qualify for."
+          ctaLabel="Check my scholarship"
+        />
+      </div>
+
       {/* Admission updates + latest news */}
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
@@ -233,6 +242,15 @@ function HomePage() {
         </div>
       </Section>
 
+      <div className="container-page py-4">
+        <PromoBanner
+          variant="guidance"
+          title="Confused between two universities?"
+          subtitle="Get a free 15-minute call with an AVEDU counsellor and a side-by-side comparison on WhatsApp."
+          ctaLabel="Talk to a counsellor"
+        />
+      </div>
+
       {/* Scholarships */}
       <Section>
         <SectionHeader
@@ -302,6 +320,14 @@ function HomePage() {
           ))}
         </div>
       </Section>
+
+      <div className="container-page py-4">
+        <PromoBanner
+          title="Application window closing soon"
+          subtitle="Apply in the current session to lock this year's fee — fees revise every intake."
+          ctaLabel="Apply now"
+        />
+      </div>
 
       {/* Newsletter */}
       <Section>
