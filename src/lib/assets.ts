@@ -130,3 +130,17 @@ const degreeSamples: Record<string, string> = {
 
 export const degreeSample = (slug: string): string | undefined => degreeSamples[slug];
 
+/**
+ * Hiring-partner boards. We hold a handful of specimen boards, so each
+ * university gets one assigned deterministically from its slug.
+ */
+const hiringBoards: string[] = [cuHiring, manipalHiring, nmimsHiring];
+
+export function hiringPartnerBoard(slug: string): string | undefined {
+  if (!hiringBoards.length) return undefined;
+  let hash = 0;
+  for (let i = 0; i < slug.length; i += 1) hash = (hash * 31 + slug.charCodeAt(i)) % 100000;
+  return hiringBoards[hash % hiringBoards.length];
+}
+
+
