@@ -30,6 +30,7 @@ import {
 } from "@/components/university/MasterCourseSections";
 import { FeeHighlight } from "@/components/university/FeeHighlight";
 import { CareerRolePackages } from "@/components/university/CareerRolePackages";
+import { defaultRolesFor } from "@/lib/careerSalaries";
 import { getCareerInfo } from "@/lib/insightsData";
 import {
   approvalText,
@@ -325,6 +326,8 @@ function Page() {
                       offering.specialisations.flatMap((s) => getSpecialisation(p.slug, s)?.careerPaths ?? []),
                     ),
                   ).slice(0, 10)
+            }
+            fallbackRoles={defaultRolesFor(p.slug)
             }
             universitySlug={u.slug}
             universityShort={u.shortName}

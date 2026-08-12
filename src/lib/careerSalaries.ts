@@ -25,3 +25,61 @@ export function averagePackageFor(role: string): string {
   for (const b of bands) if (b.match.test(role)) return b.range;
   return "4 – 10 LPA";
 }
+
+/**
+ * Common hiring roles by course family, used when neither the university nor
+ * the programme dataset publishes a role list.
+ */
+const roleSets: Array<{ match: RegExp; roles: string[] }> = [
+  {
+    match: /mba|master-of-business|pgdm|management/i,
+    roles: [
+      "Business Manager",
+      "Marketing Manager",
+      "Financial Analyst",
+      "Human Resource Manager",
+      "Operations Manager",
+      "Business Analyst",
+      "Project Manager",
+      "Management Consultant",
+    ],
+  },
+  {
+    match: /mca|computer-application|m-sc-data|data-science|artificial/i,
+    roles: [
+      "Software Developer",
+      "Data Analyst",
+      "Full Stack Engineer",
+      "Cloud Engineer",
+      "Data Scientist",
+      "System Analyst",
+      "DevOps Engineer",
+      "IT Project Manager",
+    ],
+  },
+  {
+    match: /bca|b-sc-computer/i,
+    roles: ["Junior Software Developer", "Web Developer", "QA Engineer", "Support Engineer", "Data Analyst"],
+  },
+  {
+    match: /bba|bachelor-of-business/i,
+    roles: ["Sales Executive", "Marketing Executive", "HR Associate", "Business Development Executive", "Operations Executive"],
+  },
+  {
+    match: /b-com|m-com|commerce/i,
+    roles: ["Accountant", "Tax Associate", "Audit Assistant", "Finance Executive", "Financial Analyst"],
+  },
+  {
+    match: /journalism|mass-comm/i,
+    roles: ["Content Writer", "Digital Marketing Executive", "Public Relations Executive", "Media Coordinator"],
+  },
+  {
+    match: /-ba$|bachelor-of-arts|-ma$|master-of-arts|english|psychology|sociology/i,
+    roles: ["Content Writer", "Teacher / Faculty", "HR Associate", "Counsellor", "Research Associate"],
+  },
+];
+
+export function defaultRolesFor(programmeSlug: string): string[] {
+  for (const r of roleSets) if (r.match.test(programmeSlug)) return r.roles;
+  return [];
+}

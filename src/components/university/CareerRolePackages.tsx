@@ -7,14 +7,17 @@ import { HiringPartners } from "@/components/university/HiringPartners";
  * hiring-partner board. Packages are market averages, clearly labelled.
  */
 export function CareerRolePackages({
-  roles,
+  roles: providedRoles,
+  fallbackRoles = [],
   universitySlug,
   universityShort,
 }: {
   roles: string[];
+  fallbackRoles?: string[];
   universitySlug: string;
   universityShort: string;
 }) {
+  const roles = providedRoles.length ? providedRoles : fallbackRoles;
   return (
     <div className="space-y-4">
       {roles.length > 0 && (
