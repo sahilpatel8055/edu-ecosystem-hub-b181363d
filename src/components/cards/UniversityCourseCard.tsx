@@ -47,7 +47,7 @@ export function UniversityCourseCard({
             <img src={logo} alt="" aria-hidden="true" loading="lazy" className="h-full w-full object-contain" />
           </span>
         )}
-      </div>
+      </AppLink>
 
       <div className="flex min-w-0 flex-1 flex-col p-3.5 sm:p-4">
         <div className="flex items-start justify-between gap-2">
