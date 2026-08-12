@@ -199,39 +199,12 @@ export function CoursePageTemplate({
             <AudienceCards items={content.audience} />
           </Section>
 
-          <Section title="Eligibility">
-            <LabelledAccordion items={content.eligibility} />
-            <Note>{content.eligibilityNote}</Note>
-          </Section>
-
-          <Section title="Fees" intro={content.feeNotes[0]} tone="cream">
-            <ul className="mb-5 space-y-2">
-              {content.feeNotes.slice(1).map((n) => (
-                <li key={n} className="text-[0.86rem] leading-relaxed text-muted-foreground">
-                  • {n}
-                </li>
-              ))}
-            </ul>
-            <FeeSummaryTable offers={family.offers} />
-          </Section>
-
           <Section
             title="Universities"
             intro={`${family.offers.length} universities in our dataset publish ${family.name}. Figures below are what each university states officially — nothing is estimated.`}
+            tone="tint"
           >
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-              {family.offers.map((o) => (
-                <UniversityTile key={o.key} offer={o} />
-              ))}
-            </div>
-          </Section>
-
-          <Section
-            title="Compare universities"
-            intro={`Pick the universities you are shortlisting and compare them field by field.`}
-            tone="cream"
-          >
-            <CompareUniversities family={family} />
+            <UniversityTileGrid offers={family.offers} />
           </Section>
 
           <Section
@@ -272,11 +245,34 @@ export function CoursePageTemplate({
           </Section>
 
           {content.syllabus.length > 0 && (
-            <Section title="Syllabus">
+            <Section title="Curriculum" tone="mint">
               <SyllabusGrid semesters={content.syllabus} />
               <Note>{content.syllabusNote}</Note>
             </Section>
           )}
+
+          <Section title="Fees" intro={content.feeNotes[0]} tone="cream">
+            <ul className="mb-5 space-y-2">
+              {content.feeNotes.slice(1).map((n) => (
+                <li key={n} className="text-[0.86rem] leading-relaxed text-muted-foreground">
+                  • {n}
+                </li>
+              ))}
+            </ul>
+            <FeeSummaryTable offers={family.offers} />
+          </Section>
+
+          <PromoBanner
+            variant="offer"
+            title="Save big on your dream university"
+            subtitle="Ask us about live scholarship and early-admission fee waivers before you pay the first instalment."
+            ctaLabel="Claim now"
+          />
+
+          <Section title="Eligibility" intro="Check the basic requirements before you apply.">
+            <InfoBoxGrid items={content.eligibility} />
+            <Note>{content.eligibilityNote}</Note>
+          </Section>
 
           <Section title="Admission" tone="cream">
             <StepFlow steps={content.admissionSteps} />
@@ -287,25 +283,40 @@ export function CoursePageTemplate({
             <Note>{content.documentsNote}</Note>
           </Section>
 
+          <Section
+            title="Compare universities"
+            intro="Pick the universities you are shortlisting and compare them field by field."
+            tone="tint"
+          >
+            <CompareUniversities family={family} />
+          </Section>
+
           <Section title="How it works">
             <StepFlow steps={content.howItWorks} />
           </Section>
 
+          <PromoBanner
+            variant="guidance"
+            title={`Not sure which ${family.shortName} fits you?`}
+            subtitle="Get a free shortlist based on your budget, work schedule and career goal — no cost, no obligation."
+            ctaLabel="Talk to a counsellor"
+          />
+
           <Section title="Learning & exams">
-            <LabelledAccordion items={content.learningFormat} />
+            <InfoBoxGrid items={content.learningFormat} />
             <Note>{content.learningNote}</Note>
             <div className="mt-6">
               <h3 className="font-display text-base font-bold">Examination pattern</h3>
               <div className="mt-3">
-                <LabelledAccordion items={content.examPattern} />
+                <InfoBoxGrid items={content.examPattern} />
               </div>
               <Note>{content.examNote}</Note>
             </div>
           </Section>
 
-          <Section title="Career">
+          <Section title="Career" tone="mint">
             {content.careers.length ? (
-              <LabelledAccordion items={content.careers} />
+              <InfoBoxGrid items={content.careers} />
             ) : (
               <ChipList
                 items={[...new Set(family.offers.flatMap((o) => o.careerRoles))].slice(0, 12)}
@@ -331,7 +342,7 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title="Placement support">
-            <LabelledAccordion items={content.placementServices} />
+            <InfoBoxGrid items={content.placementServices} />
             <Note>{content.placementNote}</Note>
           </Section>
 
@@ -343,11 +354,9 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title="Advantages & limitations">
-            <AccordionList
-              items={[
-                { title: "Advantages", content: <TickList items={content.advantages} /> },
-                { title: "Limitations", content: <TickList items={content.limitations} /> },
-              ]}
+            <TwoColumnLists
+              left={{ title: "Advantages", items: content.advantages }}
+              right={{ title: "Limitations", items: content.limitations }}
             />
           </Section>
 
@@ -397,8 +406,8 @@ export function CoursePageTemplate({
             </div>
           </Section>
 
-          <Section title="How to choose">
-            <LabelledAccordion items={content.selectionGuide} />
+          <Section title="How to choose" tone="tint">
+            <InfoBoxGrid items={content.selectionGuide} />
           </Section>
 
           <Section title={`Why compare ${family.name} here`}>
