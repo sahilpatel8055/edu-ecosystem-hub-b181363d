@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { approvalIcon } from "@/lib/assets";
 import { AppLink } from "./AppLink";
 
@@ -117,7 +118,7 @@ export function SpecialisationBoxes({
     ),
   );
 
-  if (scrolling) return <BoxMarquee ariaLabel={label} items={boxes} speed={52} />;
+  if (scrolling) return <SpecialisationPager label={label} boxes={boxes} />;
 
   return (
     <ul aria-label={label} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -127,5 +128,51 @@ export function SpecialisationBoxes({
         </li>
       ))}
     </ul>
+  );
+}
+
+/** Manual pager: 3 boxes per row, 2 rows per page, arrows beside the label. */
+function SpecialisationPager({ label, boxes }: { label: string; boxes: ReactNode[] }) {
+  const perPage = 6;
+  const pages = Math.max(1, Math.ceil(boxes.length / perPage));
+  const [page, setPage] = useState(0);
+  const current = boxes.slice(page * perPage, page * perPage + perPage);
+
+  return (
+    <div className="space-y-3">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+        <p className="min-w-0 truncate text-sm font-bold text-foreground">{label}</p>
+        {pages > 1 && (
+          <div className="flex shrink-0 items-center gap-2">
+            <span className="text-xs text-muted-foreground">
+              {page + 1}/{pages}
+            </span>
+            <button
+              type="button"
+              aria-label="Previous specialisations"
+              onClick={() => setPage((p) => (p - 1 + pages) % pages)}
+              className="grid h-8 w-8 place-items-center rounded-full border border-brand/40 text-brand transition-colors hover:bg-brand hover:text-brand-foreground"
+            >
+              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next specialisations"
+              onClick={() => setPage((p) => (p + 1) % pages)}
+              className="grid h-8 w-8 place-items-center rounded-full border border-brand/40 text-brand transition-colors hover:bg-brand hover:text-brand-foreground"
+            >
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </div>
+        )}
+      </div>
+      <ul aria-label={label} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {current.map((box, i) => (
+          <li key={`${page}-${i}`} className="min-w-0">
+            {box}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
