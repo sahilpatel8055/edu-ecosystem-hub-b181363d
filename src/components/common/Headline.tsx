@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
  */
 export function AccentHeadline({ text, words = 2 }: { text: string; words?: number }): ReactNode {
   const parts = text.trim().split(/\s+/);
-  if (parts.length < 3) return <span className="text-brand">{text}</span>;
+  if (parts.length === 1) return <>{text}</>;
   const accentCount = Math.min(words, Math.max(1, parts.length - 1));
   const head = parts.slice(0, parts.length - accentCount).join(" ");
   const tail = parts.slice(parts.length - accentCount).join(" ");
