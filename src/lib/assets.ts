@@ -55,6 +55,10 @@ import manipalDegree from "@/degree/manipal.jpg";
 import nmimsDegree from "@/degree/nmims.jpg";
 import vguDegree from "@/degree/vgu.jpg";
 
+import cuHiring from "@/assets/hiring-partners/cu-hiring-partner.jpg";
+import manipalHiring from "@/assets/hiring-partners/manipal-university-hiring-partners.webp";
+import nmimsHiring from "@/assets/hiring-partners/nmims-hiring-partners.webp";
+
 export const brandLogo = avedu;
 
 /** Logos keyed by university slug. */
