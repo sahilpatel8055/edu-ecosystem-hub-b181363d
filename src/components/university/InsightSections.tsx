@@ -128,7 +128,7 @@ function FactGrid({ items }: { items: Array<{ label: string; value: string }> })
   return (
     <dl className="grid grid-cols-2 gap-3 sm:grid-cols-2">
       {items.map((f) => (
-        <div key={f.label} className="rounded-xl border border-border bg-card px-3.5 py-3">
+        <div key={f.label} className="box-hover rounded-xl border border-border bg-card px-3.5 py-3">
           <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{f.label}</dt>
           <dd className="mt-1 text-sm leading-relaxed text-foreground">{f.value}</dd>
         </div>
@@ -395,7 +395,7 @@ export function CareerRoles({ roles }: { roles: string[] }) {
         {roles.map((r) => (
           <li
             key={r}
-            className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground"
+            className="box-hover flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground"
           >
             <Sparkles className="h-3.5 w-3.5 shrink-0 text-brand" aria-hidden="true" />
             {r}
@@ -418,7 +418,7 @@ export function ScholarshipCard({
   scope: string;
 }) {
   return (
-    <article className="rounded-2xl border border-border bg-card p-4">
+    <article className="box-hover rounded-2xl border border-border bg-card p-4">
       <div className="flex items-start gap-3">
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-soft text-brand">
           <ScrollText className="h-4 w-4" aria-hidden="true" />

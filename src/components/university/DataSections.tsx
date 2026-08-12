@@ -224,7 +224,7 @@ export function ScholarshipList({ items }: { items: ScholarshipRecord[] }) {
       {items.map((s, i) => {
         const name = s.scholarship_name ?? s.name ?? "Scholarship";
         return (
-          <article key={`${name}-${i}`} className="rounded-2xl border border-border bg-card p-4">
+          <article key={`${name}-${i}`} className="box-hover rounded-2xl border border-border bg-card p-4">
             <h3 className="font-display text-base font-bold">{name}</h3>
             <dl className="mt-3 space-y-1.5 text-sm text-muted-foreground">
               {s.amount != null && (
