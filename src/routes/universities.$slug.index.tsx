@@ -46,6 +46,13 @@ import { SectionBanner } from "@/components/common/SectionBanner";
 import { HiringPartners } from "@/components/university/HiringPartners";
 import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
 import {
+  OfficialDocumentsAndSources,
+  StudentsShouldVerify,
+  UniversityResearchIntro,
+  UniversityVsProgrammeFacts,
+  WhoMayConsiderUniversity,
+} from "@/components/university/VerificationSections";
+import {
   admissionOf,
   getUniversityBySlug,
   scholarshipsOf,
@@ -220,6 +227,9 @@ function Page() {
           "Who it suits",
           "Student reviews",
           "Compare universities",
+          "Who may consider this university",
+          "What to verify before applying",
+          "Official documents & sources",
           "FAQs",
           "Related links",
         ]}
@@ -248,6 +258,7 @@ function Page() {
 
 
         <ContentSection title="Overview">
+          <UniversityResearchIntro slug={slug} />
           {u.verdict && <p>{u.verdict}</p>}
           <ul className="grid gap-2 sm:grid-cols-2">
             {u.highlights.map((h) => (
@@ -259,6 +270,7 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Approvals & recognition">
+          <UniversityVsProgrammeFacts />
           <ApprovalsSection
             approvals={u.approvals}
             shortName={u.shortName}
@@ -349,6 +361,25 @@ function Page() {
           <UniversityComparison slug={slug} shortName={u.shortName} />
         </ContentSection>
 
+
+        <ContentSection title="Who may consider this university">
+          <WhoMayConsiderUniversity shortName={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="What to verify before applying">
+          <StudentsShouldVerify
+            lastVerified={u.lastUpdated}
+            status={json?.data_status ?? (u.verified ? "verified_official" : "partial_verification")}
+          />
+        </ContentSection>
+
+        <ContentSection title="Official documents & sources">
+          <OfficialDocumentsAndSources
+            slug={slug}
+            shortName={u.shortName}
+            websiteUrl={u.websiteUrl}
+          />
+        </ContentSection>
 
         <RelatedPageLinks
           title={`${u.shortName} guides`}

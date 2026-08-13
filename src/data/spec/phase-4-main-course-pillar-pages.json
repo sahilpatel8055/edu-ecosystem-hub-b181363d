@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "phase": 4,
+    "title": "Main Course Pillar Pages — Content, SEO, Internal Linking & University Directory",
+    "academic_session": "2026-27",
+    "scope": "Main course hub/pillar pages. This phase does NOT replace university-course pages or comparison pages.",
+    "course_hubs": [
+      "online-mba",
+      "online-mca",
+      "online-bba",
+      "online-bca",
+      "online-bcom",
+      "online-ba",
+      "online-ma",
+      "online-msc",
+      "online-mcom"
+    ],
+    "primary_goal": "Make each main course page the authoritative informational hub that answers broad course intent and distributes authority to the exact university-course pages."
+  },
+  "important_architecture": {
+    "pillar": "Main course page answers broad intent: what, eligibility, fees concept, syllabus, specialisations, admission, exams, career and how to compare.",
+    "cluster": "University-course pages answer exact programme intent: University + course + current fees + eligibility + curriculum + admission + exam + electives.",
+    "comparison": "Comparison pages answer decision intent between universities/programmes.",
+    "blog": "Blogs answer narrow informational/search questions and should link upward to the relevant pillar and exact programme page.",
+    "rule": "Do not make the pillar page compete with its own university-course pages for exact university + course queries."
+  },
+  "course_hubs": {
+    "online-mba": {
+      "intent": "online MBA course research, fees, eligibility, syllabus, specialisations, admission, exams, career and university comparison",
+      "audience": "Graduates, working professionals and career switchers evaluating online MBA options.",
+      "core_sections": [
+        "What is an Online MBA?",
+        "Who is an Online MBA for?",
+        "Online MBA eligibility",
+        "Online MBA duration",
+        "Online MBA fees",
+        "Online MBA curriculum and subjects",
+        "Popular Online MBA specialisations",
+        "How Online MBA examinations work",
+        "Admission process",
+        "Scholarships and fee support",
+        "Online MBA career options",
+        "Placement and career support — what universities actually provide",
+        "Online MBA vs regular MBA vs distance MBA",
+        "How to choose an Online MBA university",
+        "Best Online MBA comparison framework",
+        "University-wise Online MBA directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-mca": {
+      "intent": "online MCA research, eligibility, fees, syllabus, specialisations, admission, examinations, projects and technology careers",
+      "audience": "Graduates targeting advanced computing and technology education.",
+      "core_sections": [
+        "What is an Online MCA?",
+        "Who should consider it?",
+        "Eligibility and mathematics/computing prerequisites",
+        "Duration and academic structure",
+        "Fees",
+        "Curriculum and core subjects",
+        "Specialisations and electives",
+        "Projects, practical learning and programming",
+        "Examination pattern",
+        "Admission process",
+        "Scholarships",
+        "Career paths",
+        "Online MCA vs regular MCA vs distance MCA",
+        "How to compare universities",
+        "University-wise Online MCA directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-bba": {
+      "intent": "online BBA course research, eligibility, fees, subjects, specialisations, admission and career options",
+      "audience": "12th-pass students and learners seeking undergraduate business education.",
+      "core_sections": [
+        "What is an Online BBA?",
+        "Who can pursue it?",
+        "Eligibility",
+        "Duration",
+        "Fees",
+        "Curriculum and subjects",
+        "Specialisations",
+        "Admission process",
+        "Examination pattern",
+        "Scholarships",
+        "Career opportunities",
+        "Online BBA vs regular BBA vs distance BBA",
+        "How to choose a university",
+        "University-wise directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-bca": {
+      "intent": "online BCA research, eligibility, fees, syllabus, programming subjects, specialisations, admission and career options",
+      "audience": "Students seeking undergraduate computing education.",
+      "core_sections": [
+        "What is an Online BCA?",
+        "Who should pursue it?",
+        "Eligibility",
+        "Duration",
+        "Fees",
+        "Programming and core subjects",
+        "Specialisations and electives",
+        "Projects and practical learning",
+        "Admission",
+        "Examinations",
+        "Scholarships",
+        "Career paths",
+        "Online BCA vs regular BCA vs distance BCA",
+        "University comparison",
+        "University-wise directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-bcom": {
+      "intent": "online BCom research, fees, eligibility, subjects, admission, examinations and commerce careers",
+      "audience": "Students seeking flexible undergraduate commerce education.",
+      "core_sections": [
+        "What is an Online BCom?",
+        "Eligibility",
+        "Duration",
+        "Fees",
+        "Accounting, finance and commerce subjects",
+        "Specialisations/electives",
+        "Admission",
+        "Examination pattern",
+        "Scholarships",
+        "Career options",
+        "Online BCom vs regular BCom vs distance BCom",
+        "University comparison",
+        "University-wise directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-ba": {
+      "intent": "online BA research, subjects, eligibility, fees, admission, specialisations and career/progression options",
+      "audience": "Students seeking flexible humanities, social science or language education.",
+      "core_sections": [
+        "What is an Online BA?",
+        "Available subject combinations",
+        "Eligibility",
+        "Duration",
+        "Fees",
+        "Curriculum",
+        "Admission process",
+        "Examination pattern",
+        "Scholarships",
+        "Career and higher-study pathways",
+        "Online BA vs regular BA vs distance BA",
+        "How to choose subject combinations",
+        "University-wise directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-ma": {
+      "intent": "online MA research by subject, eligibility, fees, syllabus, admission, examination and progression",
+      "audience": "Graduates seeking postgraduate humanities/social-science/language education.",
+      "core_sections": [
+        "What is an Online MA?",
+        "MA subjects available online",
+        "Eligibility",
+        "Duration",
+        "Fees",
+        "Subject-wise curriculum",
+        "Projects/dissertation where applicable",
+        "Admission",
+        "Examinations",
+        "Scholarships",
+        "Career and progression",
+        "Online MA vs regular MA vs distance MA",
+        "University comparison",
+        "University-wise directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-msc": {
+      "intent": "online MSc research by subject, eligibility, fees, curriculum, specialisations, admission and career options",
+      "audience": "Graduates seeking postgraduate science, computing, mathematics or applied-science education.",
+      "core_sections": [
+        "What is an Online M.Sc.?",
+        "Subjects available",
+        "Eligibility and prerequisites",
+        "Duration",
+        "Fees",
+        "Curriculum",
+        "Practical/project components",
+        "Specialisations/electives",
+        "Admission",
+        "Examination pattern",
+        "Scholarships",
+        "Career options",
+        "Online M.Sc. vs regular M.Sc. vs distance M.Sc.",
+        "University comparison",
+        "University-wise directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    },
+    "online-mcom": {
+      "intent": "online MCom research, eligibility, fees, syllabus, specialisations, admission and finance/accounting careers",
+      "audience": "Commerce graduates seeking postgraduate commerce education.",
+      "core_sections": [
+        "What is an Online MCom?",
+        "Eligibility",
+        "Duration",
+        "Fees",
+        "Accounting, finance and commerce curriculum",
+        "Specialisations/electives",
+        "Admission",
+        "Examinations",
+        "Scholarships",
+        "Career options",
+        "Online MCom vs regular MCom vs distance MCom",
+        "University comparison",
+        "University-wise directory",
+        "FAQs",
+        "Sources and last verified"
+      ]
+    }
+  },
+  "universal_pillar_content": {
+    "opening": {
+      "purpose": "Immediately explain the course and what the page helps the learner decide.",
+      "rule": "Do not start with a generic marketing paragraph. Give a concise definition, target learner, major decision factors and a visible table of contents."
+    },
+    "quick_facts": {
+      "fields": [
+        "course level",
+        "typical duration",
+        "basic eligibility category",
+        "learning modes available",
+        "major specialisation families",
+        "assessment varies by university",
+        "academic session"
+      ],
+      "rule": "Do not publish a single universal fee or eligibility value when universities differ."
+    },
+    "fee_section": {
+      "content": "Explain how online-course fees differ by university, semester, one-time charges, examination/project charges and scholarships. Link every university's exact current fee to its university-course page.",
+      "rule": "Never present an invented 'average fee' as fact. If an estimate is useful, clearly label it as an editorial range and show methodology."
+    },
+    "curriculum_section": {
+      "content": "Explain common curriculum areas at a high level, then link to university-specific semester curriculum pages. Specialisation content must identify the difference between core subjects and electives.",
+      "rule": "The pillar can explain curriculum patterns but must not pretend one generic syllabus applies to all universities."
+    },
+    "comparison_framework": {
+      "factors": [
+        "recognition/entitlement",
+        "awarding university",
+        "programme curriculum",
+        "specialisation fit",
+        "total cost",
+        "exam model",
+        "flexibility",
+        "student support",
+        "career/placement services",
+        "learner reviews only when independently sourced"
+      ],
+      "rule": "Teach the user how to compare rather than declaring a university 'best' without a transparent methodology."
+    },
+    "career_section": {
+      "rule": "Use role families and skill requirements. Avoid guaranteed placement, salary or promotion claims."
+    },
+    "faq": {
+      "rule": "Only include questions genuinely answered by visible content. Do not generate hundreds of keyword variants."
+    }
+  },
+  "university_directory_contract": {
+    "purpose": "Turn the pillar into a clean gateway to all 14 universities without creating thin duplicate content.",
+    "card_fields": [
+      "university name",
+      "programme name",
+      "mode",
+      "duration",
+      "verified fee",
+      "eligibility summary",
+      "specialisations",
+      "last verified",
+      "View details",
+      "Compare"
+    ],
+    "mobile": "One card per row is acceptable in the directory; the flagship comparison component must remain separate and optimized for side-by-side decision making.",
+    "desktop": "Use a clean grid/table hybrid where useful, but preserve the same information hierarchy.",
+    "links": "Every card must deep-link to the exact canonical university-course page.",
+    "noindex": "Do not create indexable filter combinations or parameter-generated university/course duplicates."
+  },
+  "internal_linking": {
+    "pillar_to_course": "Every university card links to the exact university-course URL.",
+    "course_to_pillar": "Every university-course page links back to its parent course hub.",
+    "pillar_to_comparison": "Link to the relevant course comparison page.",
+    "pillar_to_blogs": "Link only to high-value supporting articles.",
+    "blogs_to_pillar": "Every relevant blog should have a contextual link to the pillar.",
+    "anchor_strategy": "Use natural descriptive anchors; avoid repeating one exact-match anchor unnaturally.",
+    "breadcrumbs": "Home > Online Courses > {Course}",
+    "section_anchors": "Use #eligibility, #fees, #curriculum, #specialisations, #admission, #exams, #careers, #universities, #faqs where appropriate. Do not create separate indexable URLs for each anchor."
+  },
+  "seo_contract": {
+    "url_examples": [
+      "/online-courses/online-mba",
+      "/online-courses/online-mca",
+      "/online-courses/online-bba",
+      "/online-courses/online-bca",
+      "/online-courses/online-bcom",
+      "/online-courses/online-ba",
+      "/online-courses/online-ma",
+      "/online-courses/online-msc",
+      "/online-courses/online-mcom"
+    ],
+    "title_pattern": "Online {COURSE} — Fees, Eligibility, Syllabus, Admission & Universities 2026-27 | CollegeSathi",
+    "h1": "Online {COURSE}: Fees, Eligibility, Syllabus, Admission & Universities",
+    "meta_pattern": "Compare Online {COURSE} options for 2026-27. Check eligibility, fees, syllabus, specialisations, admission, exams, careers and universities.",
+    "canonical": "Self-canonical.",
+    "schema": [
+      "BreadcrumbList",
+      "FAQPage only when FAQs are visible and valid",
+      "ItemList for visible university directory where technically appropriate"
+    ],
+    "eeat": "Display last verified date and official-source links for dynamic facts.",
+    "year_rule": "Do not create separate 2025/2026/2027 pages for the same evergreen course intent unless there is a genuine editorial reason. Update the canonical pillar and archive only when necessary."
+  },
+  "search_intent_map": {
+    "informational": [
+      "what is online {course}",
+      "online {course} syllabus",
+      "online {course} subjects",
+      "online {course} eligibility",
+      "online {course} duration"
+    ],
+    "commercial_investigation": [
+      "online {course} fees",
+      "best online {course} universities",
+      "online {course} colleges",
+      "online {course} specialisations",
+      "online {course} admission"
+    ],
+    "transactional": [
+      "online {course} admission",
+      "apply online {course}",
+      "{university} online {course}"
+    ],
+    "comparison": [
+      "online {course} vs regular {course}",
+      "online {course} vs distance {course}",
+      "{university A} vs {university B} online {course}"
+    ],
+    "rule": "Use these intents to structure content, not to create thin pages for every keyword."
+  },
+  "content_quality": {
+    "originality": "Write original explanations and decision frameworks. Do not rewrite CollegeVidya, CollegeSathi, LearningRoutes or other competitor text.",
+    "evidence": "Dynamic claims must cite official university/regulator documents.",
+    "freshness": "Show last verified date.",
+    "helpfulness": "Every major section must answer a decision question or remove uncertainty.",
+    "duplication": "Keep generic course explanation at the pillar; university-specific data belongs on the programme page.",
+    "editorial_voice": "Clear, neutral, student-first, non-hype, simple language."
+  },
+  "mobile_ux": {
+    "top_area": "Course name + one-line value proposition + key facts + sticky/compact table of contents.",
+    "toc": "Collapsible horizontal/vertical navigation; do not consume the first screen with a giant table of contents.",
+    "tables": "Convert wide fee/comparison tables into stacked cards or controlled horizontal scrolling with the first identifying column sticky.",
+    "directory": "University cards should remain scannable with fee, duration, mode and CTA visible without opening a huge card.",
+    "cta": "Use restrained CTAs: View course details, Compare, Check admission. Avoid repeated popups.",
+    "performance": "Lazy-load below-fold images; avoid large hero assets; reserve dimensions to prevent layout shift."
+  },
+  "next_step_pattern": {
+    "purpose": "After major educational sections, provide one relevant next action rather than a generic CTA.",
+    "examples": [
+      {
+        "after": "Eligibility",
+        "next_step": "Check university-wise eligibility and fees"
+      },
+      {
+        "after": "Fees",
+        "next_step": "Compare the 14 universities"
+      },
+      {
+        "after": "Curriculum",
+        "next_step": "View semester-wise curriculum by university"
+      },
+      {
+        "after": "Specialisations",
+        "next_step": "Explore universities offering your preferred specialisation"
+      },
+      {
+        "after": "Admission",
+        "next_step": "View the exact university admission process"
+      },
+      {
+        "after": "Career",
+        "next_step": "Compare career-support features across universities"
+      }
+    ],
+    "rule": "These are contextual navigation aids, not aggressive lead-generation blocks."
+  },
+  "implementation_constraints": [
+    "Do not change existing university-course URLs.",
+    "Do not delete existing verified university-course data.",
+    "Do not duplicate all university-course content into the pillar.",
+    "Do not generate 100+ thin pages from keyword permutations.",
+    "Do not create separate pages solely for each section anchor.",
+    "Do not make claims of 'best' without transparent criteria.",
+    "Do not add fake rankings, salaries, placement percentages or recognition claims.",
+    "Do not add competitor brand names repeatedly just to capture search traffic.",
+    "Do not use AI-generated filler to increase word count."
+  ],
+  "qa_gate": {
+    "required_before_phase_5": [
+      "All nine main course hubs exist and are indexable.",
+      "Each hub has unique course-specific content.",
+      "Each hub links to all currently available relevant university-course pages.",
+      "Every university-course page links back to its parent hub.",
+      "No keyword-permutation duplicate pages were created.",
+      "Titles/H1/meta/canonical are correct.",
+      "Mobile layout passes 320-414px.",
+      "Core Web Vitals are not materially degraded.",
+      "All dynamic claims have source/verification handling.",
+      "FAQ content is visible and valid for FAQ schema.",
+      "No existing good content was deleted."
+    ]
+  },
+  "lovable_prompt": "PHASE 4 — MAIN COURSE PILLAR PAGES ONLY\n\nImplement the attached Phase 4 JSON.\n\nBuild/upgrade the nine main course pillar pages:\nOnline MBA, Online MCA, Online BBA, Online BCA, Online BCom, Online BA, Online MA, Online M.Sc. and Online MCom.\n\nIMPORTANT:\n1. Preserve all existing good content, routes, components, university-course pages and comparison pages.\n2. Do not rebuild the whole website.\n3. Do not modify existing university-course URLs.\n4. Do not copy all university-course content into the pillar.\n5. Make each pillar the broad informational hub and the university-course pages the exact programme pages.\n6. Implement the section structure, original content framework, SEO contract, internal-linking architecture and mobile UX from this JSON.\n7. Build the university directory dynamically from existing verified programme data.\n8. Every directory card must link to the exact canonical university-course page.\n9. Every university-course page must link back to its parent course hub.\n10. Use official sources for dynamic facts and show last verified dates.\n11. Do not invent fees, eligibility, recognition, rankings, placements, salaries or curriculum.\n12. Do not create thin keyword-permutation pages.\n13. Use contextual 'Next step' navigation after major sections.\n14. Keep the comparison experience separate; only link to it from the pillar.\n15. Keep desktop and mobile layouts clean; no horizontal overflow at common mobile widths.\n16. Keep images lightweight and avoid a giant hero that pushes useful content below the fold.\n17. Preserve existing analytics, routing, SEO infrastructure and working functionality.\n\nAfter implementation, provide:\n- files/components changed\n- pages created/updated\n- sections implemented per course\n- university links verified\n- internal-link audit\n- SEO audit\n- mobile QA\n- content duplication issues found\n- existing content intentionally preserved\n- anything requiring manual review\n\nThis is PHASE 4 ONLY. Do not implement Phase 5."
+}

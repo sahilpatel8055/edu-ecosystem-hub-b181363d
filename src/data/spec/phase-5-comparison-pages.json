@@ -1,0 +1,247 @@
+{
+  "meta": {
+    "phase": 5,
+    "title": "Flagship Comparison Pages — University × Course Decision Engine 2026-27",
+    "scope": "Comparison layer only; preserve existing comparison pages and create the improved comparison experience alongside them where required.",
+    "goal": "Make comparison a flagship decision feature, especially clear and usable on mobile.",
+    "architecture": "Course Pillar → University Course → Comparison → Supporting Content"
+  },
+  "constraints": [
+    "Do not delete or break existing comparison pages.",
+    "Do not create indexable pages for every possible university combination.",
+    "Do not make unsupported best/winner claims.",
+    "Do not invent fees, rankings, recognition, placements, salaries, curriculum or scholarships.",
+    "All dynamic comparison values must come from the verified university-course data layer.",
+    "Show academic session and last verified date.",
+    "Keep Online and ODL/distance programmes distinct.",
+    "Use Not published instead of blank cells.",
+    "Comparison is a decision tool, not a giant SEO article."
+  ],
+  "page_types": {
+    "course_comparison": {
+      "purpose": "Compare multiple universities offering the same course.",
+      "recommended_urls": [
+        "/compare/online-mba",
+        "/compare/online-mca",
+        "/compare/online-bba",
+        "/compare/online-bca",
+        "/compare/online-bcom",
+        "/compare/online-ba",
+        "/compare/online-ma",
+        "/compare/online-msc",
+        "/compare/online-mcom"
+      ]
+    },
+    "selected_comparison": {
+      "purpose": "Compare user-selected programmes without generating thousands of indexable URLs.",
+      "indexation": "Only approved evergreen comparison landing pages are indexable."
+    }
+  },
+  "comparison_fields": {
+    "identity": [
+      "university_name",
+      "programme_name",
+      "mode",
+      "academic_session",
+      "last_verified"
+    ],
+    "academics": [
+      "duration",
+      "eligibility",
+      "curriculum_summary",
+      "semester_structure",
+      "specialisations",
+      "electives",
+      "project_or_dissertation"
+    ],
+    "cost": [
+      "total_programme_fee",
+      "semester_fee",
+      "registration_fee",
+      "examination_fee",
+      "project_fee",
+      "other_mandatory_charges",
+      "scholarship",
+      "fee_source"
+    ],
+    "admission": [
+      "application_status",
+      "admission_cycle",
+      "application_process",
+      "entrance_requirement",
+      "documents"
+    ],
+    "assessment": [
+      "assignment_pattern",
+      "exam_mode",
+      "proctoring",
+      "project_or_viva"
+    ],
+    "support": [
+      "LMS",
+      "recorded_content",
+      "live_classes",
+      "academic_support",
+      "career_support",
+      "placement_support"
+    ],
+    "outcomes": [
+      "degree_or_certificate",
+      "career_directions"
+    ],
+    "trust": [
+      "official_sources",
+      "source_type",
+      "verified_date",
+      "data_status"
+    ]
+  },
+  "priority_rows": [
+    "University",
+    "Programme",
+    "Mode",
+    "Academic session",
+    "Duration",
+    "Eligibility",
+    "Total fee",
+    "Fee components",
+    "Specialisations",
+    "Curriculum",
+    "Admission",
+    "Entrance requirement",
+    "Exam mode",
+    "Proctoring",
+    "Assignments/projects",
+    "Learning support",
+    "Career support",
+    "Placement support",
+    "Scholarship",
+    "Degree/certificate",
+    "Official source",
+    "Last verified"
+  ],
+  "mobile_ux": {
+    "core": "Side-by-side comparison without messy stacked cards.",
+    "layout": "Horizontally scrollable comparison matrix with sticky first comparison-label column and horizontally scrollable university columns.",
+    "flow": [
+      "Course title + concise purpose",
+      "Select 2-4 universities",
+      "Sticky university identity/header",
+      "Sticky first comparison-label column",
+      "Horizontal swipe for university columns",
+      "Collapsible groups: Overview, Fees, Academics, Admission, Exams, Support, Career",
+      "Highlight meaningful differences",
+      "Keep source/verified indicator close to dynamic values",
+      "Show Not published when unavailable",
+      "Compact factual summary above matrix",
+      "Compare/remove controls remain accessible"
+    ],
+    "desktop": [
+      "Maximum 4 university columns recommended",
+      "Fixed first label column",
+      "Compact university headers",
+      "Grouped comparison rows",
+      "Optional difference highlighting"
+    ],
+    "overflow": "Never allow body-level horizontal overflow. Use an isolated scroll container with a clear scroll affordance."
+  },
+  "summary_logic": {
+    "do_not_rank": true,
+    "allowed_factual_highlights": [
+      "Lowest verified fee",
+      "Shortest published duration",
+      "Specialisations available",
+      "Entrance requirement difference",
+      "Exam/proctoring difference",
+      "Curriculum/project difference"
+    ],
+    "rule": "Use labels such as lowest verified fee, never best or winner. Do not calculate a highlight when data is incomplete or incomparable."
+  },
+  "decision_framework": {
+    "priorities": [
+      "Lowest verified cost",
+      "Flexibility",
+      "Preferred specialisation",
+      "Curriculum fit",
+      "Entrance requirement",
+      "Exam model",
+      "Career support",
+      "University preference"
+    ],
+    "method": "Surface factual differences. Do not use an opaque score unless its methodology and every input are transparent and verified.",
+    "language": [
+      "May suit learners prioritising...",
+      "More suitable if your priority is...",
+      "Worth checking if...",
+      "The key difference is..."
+    ]
+  },
+  "content_structure": [
+    "H1 + decision purpose",
+    "How this comparison works",
+    "Quick comparison summary",
+    "Select universities",
+    "Flagship side-by-side matrix",
+    "Fees comparison",
+    "Curriculum and specialisations",
+    "Admission and eligibility",
+    "Exam/proctoring",
+    "Learning and career support",
+    "Which option may suit which goal?",
+    "Important differences to verify before applying",
+    "University-specific links",
+    "Methodology and sources",
+    "Last verified",
+    "FAQs"
+  ],
+  "seo": {
+    "title_pattern": "Online {COURSE} University Comparison 2026-27 — Fees, Eligibility, Curriculum & Exams",
+    "h1_pattern": "Online {COURSE} University Comparison",
+    "meta_pattern": "Compare online {COURSE} universities for 2026-27 by verified fees, eligibility, duration, curriculum, specialisations, admission, exams and learner support.",
+    "canonical": "Self-canonical on approved evergreen comparison pages.",
+    "schema": [
+      "BreadcrumbList",
+      "ItemList where appropriate",
+      "FAQPage only for visible valid FAQs"
+    ],
+    "indexable": "Approved evergreen course comparison pages.",
+    "noindex": "Dynamic selected combinations, filters, sort URLs and query parameters unless deliberately promoted to an editorial landing page."
+  },
+  "internal_linking": {
+    "pillar_to_comparison": "Course pillar → relevant comparison page.",
+    "course_to_comparison": "University-course page → compare this programme.",
+    "comparison_to_course": "Every compared programme → exact canonical university-course page.",
+    "blogs_to_comparison": "Relevant comparison-intent articles → comparison page.",
+    "breadcrumbs": "Home → Compare → {Course}"
+  },
+  "methodology": [
+    "Fees, admissions, curriculum and support can change by academic session.",
+    "Official university/regulator sources are factual authority.",
+    "Missing data is not interpreted as a negative.",
+    "Comparison is factual, not a universal ranking.",
+    "Show last verified dates.",
+    "Link major dynamic facts to official sources where practical."
+  ],
+  "anti_cannibalization": {
+    "pillar": "Broad course education and how to choose.",
+    "comparison": "Decision-oriented university comparison.",
+    "university_course": "Exact university + programme facts.",
+    "blog": "Narrow informational or timely search question."
+  },
+  "qa": [
+    "Existing comparison pages remain functional.",
+    "Mobile 320/360/375/390/414px has no body-level horizontal overflow.",
+    "2-4 universities can be compared side-by-side clearly on mobile.",
+    "First comparison-label column remains identifiable while swiping.",
+    "Missing data shows Not published.",
+    "No unsupported ranking/winner badges.",
+    "All dynamic values come from verified data.",
+    "Each comparison item links to its exact course page.",
+    "Pillar links to comparison.",
+    "Dynamic combination URLs are controlled.",
+    "Canonical/indexation rules pass.",
+    "FAQ schema matches visible FAQs.",
+    "Sources and last verified dates are visible."
+  ],
+  "lovable_prompt": "PHASE 5 — FLAGSHIP COMPARISON EXPERIENCE ONLY\n\nImplement the attached Phase 5 JSON.\n\nGoal: make comparison one of the strongest UX features of the website, especially on mobile.\n\n1. Do NOT delete or break existing comparison pages.\n2. Keep existing comparison routes/content available.\n3. Build the improved flagship comparison layer separately where necessary.\n4. Do not change university-course or course-pillar URLs.\n5. Use the verified university-course data layer as the factual source.\n6. Never invent fees, eligibility, recognition, rankings, placements, salaries, curriculum or scholarships.\n7. Show academic session and last verified date.\n8. Keep Online and ODL/distance programmes distinct.\n9. Implement the mobile matrix:\n   - select 2-4 universities\n   - sticky comparison-label column\n   - horizontally scrollable university columns\n   - grouped sections\n   - clear scroll affordance\n   - no body-level horizontal overflow\n10. Desktop should use a clean comparison matrix, not giant cards.\n11. Never declare a university best/winner.\n12. Use factual highlights such as lowest verified fee only when data is complete and comparable.\n13. Missing information must display Not published.\n14. Add source/verification information to dynamic facts.\n15. Implement the SEO/indexation rules in this JSON.\n16. Avoid thousands of indexable selected-combination URLs.\n17. Link each compared university to its exact canonical university-course page.\n18. Add contextual links from course pillars and university-course pages into comparison.\n19. Preserve existing analytics, routing and SEO infrastructure.\n\nAfter implementation, return:\n- routes created/updated\n- existing routes preserved\n- mobile QA at 320/360/375/390/414px\n- desktop QA\n- body-overflow test\n- source/data verification\n- canonical/indexation audit\n- internal-link audit\n- missing-data handling test\n- issues requiring manual review\n\nThis is PHASE 5 ONLY. Do not implement Phase 6."
+}

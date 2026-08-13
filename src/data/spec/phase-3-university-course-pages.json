@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "phase": 3,
+    "title": "University × Course Pages — Programme-Specific Content Research & Implementation",
+    "academic_session": "2026-27",
+    "scope": "All current university-course records; project audit identifies 155 supported records.",
+    "basis": "Existing university-course-pages-content-2026-27.json plus Phase 1 and Phase 2 findings.",
+    "rule": "Preserve good verified content; research and replace only weak, generic, missing or conflicting content."
+  },
+  "audit": {
+    "current_problem": "Many records contain repetitive generic hero/overview/FAQ copy and empty admission, career, curriculum, scholarship or fee-component fields.",
+    "evidence": "The existing dataset already contains programme-level fields such as duration, eligibility, fees, specialisations and sources, but many values remain null or pending verification. fileciteturn7file0L18-L24",
+    "curriculum_rule": "University-specific core semester subjects plus verified specialisation/elective subjects; no invented subjects.",
+    "course_hub_rule": "Broad course education belongs on the course hub; exact university programme facts belong on the university-course page."
+  },
+  "course_family_content": {
+    "online-mba": {
+      "audience": "Graduates seeking management education, career progression or role transition.",
+      "original_overview": "Management foundations plus areas such as finance, marketing, HR, operations, strategy and analytics; exact subjects and specialisations vary by university."
+    },
+    "online-mca": {
+      "audience": "Graduates seeking advanced computing education.",
+      "original_overview": "Advanced application development, databases, software engineering and technology areas; exact electives vary by university."
+    },
+    "online-bba": {
+      "audience": "Students seeking undergraduate business education.",
+      "original_overview": "Business foundations such as management, accounting, economics, marketing and communication; exact electives vary by university."
+    },
+    "online-bca": {
+      "audience": "Students seeking undergraduate computing education.",
+      "original_overview": "Foundations in programming, databases, computer systems and software development; exact technical stack varies by university."
+    },
+    "online-bcom": {
+      "audience": "Students seeking flexible undergraduate commerce education.",
+      "original_overview": "Accounting, economics, business law, taxation, finance and business management; exact curriculum varies by university."
+    },
+    "online-ba": {
+      "audience": "Students seeking broad humanities, social-science or language education.",
+      "original_overview": "Subject-focused undergraduate study; exact subject combination must come from the university's current programme document."
+    },
+    "online-ma": {
+      "audience": "Graduates seeking postgraduate study in humanities, social sciences, languages or communication.",
+      "original_overview": "Advanced study in a specific discipline; university-specific syllabus must be used."
+    },
+    "online-msc": {
+      "audience": "Graduates seeking postgraduate science, mathematics, computing or applied-science education.",
+      "original_overview": "Postgraduate science study; exact subject, prerequisites and practical/project components vary widely."
+    },
+    "online-mcom": {
+      "audience": "Commerce graduates seeking postgraduate accounting, finance or business education.",
+      "original_overview": "Advanced commerce, accounting, finance and related study; exact electives vary by university."
+    }
+  },
+  "universal_content_blocks": {
+    "fee": "Show the verified current-session total fee and, where published, separate tuition, examination, project, registration and other components. Never manufacture a total from incomplete components.",
+    "eligibility": "Use the current official programme document. Do not add marks, subjects or entrance requirements unless the official source states them.",
+    "admission": "Answer when to apply, where to apply, eligibility, documents, selection/entrance requirements and application steps using current official sources.",
+    "exam": "Clearly separate admission entrance tests from programme examinations. Include proctoring, assignments and projects only when officially documented.",
+    "curriculum": "Use the university's actual semester-wise curriculum. A common explanatory introduction is allowed, but subjects must remain university-specific.",
+    "specialisation": "Show only officially published specialisations and their verified electives/subjects. Do not infer electives from a specialisation name.",
+    "career": "Describe plausible role directions and required skills. Never promise a job, salary, promotion or placement from the degree alone.",
+    "decision": "Explain who the programme may suit and who should reconsider based on verified eligibility, curriculum, assessment, flexibility and cost.",
+    "sources": "Official university/regulator sources are the factual authority. Competitor pages may identify gaps but cannot establish fees, recognition, curriculum or admission facts."
+  },
+  "required_sections": [
+    "Exact programme identity",
+    "Overview",
+    "Recognition/programme entitlement where applicable",
+    "Fees and fee components",
+    "Eligibility",
+    "Admission process",
+    "Required documents",
+    "University-specific semester curriculum",
+    "Specialisations/electives",
+    "Examination pattern",
+    "Scholarships",
+    "Learning experience",
+    "Career opportunities",
+    "Placement/career support",
+    "Degree/certificate",
+    "Who should choose",
+    "Who should reconsider",
+    "Comparison insight",
+    "Programme FAQs",
+    "Sources",
+    "Last verified"
+  ],
+  "research_workflow": [
+    "Match each record to exactly one current university and exact official programme.",
+    "Verify 2026-27 mode, duration, eligibility and fee from official sources.",
+    "Extract actual semester curriculum from the official syllabus/prospectus.",
+    "Extract specialisations and electives only when officially published.",
+    "Verify admission steps, dates, documents and entrance/selection rules.",
+    "Verify examination pattern, proctoring, assignments and project requirements.",
+    "Apply university scholarship data with programme-specific overrides.",
+    "Research learning support and career/placement support from official evidence.",
+    "Write original student decision guidance from verified data.",
+    "Generate programme-specific FAQs from actual questions; do not keyword-spin identical FAQs.",
+    "Store source URL, source type, verified date and effective session for every dynamic claim.",
+    "Flag conflicting official sources instead of silently selecting one.",
+    "Keep unknown facts unknown; never fill them with generic AI prose."
+  ],
+  "status_values": [
+    "verified_official",
+    "verified_regulatory",
+    "conflicting",
+    "outdated",
+    "not_published",
+    "needs_research",
+    "secondary_reference_only"
+  ],
+  "quality_gate": {
+    "score_threshold": 85,
+    "weights": {
+      "accuracy": 25,
+      "programme_completeness": 20,
+      "curriculum_accuracy": 15,
+      "original_decision_value": 15,
+      "source_transparency": 10,
+      "search_intent": 10,
+      "duplication_control": 5
+    },
+    "publish_only_if": [
+      "Important factual claims are sourced.",
+      "Current academic session is explicit.",
+      "Last verified date is stored.",
+      "No conflicting source is silently merged.",
+      "No unknown data is invented.",
+      "Original decision value is present.",
+      "Long-form duplication is controlled."
+    ]
+  },
+  "seo": {
+    "url": "/universities/{university-slug}/courses/{programme-slug}",
+    "h1": "{Official Programme Name} — {University Name}",
+    "title": "{Programme Name} from {University} — Fees, Eligibility, Admission & Curriculum 2026-27",
+    "meta": "Explore {Programme Name} from {University}: 2026-27 fees, eligibility, admission, curriculum, exams, specialisations and career information.",
+    "canonical": "Self-canonical.",
+    "schema": [
+      "BreadcrumbList",
+      "Course where appropriate",
+      "FAQPage only for visible valid FAQs"
+    ],
+    "links": [
+      "parent university",
+      "main course hub",
+      "same-university courses",
+      "same-course comparison",
+      "relevant guides"
+    ],
+    "indexation": "Only canonical programme URLs should be indexable; control query/filter URLs."
+  },
+  "mobile": [
+    "320/360/375/390/414px no horizontal page overflow.",
+    "Hero facts become compact cards.",
+    "Fee tables become readable cards or controlled horizontal tables.",
+    "Curriculum uses collapsible semester cards.",
+    "Specialisations use compact selectable cards/chips with electives below.",
+    "FAQ uses accordion.",
+    "Long text uses short paragraphs and clear subheadings."
+  ],
+  "anti_duplication": [
+    "Do not paste the same university description into every course page.",
+    "Do not use one generic curriculum as the curriculum for all universities.",
+    "Do not create identical FAQs by changing only the university name.",
+    "Do not copy competitor wording.",
+    "Do not create year-swapped duplicate pages for the same programme intent."
+  ],
+  "qa": [
+    "Correct awarding university",
+    "Correct official programme name",
+    "Correct mode",
+    "Current session",
+    "Fee verified or transparently unavailable",
+    "Eligibility verified",
+    "Admission verified",
+    "Curriculum verified",
+    "Specialisations verified",
+    "Exam pattern verified",
+    "Scholarship verified/not published",
+    "Career claims supported",
+    "No fake placement/salary claim",
+    "Sources stored",
+    "Last verified stored",
+    "Canonical correct",
+    "Internal links present",
+    "Mobile QA passed",
+    "Desktop QA passed"
+  ],
+  "lovable_prompt": "PHASE 3 — UNIVERSITY × COURSE PAGES ONLY\n\nImplement the attached Phase 3 JSON for the current 155 university-course records.\n\nPreserve existing good verified content, routes, URLs, UI and working functionality. Do not rebuild the website. Do not modify the existing comparison experience or main course hubs in this phase.\n\nUse ONE reusable university-course template driven by data.\n\nFor every record:\n1. Verify exact awarding university and official programme identity.\n2. Verify 2026-27 mode, duration, eligibility, fee, admission, documents, examination pattern, curriculum, specialisations/electives, scholarships and career/placement support.\n3. Use official university/regulator sources first.\n4. Competitor websites may identify missing questions only; never use them as factual authority.\n5. Never invent missing data. If the university does not publish a fact, store not_published and render a concise transparent note.\n6. If official sources conflict, mark conflicting and do not silently merge values.\n7. Keep Online and ODL/distance modes separate.\n8. Curriculum = short common explanation + university-specific semester subjects + verified specialisation electives. Never invent subjects.\n9. Add original decision guidance: who should choose, who should reconsider and what to verify before applying.\n10. Create programme-specific FAQs; do not keyword-swap identical FAQs.\n11. Add source URL, source type, effective session and last verified date to dynamic facts.\n12. Implement the SEO and mobile requirements from this JSON.\n13. Do not mark a record complete until the QA checklist passes and its content score is at least 85.\n\nAfter implementation, report:\n- 155 records audited\n- completed records\n- records still needing research\n- conflicting records\n- missing official curriculum records\n- missing official fee records\n- missing scholarship records\n- files/components changed\n- existing content intentionally preserved\n- mobile/desktop QA\n- SEO QA\n\nThis is PHASE 3 ONLY. Do not implement Phase 4."
+}

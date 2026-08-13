@@ -22,6 +22,14 @@ import {
   ScholarshipInsightSection,
 } from "@/components/university/InsightSections";
 import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
+import {
+  FeeComponents,
+  LearningSupport,
+  ProgrammeDecision,
+  ProgrammeSources,
+  RequiredDocuments,
+} from "@/components/university/CourseDecisionSections";
+import { NextStep } from "@/components/common/NextStep";
 import { getUniversityCourse, masterResearchDate } from "@/lib/courseMaster";
 import {
   CurriculumSection,
@@ -185,11 +193,15 @@ function Page() {
           "Curriculum",
           "Sample degree",
           "Eligibility",
+          "Required documents",
           "Admission process",
           "Examination pattern",
           "Placement support",
           "Career opportunities",
           "Scholarships",
+          "Learning experience",
+          "Who should choose it",
+          "Sources & last verified",
           "FAQs",
           "Related links",
         ]}
@@ -257,10 +269,16 @@ function Page() {
 
         <ContentSection title="Fee structure">
           <FeeHighlight fee={offering.fee} duration={offering.durationLabel} />
+          <FeeComponents fee={offering.fee} />
           <p className="text-xs">
             Figures are published only after verification against the university's own fee schedule — nothing on this
             page is estimated.
           </p>
+          <NextStep
+            question="Want to see how this fee compares with other universities?"
+            actionLabel="Compare universities"
+            href={`/compare/${p.slug}`}
+          />
         </ContentSection>
 
         {master.course && (
@@ -282,11 +300,15 @@ function Page() {
         <ContentSection title="Eligibility">
           <p>{p.eligibility}</p>
           {master.eligibility && <p>{master.eligibility}</p>}
-          <ul className="list-inside list-disc">
-            {u.documentsRequired.map((d) => (
-              <li key={d}>{d}</li>
-            ))}
-          </ul>
+          <NextStep
+            question="Not sure you meet the published eligibility?"
+            actionLabel="Check the admission process"
+            href="#admission-process"
+          />
+        </ContentSection>
+
+        <ContentSection title="Required documents">
+          <RequiredDocuments documents={u.documentsRequired} />
         </ContentSection>
 
         <ContentSection title="Admission process">
@@ -361,6 +383,35 @@ function Page() {
             universityShort={u.shortName}
             courseSlug={p.slug}
             courseName={`${u.shortName} ${p.shortName}`}
+          />
+        </ContentSection>
+
+        <ContentSection title="Learning experience">
+          <LearningSupport universityShort={u.shortName} />
+        </ContentSection>
+
+        <ContentSection title="Who should choose it">
+          <ProgrammeDecision
+            programmeName={p.name}
+            universityShort={u.shortName}
+            durationLabel={offering.durationLabel}
+            eligibility={p.eligibility}
+            hasVerifiedFee={offering.verified && offering.fee.total != null}
+          />
+          <NextStep
+            question="Still deciding between universities for this course?"
+            actionLabel="Open the comparison"
+            href={`/compare/${p.slug}`}
+          />
+        </ContentSection>
+
+        <ContentSection title="Sources & last verified">
+          <ProgrammeSources
+            universitySlug={u.slug}
+            universityShort={u.shortName}
+            websiteUrl={u.websiteUrl}
+            lastVerified={offering.lastUpdated}
+            status={offering.verified ? "verified_official" : "partial_verification"}
           />
         </ContentSection>
 
