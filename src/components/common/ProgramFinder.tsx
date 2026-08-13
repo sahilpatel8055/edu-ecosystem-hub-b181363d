@@ -50,7 +50,7 @@ export function CourseTile({ item }: { item: Course }) {
         <span className="block truncate text-[0.8rem] font-bold text-card-foreground sm:text-sm">{feeRangeInLakhs(item.feeRange)}</span>
         <AppLink
           to={`/courses/${item.slug}`}
-          className="mt-2 block rounded-lg bg-brand px-3 py-1.5 text-center text-[11px] font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:text-xs"
+          className="mt-2 flex min-h-11 items-center justify-center rounded-lg bg-brand px-3 text-center text-[11px] font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:min-h-9 sm:text-xs"
         >
           Know More
         </AppLink>

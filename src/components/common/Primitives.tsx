@@ -97,7 +97,12 @@ export function FilterBar({ groups }: { groups: { label: string; options: string
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{g.label}</p>
           <div className="flex flex-wrap gap-2">
             {g.options.map((o, i) => (
-              <button key={o} type="button" className="focus:outline-none">
+              <button
+                key={o}
+                type="button"
+                aria-pressed={i === 0}
+                className="inline-flex min-h-11 items-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-0"
+              >
                 <Chip active={i === 0}>{o}</Chip>
               </button>
             ))}
