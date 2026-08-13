@@ -14,6 +14,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTA } from "@/components/common/Blocks";
+import { LeadPopup } from "@/components/common/LeadPopup";
+
 import { jsonLd, organizationSchema, SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
 
 function NotFoundComponent() {
