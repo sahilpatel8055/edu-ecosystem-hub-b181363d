@@ -12,6 +12,8 @@ import {
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
 import { getProgramme } from "@/data";
+import { ComparisonPage } from "@/components/comparison/ComparisonPage";
+import { masterPairBySlug } from "@/lib/comparisonMaster";
 import {
   approvalText,
   comparisonBySlug,
@@ -99,6 +101,8 @@ export const Route = createFileRoute("/compare/$comparison")({
 
 function Page() {
   const { comparison } = Route.useParams();
+  const masterPair = masterPairBySlug(comparison);
+  if (masterPair) return <ComparisonPage pair={masterPair} />;
   const pair = comparisonBySlug(comparison);
 
   if (!pair) {
