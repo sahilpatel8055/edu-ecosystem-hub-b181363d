@@ -32,7 +32,7 @@ function FacetRow({
             type="button"
             aria-pressed={value === o}
             onClick={() => onChange(o)}
-            className="shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
+            className="inline-flex min-h-11 shrink-0 items-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-0"
           >
             <Chip active={value === o}>{o}</Chip>
           </button>
@@ -99,9 +99,23 @@ export function UniversityExplorer({ items }: { items: University[] }) {
         ))}
       </ul>
       {filtered.length === 0 && (
-        <p className="py-12 text-center text-sm text-muted-foreground">
-          No university matches these filters. Try widening the fee or approval facet.
-        </p>
+        <div className="surface-card px-5 py-10 text-center">
+          <p className="text-sm font-bold text-foreground">No university matches these filters.</p>
+          <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">
+            Try widening the fee band or approval facet — or reset and browse every university we track.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setMode("All");
+              setApproval("All");
+              setFee("Any");
+            }}
+            className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-brand px-4 text-sm font-bold text-brand-foreground hover:opacity-90"
+          >
+            Reset filters
+          </button>
+        </div>
       )}
     </>
   );
@@ -131,7 +145,22 @@ export function CourseExplorer({ items }: { items: Course[] }) {
         ))}
       </div>
       {filtered.length === 0 && (
-        <p className="py-12 text-center text-sm text-muted-foreground">No programme matches these filters.</p>
+        <div className="surface-card px-5 py-10 text-center">
+          <p className="text-sm font-bold text-foreground">No programme matches these filters.</p>
+          <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">
+            Reset the level or duration facet to see every programme we track.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setLevel("All");
+              setDuration("Any");
+            }}
+            className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-brand px-4 text-sm font-bold text-brand-foreground hover:opacity-90"
+          >
+            Reset filters
+          </button>
+        </div>
       )}
     </>
   );

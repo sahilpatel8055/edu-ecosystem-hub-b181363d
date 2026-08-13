@@ -72,7 +72,7 @@ export const primaryNav: NavItem[] = [
           { label: "LPU Online", href: "/universities/lpu-online" },
           { label: "Amity Online", href: "/universities/amity-online" },
           { label: "DU SOL", href: "/universities/du-sol" },
-          { label: "Manipal Online", href: "/universities/manipal-online" },
+          { label: "NMIMS Online", href: "/universities/nmims-online" },
         ],
       },
       {
