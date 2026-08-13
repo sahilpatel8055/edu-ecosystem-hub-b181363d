@@ -42,6 +42,7 @@ import { feeTableFor } from "@/data/university-fee-tables";
 import { degreeSample } from "@/lib/assets";
 import { FeeStructureTable } from "@/components/university/FeeStructureTable";
 import { SampleDegreeSection } from "@/components/university/SampleDegreeSection";
+import { SectionBanner } from "@/components/common/SectionBanner";
 import { HiringPartners } from "@/components/university/HiringPartners";
 import { sectionLabels, universitySectionPages } from "@/lib/insightsData";
 import {
@@ -296,12 +297,14 @@ function Page() {
 
         <ContentSection title="Admission process" tone="admission">
           <div className="space-y-5">
+            <SectionBanner kind="admission" />
             <AdmissionInsightSection universitySlug={slug} universityShort={u.shortName} />
             <AdmissionSection admissions={admissionOf(slug)} />
           </div>
         </ContentSection>
 
         <ContentSection title="Examination pattern" tone="exam">
+          <SectionBanner kind="examination" />
           <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />
         </ContentSection>
 
@@ -311,6 +314,7 @@ function Page() {
 
         <ContentSection title="Placement & career">
           <div className="space-y-5">
+            <SectionBanner kind="placement" />
             <UniversityCareerSupport slug={slug} shortName={u.shortName} />
             <HiringPartners universitySlug={slug} universityShort={u.shortName} />
             <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
