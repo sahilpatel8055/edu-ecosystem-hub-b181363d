@@ -265,7 +265,7 @@ function GroupBlock({
       {group.rows.map((row) => {
         const winners = winnersFor(row, chosen);
         return (
-          <div key={row.label} className="col-span-full grid" style={{ gridTemplateColumns: "subgrid" }}>
+          <div key={row.label} className="contents">
             <div className="sticky left-0 z-10 border-b border-border bg-card px-2.5 py-3 text-[0.7rem] font-bold leading-tight text-foreground sm:px-4 sm:text-[0.8rem]">
               {row.label}
             </div>
