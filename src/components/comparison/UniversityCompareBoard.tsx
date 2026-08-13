@@ -180,16 +180,16 @@ export function UniversityCompareBoard() {
             <h2 id="comparison-heading" className="sr-only">
               Side-by-side comparison
             </h2>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto lg:overflow-x-visible">
               <div style={gridStyle} className="grid">
                 {/* identity row — sticky while scrolling */}
-                <div className="sticky top-[7.25rem] z-20 border-b border-border bg-secondary px-2.5 py-3 text-[0.7rem] font-bold uppercase tracking-wide text-muted-foreground lg:top-28">
+                <div className="z-20 border-b border-border bg-secondary lg:sticky lg:top-24 px-2.5 py-3 text-[0.7rem] font-bold uppercase tracking-wide text-muted-foreground">
                   Compare
                 </div>
                 {chosen.map((u) => (
                   <div
                     key={u.slug}
-                    className="sticky top-[7.25rem] z-10 border-b border-l border-border bg-card px-2.5 py-3 text-center lg:top-28"
+                    className="z-10 border-b border-l border-border bg-card px-2.5 py-3 text-center lg:sticky lg:top-24"
                   >
                     <UniLogo u={u} className="mx-auto h-9 w-9" />
                     <p className="mt-1.5 line-clamp-2 text-[0.78rem] font-extrabold leading-tight sm:text-sm">
