@@ -30,6 +30,10 @@ import {
   SpecialisationElectives,
 } from "@/components/university/MasterCourseSections";
 import { FeeHighlight } from "@/components/university/FeeHighlight";
+import { SampleDegreeSection } from "@/components/university/SampleDegreeSection";
+import { PlacementSupportSection } from "@/components/university/PlacementSupportSection";
+import { SectionBanner } from "@/components/common/SectionBanner";
+import { degreeSample } from "@/lib/assets";
 import { CareerRolePackages } from "@/components/university/CareerRolePackages";
 import { defaultRolesFor } from "@/lib/careerSalaries";
 import { getCareerInfo } from "@/lib/insightsData";
@@ -177,11 +181,13 @@ function Page() {
           "Quick facts",
           "Overview",
           "Specialisations",
-          "Curriculum",
           "Fee structure",
+          "Curriculum",
+          "Sample degree",
           "Eligibility",
           "Admission process",
           "Examination pattern",
+          "Placement support",
           "Career opportunities",
           "Scholarships",
           "FAQs",
@@ -249,6 +255,14 @@ function Page() {
           )}
         </ContentSection>
 
+        <ContentSection title="Fee structure">
+          <FeeHighlight fee={offering.fee} duration={offering.durationLabel} />
+          <p className="text-xs">
+            Figures are published only after verification against the university's own fee schedule — nothing on this
+            page is estimated.
+          </p>
+        </ContentSection>
+
         {master.course && (
           <ContentSection title="Curriculum">
             <CurriculumSection
@@ -259,13 +273,11 @@ function Page() {
           </ContentSection>
         )}
 
-        <ContentSection title="Fee structure">
-          <FeeHighlight fee={offering.fee} duration={offering.durationLabel} />
-          <p className="text-xs">
-            Figures are published only after verification against the university's own fee schedule — nothing on this
-            page is estimated.
-          </p>
-        </ContentSection>
+        {degreeSample(u.slug) && (
+          <ContentSection title="Sample degree">
+            <SampleDegreeSection universityName={u.name} universitySlug={u.slug} />
+          </ContentSection>
+        )}
 
         <ContentSection title="Eligibility">
           <p>{p.eligibility}</p>
@@ -279,6 +291,7 @@ function Page() {
 
         <ContentSection title="Admission process">
           <div className="rounded-2xl border-2 border-brand p-4 sm:p-5">
+            <SectionBanner kind="admission" />
             <AdmissionInsightSection
               universitySlug={u.slug}
               universityShort={u.shortName}
@@ -290,6 +303,7 @@ function Page() {
 
         <ContentSection title="Examination pattern">
           <div className="rounded-2xl border-2 border-brand p-4 sm:p-5">
+            <SectionBanner kind="examination" />
             <ExaminationPatternSection
               universitySlug={u.slug}
               universityShort={u.shortName}
@@ -297,6 +311,10 @@ function Page() {
               courseName={`${u.shortName} ${p.shortName}`}
             />
           </div>
+        </ContentSection>
+
+        <ContentSection title="Placement support">
+          <PlacementSupportSection universitySlug={u.slug} universityShort={u.shortName} />
         </ContentSection>
 
         <ContentSection title="Career opportunities">

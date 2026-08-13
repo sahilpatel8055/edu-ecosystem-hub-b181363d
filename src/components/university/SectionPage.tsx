@@ -1,6 +1,8 @@
 import { AppLink } from "@/components/common/AppLink";
 import { AuthorBox, LinkCluster, UpdatedStamp } from "@/components/common/Blocks";
 import { DetailLayout } from "@/components/templates/DetailLayout";
+import { SectionBanner } from "@/components/common/SectionBanner";
+import { PlacementSupportSection } from "@/components/university/PlacementSupportSection";
 import {
   AdmissionInsightSection,
   CareerOpportunitiesSection,
@@ -32,9 +34,24 @@ export function UniversitySectionPage({ slug, section }: { slug: string; section
     .map((s) => ({ label: `${u.shortName} ${sectionLabels[s].toLowerCase()}`, href: `/universities/${slug}/${s}` }));
 
   const body = {
-    admission: <AdmissionInsightSection universitySlug={slug} universityShort={u.shortName} />,
-    "examination-pattern": <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />,
-    placement: <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />,
+    admission: (
+      <>
+        <SectionBanner kind="admission" />
+        <AdmissionInsightSection universitySlug={slug} universityShort={u.shortName} />
+      </>
+    ),
+    "examination-pattern": (
+      <>
+        <SectionBanner kind="examination" />
+        <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />
+      </>
+    ),
+    placement: (
+      <>
+        <PlacementSupportSection universitySlug={slug} universityShort={u.shortName} />
+        <CareerOpportunitiesSection universitySlug={slug} universityShort={u.shortName} />
+      </>
+    ),
     scholarships: <ScholarshipInsightSection universitySlug={slug} universityShort={u.shortName} />,
   }[section];
 

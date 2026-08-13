@@ -115,8 +115,16 @@ function HomePage() {
       </section>
 
 
-      {/* Popular universities */}
+      {/* Popular courses */}
       <Section>
+        <h2 className="mb-6 font-display text-3xl font-extrabold sm:text-4xl">
+          Top <span className="text-shine">Online Programs</span>
+        </h2>
+        <ProgramFinder items={courseFamilies} />
+      </Section>
+
+      {/* Popular universities */}
+      <Section muted>
         <div className="mb-8 text-center">
           <p className="text-sm font-semibold text-muted-foreground sm:text-base">
             {universityRecords.length}+ Online Universities
@@ -131,14 +139,6 @@ function HomePage() {
         <UniversityGrid items={universityRecords.slice(0, 12)} />
       </Section>
 
-
-      {/* Popular courses */}
-      <Section muted>
-        <h2 className="mb-6 font-display text-3xl font-extrabold sm:text-4xl">
-          Top <span className="text-shine">Online Programs</span>
-        </h2>
-        <ProgramFinder items={courseFamilies} />
-      </Section>
 
       <div className="container-page py-4">
         <PromoBanner

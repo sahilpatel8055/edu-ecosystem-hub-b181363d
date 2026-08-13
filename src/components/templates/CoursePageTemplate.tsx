@@ -3,6 +3,7 @@ import { SectionNav } from "@/components/common/SectionNav";
 import { Faq } from "@/components/common/Faq";
 import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import { AppLink } from "@/components/common/AppLink";
+import { SectionBanner } from "@/components/common/SectionBanner";
 import { CompareUniversities } from "@/components/course/CompareUniversities";
 import {
   AudienceCards,
@@ -275,6 +276,7 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title="Admission" tone="cream">
+            <SectionBanner kind="admission" />
             <StepFlow steps={content.admissionSteps} />
           </Section>
 
@@ -308,6 +310,7 @@ export function CoursePageTemplate({
             <div className="mt-6">
               <h3 className="font-display text-base font-bold">Examination pattern</h3>
               <div className="mt-3">
+                <SectionBanner kind="examination" />
                 <InfoBoxGrid items={content.examPattern} />
               </div>
               <Note>{content.examNote}</Note>
@@ -342,6 +345,7 @@ export function CoursePageTemplate({
           </Section>
 
           <Section title="Placement support">
+            <SectionBanner kind="placement" />
             <InfoBoxGrid items={content.placementServices} />
             <Note>{content.placementNote}</Note>
           </Section>
