@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageShell } from "@/components/templates/PageShell";
-import { CTASection, Chip, Rating } from "@/components/common/Primitives";
+import { CTASection, Chip } from "@/components/common/Primitives";
 import { NextStep } from "@/components/common/NextStep";
 import { ReviewCard } from "@/components/cards";
 import { reviews, universities } from "@/lib/content";
@@ -52,7 +52,7 @@ function Page() {
       description={item.summary}
     >
       <div className="surface-card flex flex-wrap items-center gap-4 p-5">
-        <Rating value={item.rating} />
+        <span className="text-base font-bold text-foreground">{item.rating}/5</span>
         {item.verified && <Chip tone="success">Verified learner</Chip>}
         <span className="text-sm text-muted-foreground">
           Shared by {item.author} · batch {item.batch}
