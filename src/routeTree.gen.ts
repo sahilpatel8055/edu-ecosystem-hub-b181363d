@@ -29,10 +29,12 @@ import { Route as TagsRouteImport } from './routes/tags'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as UniversitiesRouteImport } from './routes/universities'
+import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompareComparisonRouteImport } from './routes/compare.$comparison'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
 import { Route as CompareCoursePairRouteImport } from './routes/compare.$course.$pair'
@@ -148,6 +150,11 @@ const UniversitiesRoute = UniversitiesRouteImport.update({
   path: '/universities',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogsIndexRoute = BlogsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogsRoute,
+} as any)
 const CompareIndexRoute = CompareIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -167,6 +174,11 @@ const CoursesCourseRoute = CoursesCourseRouteImport.update({
   id: '/$course',
   path: '/$course',
   getParentRoute: () => CoursesRoute,
+} as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NewsRoute,
 } as any)
 const UniversitiesIndexRoute = UniversitiesIndexRouteImport.update({
   id: '/',
@@ -252,13 +264,13 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admissions': typeof AdmissionsRoute
   '/authors': typeof AuthorsRoute
-  '/blogs': typeof BlogsRoute
+  '/blogs': typeof BlogsRouteWithChildren
   '/career': typeof CareerRoute
   '/categories': typeof CategoriesRoute
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
-  '/news': typeof NewsRoute
+  '/news': typeof NewsRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
@@ -271,8 +283,10 @@ export interface FileRoutesByFullPath {
   '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/blogs/': typeof BlogsIndexRoute
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
+  '/news/': typeof NewsIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
   '/compare/$course/$pair': typeof CompareCoursePairRoute
   '/courses/$course/$section': typeof CoursesCourseSectionRoute
@@ -292,11 +306,9 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/admissions': typeof AdmissionsRoute
   '/authors': typeof AuthorsRoute
-  '/blogs': typeof BlogsRoute
   '/career': typeof CareerRoute
   '/categories': typeof CategoriesRoute
   '/contact': typeof ContactRoute
-  '/news': typeof NewsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
@@ -307,8 +319,10 @@ export interface FileRoutesByTo {
   '/tools': typeof ToolsRoute
   '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
+  '/blogs': typeof BlogsIndexRoute
   '/compare': typeof CompareIndexRoute
   '/courses': typeof CoursesIndexRoute
+  '/news': typeof NewsIndexRoute
   '/universities': typeof UniversitiesIndexRoute
   '/compare/$course/$pair': typeof CompareCoursePairRoute
   '/courses/$course/$section': typeof CoursesCourseSectionRoute
@@ -329,13 +343,13 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admissions': typeof AdmissionsRoute
   '/authors': typeof AuthorsRoute
-  '/blogs': typeof BlogsRoute
+  '/blogs': typeof BlogsRouteWithChildren
   '/career': typeof CareerRoute
   '/categories': typeof CategoriesRoute
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
-  '/news': typeof NewsRoute
+  '/news': typeof NewsRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
@@ -348,8 +362,10 @@ export interface FileRoutesById {
   '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
+  '/blogs/': typeof BlogsIndexRoute
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
+  '/news/': typeof NewsIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
   '/compare/$course/$pair': typeof CompareCoursePairRoute
   '/courses/$course/$section': typeof CoursesCourseSectionRoute
@@ -390,8 +406,10 @@ export interface FileRouteTypes {
     | '/compare/$comparison'
     | '/courses/$course'
     | '/universities/$slug'
+    | '/blogs/'
     | '/compare/'
     | '/courses/'
+    | '/news/'
     | '/universities/'
     | '/compare/$course/$pair'
     | '/courses/$course/$section'
@@ -411,11 +429,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/admissions'
     | '/authors'
-    | '/blogs'
     | '/career'
     | '/categories'
     | '/contact'
-    | '/news'
     | '/privacy-policy'
     | '/rankings'
     | '/reviews'
@@ -426,8 +442,10 @@ export interface FileRouteTypes {
     | '/tools'
     | '/compare/$comparison'
     | '/courses/$course'
+    | '/blogs'
     | '/compare'
     | '/courses'
+    | '/news'
     | '/universities'
     | '/compare/$course/$pair'
     | '/courses/$course/$section'
@@ -466,8 +484,10 @@ export interface FileRouteTypes {
     | '/compare/$comparison'
     | '/courses/$course'
     | '/universities/$slug'
+    | '/blogs/'
     | '/compare/'
     | '/courses/'
+    | '/news/'
     | '/universities/'
     | '/compare/$course/$pair'
     | '/courses/$course/$section'
@@ -488,13 +508,13 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdmissionsRoute: typeof AdmissionsRoute
   AuthorsRoute: typeof AuthorsRoute
-  BlogsRoute: typeof BlogsRoute
+  BlogsRoute: typeof BlogsRouteWithChildren
   CareerRoute: typeof CareerRoute
   CategoriesRoute: typeof CategoriesRoute
   CompareRoute: typeof CompareRouteWithChildren
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
-  NewsRoute: typeof NewsRoute
+  NewsRoute: typeof NewsRouteWithChildren
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RankingsRoute: typeof RankingsRoute
   ReviewsRoute: typeof ReviewsRoute
@@ -650,6 +670,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blogs/': {
+      id: '/blogs/'
+      path: '/'
+      fullPath: '/blogs/'
+      preLoaderRoute: typeof BlogsIndexRouteImport
+      parentRoute: typeof BlogsRoute
+    }
     '/compare/': {
       id: '/compare/'
       path: '/'
@@ -677,6 +704,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/courses/$course'
       preLoaderRoute: typeof CoursesCourseRouteImport
       parentRoute: typeof CoursesRoute
+    }
+    '/news/': {
+      id: '/news/'
+      path: '/'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof NewsRoute
     }
     '/universities/': {
       id: '/universities/'
@@ -779,6 +813,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogsRouteChildren {
+  BlogsIndexRoute: typeof BlogsIndexRoute
+}
+
+const BlogsRouteChildren: BlogsRouteChildren = {
+  BlogsIndexRoute: BlogsIndexRoute,
+}
+
+const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
+
 interface CompareRouteChildren {
   CompareComparisonRoute: typeof CompareComparisonRoute
   CompareIndexRoute: typeof CompareIndexRoute
@@ -820,6 +864,16 @@ const CoursesRouteChildren: CoursesRouteChildren = {
 
 const CoursesRouteWithChildren =
   CoursesRoute._addFileChildren(CoursesRouteChildren)
+
+interface NewsRouteChildren {
+  NewsIndexRoute: typeof NewsIndexRoute
+}
+
+const NewsRouteChildren: NewsRouteChildren = {
+  NewsIndexRoute: NewsIndexRoute,
+}
+
+const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
 
 interface UniversitiesSlugCoursesCourseRouteChildren {
   UniversitiesSlugCoursesCourseSectionRoute: typeof UniversitiesSlugCoursesCourseSectionRoute
@@ -878,13 +932,13 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdmissionsRoute: AdmissionsRoute,
   AuthorsRoute: AuthorsRoute,
-  BlogsRoute: BlogsRoute,
+  BlogsRoute: BlogsRouteWithChildren,
   CareerRoute: CareerRoute,
   CategoriesRoute: CategoriesRoute,
   CompareRoute: CompareRouteWithChildren,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
-  NewsRoute: NewsRoute,
+  NewsRoute: NewsRouteWithChildren,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RankingsRoute: RankingsRoute,
   ReviewsRoute: ReviewsRoute,
