@@ -70,6 +70,35 @@ function HomePage() {
         />
         <div className="container-page relative pb-8 pt-3 sm:pb-14 sm:pt-4 lg:pb-16 lg:pt-5">
           <HeroCarousel />
+
+          {/* Course discovery — the first action after the banner on every viewport */}
+          <div className="mt-5">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              Start with a course
+            </p>
+            <ul className="scroll-rail mt-2.5 sm:flex-wrap">
+              {[
+                { label: "Online MBA", href: "/courses/online-mba" },
+                { label: "Online MCA", href: "/courses/online-mca" },
+                { label: "Online BBA", href: "/courses/online-bba" },
+                { label: "Online BCA", href: "/courses/online-bca" },
+                { label: "Online BA", href: "/courses/online-ba" },
+                { label: "Online MA", href: "/courses/online-ma" },
+                { label: "Online B.Com", href: "/courses/online-bcom" },
+                { label: "Online M.Com", href: "/courses/online-mcom" },
+                { label: "All courses", href: "/courses" },
+              ].map((c) => (
+                <li key={c.href}>
+                  <AppLink
+                    to={c.href}
+                    className="btn btn-secondary btn-sm"
+                  >
+                    {c.label}
+                  </AppLink>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="mx-auto mt-10 max-w-3xl text-center sm:mt-14">
             <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
 
