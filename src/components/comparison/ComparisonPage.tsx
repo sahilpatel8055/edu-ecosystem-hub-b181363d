@@ -130,7 +130,7 @@ export function ComparisonPage({ pair, course }: { pair: PairComparison; course?
             {
               title: "Related comparisons",
               links: relatedPairs(pair).map((p) => ({
-                name: `${p.university_a} vs ${p.university_b}`,
+                label: `${p.university_a} vs ${p.university_b}`,
                 href: pairPath(p),
               })),
             },
@@ -139,7 +139,7 @@ export function ComparisonPage({ pair, course }: { pair: PairComparison; course?
                   {
                     title: "Compare by course",
                     links: courses.map((c) => ({
-                      name: `${aName} vs ${bName} — ${c}`,
+                      label: `${aName} vs ${bName} — ${c}`,
                       href: coursePairPath(pair, c),
                     })),
                   },
