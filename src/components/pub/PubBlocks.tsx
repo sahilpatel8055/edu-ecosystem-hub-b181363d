@@ -19,7 +19,7 @@ function Prose({ children }: { children: React.ReactNode }) {
   return <p className="text-[0.95rem] leading-relaxed text-muted-foreground">{children}</p>;
 }
 
-export function VerificationNote({ text }: { text?: string }) {
+export function VerificationNote({ text }: { text?: string | undefined }) {
   return (
     <p className="rounded-xl border border-dashed border-border bg-secondary/60 px-3 py-2 text-xs leading-relaxed text-muted-foreground">
       {text ?? NOT_PUBLISHED_LABEL}
