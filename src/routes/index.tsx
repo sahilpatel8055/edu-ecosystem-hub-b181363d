@@ -168,6 +168,46 @@ function HomePage() {
         <UniversityGrid items={universityRecords.slice(0, 12)} />
       </Section>
 
+      {/* Trending + comparisons */}
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <SectionHeader eyebrow="Comparisons" title="Top comparisons" href="/compare" />
+            <div className="grid gap-6 sm:grid-cols-2">
+              {comparisons.slice(0, 4).map((c) => (
+                <ComparisonCard key={c.slug} item={c} />
+              ))}
+            </div>
+          </div>
+          <div>
+            <SectionHeader eyebrow="Popular now" title="Trending articles" href="/blogs" />
+            <div className="surface-card px-5 py-2">
+              {allArticles.filter((a) => a.trending).map((a) => (
+                <ArticleCard key={a.slug} item={a} variant="compact" />
+              ))}
+              {articles.slice(0, 3).map((a) => (
+                <ArticleCard key={`t-${a.slug}`} item={a} variant="compact" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Reviews */}
+      <Section>
+        <SectionHeader
+          eyebrow="Student voices"
+          title="Top reviews"
+          description="Verified feedback from learners currently enrolled or recently graduated."
+          href="/reviews"
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {reviews.map((r) => (
+            <ReviewCard key={r.slug} item={r} />
+          ))}
+        </div>
+      </Section>
+
 
       <div className="container-page py-4">
         <PromoBanner
@@ -230,30 +270,6 @@ function HomePage() {
         </div>
       </Section>
 
-      {/* Trending + comparisons */}
-      <Section>
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
-          <div>
-            <SectionHeader eyebrow="Comparisons" title="Top comparisons" href="/compare" />
-            <div className="grid gap-6 sm:grid-cols-2">
-              {comparisons.slice(0, 4).map((c) => (
-                <ComparisonCard key={c.slug} item={c} />
-              ))}
-            </div>
-          </div>
-          <div>
-            <SectionHeader eyebrow="Popular now" title="Trending articles" href="/blogs" />
-            <div className="surface-card px-5 py-2">
-              {allArticles.filter((a) => a.trending).map((a) => (
-                <ArticleCard key={a.slug} item={a} variant="compact" />
-              ))}
-              {articles.slice(0, 3).map((a) => (
-                <ArticleCard key={`t-${a.slug}`} item={a} variant="compact" />
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
 
       {/* Student tools */}
       <Section muted>
@@ -309,20 +325,6 @@ function HomePage() {
         </div>
       </Section>
 
-      {/* Reviews */}
-      <Section>
-        <SectionHeader
-          eyebrow="Student voices"
-          title="Top reviews"
-          description="Verified feedback from learners currently enrolled or recently graduated."
-          href="/reviews"
-        />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {reviews.map((r) => (
-            <ReviewCard key={r.slug} item={r} />
-          ))}
-        </div>
-      </Section>
 
       {/* Editor's picks */}
       <Section muted>
