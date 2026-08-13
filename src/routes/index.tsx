@@ -68,7 +68,7 @@ function HomePage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:56px_56px]"
         />
-        <div className="container-page relative py-8 sm:py-14 lg:py-16">
+        <div className="container-page relative pb-8 pt-3 sm:pb-14 sm:pt-4 lg:pb-16 lg:pt-5">
           <HeroCarousel />
           <div className="mx-auto mt-10 max-w-3xl text-center sm:mt-14">
             <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">

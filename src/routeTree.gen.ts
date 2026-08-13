@@ -35,6 +35,7 @@ import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
+import { Route as CompareCoursePairRouteImport } from './routes/compare.$course.$pair'
 import { Route as CoursesCourseSectionRouteImport } from './routes/courses.$course.$section'
 import { Route as OnlineCoursesLevelCourseRouteImport } from './routes/online-courses.$level.$course'
 import { Route as UniversitiesSlugIndexRouteImport } from './routes/universities.$slug.index'
@@ -177,6 +178,11 @@ const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => UniversitiesRoute,
 } as any)
+const CompareCoursePairRoute = CompareCoursePairRouteImport.update({
+  id: '/$course/$pair',
+  path: '/$course/$pair',
+  getParentRoute: () => CompareRoute,
+} as any)
 const CoursesCourseSectionRoute = CoursesCourseSectionRouteImport.update({
   id: '/$section',
   path: '/$section',
@@ -268,6 +274,7 @@ export interface FileRoutesByFullPath {
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
+  '/compare/$course/$pair': typeof CompareCoursePairRoute
   '/courses/$course/$section': typeof CoursesCourseSectionRoute
   '/online-courses/$level/$course': typeof OnlineCoursesLevelCourseRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
@@ -303,6 +310,7 @@ export interface FileRoutesByTo {
   '/compare': typeof CompareIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/universities': typeof UniversitiesIndexRoute
+  '/compare/$course/$pair': typeof CompareCoursePairRoute
   '/courses/$course/$section': typeof CoursesCourseSectionRoute
   '/online-courses/$level/$course': typeof OnlineCoursesLevelCourseRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
@@ -343,6 +351,7 @@ export interface FileRoutesById {
   '/compare/': typeof CompareIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
+  '/compare/$course/$pair': typeof CompareCoursePairRoute
   '/courses/$course/$section': typeof CoursesCourseSectionRoute
   '/online-courses/$level/$course': typeof OnlineCoursesLevelCourseRoute
   '/universities/$slug/admission': typeof UniversitiesSlugAdmissionRoute
@@ -384,6 +393,7 @@ export interface FileRouteTypes {
     | '/compare/'
     | '/courses/'
     | '/universities/'
+    | '/compare/$course/$pair'
     | '/courses/$course/$section'
     | '/online-courses/$level/$course'
     | '/universities/$slug/admission'
@@ -419,6 +429,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/courses'
     | '/universities'
+    | '/compare/$course/$pair'
     | '/courses/$course/$section'
     | '/online-courses/$level/$course'
     | '/universities/$slug/admission'
@@ -458,6 +469,7 @@ export interface FileRouteTypes {
     | '/compare/'
     | '/courses/'
     | '/universities/'
+    | '/compare/$course/$pair'
     | '/courses/$course/$section'
     | '/online-courses/$level/$course'
     | '/universities/$slug/admission'
@@ -680,6 +692,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UniversitiesSlugRouteImport
       parentRoute: typeof UniversitiesRoute
     }
+    '/compare/$course/$pair': {
+      id: '/compare/$course/$pair'
+      path: '/$course/$pair'
+      fullPath: '/compare/$course/$pair'
+      preLoaderRoute: typeof CompareCoursePairRouteImport
+      parentRoute: typeof CompareRoute
+    }
     '/courses/$course/$section': {
       id: '/courses/$course/$section'
       path: '/$section'
@@ -763,11 +782,13 @@ declare module '@tanstack/react-router' {
 interface CompareRouteChildren {
   CompareComparisonRoute: typeof CompareComparisonRoute
   CompareIndexRoute: typeof CompareIndexRoute
+  CompareCoursePairRoute: typeof CompareCoursePairRoute
 }
 
 const CompareRouteChildren: CompareRouteChildren = {
   CompareComparisonRoute: CompareComparisonRoute,
   CompareIndexRoute: CompareIndexRoute,
+  CompareCoursePairRoute: CompareCoursePairRoute,
 }
 
 const CompareRouteWithChildren =

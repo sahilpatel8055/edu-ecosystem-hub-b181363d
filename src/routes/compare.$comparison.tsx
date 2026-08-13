@@ -12,6 +12,8 @@ import {
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
 import { getProgramme } from "@/data";
+import { ComparisonPage } from "@/components/comparison/ComparisonPage";
+import { masterPairBySlug } from "@/lib/comparisonMaster";
 import {
   approvalText,
   comparisonBySlug,
@@ -24,6 +26,16 @@ import { breadcrumbSchema, canonical, faqSchema, itemListSchema, jsonLd, pageMet
 
 export const Route = createFileRoute("/compare/$comparison")({
   loader: ({ params }) => {
+    const mp = masterPairBySlug(params.comparison);
+    if (mp) {
+      return {
+        kind: "master" as const,
+        leftName: mp.university_a,
+        leftShort: mp.university_a,
+        rightName: mp.university_b,
+        rightShort: mp.university_b,
+      };
+    }
     const pair = comparisonBySlug(params.comparison);
     if (pair) {
       return {
@@ -45,6 +57,7 @@ export const Route = createFileRoute("/compare/$comparison")({
       summary: editorial.summary,
     };
   },
+
   head: ({ params, loaderData }) => {
     const path = `/compare/${params.comparison}`;
     if (!loaderData) {
@@ -88,6 +101,8 @@ export const Route = createFileRoute("/compare/$comparison")({
 
 function Page() {
   const { comparison } = Route.useParams();
+  const masterPair = masterPairBySlug(comparison);
+  if (masterPair) return <ComparisonPage pair={masterPair} />;
   const pair = comparisonBySlug(comparison);
 
   if (!pair) {

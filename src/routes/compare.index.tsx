@@ -5,6 +5,7 @@ import { ComparisonCard } from "@/components/cards";
 import { LinkCluster, RelatedLinkGrid } from "@/components/common/Blocks";
 import { comparisons } from "@/lib/content";
 import { comparisonLinks, programmeLinks, universityLinks, universityPairs } from "@/lib/entities";
+import { comparableCourses, masterPairs } from "@/lib/comparisonMaster";
 import {
   breadcrumbSchema,
   canonical,
@@ -56,7 +57,24 @@ function Page() {
       title="University & Course Comparisons"
       description={description}
     >
-      <h2 className="mb-4 text-xl font-bold sm:text-2xl">University vs university</h2>
+      <h2 className="mb-4 text-xl font-bold sm:text-2xl">University vs university (2026-27 dataset)</h2>
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        {masterPairs.map((p) => (
+          <ComparisonCard
+            key={p.comparison_id}
+            item={{
+              slug: p.comparison_id,
+              title: `${p.university_a} vs ${p.university_b}`,
+              left: p.university_a,
+              right: p.university_b,
+              category: "University",
+              summary: `${comparableCourses(p).length} common courses compared on verified fees, recognition, eligibility, specialisations, exams and career support.`,
+            }}
+          />
+        ))}
+      </div>
+
+      <h2 className="mb-4 mt-12 text-xl font-bold sm:text-2xl">Editorial university pairs</h2>
       <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {pairs.map((p) => (
           <ComparisonCard
