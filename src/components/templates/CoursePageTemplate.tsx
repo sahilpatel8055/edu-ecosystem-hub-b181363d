@@ -112,7 +112,7 @@ export function CoursePageTemplate({
             <li>No sponsored ranking</li>
           </ul>
 
-          <div className="mt-5 flex flex-wrap gap-2.5">
+          <div className="mt-5 flex flex-wrap items-start gap-2.5">
             <a href="#universities" className="btn btn-primary">
               Explore universities
             </a>
