@@ -183,7 +183,7 @@ export function UniversityCompareBoard() {
             <div className="overflow-x-auto lg:overflow-x-visible">
               <div style={gridStyle} className="grid">
                 {/* identity row — sticky while scrolling */}
-                <div className="z-20 border-b border-border bg-secondary lg:sticky lg:top-24 px-2.5 py-3 text-[0.7rem] font-bold uppercase tracking-wide text-muted-foreground">
+                <div className="sticky left-0 z-20 border-b border-border bg-secondary px-2.5 py-3 text-[0.7rem] font-bold uppercase tracking-wide text-muted-foreground lg:top-24">
                   Compare
                 </div>
                 {chosen.map((u) => (
