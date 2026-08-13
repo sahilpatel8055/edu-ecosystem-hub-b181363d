@@ -24,6 +24,16 @@ import { breadcrumbSchema, canonical, faqSchema, itemListSchema, jsonLd, pageMet
 
 export const Route = createFileRoute("/compare/$comparison")({
   loader: ({ params }) => {
+    const mp = masterPairBySlug(params.comparison);
+    if (mp) {
+      return {
+        kind: "master" as const,
+        leftName: mp.university_a,
+        leftShort: mp.university_a,
+        rightName: mp.university_b,
+        rightShort: mp.university_b,
+      };
+    }
     const pair = comparisonBySlug(params.comparison);
     if (pair) {
       return {
@@ -45,6 +55,7 @@ export const Route = createFileRoute("/compare/$comparison")({
       summary: editorial.summary,
     };
   },
+
   head: ({ params, loaderData }) => {
     const path = `/compare/${params.comparison}`;
     if (!loaderData) {
