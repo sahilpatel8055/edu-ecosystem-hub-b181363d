@@ -20,6 +20,6 @@ export function courseContentBySlug(slug: string): { family: CourseFamily; conte
   return { family, content: courseContent(family) };
 }
 
-export const isAuthored = (slug: string) => Boolean(authored[slug]);
+export const isAuthored = (slug: string) => Boolean(authored[slug]) || authoredFamilySlugs.includes(slug);
 
 export * from "./types";
