@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "phase": 2,
+    "title": "14 University Pages — Missing/Weak Content Research & Implementation Pack",
+    "generated_on": "2026-08-13",
+    "scope": "University-level pages only. Existing strong content must remain. This file supplies replacement/addition material and identifies facts that must not be invented.",
+    "academic_session": "2026-27",
+    "rule": "A university page must not make programme-specific claims unless the programme is explicitly verified. University-level facts and university-course facts remain separate."
+  },
+  "implementation_principles": [
+    "Keep existing good sections: Overview, Approvals & Recognition, Courses & Fees, Fee Structure, Admission Process, Examination Pattern.",
+    "Add only missing/weak sections identified in this file.",
+    "Do not copy a university's marketing language as CollegeSathi editorial voice.",
+    "Do not convert placement assistance into placement guarantee.",
+    "Do not convert UGC entitlement of an institution into entitlement of every programme without programme/session evidence.",
+    "Do not call ODL programmes 'online' unless the official source classifies them as online.",
+    "Every dynamic fact must carry academic session and verified date.",
+    "If an official source is unavailable or conflicting, show an explicit verification note rather than inventing a value."
+  ],
+  "university_content": [
+    {
+      "slug": "amity-university-online",
+      "name": "Amity University Online",
+      "content": {
+        "intro": "Amity Online is the online learning platform of Amity University. The university offers multiple online undergraduate and postgraduate programmes; the exact programme, fee, eligibility and admission conditions should be shown at programme level rather than generalized across the university.",
+        "student_guidance": "Students should evaluate an Amity Online programme using the exact programme page, current fee structure, admission requirements, curriculum, examination method and any applicable scholarship rather than relying only on university-level claims.",
+        "source_note": "The current official programme hub lists the live programme catalogue; programme-specific pages should be treated as the source for current fee and eligibility."
+      },
+      "must_research_next": [
+        "current 2026-27 UGC/DEB entitlement for each programme",
+        "current NAAC status and validity",
+        "current university establishment/basic profile",
+        "2026-27 admission cycle dates",
+        "application fee",
+        "document list",
+        "scholarship categories and conditions",
+        "current examination/proctoring rules",
+        "official prospectus links",
+        "current programme catalogue reconciliation"
+      ],
+      "safe_sections": [
+        "Overview",
+        "Approvals & recognition",
+        "Courses & fees",
+        "Admission process",
+        "Examination pattern",
+        "Scholarships",
+        "Documents",
+        "Official sources",
+        "Last verified"
+      ],
+      "source": "https://amityonline.com/programs"
+    },
+    {
+      "slug": "manipal-university-jaipur",
+      "name": "Manipal University Jaipur (Online Manipal)",
+      "content": {
+        "intro": "Manipal University Jaipur is one of the universities whose online programmes are delivered through Online Manipal. The Online Manipal ecosystem also presents programmes from MAHE and Sikkim Manipal University, so CollegeSathi should keep each university as a separate entity and never merge their programme facts.",
+        "student_guidance": "When comparing an Online Manipal programme, verify the awarding university first. Fee, eligibility, curriculum, scholarship and admission conditions can differ between MUJ, MAHE and SMU."
+      },
+      "must_research_next": [
+        "MUJ-specific 2026-27 UGC entitlement",
+        "MUJ NAAC status",
+        "MUJ programme catalogue",
+        "current admission dates",
+        "fee components",
+        "scholarship rules",
+        "exam pattern",
+        "curriculum PDFs",
+        "official prospectus",
+        "placement/career support evidence"
+      ],
+      "verified_note": "Online Manipal states that it delivers UGC-entitled and AICTE-approved online degrees from MAHE, MUJ and SMU; it separately identifies MUJ and SMU. citeturn2search4",
+      "source": "https://www.onlinemanipal.com/about-us"
+    },
+    {
+      "slug": "vgu",
+      "name": "Vivekananda Global University / Online VGU",
+      "content": {
+        "intro": "Online VGU is the digital learning initiative of Vivekananda Global University, Jaipur. Its official site describes its online degrees as UGC-entitled and identifies the university as NAAC A+ accredited.",
+        "student_guidance": "Students should distinguish university-level recognition from programme-level availability and verify the current programme, fee, admission and scholarship information for the specific course they intend to take."
+      },
+      "verified_facts": [
+        "Online VGU identifies itself as the digital initiative of Vivekananda Global University, Jaipur.",
+        "The official site states that VGU is NAAC A+ accredited and that its online degrees are UGC-entitled.",
+        "The site advertises online learning, recorded content, scholarships and career-development support."
+      ],
+      "must_research_next": [
+        "current DEB entitlement list by programme",
+        "current 2026-27 fee table",
+        "admission deadlines",
+        "application fee",
+        "eligibility by programme",
+        "scholarship terms",
+        "exam pattern",
+        "official curriculum",
+        "career/placement claim evidence",
+        "official prospectus"
+      ],
+      "source": "https://www.onlinevgu.com/"
+    },
+    {
+      "slug": "lpu-online",
+      "name": "Lovely Professional University Online",
+      "content": {
+        "intro": "Lovely Professional University offers online education programmes alongside its campus programmes. CollegeSathi must keep LPU Online facts separate from LPU residential/campus programme facts because admission criteria, delivery mode and fee structures can differ.",
+        "student_guidance": "For LPU, always verify that a fact belongs to the online programme before publishing it. Campus MBA fees or campus admission tests must not be copied into an Online MBA page."
+      },
+      "verified_facts": [
+        "LPU's current admission site states that admissions have started for 2026.",
+        "LPU's official MBA material shows that campus MBA eligibility and fee structures are programme-specific and should not be assumed to represent the online MBA.",
+        "LPU's current admission site provides an online application route."
+      ],
+      "must_research_next": [
+        "official LPU Online programme hub",
+        "online-specific UGC/DEB status",
+        "online programme fee",
+        "online eligibility",
+        "online admission steps",
+        "online exam pattern",
+        "online curriculum",
+        "online scholarship",
+        "online learning support",
+        "online placement support"
+      ],
+      "source": "https://www.lpu.in/admission/admissions.php/"
+    },
+    {
+      "slug": "du-sol",
+      "name": "University of Delhi – School of Open Learning",
+      "content": {
+        "intro": "The University of Delhi's School of Open Learning offers undergraduate and postgraduate programmes through its open-learning framework. The current 2026–27 admission portal lists live UG and PG admissions and programme-specific prospectuses.",
+        "verified_facts": [
+          "The current SOL portal is for Academic Session 2026–27.",
+          "It lists 18 UG programmes, including BMS, BBA(FIA), B.A. programmes and B.Com programmes.",
+          "It lists 10 PG programme offerings including MBA, M.A. subjects and M.Com.",
+          "The portal provides programme-specific prospectus links."
+        ],
+        "student_guidance": "Do not describe every SOL programme as an 'online degree'. The delivery mode must be stated accurately for the specific programme and session."
+      },
+      "must_research_next": [
+        "2026-27 programme-wise fee table",
+        "programme-wise admission eligibility",
+        "CUET/entrance requirements where applicable",
+        "exam mode and assessment",
+        "study material and support",
+        "programme delivery mode",
+        "current prospectus links",
+        "recognition/ODL documentation",
+        "refund rules",
+        "admission deadlines"
+      ],
+      "source": "https://www.sol.du.ac.in/index.php/PG_fee_structure.html"
+    },
+    {
+      "slug": "ignou",
+      "name": "Indira Gandhi National Open University",
+      "content": {
+        "intro": "IGNOU is a national open university offering a large range of programmes through open and distance learning, with specific online programmes also available. The university publishes current prospectuses and programme-specific handbooks that should be treated as the primary source.",
+        "verified_facts": [
+          "IGNOU's current official site provides a Common Prospectus for July 2026.",
+          "The official site separately provides an MBA (Online) Student Handbook and Prospectus.",
+          "The official site also lists separate MBA, MBA Specialization and other programme handbooks."
+        ],
+        "student_guidance": "The page must clearly distinguish IGNOU ODL programmes from IGNOU Online programmes. Do not use 'online' as a blanket label for every IGNOU programme."
+      },
+      "must_research_next": [
+        "July 2026 online programme catalogue",
+        "online MBA current fee",
+        "online MBA eligibility",
+        "ODL vs online distinction",
+        "admission cycle",
+        "exam pattern",
+        "assignment/evaluation rules",
+        "scholarship/support",
+        "programme-wise recognition",
+        "current prospectuses"
+      ],
+      "source": "https://www.ignou.ac.in/pages/54"
+    },
+    {
+      "slug": "nmims-online",
+      "name": "NMIMS CDOE / NMIMS Online",
+      "content": {
+        "intro": "NMIMS CDOE provides online and distance-learning programmes through a dedicated digital education division. Its official site publishes mandatory disclosures, recognition documents, curricula and UGC updates, making those documents the preferred sources for CollegeSathi's factual university page.",
+        "verified_facts": [
+          "NMIMS CDOE states that its programmes are entitled/recognised by UGC and UGC-DEB.",
+          "The site states that NMIMS received Category I autonomy in 2018.",
+          "The site states that NMIMS received NAAC A++ accreditation in its fourth cycle in 2025.",
+          "Its mandatory-disclosure section provides recognition letters, AICTE documents, NIRF certificates, curricula and UGC-DEB updates."
+        ],
+        "student_guidance": "Use the mandatory-disclosure repository as the evidence layer for recognition claims and programme-specific documents as the evidence layer for fees, curriculum and eligibility."
+      },
+      "must_research_next": [
+        "2026-27 programme-wise UGC-DEB entitlement",
+        "current fee tables",
+        "admission deadlines",
+        "application processing fee",
+        "exam/project fees",
+        "eligibility by programme",
+        "exam pattern",
+        "curriculum links",
+        "scholarship rules",
+        "career services evidence"
+      ],
+      "source": "https://online.nmims.edu/mandatory-disclosures"
+    },
+    {
+      "slug": "chandigarh-university-online",
+      "name": "Chandigarh University Online",
+      "content": {
+        "intro": "Chandigarh University offers online programmes through its online education platform. The university page should separate programme facts from general university marketing claims and should use current programme pages and official documents for fees, eligibility, curriculum and examination details.",
+        "student_guidance": "Fee information should be displayed as a dated fee structure with components. If two official pages show different figures, do not silently choose one; resolve the conflict using the latest official document."
+      },
+      "must_research_next": [
+        "current 2026-27 fee and fee components",
+        "UGC-DEB entitlement",
+        "NAAC current status",
+        "admission dates",
+        "eligibility",
+        "application fee",
+        "scholarship criteria",
+        "exam/proctoring",
+        "curriculum",
+        "placement support evidence",
+        "prospectus"
+      ],
+      "source": "https://www.onlinecu.in/online-mba.php"
+    },
+    {
+      "slug": "dpu-online",
+      "name": "Dr. D. Y. Patil Vidyapeeth – Online",
+      "content": {
+        "intro": "Dr. D. Y. Patil Vidyapeeth provides online programme options with programme-specific admission documentation. Its 2026–27 MBA brochure is particularly useful because it documents the entrance routes and online proctored test process.",
+        "verified_facts": [
+          "The 2026–27 official MBA brochure lists admission routes through CAT, MAT, XAT, CMAT, ATMA and MH-CET.",
+          "The same brochure documents an Online Proctor Based All India Entrance Test route.",
+          "The brochure specifies processing/test-fee information and 2026 test dates for the documented MBA admission cycle."
+        ],
+        "student_guidance": "For DPU, examination/admission content should explicitly distinguish the admission entrance test from the later programme examination pattern."
+      },
+      "must_research_next": [
+        "current UGC-DEB entitlement",
+        "NAAC status",
+        "current MBA fee table",
+        "eligibility",
+        "GD/PI process",
+        "online entrance details",
+        "programme examination pattern",
+        "curriculum",
+        "scholarships",
+        "career services",
+        "2026-27 prospectus"
+      ],
+      "source": "https://dpu.edu.in/documents/2026/information-brochure/mba-2026-27-ver1.pdf"
+    },
+    {
+      "slug": "nsou",
+      "name": "Netaji Subhas Open University",
+      "content": {
+        "intro": "Netaji Subhas Open University is a state open university offering programmes through open and distance learning. Its official 2026 admission information is actively updated and should be used as the source for current admission-cycle information.",
+        "verified_facts": [
+          "The official site currently publishes Admission 2026–2027 information.",
+          "The site publishes separate admission information for UG/BDP, PG, PG Diploma and MBA-related sections.",
+          "Current 2026 notices include MBA programme activity and examination/result notices."
+        ],
+        "student_guidance": "NSOU should not be presented as a generic 'online university'. Programme delivery mode must be stated per programme and current prospectus."
+      },
+      "must_research_next": [
+        "current MBA/UG/PG programme catalogue",
+        "programme-wise fees",
+        "2026 admission deadlines",
+        "eligibility",
+        "study-centre/PCP requirements",
+        "exam pattern",
+        "curriculum",
+        "recognition evidence",
+        "scholarship/financial aid",
+        "online vs ODL classification"
+      ],
+      "source": "https://www.wbnsou.ac.in/student_zone/admissions/admission_information/admission_information_2026.shtml"
+    },
+    {
+      "slug": "ksou-mysuru",
+      "name": "Karnataka State Open University",
+      "content": {
+        "intro": "Karnataka State Open University is a state open university based in Mysuru. CollegeSathi should build its university page from the latest official prospectus and programme documents, keeping open/distance delivery terminology precise.",
+        "student_guidance": "Use the latest academic-session prospectus for fees, eligibility, programme duration, examination and learner-support details. Do not carry forward historical fee figures without an effective session."
+      },
+      "must_research_next": [
+        "2026-27 prospectus",
+        "UGC-DEB recognition for current session",
+        "NAAC status",
+        "programme catalogue",
+        "programme fees",
+        "admission schedule",
+        "eligibility",
+        "exam pattern",
+        "learner support centres",
+        "scholarships",
+        "refund policy"
+      ],
+      "source": "https://www.ksoumysuru.ac.in/index.php/prospectus/"
+    },
+    {
+      "slug": "subharti-university",
+      "name": "Swami Vivekanand Subharti University",
+      "content": {
+        "intro": "Swami Vivekanand Subharti University provides online/ODL programmes through its distance education division. Its compliance documents provide useful evidence for recognition and accreditation, while programme-specific documents should be used for fee, eligibility and admission details.",
+        "verified_facts": [
+          "A current Subharti compliance document reports UGC/DEB recognition information.",
+          "The same document reports NAAC accreditation with Grade A and validity through 09-08-2027.",
+          "Subharti programme documentation states that MBA/MCA entrance examinations may be conducted twice a year and that alternative recognised entrance scores may be considered, subject to university rules."
+        ],
+        "student_guidance": "Subharti's older documents contain rules that may change. Current programme-specific documents must override older prospectus language."
+      },
+      "must_research_next": [
+        "current 2026-27 recognition",
+        "current programme mode classification",
+        "MBA/MCA current fee",
+        "current admission dates",
+        "current entrance rules",
+        "exam pattern",
+        "curriculum",
+        "scholarship",
+        "career support",
+        "latest prospectus"
+      ],
+      "source": "https://www.subhartidde.com/assets/documents/ImportantDocuments/UGC%20Portal_report_after_submission%2015.04.2025%2011-43.pdf"
+    },
+    {
+      "slug": "baou",
+      "name": "Dr. Babasaheb Ambedkar Open University",
+      "content": {
+        "intro": "Dr. Babasaheb Ambedkar Open University is an open university based in Gujarat. Its official programme pages provide course-level information including fee, duration, credits and specialisations, which should feed the university-course pages directly.",
+        "verified_facts": [
+          "The current official MBA page lists a fee of ₹7,500 per semester.",
+          "The MBA page lists 72 credits.",
+          "The MBA page lists a minimum duration of 2 years and maximum duration of 4 years.",
+          "The MBA page lists Finance, HR and Marketing specialisations."
+        ],
+        "student_guidance": "BAOU content should clearly distinguish course-level facts from general university-level facts and should preserve the programme's stated duration and specialisation structure."
+      },
+      "must_research_next": [
+        "2026 admission dates",
+        "application fee",
+        "MBA eligibility",
+        "current recognition/UGC-DEB evidence",
+        "exam pattern",
+        "curriculum",
+        "scholarships",
+        "learner support",
+        "refund rules",
+        "current prospectus"
+      ],
+      "source": "https://baou.edu.in/courses/MBA"
+    },
+    {
+      "slug": "jain-online",
+      "name": "JAIN Online / JAIN (Deemed-to-be University)",
+      "content": {
+        "intro": "JAIN Online is the online learning division of JAIN (Deemed-to-be University). The current official site describes UGC-entitled online degrees and identifies JAIN as a NAAC A++ graded institution.",
+        "verified_facts": [
+          "JAIN Online describes its programmes as UGC-entitled.",
+          "The official site identifies JAIN as NAAC A++ graded.",
+          "The online catalogue includes MBA, BBA, BCA, B.Com, MCA, MA and M.Com among its online degree offerings.",
+          "The official site describes live weekend classes, recorded lectures, mentor-led projects and career support."
+        ],
+        "student_guidance": "Career-support language should remain precise: describe the actual service provided and avoid converting 'career support' into guaranteed placement or salary claims."
+      },
+      "must_research_next": [
+        "2026-27 UGC-DEB programme entitlement",
+        "MBA current fee",
+        "all programme fee structures",
+        "admission dates",
+        "eligibility",
+        "scholarship criteria",
+        "exam pattern",
+        "curriculum",
+        "placement/career evidence",
+        "official prospectus"
+      ],
+      "source": "https://www.jain-online.com/"
+    }
+  ],
+  "new_sections_to_add_to_every_university_page": [
+    {
+      "section": "At a Glance",
+      "purpose": "Compact decision summary near the top.",
+      "fields": [
+        "Awarding university",
+        "Learning mode",
+        "UG/PG availability",
+        "Current academic session",
+        "Recognition status",
+        "Programme count",
+        "Fee starting point only when verified",
+        "Admission status",
+        "Last verified"
+      ]
+    },
+    {
+      "section": "What Students Should Verify Before Applying",
+      "content": "Before submitting an application, verify the exact programme name, awarding university, current academic session, eligibility, total fee and fee components, admission deadline, examination method, scholarship conditions and the official admission portal. These details can change by programme and admission cycle."
+    },
+    {
+      "section": "Official Documents & Sources",
+      "purpose": "Create a transparent source centre.",
+      "fields": [
+        "Official website",
+        "Current prospectus",
+        "Admission notification",
+        "Recognition/entitlement evidence",
+        "Fee document",
+        "Curriculum document",
+        "Examination document"
+      ]
+    },
+    {
+      "section": "Important Update / Last Verified",
+      "content": "Information on admissions, fees, scholarships, recognition and programme availability can change between academic sessions. CollegeSathi should display the latest verification date and link to the official source."
+    },
+    {
+      "section": "University vs Programme Facts",
+      "content": "University-level recognition, accreditation and institutional information should not be treated as proof of every programme's current online/ODL entitlement. Programme-specific facts should be verified separately for the relevant academic session."
+    },
+    {
+      "section": "Who May Consider This University?",
+      "content": "Use a neutral decision framework based on verified programme availability, learning mode, fee structure, admission requirements, examination model and learner-support facilities. Avoid subjective 'best university' claims unless supported by a defined methodology."
+    }
+  ],
+  "data_model_patch": {
+    "university_fields": [
+      "lastVerified",
+      "academicSession",
+      "officialWebsite",
+      "officialAdmissionPortal",
+      "officialProspectusUrl",
+      "recognitionSources[]",
+      "admissionSources[]",
+      "feeSources[]",
+      "curriculumSources[]",
+      "examSources[]",
+      "scholarshipSources[]",
+      "verificationStatus",
+      "sourceConflictStatus",
+      "contentQualityScore"
+    ],
+    "claim_object": {
+      "claim": "string",
+      "value": "string|number|boolean|array",
+      "sourceUrl": "string",
+      "sourceType": "official_university|regulator|official_document|secondary",
+      "academicSession": "string",
+      "verifiedOn": "YYYY-MM-DD",
+      "status": "verified|conflicting|outdated|not_published|needs_review",
+      "notes": "string"
+    }
+  },
+  "phase2_lovable_prompt": "Implement Phase 2 using the attached Phase_2_14_University_Content_Research_and_Implementation.json.\n\nIMPORTANT:\nThis is a content implementation phase for UNIVERSITY-LEVEL pages only.\n\n1. Preserve all existing good content and UI.\n2. Do not redesign existing pages.\n3. Do not rewrite existing verified sections unless this file explicitly identifies a weakness/conflict.\n4. Add the new At a Glance, What Students Should Verify Before Applying, Official Documents & Sources, Important Update/Last Verified, University vs Programme Facts, and Who May Consider This University sections where missing.\n5. Implement the verified facts and editorial content supplied in this file.\n6. Add source/verification metadata to the data model.\n7. Never invent missing fees, scholarships, recognition, admission dates, eligibility or exam details.\n8. If this file marks a field as must_research_next, keep it in a structured 'verification required' state rather than generating filler text.\n9. Keep ODL and Online terminology accurate.\n10. Keep university-level facts separate from university-course facts.\n11. Do not modify the current 14-university list.\n12. Do not implement Phase 3 yet.\n13. After implementation, return a QA report listing:\n   - files changed\n   - files created\n   - sections added per university\n   - verified facts implemented\n   - fields still awaiting official verification\n   - any source conflicts discovered\n   - any existing content you intentionally left untouched."
+}

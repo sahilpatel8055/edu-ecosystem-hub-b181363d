@@ -1,0 +1,360 @@
+{
+  "meta": {
+    "phase": "6-7",
+    "title": "Specialisation Pages + Supporting Content Cluster",
+    "academic_session": "2026-27",
+    "scope": "Combined Phase 6 and Phase 7. Includes dedicated specialisation pages and the supporting intent-driven content architecture required around course, university-course and comparison pages.",
+    "critical_confirmation": "YES — dedicated specialisation pages are explicitly included in this phase.",
+    "architecture": "Course Pillar → Specialisation Hub → University/Course Pages → Comparison → Supporting Articles/Guides",
+    "goal": "Capture deeper search intent without creating thin keyword pages, while keeping every specialisation fact tied to verified university/course data."
+  },
+  "phase_6_specialisation_pages": {
+    "purpose": "Create dedicated, useful specialisation pages only where the specialisation has real programme-level demand and verified university offerings.",
+    "core_rule": "A specialisation page is an intent page, not a copied university-course page. It explains the specialisation, subjects, skills, career directions and which universities actually offer it.",
+    "recommended_url": "/online-courses/{course}/{specialisation}",
+    "examples": [
+      "/online-courses/online-mba/finance",
+      "/online-courses/online-mba/marketing",
+      "/online-courses/online-mba/human-resource-management",
+      "/online-courses/online-mba/operations-management",
+      "/online-courses/online-mba/business-analytics",
+      "/online-courses/online-mca/data-science",
+      "/online-courses/online-mca/artificial-intelligence"
+    ],
+    "do_not_create": [
+      "A page for every possible keyword variation.",
+      "A page when only one university offers the specialisation unless the intent is genuinely strong and the page has sufficient unique value.",
+      "A page merely by replacing the specialisation name inside the same generic template.",
+      "A page for a specialisation that is not verified in the current programme data."
+    ],
+    "specialisation_data_contract": {
+      "identity": [
+        "course",
+        "specialisation_name",
+        "canonical_slug",
+        "academic_session",
+        "last_verified"
+      ],
+      "education": [
+        "what_the_specialisation_is",
+        "who_it_is_for",
+        "core_subject_areas",
+        "typical_elective_areas",
+        "skills_developed",
+        "project_or_dissertation_context"
+      ],
+      "availability": [
+        "universities_offering",
+        "exact_programme_name",
+        "mode",
+        "availability_status",
+        "official_source"
+      ],
+      "career": [
+        "role_families",
+        "skills_expected",
+        "higher_study_or_certification_paths"
+      ],
+      "decision": [
+        "who_should_choose",
+        "who_should_reconsider",
+        "what_to_check_before_enrolling"
+      ],
+      "trust": [
+        "official_sources",
+        "source_type",
+        "verified_date",
+        "data_status"
+      ]
+    },
+    "specialisation_page_structure": [
+      {
+        "section": "Hero",
+        "content": "Specialisation name + course + concise definition + who it suits + current-session verification."
+      },
+      {
+        "section": "What is this specialisation?",
+        "content": "Original plain-language explanation, scope and how it differs from the broader course."
+      },
+      {
+        "section": "Who should choose it?",
+        "content": "Background, interests, career direction and learning expectations."
+      },
+      {
+        "section": "Subjects and curriculum",
+        "content": "Common subject areas as an explanatory layer. Then show verified university-specific subjects/electives in a clearly labelled table."
+      },
+      {
+        "section": "Universities offering this specialisation",
+        "content": "Dynamic cards sourced from verified university-course records."
+      },
+      {
+        "section": "Fees",
+        "content": "Do not invent a specialisation fee. Show university-specific programme fees and note when the specialisation is included within the programme fee."
+      },
+      {
+        "section": "Eligibility",
+        "content": "Explain the course-level rule, then show university-specific differences."
+      },
+      {
+        "section": "Admission",
+        "content": "General process + exact university links."
+      },
+      {
+        "section": "Examination and learning model",
+        "content": "Explain only verified programme-level assessment information."
+      },
+      {
+        "section": "Skills you develop",
+        "content": "Skill families tied to the curriculum rather than generic job claims."
+      },
+      {
+        "section": "Career options",
+        "content": "Role families, typical responsibilities and skills to build. No salary or placement guarantees."
+      },
+      {
+        "section": "Specialisation vs alternatives",
+        "content": "Useful comparisons such as Finance vs Marketing or Data Science vs AI only when both pages/paths exist."
+      },
+      {
+        "section": "How to choose a university for this specialisation",
+        "content": "Curriculum fit, electives, faculty/support, fees, exams, projects and career support."
+      },
+      {
+        "section": "University comparison",
+        "content": "Link to the relevant course comparison experience with the specialisation as the decision filter where supported."
+      },
+      {
+        "section": "Next step",
+        "content": "Contextual action such as Explore universities offering this specialisation or Compare available programmes."
+      },
+      {
+        "section": "FAQs",
+        "content": "Specialisation-specific questions only."
+      },
+      {
+        "section": "Sources and verification",
+        "content": "Official sources + last verified date."
+      }
+    ],
+    "specialisation_seo": {
+      "title_pattern": "{Specialisation} Online — Syllabus, Subjects, Fees, Universities & Career Options 2026-27",
+      "h1_pattern": "Online {Specialisation}: Syllabus, Subjects, Universities & Career Options",
+      "meta_pattern": "Explore Online {Specialisation}: subjects, syllabus, eligibility, fees, universities, skills, career options and programme comparison for 2026-27.",
+      "canonical": "Self-canonical.",
+      "schema": [
+        "BreadcrumbList",
+        "Course where appropriate",
+        "FAQPage only for visible valid FAQs"
+      ],
+      "indexation": "Index only when the page has substantial unique content and verified university availability.",
+      "thin_page_rule": "If there is insufficient unique evidence/content, do not index a thin page. Keep the specialisation discoverable through the course pillar instead."
+    },
+    "specialisation_internal_linking": {
+      "course_pillar_to_specialisation": "Course pillar → relevant specialisation page.",
+      "specialisation_to_university_course": "Specialisation page → exact university-course pages that offer it.",
+      "university_course_to_specialisation": "University-course page → relevant specialisation page.",
+      "specialisation_to_comparison": "Specialisation → course comparison filtered/positioned around relevant options where technically supported.",
+      "blogs_to_specialisation": "Relevant articles → specialisation page.",
+      "breadcrumbs": "Home → Online Courses → {Course} → {Specialisation}"
+    },
+    "specialisation_generation_workflow": [
+      "Extract all verified specialisation names from the university-course data layer.",
+      "Normalize spelling and slug format without changing official programme names.",
+      "Group equivalent names only when they genuinely represent the same academic area; preserve official names on university cards.",
+      "Count how many universities offer each specialisation.",
+      "Assess search intent and unique informational value.",
+      "Create an indexable page only when the threshold is met.",
+      "Populate the university availability list from verified records.",
+      "Write original explanation and decision guidance.",
+      "Attach official sources and last verified date.",
+      "Run duplication and cannibalisation checks."
+    ],
+    "quality_gate": {
+      "publish_only_if": [
+        "Specialisation is verified in at least one current programme source.",
+        "Page contains meaningful unique content beyond a university list.",
+        "University availability is current-session aware.",
+        "No generic curriculum is presented as universal.",
+        "Actual electives are clearly labelled as university-specific.",
+        "Career content is skill/role based and non-guaranteed.",
+        "Internal links work.",
+        "Canonical and indexation rules pass."
+      ]
+    }
+  },
+  "phase_7_supporting_content_cluster": {
+    "purpose": "Build supporting articles/guides around real search intent and connect them into the course, specialisation, university-course and comparison architecture.",
+    "content_types": [
+      "Blog",
+      "Guide",
+      "Explainer",
+      "University-specific informational article",
+      "Course decision article",
+      "Admission/fees/exam explainer",
+      "Career/specialisation explainer",
+      "News/update where there is a genuinely time-sensitive event"
+    ],
+    "content_pillars": [
+      "Course fundamentals",
+      "Eligibility",
+      "Fees",
+      "Admission",
+      "Curriculum",
+      "Specialisations",
+      "Examinations",
+      "Career",
+      "University decisions",
+      "Comparison",
+      "Recognition/entitlement explainers",
+      "Student process guides"
+    ],
+    "article_structure": [
+      "Search-intent-led title",
+      "Direct answer/summary near the top",
+      "Table of contents where useful",
+      "Context and explanation",
+      "Verified facts",
+      "Step-by-step/process section when applicable",
+      "Decision factors",
+      "Examples/table where useful",
+      "Common mistakes or things to verify",
+      "Relevant next step",
+      "FAQs only where genuinely useful",
+      "Sources and last updated/verified date"
+    ],
+    "article_seo": {
+      "title_rule": "Write for the actual question, not keyword stuffing.",
+      "h1": "One clear intent-matching H1.",
+      "slug": "Short, stable, human-readable slug.",
+      "meta": "Accurately describe the article; no clickbait.",
+      "headings": "Logical H2/H3 hierarchy.",
+      "canonical": "Self-canonical unless the article is intentionally consolidated.",
+      "schema": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage only when visible FAQs genuinely exist"
+      ],
+      "images": "Use descriptive alt text; do not use keyword-stuffed alt attributes.",
+      "freshness": "Update facts when they change; do not change dates simply to look fresh."
+    },
+    "source_hierarchy": [
+      "Official university programme/admission/syllabus pages",
+      "Official regulator/government sources",
+      "Official university prospectus/handbook",
+      "Official university notices",
+      "Reputable secondary sources for context",
+      "Competitor pages only for gap analysis and search-intent discovery, never as factual authority"
+    ],
+    "content_research_workflow": [
+      "Define one primary search intent.",
+      "Collect official facts first.",
+      "Identify what existing website content already covers.",
+      "Identify missing user questions.",
+      "Research competing pages only to discover gaps and structure.",
+      "Create an original outline.",
+      "Write the direct answer first.",
+      "Add evidence-backed detail.",
+      "Add internal links to the appropriate pillar/specialisation/university-course/comparison page.",
+      "Add one contextual next step.",
+      "Check duplication against existing pages.",
+      "Check factual claims and source freshness.",
+      "Publish only after editorial QA."
+    ],
+    "anti_cannibalization_matrix": {
+      "course_pillar": "Broad course intent.",
+      "specialisation": "Specialisation intent.",
+      "university_course": "Exact university + course intent.",
+      "comparison": "University/course comparison intent.",
+      "blog": "Specific question or subtopic intent.",
+      "news": "Time-sensitive announcement/update intent.",
+      "rule": "If two pages answer essentially the same question, consolidate or clearly differentiate them before publishing."
+    },
+    "internal_linking_rules": [
+      "Every article should have a clear parent topic.",
+      "Link upward to the relevant course pillar.",
+      "Link sideways to a relevant specialisation or comparison page when useful.",
+      "Link downward to exact university-course pages only when the article discusses that university/programme.",
+      "Avoid forcing the same anchor text into every article.",
+      "Do not build huge footer link farms.",
+      "Use contextual links where the user would naturally want the next answer."
+    ],
+    "news_rules": {
+      "create_news_only_when": [
+        "There is a real current event, official admission update, result, regulatory update or meaningful university announcement."
+      ],
+      "do_not": [
+        "Rewrite evergreen pages as news.",
+        "Publish fake urgency.",
+        "Create daily low-value news just for freshness.",
+        "Create multiple pages from the same announcement."
+      ]
+    }
+  },
+  "combined_content_quality_system": {
+    "content_score": {
+      "threshold": 85,
+      "weights": {
+        "factual_accuracy": 25,
+        "search_intent_fit": 15,
+        "unique_value": 15,
+        "source_quality": 15,
+        "decision_helpfulness": 10,
+        "internal_linking": 10,
+        "readability": 5,
+        "freshness": 5
+      }
+    },
+    "hard_fail_conditions": [
+      "Invented fact",
+      "Unsupported recognition/accreditation claim",
+      "Copied competitor wording",
+      "Generic AI filler",
+      "Duplicate page intent",
+      "Unverified current fee presented as fact",
+      "Invented specialisation/elective",
+      "Guaranteed placement/salary claim",
+      "Missing canonical on indexable page"
+    ]
+  },
+  "technical_and_ux_rules": {
+    "mobile": [
+      "No body-level horizontal overflow.",
+      "Specialisation cards remain readable at 320-414px.",
+      "Tables become controlled scroll containers or cards.",
+      "TOC remains compact.",
+      "Next-step links are visible but not intrusive.",
+      "Do not fill the first screen with popups."
+    ],
+    "performance": [
+      "Lazy-load below-fold images.",
+      "Reserve image dimensions to avoid layout shift.",
+      "Avoid unnecessary client-side rendering for SEO-critical text.",
+      "Keep structured data server-renderable where the current architecture allows."
+    ],
+    "accessibility": [
+      "Logical heading hierarchy.",
+      "Keyboard accessible accordions/cards.",
+      "Visible focus states.",
+      "Buttons have meaningful labels.",
+      "Images have useful alt text."
+    ]
+  },
+  "qa_before_phase_8": [
+    "Specialisation pages are generated only from verified specialisation data.",
+    "No thin specialisation pages are indexed.",
+    "Each indexed specialisation page has unique useful content.",
+    "Actual university-specific electives are distinguished from common explanatory content.",
+    "Specialisation → university-course links work.",
+    "University-course → specialisation links work.",
+    "Course pillar → specialisation links work.",
+    "Comparison links work.",
+    "Articles have one clear search intent.",
+    "No major article cannibalises a course pillar, specialisation or university-course page.",
+    "Sources and verification dates are present where required.",
+    "No unsupported claims.",
+    "Mobile QA passes.",
+    "SEO metadata/canonical/schema QA passes."
+  ],
+  "lovable_prompt": "PHASE 6–7 — SPECIALISATION PAGES + SUPPORTING CONTENT CLUSTER\n\nImplement the attached Phase 6–7 JSON.\n\nThis is a combined implementation of TWO layers:\n\nPHASE 6 = dedicated specialisation pages.\nPHASE 7 = supporting blogs/guides/articles/news architecture.\n\nIMPORTANT:\n1. Preserve all existing Phase 1–5 work.\n2. Do not delete or rewrite good existing university-course, course-pillar or comparison content.\n3. Do not change existing canonical URLs unless the JSON explicitly defines the new canonical route.\n4. Build a reusable data-driven specialisation template.\n5. Extract specialisations ONLY from verified university-course data.\n6. Do not invent specialisations or electives.\n7. Common curriculum explanation is allowed, but actual subjects/electives must remain university-specific and clearly labelled.\n8. A specialisation page must contain substantial unique value; do not create thin pages for every keyword variation.\n9. If a specialisation does not meet the quality/indexation threshold, keep it as a course-level navigation/filter rather than creating an indexable thin page.\n10. Every specialisation page must show which universities actually offer it.\n11. University availability must come from the verified programme data layer.\n12. Every specialisation page must link to exact university-course pages.\n13. Every relevant university-course page should link back to its specialisation page.\n14. Course pillars should link to relevant specialisations.\n15. Keep comparison links connected to the specialisation decision journey.\n16. Build the supporting content system around real search intent, not keyword permutations.\n17. Every blog/article must have one primary intent and a distinct role in the architecture.\n18. Do not copy competitor content. Competitor pages can only be used for gap/intent analysis.\n19. Official university/regulator sources are the factual authority.\n20. Do not invent fees, curriculum, electives, recognition, rankings, placement percentages or salaries.\n21. Add source and last-verified handling for dynamic facts.\n22. Use contextual Next Step navigation instead of aggressive repeated CTAs.\n23. Do not create fake news or publish thin articles merely to increase page count.\n24. Apply the anti-cannibalisation rules in this JSON.\n25. Keep mobile UX clean and prevent body-level horizontal overflow.\n26. Preserve existing analytics, routing, SEO infrastructure and working functionality.\n\nSPECIALISATION URL RULE:\nUse:\n /online-courses/{course}/{specialisation}\n\nOnly index a specialisation URL when it has sufficient unique content and verified programme availability.\n\nAfter implementation, provide a report containing:\n- specialisations discovered\n- specialisation pages created\n- specialisations intentionally NOT indexed and why\n- universities mapped to each specialisation\n- university-course links verified\n- article/content types created\n- cannibalisation issues found\n- duplicate content removed/prevented\n- source/verification coverage\n- SEO/canonical/schema audit\n- mobile QA\n- files/components changed\n- anything requiring manual review\n\nThis is PHASE 6–7 ONLY. Do not implement Phase 8."
+}

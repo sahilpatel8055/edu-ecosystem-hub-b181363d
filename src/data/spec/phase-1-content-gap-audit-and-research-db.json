@@ -1,0 +1,710 @@
+{
+  "meta": {
+    "phase": 1,
+    "title": "Content Gap Audit + Research DB Foundation",
+    "generated_for": "AVEDU / clean-slate",
+    "generated_on": "2026-08-13",
+    "purpose": "Do not replace good existing content. This file identifies only missing, weak, conflicting or unsafe content/data that should be researched and implemented next.",
+    "source_of_truth": "clean-slate-main.zip supplied by user",
+    "important_rule": "Existing verified/strong content must remain untouched unless a later phase explicitly replaces a weak or conflicting field."
+  },
+  "do_not_touch_in_phase_1": [
+    "Existing working UI/components",
+    "Existing routes and canonical URL strategy",
+    "Existing authored Online MBA content unless a specific factual conflict is found",
+    "Existing university comparison UI/routes",
+    "Existing source metadata that is already correct",
+    "Existing good university/course data"
+  ],
+  "critical_findings": [
+    {
+      "id": "CF-01",
+      "severity": "BLOCKER",
+      "issue": "The 14-university master dataset is only partially verified and has large empty field groups.",
+      "evidence": "All 14 records are marked partial_verification; most have empty admission details, scholarship arrays, and several recognition/basic-information fields.",
+      "action": "Do not publish these empty fields as generic prose. Research and populate them from current official sources in Phase 2."
+    },
+    {
+      "id": "CF-02",
+      "severity": "BLOCKER",
+      "issue": "university-course-master-content.json contains a stale/mismatched university_research universe.",
+      "evidence": "Current university master has Amity, MUJ, VGU, LPU, DU SOL, IGNOU, NMIMS, CU, DPU, NSOU, KSOU, Subharti, BAOU and JAIN. The research object instead includes SMU, Sharda, OP Jindal, Galgotias, Parul and MAHE and omits several current universities.",
+      "action": "Do not merge this research object into current university pages. Rebuild the research registry against the current 14-university master list."
+    },
+    {
+      "id": "CF-03",
+      "severity": "BLOCKER",
+      "issue": "Only Online MBA is fully authored at the reusable course-family level.",
+      "evidence": "course-pages/index.ts contains authored content only for online-mba; other families fall back to defaultCourseContent().",
+      "action": "Create authored research/content files for Online MCA, BBA, BCA, B.Com, BA, MA, M.Sc and M.Com before treating those course hubs as content-complete."
+    },
+    {
+      "id": "CF-04",
+      "severity": "HIGH",
+      "issue": "Generic fallback course content contains generic curriculum, exam and learning statements that can read as if they apply to every university.",
+      "action": "Replace generic factual-looking statements with course-level explanatory content plus university-specific verified facts; keep universal statements clearly labelled as general guidance."
+    },
+    {
+      "id": "CF-05",
+      "severity": "HIGH",
+      "issue": "Blog/news library is very small: only 9 long-form post-content objects exist.",
+      "action": "Keep the existing 9; build a research-backed editorial backlog rather than mass-generating thin variants."
+    },
+    {
+      "id": "CF-06",
+      "severity": "HIGH",
+      "issue": "The current data model has university-level scholarship arrays empty even though separate research files contain scholarship information.",
+      "action": "Create one authoritative scholarship dataset with programme-specific overrides and source/verification metadata."
+    },
+    {
+      "id": "CF-07",
+      "severity": "HIGH",
+      "issue": "Some current source records use secondary/aggregator sources for facts that should be official.",
+      "action": "Use official university/regulator documents first; secondary sources may identify gaps but must not become the authority for fees, eligibility, scholarships, curriculum or exam rules."
+    }
+  ],
+  "current_course_family_gap": {
+    "families": [
+      {
+        "slug": "online-mba",
+        "status": "AUTHORED",
+        "next_action": "Preserve; audit only factual freshness."
+      },
+      {
+        "slug": "online-mca",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      },
+      {
+        "slug": "online-bba",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      },
+      {
+        "slug": "online-bca",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      },
+      {
+        "slug": "online-bcom",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      },
+      {
+        "slug": "online-ba",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      },
+      {
+        "slug": "online-ma",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      },
+      {
+        "slug": "online-msc",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      },
+      {
+        "slug": "online-mcom",
+        "status": "GENERIC_FALLBACK",
+        "next_action": "Create dedicated researched content."
+      }
+    ],
+    "rule": "Do not copy Online MBA prose into other course hubs. Build each course around its own search intent, curriculum logic, career pathways and university differences."
+  },
+  "university_missing_content": [
+    {
+      "slug": "amity-online",
+      "university": "Amity University Online",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NAAC_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "manipal-university-jaipur",
+      "university": "Manipal University Jaipur / Online Manipal",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NAAC_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "vgu",
+      "university": "Vivekananda Global University",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "lpu-online",
+      "university": "Lovely Professional University Online",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "du-sol",
+      "university": "University of Delhi – School of Open Learning",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NAAC_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "ignou",
+      "university": "Indira Gandhi National Open University",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.NAAC_status",
+        "recognition.NIRF_information",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "nmims-online",
+      "university": "NMIMS CDOE / NMIMS Online",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NAAC_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "chandigarh-university-online",
+      "university": "Chandigarh University Online",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NIRF_information",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "dpu-online",
+      "university": "Dr. D. Y. Patil Vidyapeeth / DPU Online",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "nsou",
+      "university": "Netaji Subhas Open University",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "ksou-mysuru",
+      "university": "Karnataka State Open University (KSOU), Mysuru",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "subharti-university",
+      "university": "Swami Vivekanand Subharti University",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_status",
+        "recognition.UGC_DEB_status",
+        "recognition.NAAC_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "baou",
+      "university": "Dr. Babasaheb Ambedkar Open University",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    },
+    {
+      "slug": "jain-online",
+      "university": "JAIN Online / JAIN University",
+      "missing_or_empty_fields": [
+        "official_admission_portal",
+        "established_year",
+        "official_contact",
+        "official_prospectus_url",
+        "official_admission_notification_url",
+        "recognition.UGC_DEB_status",
+        "recognition.NAAC_status",
+        "recognition.NIRF_information",
+        "recognition.accreditation",
+        "admissions.admission_start_date",
+        "admissions.admission_end_date",
+        "admissions.application_fee",
+        "admissions.application_url",
+        "admissions.admission_steps",
+        "admissions.required_documents",
+        "admissions.selection_process",
+        "admissions.entrance_exam",
+        "admissions.direct_admission",
+        "admissions.official_admission_notification",
+        "scholarships"
+      ]
+    }
+  ],
+  "university_content_layers_to_build_next": [
+    "University identity and factual overview",
+    "Approvals and recognition with regulator/source evidence",
+    "Current admission cycle and step-by-step process",
+    "Examination pattern and assessment method",
+    "Scholarship/concession criteria with eligibility and documents",
+    "University-wide learning/support infrastructure",
+    "University-wide career support (only common facts)",
+    "Course catalogue with current programme status",
+    "Fee structure with fee components and effective date",
+    "Official documents/source centre",
+    "Last verified / next review metadata"
+  ],
+  "university_course_layers_to_build_after_university_layer": [
+    "Exact programme identity",
+    "Programme-specific fee",
+    "Programme-specific eligibility",
+    "Programme-specific admission",
+    "Programme-specific examination pattern",
+    "University-specific semester curriculum",
+    "Specialisation/elective mapping",
+    "Programme-specific scholarship overrides",
+    "Learning experience",
+    "Career opportunities and realistic job roles",
+    "Placement/career-support facts",
+    "Degree/certificate information",
+    "Who should choose / who should reconsider",
+    "University-specific comparison insights",
+    "Programme FAQs",
+    "Sources and last verified"
+  ],
+  "course_hub_layers_to_build_after_university_course_layer": [
+    "What the course is",
+    "Who the course is for",
+    "Eligibility across universities",
+    "Typical duration and study load",
+    "How online learning works",
+    "Common curriculum themes",
+    "University-by-university curriculum differences",
+    "Specialisation landscape",
+    "Fee comparison",
+    "Admission comparison",
+    "Examination comparison",
+    "Career pathways",
+    "Role/skill mapping",
+    "Pros and limitations",
+    "How to choose a university",
+    "Comparison tool integration",
+    "Course-level FAQs",
+    "Research sources and update date"
+  ],
+  "blog_article_news_gap_strategy": {
+    "existing_content_action": "Preserve the 9 existing long-form posts and audit factual freshness individually.",
+    "new_content_rule": "Every new article must have a distinct user problem, primary source set, original angle, internal-link destination and update plan.",
+    "content_types_to_prioritize": [
+      "Admission explainers",
+      "Fee explainers",
+      "Examination/proctored-exam explainers",
+      "Scholarship eligibility explainers",
+      "Curriculum/specialisation explainers",
+      "University-vs-university comparisons",
+      "Course-vs-course comparisons",
+      "Career and job-role guides",
+      "Recognition/UGC/DEB verification guides",
+      "2026-27 admission deadline/news updates",
+      "Student decision guides"
+    ],
+    "do_not_create": [
+      "Near-duplicate university fee articles",
+      "Keyword-swapped versions of the same article",
+      "Generic 1000-word AI summaries",
+      "Articles based only on competitor copy",
+      "News pages without a dated primary source"
+    ]
+  },
+  "research_source_registry": [
+    {
+      "university": "Amity University Online",
+      "source_type": "official_programme",
+      "url": "https://amityonline.com/programs",
+      "research_note": "Current official programme hub; lists UG/PG offerings and current programme variants."
+    },
+    {
+      "university": "Manipal University Jaipur / Online Manipal",
+      "source_type": "official_programme",
+      "url": "https://www.onlinemanipal.com/online-mba-courses/admission-fee-eligibility-details",
+      "research_note": "Current 2026 MBA admission, fee, eligibility, scholarship and process details; page distinguishes MUJ/MAHE/SMU."
+    },
+    {
+      "university": "Vivekananda Global University",
+      "source_type": "official_programme",
+      "url": "https://www.onlinevgu.com/",
+      "research_note": "Current programme hub; publishes course duration and fee for listed online programmes."
+    },
+    {
+      "university": "LPU Online",
+      "source_type": "official_university",
+      "url": "https://www.lpu.in/",
+      "research_note": "Use programme-specific official pages and current admission notices; do not infer online MBA facts from campus MBA pages."
+    },
+    {
+      "university": "University of Delhi – School of Open Learning",
+      "source_type": "official_admission",
+      "url": "https://sol.du.ac.in/",
+      "research_note": "Current 2026-27 SOL admission portal and prospectus/programme list."
+    },
+    {
+      "university": "IGNOU",
+      "source_type": "official_prospectus",
+      "url": "https://www.ignou.ac.in/viewFile/soms/profile/Prospectus-MBA-2026.pdf",
+      "research_note": "Current MBA handbook/prospectus contains eligibility, fees, admission and evaluation details."
+    },
+    {
+      "university": "NMIMS Online",
+      "source_type": "official_programme",
+      "url": "https://online.nmims.edu/admission-process/mba-online-process",
+      "research_note": "Current MBA eligibility, fee options, admission processing fee, exam/project fees and programme conditions."
+    },
+    {
+      "university": "Chandigarh University Online",
+      "source_type": "official_programme",
+      "url": "https://www.onlinecu.in/online-mba.php",
+      "research_note": "Current MBA programme page; fee, curriculum, learning/career support and admission process are available."
+    },
+    {
+      "university": "DPU Online",
+      "source_type": "official_programme_document",
+      "url": "https://dpu.edu.in/documents/2026/information-brochure/mba-2026-27-ver1.pdf",
+      "research_note": "Current 2026-27 MBA brochure; includes entrance routes, dates, fees and online proctored test information."
+    },
+    {
+      "university": "Netaji Subhas Open University",
+      "source_type": "official_admission",
+      "url": "https://www.wbnsou.ac.in/student_zone/admissions/admission_information/admission_information_2026.shtml",
+      "research_note": "Current 2026 admission information; programme notices and prospectus links."
+    },
+    {
+      "university": "Karnataka State Open University (KSOU), Mysuru",
+      "source_type": "official_prospectus",
+      "url": "https://www.ksoumysuru.ac.in/index.php/prospectus/",
+      "research_note": "Use the current 2026-27 prospectus as primary programme/fee/curriculum source."
+    },
+    {
+      "university": "Swami Vivekanand Subharti University",
+      "source_type": "official_online_portal",
+      "url": "https://subhartidde.com/",
+      "research_note": "Use current programme-specific fee/admission documents; do not rely on generic aggregator summaries."
+    },
+    {
+      "university": "Dr. Babasaheb Ambedkar Open University",
+      "source_type": "official_university",
+      "url": "https://baou.edu.in/",
+      "research_note": "Use current mandatory disclosure, programme and admission documents for ODL/online facts."
+    },
+    {
+      "university": "JAIN Online / JAIN University",
+      "source_type": "official_online_portal",
+      "url": "https://www.jain-online.com/",
+      "research_note": "Use current programme-specific pages for fees, admission, curriculum and scholarship criteria."
+    }
+  ],
+  "fresh_web_research_notes": [
+    {
+      "entity": "Amity University Online",
+      "finding": "Current official programme hub lists 48 programs and 29 certifications and shows multiple UG/PG programme variants, so the existing programme count/content must be reconciled against the current official catalogue.",
+      "source": "https://amityonline.com/programs"
+    },
+    {
+      "entity": "Manipal University Jaipur / Online Manipal",
+      "finding": "Current official MBA page separates MUJ, MAHE and SMU and provides current 2026 admission, fee, eligibility and scholarship information. Do not merge the three universities into one generic Manipal record.",
+      "source": "https://www.onlinemanipal.com/online-mba-courses/admission-fee-eligibility-details"
+    },
+    {
+      "entity": "Vivekananda Global University",
+      "finding": "Current official hub lists Online BA, BBA, BCA, MA, MBA, MBA-IF, MCA, MAJMC and M.Sc Mathematics with current duration/fee values.",
+      "source": "https://www.onlinevgu.com/"
+    },
+    {
+      "entity": "IGNOU",
+      "finding": "Current official 2026 MBA prospectus provides exact eligibility, fee, admission and evaluation details; MBA can be completed in 24 months minimum and 48 months maximum, with semester-specific fees.",
+      "source": "https://www.ignou.ac.in/viewFile/soms/profile/Prospectus-MBA-2026.pdf"
+    },
+    {
+      "entity": "NMIMS Online",
+      "finding": "Current official MBA admission page gives 2026 eligibility and fee options and states additional processing, examination and project fees. These fee components should be represented separately rather than only as a total.",
+      "source": "https://online.nmims.edu/admission-process/mba-online-process"
+    },
+    {
+      "entity": "Chandigarh University Online",
+      "finding": "Current official pages expose programme fees, curriculum, admission steps, LMS, career services and placement-support claims. The site shows different fee figures across pages, so fee reconciliation is required before publication.",
+      "source": "https://www.onlinecu.in/online-mba.php"
+    },
+    {
+      "entity": "DPU Online",
+      "finding": "Current 2026-27 official MBA brochure contains online proctored entrance-test routes, application/test fees, dates and programme fee information. This is much stronger than using a generic university page.",
+      "source": "https://dpu.edu.in/documents/2026/information-brochure/mba-2026-27-ver1.pdf"
+    },
+    {
+      "entity": "NSOU",
+      "finding": "Current official 2026 admission page contains July 2026 UG/PG admission notifications, steps, prospectus links and programme-specific notices. Use those documents rather than old generic admission text.",
+      "source": "https://www.wbnsou.ac.in/student_zone/admissions/admission_information/admission_information_2026.shtml"
+    }
+  ],
+  "phase_1_lovable_instructions": {
+    "objective": "Implement only the content-data foundation. Do not rewrite visible page content yet.",
+    "steps": [
+      "Create a content-research status layer for every university, course family and university-course record.",
+      "Add source metadata fields: sourceUrl, sourceType, sourceTitle, verifiedOn, verificationStatus, effectiveSession.",
+      "Create explicit statuses: verified_official, verified_regulatory, secondary_reference_only, conflicting, missing, outdated.",
+      "Rebuild the university research registry so it contains exactly the current 14 universities.",
+      "Do not import the stale university_research entries for SMU, Sharda, OP Jindal, Galgotias, Parul or MAHE into the current 14-university content system.",
+      "Mark Online MBA as authored_existing; mark the other eight course families as content_required.",
+      "Add a contentReusePolicy at every layer: university-level facts may be inherited only when relevant; long-form paragraphs must not be duplicated into university-course pages.",
+      "Do not fabricate missing fields. Render 'Not published by the university' or equivalent only after the research status confirms the official source was checked.",
+      "Do not change routes, UI, SEO URLs, comparison pages or existing good content in this phase.",
+      "Create a QA report that lists remaining missing fields after the data-status layer is implemented."
+    ]
+  },
+  "phase_order": {
+    "phase_1": "Content research DB + source/verification normalization (this file)",
+    "phase_2": "14 university pages: missing factual content only",
+    "phase_3": "University × course pages: programme-specific content for the supported 155 records",
+    "phase_4": "Main course hubs: MCA/BBA/BCA/B.Com/BA/MA/M.Sc/M.Com",
+    "phase_5": "Comparison insight layer: original analysis derived from the same verified data",
+    "phase_6": "Blog/article/news research backlog + first high-value content batch",
+    "phase_7": "Future dissertation/study-resource knowledge hub",
+    "phase_8": "Editorial QA, originality, source audit, freshness and Search Console feedback loop"
+  },
+  "quality_gate": {
+    "publish_only_if": [
+      "Important factual claims have an official/regulatory source or are explicitly labelled as general guidance.",
+      "No conflicting source is silently merged.",
+      "The page adds original analysis or decision guidance beyond a source summary.",
+      "Long-form duplication between university, course hub and university-course pages is avoided.",
+      "Current academic session is explicit.",
+      "Last verified date is stored.",
+      "Unknown data is not invented."
+    ]
+  }
+}
