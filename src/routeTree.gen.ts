@@ -33,6 +33,7 @@ import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompareComparisonRouteImport } from './routes/compare.$comparison'
+import { Route as CompareUniversitiesRouteImport } from './routes/compare.universities'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
@@ -172,6 +173,11 @@ const CompareComparisonRoute = CompareComparisonRouteImport.update({
   path: '/$comparison',
   getParentRoute: () => CompareRoute,
 } as any)
+const CompareUniversitiesRoute = CompareUniversitiesRouteImport.update({
+  id: '/universities',
+  path: '/universities',
+  getParentRoute: () => CompareRoute,
+} as any)
 const CoursesIndexRoute = CoursesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -294,6 +300,7 @@ export interface FileRoutesByFullPath {
   '/universities': typeof UniversitiesRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
   '/compare/$comparison': typeof CompareComparisonRoute
+  '/compare/universities': typeof CompareUniversitiesRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
@@ -333,6 +340,7 @@ export interface FileRoutesByTo {
   '/tools': typeof ToolsRoute
   '/blogs/$slug': typeof BlogsSlugRoute
   '/compare/$comparison': typeof CompareComparisonRoute
+  '/compare/universities': typeof CompareUniversitiesRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
   '/blogs': typeof BlogsIndexRoute
@@ -377,6 +385,7 @@ export interface FileRoutesById {
   '/universities': typeof UniversitiesRouteWithChildren
   '/blogs/$slug': typeof BlogsSlugRoute
   '/compare/$comparison': typeof CompareComparisonRoute
+  '/compare/universities': typeof CompareUniversitiesRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
@@ -423,6 +432,7 @@ export interface FileRouteTypes {
     | '/universities'
     | '/blogs/$slug'
     | '/compare/$comparison'
+    | '/compare/universities'
     | '/courses/$course'
     | '/news/$slug'
     | '/universities/$slug'
@@ -462,6 +472,7 @@ export interface FileRouteTypes {
     | '/tools'
     | '/blogs/$slug'
     | '/compare/$comparison'
+    | '/compare/universities'
     | '/courses/$course'
     | '/news/$slug'
     | '/blogs'
@@ -505,6 +516,7 @@ export interface FileRouteTypes {
     | '/universities'
     | '/blogs/$slug'
     | '/compare/$comparison'
+    | '/compare/universities'
     | '/courses/$course'
     | '/news/$slug'
     | '/universities/$slug'
@@ -722,6 +734,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareComparisonRouteImport
       parentRoute: typeof CompareRoute
     }
+    '/compare/universities': {
+      id: '/compare/universities'
+      path: '/universities'
+      fullPath: '/compare/universities'
+      preLoaderRoute: typeof CompareUniversitiesRouteImport
+      parentRoute: typeof CompareRoute
+    }
     '/courses/': {
       id: '/courses/'
       path: '/'
@@ -865,12 +884,14 @@ const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
 
 interface CompareRouteChildren {
   CompareComparisonRoute: typeof CompareComparisonRoute
+  CompareUniversitiesRoute: typeof CompareUniversitiesRoute
   CompareIndexRoute: typeof CompareIndexRoute
   CompareCoursePairRoute: typeof CompareCoursePairRoute
 }
 
 const CompareRouteChildren: CompareRouteChildren = {
   CompareComparisonRoute: CompareComparisonRoute,
+  CompareUniversitiesRoute: CompareUniversitiesRoute,
   CompareIndexRoute: CompareIndexRoute,
   CompareCoursePairRoute: CompareCoursePairRoute,
 }
