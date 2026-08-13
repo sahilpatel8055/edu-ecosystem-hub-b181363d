@@ -30,6 +30,10 @@ export interface FeeBreakdown {
   perYear?: number | null;
   /** Lowest advertised no-cost EMI, INR/month. */
   emiFrom?: number | null;
+  /** Published list price before the current discount, when one applies. */
+  listTotal?: number | null;
+  /** Discount applied to the list price, in percent. */
+  discountPercent?: number | null;
   registrationFee?: number | null;
   examFee?: number | null;
   currency: "INR";
