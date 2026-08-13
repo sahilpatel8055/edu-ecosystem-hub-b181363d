@@ -24,6 +24,7 @@ import bhartiLogo from "@/logo/bharti.png";
 import shooliniLogo from "@/logo/shoolni.png";
 import gnaLogo from "@/logo/gna.png";
 import avedu from "@/logo/avedu-logo.png";
+import manipalLogo from "@/assets/manipal-logo.jpg";
 
 import lpuCampus from "@/campus/lpu.png";
 import amityCampus from "@/campus/amity.jpg";
@@ -79,6 +80,7 @@ const logos: Record<string, string> = {
   "symbiosis-online": symbiosisLogo,
   "shoolini-online": shooliniLogo,
   "gna-online": gnaLogo,
+  "manipal-university-jaipur": manipalLogo,
 };
 
 /** Campus photography keyed by university slug. */
