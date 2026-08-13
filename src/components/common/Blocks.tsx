@@ -268,11 +268,12 @@ export function StickyMobileCTA({
   ];
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
-      <div className="relative border-t border-white/25 bg-[#7f1813]/35 pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-18px_40px_-20px_oklch(0_0_0/0.55),inset_0_1px_0_oklch(1_0_0/0.35)] backdrop-blur-2xl backdrop-saturate-200">
+      <div className="relative border-t border-white/30 bg-[#7f1813]/18 pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-18px_40px_-20px_oklch(0_0_0/0.45),inset_0_1px_0_oklch(1_0_0/0.45)] backdrop-blur-3xl backdrop-saturate-200">
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/25 via-white/5 to-black/20"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/30 via-white/5 to-black/10"
         />
+
         <nav className="relative grid grid-cols-5 items-end px-1 pt-2 pb-1.5">
           {items.slice(0, 2).map((i) => (
             <NavItem key={i.to} {...i} />
