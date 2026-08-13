@@ -21,7 +21,11 @@ export function SectionBanner({
 }) {
   const banner = banners[kind];
   return (
-    <figure className="box-hover overflow-hidden rounded-2xl border border-border bg-card">
+    <figure
+      className={`box-hover overflow-hidden rounded-2xl border border-border bg-card ${
+        size === "lg" ? "" : "mb-4"
+      }`}
+    >
       <img
         src={banner.src}
         alt={banner.alt}
