@@ -129,7 +129,7 @@ function FactGrid({ items }: { items: Array<{ label: string; value: string }> })
     <dl className="grid grid-cols-2 gap-3 sm:grid-cols-2">
       {items.map((f) => (
         <div key={f.label} className="box-hover rounded-xl border border-border bg-card px-3.5 py-3">
-          <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{f.label}</dt>
+          <dt className="text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-foreground">{f.label}</dt>
           <dd className="mt-1 text-sm leading-relaxed text-foreground">{f.value}</dd>
         </div>
       ))}

@@ -27,8 +27,9 @@ export function ApprovalsSection({
   const [open, setOpen] = useState(false);
   const primary = approvals.filter((a) => PRIMARY.test(a.body.trim()));
   const other = approvals.filter((a) => !PRIMARY.test(a.body.trim()));
-  const shown = primary.length ? primary : approvals;
-  const rest = primary.length ? other : [];
+  // Every approval is shown in the scrolling strip, statutory bodies first.
+  const shown = [...primary, ...other];
+  const rest: typeof approvals = [];
 
   return (
     <div className="space-y-4">
