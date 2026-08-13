@@ -9,7 +9,7 @@ import {
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { LinkCluster } from "@/components/common/Blocks";
-import { UniversityMasthead } from "@/components/common/UniversityMasthead";
+import { UniversityHero } from "@/components/university/UniversityHero";
 import { AppLink } from "@/components/common/AppLink";
 import { ApprovalsSection } from "@/components/university/ApprovalsSection";
 import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
@@ -197,7 +197,7 @@ function Page() {
           { name: "Universities", href: "/universities" },
           { name: u.shortName, href: path },
         ]}
-        hero={<UniversityMasthead university={u} />}
+        hero={<UniversityHero university={u} />}
         eyebrow={`${u.type ? `${u.type} university · ` : ""}${u.modes.join(" / ")}`}
         title={`${u.name}: Fees, Courses, Approvals & Admission 2026`}
         subtitle={u.summary}
@@ -208,13 +208,13 @@ function Page() {
           "Approvals & recognition",
           "Courses & fees",
           ...(hasFeeTable ? ["Fee structure"] : []),
-          "Specialisations",
-          ...(hasDegreeSample ? ["Degree & certificate"] : []),
           "Admission process",
           "Examination pattern",
-          "Learning experience",
+          "Specialisations",
+          ...(hasDegreeSample ? ["Degree & certificate"] : []),
           "Placement & career",
           "Scholarships",
+          "Learning experience",
           "Why consider",
           "Things to consider",
           "Who it suits",
@@ -282,19 +282,6 @@ function Page() {
           </ContentSection>
         )}
 
-        <ContentSection title="Specialisations">
-          <UniversitySpecialisations slug={slug} />
-        </ContentSection>
-
-        {hasDegreeSample && (
-          <ContentSection title="Degree & certificate">
-            <div className="space-y-5">
-              <SampleDegreeSection universityName={u.name} universitySlug={slug} />
-              <UniversityDegreeFacts slug={slug} />
-            </div>
-          </ContentSection>
-        )}
-
         <ContentSection title="Admission process" tone="admission">
           <div className="space-y-5">
             <SectionBanner kind="admission" />
@@ -308,9 +295,18 @@ function Page() {
           <ExaminationPatternSection universitySlug={slug} universityShort={u.shortName} />
         </ContentSection>
 
-        <ContentSection title="Learning experience">
-          <UniversityLearningExperience slug={slug} shortName={u.shortName} />
+        <ContentSection title="Specialisations">
+          <UniversitySpecialisations slug={slug} />
         </ContentSection>
+
+        {hasDegreeSample && (
+          <ContentSection title="Degree & certificate">
+            <div className="space-y-5">
+              <SampleDegreeSection universityName={u.name} universitySlug={slug} />
+              <UniversityDegreeFacts slug={slug} />
+            </div>
+          </ContentSection>
+        )}
 
         <ContentSection title="Placement & career">
           <div className="space-y-5">
@@ -327,6 +323,10 @@ function Page() {
             <ScholarshipList items={scholarshipsOf(slug)} />
             <UniversityScholarshipCTA slug={slug} shortName={u.shortName} />
           </div>
+        </ContentSection>
+
+        <ContentSection title="Learning experience">
+          <UniversityLearningExperience slug={slug} shortName={u.shortName} />
         </ContentSection>
 
         <ContentSection title="Why consider">
