@@ -1,5 +1,6 @@
 import type { Offering } from "./types";
 import { allProgrammePairs, slugify } from "@/lib/universityData";
+import { sheetFee } from "@/lib/feeSheet";
 
 /**
  * Derived view of the master JSON dataset: one row per university × programme.
@@ -7,6 +8,7 @@ import { allProgrammePairs, slugify } from "@/lib/universityData";
  * the row rather than display an invented number.
  */
 export const offerings: Offering[] = allProgrammePairs().map(({ university, programme }) => {
+  const corrected = sheetFee(university.slug, programme.slug, programme.duration);
   const row: Offering = {
     id: `${university.slug}--${programme.slug}`,
     universitySlug: university.slug,
@@ -14,15 +16,18 @@ export const offerings: Offering[] = allProgrammePairs().map(({ university, prog
     specialisations: programme.specializations.map((s) => slugify(s.specialisation_name)),
     durationLabel: programme.duration ?? "",
     fee: {
-      total: programme.fees.total_programme_fee,
-      perSemester: programme.fees.semester,
-      perYear: programme.fees.annual,
-      emiFrom: programme.fees.emi,
+      total: corrected?.total ?? programme.fees.total_programme_fee,
+      perSemester: corrected?.perSemester ?? programme.fees.semester,
+      perYear: corrected?.perYear ?? programme.fees.annual,
+      emiFrom: corrected?.emiFrom ?? programme.fees.emi,
+      listTotal: corrected?.listTotal ?? null,
+      discountPercent: corrected?.discountPercent ?? null,
       registrationFee: programme.fees.registration_fee,
       examFee: programme.fees.examination_fee,
       currency: "INR",
     },
-    verified: (programme.fees.fee_verification_status ?? "").startsWith("verified_official"),
+    verified:
+      corrected != null || (programme.fees.fee_verification_status ?? "").startsWith("verified_official"),
     lastUpdated: programme.last_verified ?? "",
   };
   const status = programme.admission.application_status;

@@ -66,16 +66,23 @@ export function ApprovalBox({ body, status }: { body: string; status?: string | 
   );
 }
 
-/** Approvals & recognition strip used across university and course pages. */
+/**
+ * Approvals & recognition: every approval a university publishes, in one
+ * manually scrollable horizontal strip (no auto-scroll).
+ */
 export function ApprovalMarquee({ approvals }: { approvals: Array<{ body: string; status?: string }> }) {
   if (!approvals.length) return null;
   return (
-    <BoxMarquee
-      ariaLabel="Approvals and recognition"
-      items={approvals.map((a) => (
-        <ApprovalBox key={a.body} body={a.body} status={a.status} />
+    <ul
+      aria-label="Approvals and recognition"
+      className="-mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto px-1 pb-2"
+    >
+      {approvals.map((a) => (
+        <li key={a.body} className="w-[12.5rem] shrink-0 snap-start sm:w-[14rem]">
+          <ApprovalBox body={a.body} status={a.status} />
+        </li>
       ))}
-    />
+    </ul>
   );
 }
 

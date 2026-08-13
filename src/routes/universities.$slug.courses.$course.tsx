@@ -39,6 +39,7 @@ import {
   comparisonLinks,
   offeringLinks,
   offeringProfile,
+  onlineName,
   providerLinks,
 } from "@/lib/entities";
 import {
@@ -166,7 +167,7 @@ function Page() {
         crumbs={[
           { name: "Universities", href: "/universities" },
           { name: u.shortName, href: `/universities/${u.slug}` },
-          { name: p.shortName, href: profile.path },
+          { name: onlineName(p.shortName), href: profile.path },
         ]}
         eyebrow={`${u.shortName} · ${p.level} programme`}
         title={`${u.shortName} ${p.name}: Fees, Eligibility & Admission 2026`}
@@ -260,22 +261,10 @@ function Page() {
 
         <ContentSection title="Fee structure">
           <FeeHighlight fee={offering.fee} duration={offering.durationLabel} />
-          <DataTable
-            caption="Fee components"
-            head={["Component", "Amount"]}
-            rows={[
-              ["Programme fee band", p.feeRangeLabel],
-              ["Total (official figure)", offering.fee.total ? `₹${offering.fee.total.toLocaleString("en-IN")}` : "Awaiting official confirmation"],
-              ["Per semester", offering.fee.perSemester ? `₹${offering.fee.perSemester.toLocaleString("en-IN")}` : "Awaiting official confirmation"],
-              ["EMI from", offering.fee.emiFrom ? `₹${offering.fee.emiFrom.toLocaleString("en-IN")}/month` : "Available via university partners"],
-            ]}
-          />
           <p className="text-xs">
             Figures are published only after verification against the university's own fee schedule — nothing on this
             page is estimated.
           </p>
-          <MasterFacts data={master} universityShort={u.shortName} />
-          <p className="text-xs">Research data last reviewed {masterResearchDate}.</p>
         </ContentSection>
 
         <ContentSection title="Eligibility">
@@ -300,12 +289,14 @@ function Page() {
         </ContentSection>
 
         <ContentSection title="Examination pattern">
-          <ExaminationPatternSection
-            universitySlug={u.slug}
-            universityShort={u.shortName}
-            courseSlug={p.slug}
-            courseName={`${u.shortName} ${p.shortName}`}
-          />
+          <div className="rounded-2xl border-2 border-brand p-4 sm:p-5">
+            <ExaminationPatternSection
+              universitySlug={u.slug}
+              universityShort={u.shortName}
+              courseSlug={p.slug}
+              courseName={`${u.shortName} ${p.shortName}`}
+            />
+          </div>
         </ContentSection>
 
         <ContentSection title="Career opportunities">
