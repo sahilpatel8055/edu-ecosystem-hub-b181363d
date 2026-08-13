@@ -26,6 +26,17 @@ import { breadcrumbSchema, canonical, faqSchema, itemListSchema, jsonLd, pageMet
 
 export const Route = createFileRoute("/compare/$comparison")({
   loader: ({ params }) => {
+    const family = getCourseFamily(params.comparison);
+    if (family?.offers.length) {
+      return {
+        kind: "course" as const,
+        leftName: family.name,
+        leftShort: family.name,
+        rightName: family.name,
+        rightShort: family.name,
+        count: family.offers.length,
+      };
+    }
     const mp = masterPairBySlug(params.comparison);
     if (mp) {
       return {
@@ -57,6 +68,7 @@ export const Route = createFileRoute("/compare/$comparison")({
       summary: editorial.summary,
     };
   },
+
 
   head: ({ params, loaderData }) => {
     const path = `/compare/${params.comparison}`;
