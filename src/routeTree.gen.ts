@@ -30,11 +30,13 @@ import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-condi
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as UniversitiesRouteImport } from './routes/universities'
 import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
+import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompareComparisonRouteImport } from './routes/compare.$comparison'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
 import { Route as CompareCoursePairRouteImport } from './routes/compare.$course.$pair'
@@ -155,6 +157,11 @@ const BlogsIndexRoute = BlogsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BlogsRoute,
 } as any)
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogsRoute,
+} as any)
 const CompareIndexRoute = CompareIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -178,6 +185,11 @@ const CoursesCourseRoute = CoursesCourseRouteImport.update({
 const NewsIndexRoute = NewsIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => NewsRoute,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
   getParentRoute: () => NewsRoute,
 } as any)
 const UniversitiesIndexRoute = UniversitiesIndexRouteImport.update({
@@ -280,8 +292,10 @@ export interface FileRoutesByFullPath {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
   '/universities': typeof UniversitiesRouteWithChildren
+  '/blogs/$slug': typeof BlogsSlugRoute
   '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
+  '/news/$slug': typeof NewsSlugRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/blogs/': typeof BlogsIndexRoute
   '/compare/': typeof CompareIndexRoute
@@ -317,8 +331,10 @@ export interface FileRoutesByTo {
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
   '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
+  '/news/$slug': typeof NewsSlugRoute
   '/blogs': typeof BlogsIndexRoute
   '/compare': typeof CompareIndexRoute
   '/courses': typeof CoursesIndexRoute
@@ -359,8 +375,10 @@ export interface FileRoutesById {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/tools': typeof ToolsRoute
   '/universities': typeof UniversitiesRouteWithChildren
+  '/blogs/$slug': typeof BlogsSlugRoute
   '/compare/$comparison': typeof CompareComparisonRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
+  '/news/$slug': typeof NewsSlugRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/blogs/': typeof BlogsIndexRoute
   '/compare/': typeof CompareIndexRoute
@@ -403,8 +421,10 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/tools'
     | '/universities'
+    | '/blogs/$slug'
     | '/compare/$comparison'
     | '/courses/$course'
+    | '/news/$slug'
     | '/universities/$slug'
     | '/blogs/'
     | '/compare/'
@@ -440,8 +460,10 @@ export interface FileRouteTypes {
     | '/tags'
     | '/terms-and-conditions'
     | '/tools'
+    | '/blogs/$slug'
     | '/compare/$comparison'
     | '/courses/$course'
+    | '/news/$slug'
     | '/blogs'
     | '/compare'
     | '/courses'
@@ -481,8 +503,10 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/tools'
     | '/universities'
+    | '/blogs/$slug'
     | '/compare/$comparison'
     | '/courses/$course'
+    | '/news/$slug'
     | '/universities/$slug'
     | '/blogs/'
     | '/compare/'
@@ -677,6 +701,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogsIndexRouteImport
       parentRoute: typeof BlogsRoute
     }
+    '/blogs/$slug': {
+      id: '/blogs/$slug'
+      path: '/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof BlogsSlugRouteImport
+      parentRoute: typeof BlogsRoute
+    }
     '/compare/': {
       id: '/compare/'
       path: '/'
@@ -710,6 +741,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/news/'
       preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof NewsRoute
+    }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof NewsRoute
     }
     '/universities/': {
@@ -814,10 +852,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface BlogsRouteChildren {
+  BlogsSlugRoute: typeof BlogsSlugRoute
   BlogsIndexRoute: typeof BlogsIndexRoute
 }
 
 const BlogsRouteChildren: BlogsRouteChildren = {
+  BlogsSlugRoute: BlogsSlugRoute,
   BlogsIndexRoute: BlogsIndexRoute,
 }
 
@@ -866,10 +906,12 @@ const CoursesRouteWithChildren =
   CoursesRoute._addFileChildren(CoursesRouteChildren)
 
 interface NewsRouteChildren {
+  NewsSlugRoute: typeof NewsSlugRoute
   NewsIndexRoute: typeof NewsIndexRoute
 }
 
 const NewsRouteChildren: NewsRouteChildren = {
+  NewsSlugRoute: NewsSlugRoute,
   NewsIndexRoute: NewsIndexRoute,
 }
 
