@@ -16,10 +16,10 @@ export function PlacementSupportSection({
 }) {
   return (
     <div className="space-y-4">
-      <SectionBanner kind="placement" />
       <h3 className="font-display text-base font-bold text-foreground">
         Placement support at {universityShort}
       </h3>
+      <SectionBanner kind="placement" size="lg" />
       <InfoBoxGrid items={defaultPlacementServices()} />
       <p className="text-xs leading-relaxed text-muted-foreground">
         Placement assistance is not the same as guaranteed placement. Ask {universityShort} in writing what its career
