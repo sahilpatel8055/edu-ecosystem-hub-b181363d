@@ -1,4 +1,4 @@
-import { allArticles, courses, universities } from "@/lib/content";
+import { allArticles, courseFamilies, universities } from "@/lib/content";
 import { specialisations } from "@/data";
 
 export type SearchKind = "Course" | "University" | "Specialisation" | "Article";
@@ -20,11 +20,12 @@ let index: SearchResult[] | null = null;
 function build(): SearchResult[] {
   const rows: SearchResult[] = [];
 
-  for (const c of courses) {
+  // Course families only: "MBA", "Online MBA" and the long form are one page.
+  for (const c of courseFamilies) {
     rows.push({
       kind: "Course",
-      title: c.displayName ?? c.name,
-      subtitle: [c.level, c.duration].filter(Boolean).join(" · "),
+      title: c.displayName || c.name,
+      subtitle: [c.level, c.duration, `${c.universities} universities`].filter(Boolean).join(" · "),
       href: `/courses/${c.slug}`,
     });
   }
@@ -56,7 +57,14 @@ function build(): SearchResult[] {
     });
   }
 
-  return rows;
+  // Two entries can still collapse onto one page (aliased slugs) — keep the first.
+  const seen = new Set<string>();
+  return rows.filter((r) => {
+    const key = `${r.kind}:${r.href}:${r.title.toLowerCase()}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 export function searchAll(query: string, limit = 8): SearchResult[] {
