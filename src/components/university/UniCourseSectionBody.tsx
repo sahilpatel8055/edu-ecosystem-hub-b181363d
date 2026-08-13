@@ -1,7 +1,7 @@
 import { DataTable, StepList } from "@/components/common/Blocks";
 import { Faq } from "@/components/common/Faq";
 import { SpecialisationBoxes } from "@/components/common/BoxMarquee";
-import { SectionBanner } from "@/components/common/SectionBanner";
+import { SectionBannerInline } from "@/components/common/SectionBanner";
 import { PlacementSupportSection } from "@/components/university/PlacementSupportSection";
 import { getSpecialisation } from "@/data";
 import {
@@ -94,8 +94,8 @@ export function UniCourseSectionBody({
     case "admission":
       return (
         <div className="rounded-2xl border-2 border-brand p-4 sm:p-5">
-          <SectionBanner kind="admission" />
           <AdmissionInsightSection
+            banner={<SectionBannerInline kind="admission" />}
             universitySlug={u.slug}
             universityShort={u.shortName}
             courseSlug={p.slug}
@@ -146,8 +146,8 @@ export function UniCourseSectionBody({
     case "exam-pattern":
       return (
         <>
-          <SectionBanner kind="examination" />
           <ExaminationPatternSection
+          banner={<SectionBannerInline kind="examination" />}
           universitySlug={u.slug}
           universityShort={u.shortName}
           courseSlug={p.slug}
