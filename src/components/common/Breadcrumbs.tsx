@@ -11,7 +11,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
     <nav aria-label="Breadcrumb" className="overflow-x-auto">
       <ol className="flex items-center gap-1.5 whitespace-nowrap text-xs text-muted-foreground">
         <li className="flex items-center gap-1.5">
-          <AppLink to="/" className="flex items-center gap-1 hover:text-foreground">
+          <AppLink to="/" className="-m-2 flex items-center gap-1 p-2 hover:text-foreground">
             <Home className="h-3.5 w-3.5" />
             <span className="sr-only">Home</span>
           </AppLink>

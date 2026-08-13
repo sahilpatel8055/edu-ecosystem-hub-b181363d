@@ -87,7 +87,7 @@ function Carousel({ banners, variant }: { banners: Banner[]; variant: "mobile" |
         </div>
       </div>
 
-      <div className="mt-3 flex justify-center gap-2">
+      <div className="mt-1 flex justify-center">
         {banners.map((b, i) => (
           <button
             key={`dot-${b.src}`}
@@ -95,12 +95,16 @@ function Carousel({ banners, variant }: { banners: Banner[]; variant: "mobile" |
             aria-label={`Go to banner ${i + 1}`}
             aria-current={i === index}
             onClick={() => go(i)}
-            className={
-              i === index
-                ? "h-2 w-6 rounded-full bg-brand transition-all"
-                : "h-2 w-2 rounded-full bg-muted-foreground/35 transition-all hover:bg-muted-foreground/60"
-            }
-          />
+            className="grid h-11 w-8 place-items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span
+              className={
+                i === index
+                  ? "block h-2 w-6 rounded-full bg-brand transition-all"
+                  : "block h-2 w-2 rounded-full bg-muted-foreground/35 transition-all hover:bg-muted-foreground/60"
+              }
+            />
+          </button>
         ))}
       </div>
     </div>
