@@ -64,7 +64,7 @@ export function SectionNav({ sections }: { sections: string[] }) {
                   data-chip={id}
                   aria-current={active === id ? "true" : undefined}
                   className={cn(
-                    "block whitespace-nowrap rounded-lg px-3.5 py-2 text-[0.82rem] font-bold transition-colors sm:text-sm",
+                    "flex min-h-11 items-center whitespace-nowrap rounded-lg px-3.5 text-[0.82rem] font-bold transition-colors sm:text-sm",
                     active === id
                       ? "bg-brand text-brand-foreground"
                       : "bg-secondary text-brand hover:bg-brand-soft",
