@@ -4,6 +4,7 @@ import { Faq } from "@/components/common/Faq";
 import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import { AppLink } from "@/components/common/AppLink";
 import { SectionBanner } from "@/components/common/SectionBanner";
+import { NextStep } from "@/components/common/NextStep";
 import { CompareUniversities } from "@/components/course/CompareUniversities";
 import {
   AudienceCards,
@@ -103,17 +104,22 @@ export function CoursePageTemplate({
             {content.intro}
           </p>
 
+          <ul className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[0.78rem] font-semibold text-muted-foreground">
+            <li>{family.offers.length} universities tracked</li>
+            <li aria-hidden="true">·</li>
+            <li>Fees stated by the university</li>
+            <li aria-hidden="true">·</li>
+            <li>No sponsored ranking</li>
+          </ul>
+
           <div className="mt-5 flex flex-wrap gap-2.5">
-            <a
-              href="#compare-universities"
-              className="rounded-lg bg-brand px-5 py-2.5 text-sm font-bold text-brand-foreground"
-            >
+            <a href="#universities" className="btn btn-primary">
+              Explore universities
+            </a>
+            <a href="#compare-universities" className="btn btn-secondary">
               Compare universities
             </a>
-            <AppLink
-              to="/contact"
-              className="rounded-lg border border-brand/30 bg-card px-5 py-2.5 text-sm font-bold text-brand"
-            >
+            <AppLink to="/contact" className="btn btn-ghost">
               Get free counselling
             </AppLink>
           </div>
@@ -252,6 +258,14 @@ export function CoursePageTemplate({
             </Section>
           )}
 
+          {content.syllabus.length > 0 && (
+            <NextStep
+              question="Want to compare curricula and specialisations?"
+              actionLabel="Compare universities"
+              href="#compare-universities"
+            />
+          )}
+
           <Section title="Fees" intro={content.feeNotes[0]} tone="cream">
             <ul className="mb-5 space-y-2">
               {content.feeNotes.slice(1).map((n) => (
@@ -262,6 +276,12 @@ export function CoursePageTemplate({
             </ul>
             <FeeSummaryTable offers={family.offers} />
           </Section>
+
+          <NextStep
+            question="Want to compare fees across universities side by side?"
+            actionLabel="Compare universities"
+            href="#compare-universities"
+          />
 
           <PromoBanner
             variant="offer"
@@ -275,10 +295,22 @@ export function CoursePageTemplate({
             <Note>{content.eligibilityNote}</Note>
           </Section>
 
+          <NextStep
+            question="Want to see which universities offer this course?"
+            actionLabel="Explore universities"
+            href="#universities"
+          />
+
           <Section title="Admission" tone="cream">
             <SectionBanner kind="admission" />
             <StepFlow steps={content.admissionSteps} />
           </Section>
+
+          <NextStep
+            question="Ready to shortlist from the universities running this course?"
+            actionLabel="Explore universities"
+            href="#universities"
+          />
 
           <Section title="Documents">
             <TickList items={content.documents} />
@@ -338,6 +370,12 @@ export function CoursePageTemplate({
               </div>
             </div>
           </Section>
+
+          <NextStep
+            question="Want to choose a university based on your career goal?"
+            actionLabel="Compare universities"
+            href="#compare-universities"
+          />
 
           <Section title="Salary">
             <TickList items={content.salaryFactors} />
