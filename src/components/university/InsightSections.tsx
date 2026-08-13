@@ -208,11 +208,13 @@ export function AdmissionInsightSection({
   universityShort,
   courseSlug,
   courseName,
+  banner,
 }: {
   universitySlug: string;
   universityShort: string;
   courseSlug?: string;
   courseName?: string;
+  banner?: ReactNode;
 }) {
   const resolved = getAdmissionInfo(universitySlug, courseSlug);
   if (!resolved) return null;
@@ -230,6 +232,7 @@ export function AdmissionInsightSection({
     <InsightPanel
       icon={<ClipboardCheck className="h-4 w-4" aria-hidden="true" />}
       title={courseSlug ? `${courseName ?? "Programme"} admission` : `${universityShort} admission process`}
+      banner={banner}
       badges={
         <>
           <ScopeBadge
@@ -285,11 +288,13 @@ export function ExaminationPatternSection({
   universityShort,
   courseSlug,
   courseName,
+  banner,
 }: {
   universitySlug: string;
   universityShort: string;
   courseSlug?: string;
   courseName?: string;
+  banner?: ReactNode;
 }) {
   const resolved = getExamPattern(universitySlug, courseSlug);
   if (!resolved) return null;
@@ -304,6 +309,7 @@ export function ExaminationPatternSection({
     <InsightPanel
       icon={<MonitorCheck className="h-4 w-4" aria-hidden="true" />}
       title={courseSlug ? `${courseName ?? "Programme"} examination pattern` : `${universityShort} examination pattern`}
+      banner={banner}
       badges={
         <>
           <ScopeBadge
