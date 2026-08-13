@@ -5,7 +5,7 @@ import { ComparisonCard } from "@/components/cards";
 import { LinkCluster, RelatedLinkGrid } from "@/components/common/Blocks";
 import { comparisons } from "@/lib/content";
 import { comparisonLinks, programmeLinks, universityLinks, universityPairs } from "@/lib/entities";
-import { comparableCourses, masterPairs, pairPath } from "@/lib/comparisonMaster";
+import { comparableCourses, masterPairs } from "@/lib/comparisonMaster";
 import {
   breadcrumbSchema,
   canonical,
@@ -69,7 +69,6 @@ function Page() {
               right: p.university_b,
               category: "University",
               summary: `${comparableCourses(p).length} common courses compared on verified fees, recognition, eligibility, specialisations, exams and career support.`,
-              href: pairPath(p),
             }}
           />
         ))}
