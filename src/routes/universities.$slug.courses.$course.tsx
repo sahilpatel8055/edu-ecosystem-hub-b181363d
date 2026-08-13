@@ -33,6 +33,7 @@ import { FeeHighlight } from "@/components/university/FeeHighlight";
 import { SampleDegreeSection } from "@/components/university/SampleDegreeSection";
 import { PlacementSupportSection } from "@/components/university/PlacementSupportSection";
 import { SectionBanner } from "@/components/common/SectionBanner";
+import { degreeSample } from "@/lib/assets";
 import { CareerRolePackages } from "@/components/university/CareerRolePackages";
 import { defaultRolesFor } from "@/lib/careerSalaries";
 import { getCareerInfo } from "@/lib/insightsData";
@@ -272,9 +273,11 @@ function Page() {
           </ContentSection>
         )}
 
-        <ContentSection title="Sample degree">
-          <SampleDegreeSection universityName={u.name} universitySlug={u.slug} />
-        </ContentSection>
+        {degreeSample(u.slug) && (
+          <ContentSection title="Sample degree">
+            <SampleDegreeSection universityName={u.name} universitySlug={u.slug} />
+          </ContentSection>
+        )}
 
         <ContentSection title="Eligibility">
           <p>{p.eligibility}</p>

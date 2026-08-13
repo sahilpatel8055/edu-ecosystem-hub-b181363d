@@ -1,3 +1,4 @@
+import { SectionBanner } from "@/components/common/SectionBanner";
 import { Faq } from "@/components/common/Faq";
 import {
   ChipList,
@@ -54,6 +55,7 @@ export function CourseSectionBody({
     case "admission":
       return (
         <>
+          <SectionBanner kind="admission" />
           <StepFlow steps={content.admissionSteps} />
           <div className="mt-6">
             <h3 className="font-display text-base font-bold">Documents required</h3>
@@ -105,6 +107,7 @@ export function CourseSectionBody({
     case "exam-pattern":
       return (
         <>
+          <SectionBanner kind="examination" />
           <InfoBoxGrid items={content.examPattern} />
           <Note>{content.examNote}</Note>
           <div className="mt-6">
@@ -139,6 +142,7 @@ export function CourseSectionBody({
           <div className="mt-6">
             <h3 className="font-display text-base font-bold">Placement support</h3>
             <div className="mt-3">
+              <SectionBanner kind="placement" />
               <InfoBoxGrid items={content.placementServices} />
             </div>
             <Note>{content.placementNote}</Note>

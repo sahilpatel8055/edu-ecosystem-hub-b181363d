@@ -1,6 +1,8 @@
 import { DataTable, StepList } from "@/components/common/Blocks";
 import { Faq } from "@/components/common/Faq";
 import { SpecialisationBoxes } from "@/components/common/BoxMarquee";
+import { SectionBanner } from "@/components/common/SectionBanner";
+import { PlacementSupportSection } from "@/components/university/PlacementSupportSection";
 import { getSpecialisation } from "@/data";
 import {
   AdmissionInsightSection,
@@ -92,6 +94,7 @@ export function UniCourseSectionBody({
     case "admission":
       return (
         <div className="rounded-2xl border-2 border-brand p-4 sm:p-5">
+          <SectionBanner kind="admission" />
           <AdmissionInsightSection
             universitySlug={u.slug}
             universityShort={u.shortName}
@@ -142,16 +145,20 @@ export function UniCourseSectionBody({
       );
     case "exam-pattern":
       return (
-        <ExaminationPatternSection
+        <>
+          <SectionBanner kind="examination" />
+          <ExaminationPatternSection
           universitySlug={u.slug}
           universityShort={u.shortName}
           courseSlug={p.slug}
-          courseName={`${u.shortName} ${p.shortName}`}
-        />
+            courseName={`${u.shortName} ${p.shortName}`}
+          />
+        </>
       );
     case "placement":
       return (
         <>
+          <PlacementSupportSection universitySlug={u.slug} universityShort={u.shortName} />
           <CareerRolePackages
             roles={
               getCareerInfo(u.slug, p.slug)?.data.roles?.length
