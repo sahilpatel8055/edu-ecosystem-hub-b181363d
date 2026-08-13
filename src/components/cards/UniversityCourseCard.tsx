@@ -2,7 +2,7 @@ import { Clock, GraduationCap, IndianRupee } from "lucide-react";
 import { AppLink } from "@/components/common/AppLink";
 import { getProgramme } from "@/data";
 import { getCourse } from "@/lib/content";
-import { specialisationsOf } from "@/lib/universityData";
+import { getProgramme as getProgrammeRecord, specialisationsOf } from "@/lib/universityData";
 import { courseImage } from "@/lib/course-images";
 import { universityLogo } from "@/lib/assets";
 import type { Offering } from "@/data";
@@ -29,6 +29,7 @@ export function UniversityCourseCard({
   const logo = universityLogo(universitySlug);
   const specs = specialisationsOf(universitySlug, offering.programmeSlug).map((s) => s.specialisation_name);
   const shown = specs.slice(0, 4);
+  const eligibility = getProgrammeRecord(universitySlug, offering.programmeSlug)?.eligibility.summary ?? null;
   const extra = specs.length - shown.length;
 
   return (
@@ -69,6 +70,13 @@ export function UniversityCourseCard({
             {offering.fee.total ? `${offering.fee.total.toLocaleString("en-IN")} total` : feeFallback}
           </span>
         </p>
+
+        {eligibility && (
+          <p className="mt-2 line-clamp-2 text-[0.72rem] leading-snug text-muted-foreground sm:text-xs">
+            <span className="font-bold text-foreground">Eligibility: </span>
+            {eligibility}
+          </p>
+        )}
 
         {shown.length > 0 && (
           <div className="mt-3">
