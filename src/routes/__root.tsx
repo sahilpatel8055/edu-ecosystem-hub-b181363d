@@ -138,6 +138,8 @@ function RootComponent() {
         </div>
         <Footer />
         <StickyMobileCTA />
+        <LeadPopup />
+
       </div>
     </QueryClientProvider>
   );
