@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { AppLink } from "./AppLink";
-import { cn } from "@/lib/utils";
+import { cn, feeRangeInLakhs } from "@/lib/utils";
 import { courseIcon } from "@/lib/course-icons";
 import type { Course } from "@/lib/content";
 
@@ -47,7 +47,7 @@ export function CourseTile({ item }: { item: Course }) {
 
       <div className="mt-2.5 border-t border-border pt-2.5">
         <span className="block text-[10px] text-muted-foreground sm:text-[11px]">Fee range</span>
-        <span className="block truncate text-[0.8rem] font-bold text-card-foreground sm:text-sm">{item.feeRange}</span>
+        <span className="block truncate text-[0.8rem] font-bold text-card-foreground sm:text-sm">{feeRangeInLakhs(item.feeRange)}</span>
         <AppLink
           to={`/courses/${item.slug}`}
           className="mt-2 block rounded-lg bg-brand px-3 py-1.5 text-center text-[11px] font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:text-xs"
