@@ -38,6 +38,7 @@ import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesCourseRouteImport } from './routes/courses.$course'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as ScholarshipsSlugRouteImport } from './routes/scholarships.$slug'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
 import { Route as CompareCoursePairRouteImport } from './routes/compare.$course.$pair'
@@ -198,6 +199,11 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => NewsRoute,
 } as any)
+const ScholarshipsSlugRoute = ScholarshipsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ScholarshipsRoute,
+} as any)
 const UniversitiesIndexRoute = UniversitiesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -292,7 +298,7 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
-  '/scholarships': typeof ScholarshipsRoute
+  '/scholarships': typeof ScholarshipsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -303,6 +309,7 @@ export interface FileRoutesByFullPath {
   '/compare/universities': typeof CompareUniversitiesRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
+  '/scholarships/$slug': typeof ScholarshipsSlugRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/blogs/': typeof BlogsIndexRoute
   '/compare/': typeof CompareIndexRoute
@@ -333,7 +340,7 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
-  '/scholarships': typeof ScholarshipsRoute
+  '/scholarships': typeof ScholarshipsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -343,6 +350,7 @@ export interface FileRoutesByTo {
   '/compare/universities': typeof CompareUniversitiesRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
+  '/scholarships/$slug': typeof ScholarshipsSlugRoute
   '/blogs': typeof BlogsIndexRoute
   '/compare': typeof CompareIndexRoute
   '/courses': typeof CoursesIndexRoute
@@ -377,7 +385,7 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRoute
-  '/scholarships': typeof ScholarshipsRoute
+  '/scholarships': typeof ScholarshipsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tags': typeof TagsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -388,6 +396,7 @@ export interface FileRoutesById {
   '/compare/universities': typeof CompareUniversitiesRoute
   '/courses/$course': typeof CoursesCourseRouteWithChildren
   '/news/$slug': typeof NewsSlugRoute
+  '/scholarships/$slug': typeof ScholarshipsSlugRoute
   '/universities/$slug': typeof UniversitiesSlugRouteWithChildren
   '/blogs/': typeof BlogsIndexRoute
   '/compare/': typeof CompareIndexRoute
@@ -435,6 +444,7 @@ export interface FileRouteTypes {
     | '/compare/universities'
     | '/courses/$course'
     | '/news/$slug'
+    | '/scholarships/$slug'
     | '/universities/$slug'
     | '/blogs/'
     | '/compare/'
@@ -475,6 +485,7 @@ export interface FileRouteTypes {
     | '/compare/universities'
     | '/courses/$course'
     | '/news/$slug'
+    | '/scholarships/$slug'
     | '/blogs'
     | '/compare'
     | '/courses'
@@ -519,6 +530,7 @@ export interface FileRouteTypes {
     | '/compare/universities'
     | '/courses/$course'
     | '/news/$slug'
+    | '/scholarships/$slug'
     | '/universities/$slug'
     | '/blogs/'
     | '/compare/'
@@ -554,7 +566,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RankingsRoute: typeof RankingsRoute
   ReviewsRoute: typeof ReviewsRoute
-  ScholarshipsRoute: typeof ScholarshipsRoute
+  ScholarshipsRoute: typeof ScholarshipsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TagsRoute: typeof TagsRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
@@ -769,6 +781,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof NewsRoute
     }
+    '/scholarships/$slug': {
+      id: '/scholarships/$slug'
+      path: '/$slug'
+      fullPath: '/scholarships/$slug'
+      preLoaderRoute: typeof ScholarshipsSlugRouteImport
+      parentRoute: typeof ScholarshipsRoute
+    }
     '/universities/': {
       id: '/universities/'
       path: '/'
@@ -938,6 +957,18 @@ const NewsRouteChildren: NewsRouteChildren = {
 
 const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
 
+interface ScholarshipsRouteChildren {
+  ScholarshipsSlugRoute: typeof ScholarshipsSlugRoute
+}
+
+const ScholarshipsRouteChildren: ScholarshipsRouteChildren = {
+  ScholarshipsSlugRoute: ScholarshipsSlugRoute,
+}
+
+const ScholarshipsRouteWithChildren = ScholarshipsRoute._addFileChildren(
+  ScholarshipsRouteChildren,
+)
+
 interface UniversitiesSlugCoursesCourseRouteChildren {
   UniversitiesSlugCoursesCourseSectionRoute: typeof UniversitiesSlugCoursesCourseSectionRoute
 }
@@ -1005,7 +1036,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RankingsRoute: RankingsRoute,
   ReviewsRoute: ReviewsRoute,
-  ScholarshipsRoute: ScholarshipsRoute,
+  ScholarshipsRoute: ScholarshipsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TagsRoute: TagsRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
