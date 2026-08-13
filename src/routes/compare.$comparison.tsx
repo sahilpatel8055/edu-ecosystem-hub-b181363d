@@ -75,11 +75,49 @@ export const Route = createFileRoute("/compare/$comparison")({
 
   head: ({ params, loaderData }) => {
     const path = `/compare/${params.comparison}`;
+  head: ({ params, loaderData }) => {
+    const path = `/compare/${params.comparison}`;
     if (!loaderData) {
       return { meta: [{ title: "Comparison not found" }, { name: "robots", content: "noindex" }] };
     }
+    if (loaderData.kind === "course") {
+      const family = getCourseFamily(params.comparison)!;
+      const title = `${family.name} University Comparison 2026-27 — Fees, Eligibility, Curriculum & Exams`;
+      const description = `Compare ${family.name.toLowerCase()} universities for 2026-27 by verified fees, eligibility, duration, curriculum, specialisations, admission, exams and learner support.`;
+      return {
+        meta: pageMeta({
+          title,
+          description,
+          path,
+          author: "AVEDU Editorial Desk",
+          keywords: [
+            `${family.name} comparison`,
+            `compare ${family.name} universities`,
+            `${family.name} fees comparison`,
+          ],
+        }),
+        links: canonical(path),
+        scripts: [
+          jsonLd(
+            breadcrumbSchema([
+              { name: "Home", href: "/" },
+              { name: "Compare", href: "/compare" },
+              { name: family.name, href: path },
+            ]),
+          ),
+          jsonLd(faqSchema(courseComparisonFaqs(family))),
+          jsonLd(
+            itemListSchema(
+              family.offers.map((o) => ({ name: `${o.universityShortName} — ${o.programmeName}`, href: o.path })),
+              `${family.name} university comparison`,
+            ),
+          ),
+        ],
+      };
+    }
     const title = `${loaderData.leftShort} vs ${loaderData.rightShort}: Fees, Approvals & Which Is Better (2026)`;
     const description = `Side-by-side comparison of ${loaderData.leftName} and ${loaderData.rightName} on fees, UGC approvals, programmes, delivery model, placements and learner ratings.`;
+
     return {
       meta: pageMeta({
         title,
