@@ -99,12 +99,14 @@ function InsightPanel({
   icon,
   title,
   badges,
+  banner,
   children,
   footer,
 }: {
   icon: ReactNode;
   title: string;
   badges?: ReactNode;
+  banner?: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
 }) {
@@ -117,6 +119,7 @@ function InsightPanel({
         <p className="min-w-0 flex-1 font-display text-sm font-bold text-foreground sm:text-base">{title}</p>
         {badges && <div className="flex flex-wrap items-center gap-2">{badges}</div>}
       </div>
+      {banner}
       <div className="space-y-5 p-4 sm:p-5">{children}</div>
       {footer && <div className="border-t border-border bg-secondary/30 px-4 py-3 sm:px-5">{footer}</div>}
     </div>
@@ -205,11 +208,13 @@ export function AdmissionInsightSection({
   universityShort,
   courseSlug,
   courseName,
+  banner,
 }: {
   universitySlug: string;
   universityShort: string;
   courseSlug?: string;
   courseName?: string;
+  banner?: ReactNode;
 }) {
   const resolved = getAdmissionInfo(universitySlug, courseSlug);
   if (!resolved) return null;
@@ -227,6 +232,7 @@ export function AdmissionInsightSection({
     <InsightPanel
       icon={<ClipboardCheck className="h-4 w-4" aria-hidden="true" />}
       title={courseSlug ? `${courseName ?? "Programme"} admission` : `${universityShort} admission process`}
+      banner={banner}
       badges={
         <>
           <ScopeBadge
@@ -282,11 +288,13 @@ export function ExaminationPatternSection({
   universityShort,
   courseSlug,
   courseName,
+  banner,
 }: {
   universitySlug: string;
   universityShort: string;
   courseSlug?: string;
   courseName?: string;
+  banner?: ReactNode;
 }) {
   const resolved = getExamPattern(universitySlug, courseSlug);
   if (!resolved) return null;
@@ -301,6 +309,7 @@ export function ExaminationPatternSection({
     <InsightPanel
       icon={<MonitorCheck className="h-4 w-4" aria-hidden="true" />}
       title={courseSlug ? `${courseName ?? "Programme"} examination pattern` : `${universityShort} examination pattern`}
+      banner={banner}
       badges={
         <>
           <ScopeBadge
