@@ -76,10 +76,6 @@ export function UniversityHero({ university }: { university: University }) {
           </div>
         </div>
 
-        {u.summary && (
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">{u.summary}</p>
-        )}
-
         {u.approvals.length > 0 && (
           <ul className="mt-4 flex flex-wrap gap-2">
             {u.approvals.map((a) => {
