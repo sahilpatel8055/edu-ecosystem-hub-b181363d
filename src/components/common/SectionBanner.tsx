@@ -40,3 +40,22 @@ export function SectionBanner({
     </figure>
   );
 }
+
+/**
+ * Edge-to-edge illustration used inside an insight panel, directly under the
+ * panel heading and above its information boxes.
+ */
+export function SectionBannerInline({ kind }: { kind: keyof typeof banners }) {
+  const banner = banners[kind];
+  return (
+    <figure className="border-b border-border bg-secondary/30">
+      <img
+        src={banner.src}
+        alt={banner.alt}
+        loading="lazy"
+        decoding="async"
+        className="mx-auto h-56 w-full object-contain p-3 sm:h-80 sm:p-5 lg:h-96"
+      />
+    </figure>
+  );
+}
