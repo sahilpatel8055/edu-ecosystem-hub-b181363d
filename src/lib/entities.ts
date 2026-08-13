@@ -182,5 +182,9 @@ export const articleLinks = (limit = 4, filter?: (a: Article) => boolean): LinkR
 export const approvalText = (u: UniversityRecord) =>
   u.approvals.map((a) => (a.status ? `${a.body} ${a.status}` : a.body)).join(" · ");
 
+/** Breadcrumb-friendly course label: always prefixed with "Online". */
+export const onlineName = (name: string) =>
+  /^online\b/i.test(name.trim()) ? name.trim() : `Online ${name.trim()}`;
+
 export const feeText = (o: Offering, fallback: string) =>
   o.fee.total ? `₹${o.fee.total.toLocaleString("en-IN")}` : fallback;
