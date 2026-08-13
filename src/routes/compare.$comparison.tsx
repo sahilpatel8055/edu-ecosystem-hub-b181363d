@@ -13,7 +13,10 @@ import {
 import { AppLink } from "@/components/common/AppLink";
 import { getProgramme } from "@/data";
 import { ComparisonPage } from "@/components/comparison/ComparisonPage";
+import { CourseComparisonPage, courseComparisonFaqs } from "@/components/comparison/CourseComparisonPage";
+import { getCourseFamily } from "@/lib/courseFamily";
 import { masterPairBySlug } from "@/lib/comparisonMaster";
+
 import {
   approvalText,
   comparisonBySlug,
