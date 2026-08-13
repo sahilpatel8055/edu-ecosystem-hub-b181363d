@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppLink } from "@/components/common/AppLink";
-import { ChevronDown, GraduationCap, Menu, Moon, Sun, X } from "lucide-react";
-import { primaryNav, type NavItem } from "@/lib/navigation";
+import { ChevronDown, GraduationCap, Menu, Moon, Search, Sun, X } from "lucide-react";
+import { mobileNav, primaryNav, type NavItem } from "@/lib/navigation";
 import { useTheme } from "@/hooks/use-theme";
 import { SearchBox } from "./SearchBox";
-import { cn } from "@/lib/utils";
 
 function MegaMenu({ item }: { item: NavItem }) {
   if (!item.columns) return null;
@@ -54,13 +53,22 @@ function MegaMenu({ item }: { item: NavItem }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { theme, toggle, mounted } = useTheme();
 
+  // Never leave the sheet open behind a resize into the desktop layout.
+  useEffect(() => {
+    if (!open) return;
+    const mq = window.matchMedia("(min-width: 1280px)");
+    const onChange = () => mq.matches && setOpen(false);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
-      <div className="container-page flex h-16 items-center gap-4 lg:h-[4.5rem]">
-        <AppLink to="/" className="flex shrink-0 items-center gap-2.5" aria-label="AVEDU Insights home">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
+      <div className="container-page flex h-16 items-center gap-3 lg:h-[4.5rem] lg:gap-4">
+        <AppLink to="/" className="flex min-w-0 shrink-0 items-center gap-2.5" aria-label="AVEDU Insights home">
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground">
             <GraduationCap className="h-5 w-5" />
           </span>
@@ -73,13 +81,13 @@ export function Header() {
         </AppLink>
 
         <nav className="hidden flex-1 items-center justify-center xl:flex" aria-label="Primary">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5">
             {primaryNav.map((item) => (
               <li key={item.label} className="group static">
                 <AppLink
                   to={item.href}
-                  className="inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
-                  activeProps={{ className: "bg-secondary text-foreground" }}
+                  className="inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
+                  activeProps={{ className: "bg-brand-soft text-brand" }}
                 >
                   {item.label}
                   {item.columns && <ChevronDown className="h-3.5 w-3.5 opacity-60" />}
@@ -91,21 +99,27 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <div className="hidden w-56 lg:block">
+          <div className="hidden w-52 lg:block xl:w-56">
             <SearchBox placeholder="Search…" />
           </div>
           <button
             type="button"
+            onClick={() => setSearchOpen((v) => !v)}
+            aria-label="Toggle search"
+            aria-expanded={searchOpen}
+            className="btn-icon lg:hidden"
+          >
+            {searchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
+          </button>
+          <button
+            type="button"
             onClick={toggle}
             aria-label="Toggle colour theme"
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-foreground/80 transition-colors hover:bg-secondary"
+            className="btn-icon hidden sm:grid"
           >
             {mounted && theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-          <AppLink
-            to="/contact"
-            className="hidden shrink-0 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:inline-block"
-          >
+          <AppLink to="/contact" className="btn btn-primary hidden sm:inline-flex">
             Get guidance
           </AppLink>
           <button
@@ -113,67 +127,45 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border xl:hidden"
+            className="btn-icon xl:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
 
+      {searchOpen && (
+        <div className="border-t border-border bg-background px-4 py-3 lg:hidden">
+          <SearchBox />
+        </div>
+      )}
+
       {open && (
-        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background xl:hidden">
-          <div className="container-page space-y-2 py-4">
-            <SearchBox />
-            {primaryNav.map((item) => (
-              <div key={item.label} className="border-b border-border/60 pb-2">
-                <div className="flex items-center justify-between">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background xl:hidden">
+          <nav aria-label="Mobile" className="container-page py-4">
+            <ul className="grid gap-1 sm:grid-cols-2">
+              {mobileNav.map((link) => (
+                <li key={link.href + link.label}>
                   <AppLink
-                    to={item.href}
+                    to={link.href}
                     onClick={() => setOpen(false)}
-                    className="py-2.5 text-sm font-semibold"
+                    className="flex min-h-11 items-center rounded-xl px-3 text-[0.95rem] font-semibold text-foreground/90 transition-colors hover:bg-secondary"
+                    activeProps={{ className: "bg-brand-soft text-brand" }}
                   >
-                    {item.label}
+                    {link.label}
                   </AppLink>
-                  {item.columns && (
-                    <button
-                      type="button"
-                      aria-label={`Expand ${item.label}`}
-                      onClick={() => setExpanded((p) => (p === item.label ? null : item.label))}
-                      className="grid h-8 w-8 place-items-center rounded-full hover:bg-secondary"
-                    >
-                      <ChevronDown
-                        className={cn("h-4 w-4 transition-transform", expanded === item.label && "rotate-180")}
-                      />
-                    </button>
-                  )}
-                </div>
-                {item.columns && expanded === item.label && (
-                  <div className="grid gap-4 pb-2 sm:grid-cols-2">
-                    {item.columns.map((col) => (
-                      <div key={col.heading}>
-                        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                          {col.heading}
-                        </p>
-                        <ul>
-                          {col.links.map((l) => (
-                            <li key={l.label + l.href}>
-                              <AppLink
-                                to={l.href}
-                                onClick={() => setOpen(false)}
-                                className="block py-1.5 text-sm text-foreground/80"
-                              >
-                                {l.label}
-                              </AppLink>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              <AppLink to="/contact" onClick={() => setOpen(false)} className="btn btn-primary w-full">
+                Get guidance
+              </AppLink>
+              <button type="button" onClick={toggle} className="btn btn-secondary w-full sm:hidden">
+                {mounted && theme === "dark" ? "Light mode" : "Dark mode"}
+              </button>
+            </div>
+          </nav>
         </div>
       )}
     </header>
