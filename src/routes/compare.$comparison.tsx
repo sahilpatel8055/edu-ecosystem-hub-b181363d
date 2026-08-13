@@ -72,11 +72,9 @@ export const Route = createFileRoute("/compare/$comparison")({
     };
   },
 
+  head: ({ params, loaderData }) => {
+    const path = `/compare/${params.comparison}`;
 
-  head: ({ params, loaderData }) => {
-    const path = `/compare/${params.comparison}`;
-  head: ({ params, loaderData }) => {
-    const path = `/compare/${params.comparison}`;
     if (!loaderData) {
       return { meta: [{ title: "Comparison not found" }, { name: "robots", content: "noindex" }] };
     }
