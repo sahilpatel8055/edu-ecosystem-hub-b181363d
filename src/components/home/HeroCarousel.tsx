@@ -1,35 +1,44 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AppLink } from "@/components/common/AppLink";
 import banner5 from "@/assets/banner_5_top_online_universities.png";
 import banner6 from "@/assets/banner_6_compare_universities.png";
 import banner3 from "@/assets/banner_3_online_programs.png";
 import banner4 from "@/assets/banner_4_trusted_guidance.png";
+import mobile1 from "@/assets/banner_m1.png";
+import mobile2 from "@/assets/banner_m2.png";
+import mobile3 from "@/assets/banner_m3.png";
 
-type Banner = { src: string; alt: string; to: string; mobile: string };
+type Banner = { src: string; alt: string; to: string; height: string };
 
-const banners: Banner[] = [
-  { src: banner5, alt: "Learn from India's best online universities — UG & PG UGC-entitled degrees", to: "/universities", mobile: "h-[215px]" },
-  { src: banner6, alt: "Compare online universities side by side on fees, approvals and placements", to: "/compare", mobile: "h-[215px]" },
-  { src: banner3, alt: "Explore top online programs — MBA, MCA, BBA, BCA and more", to: "/courses", mobile: "h-[140px]" },
-  { src: banner4, alt: "Trusted, unbiased admission guidance from AVEDU Insights", to: "/contact", mobile: "h-[140px]" },
+const desktopBanners: Banner[] = [
+  { src: banner5, alt: "Learn from India's best online universities — UG & PG UGC-entitled degrees", to: "/universities", height: "h-auto" },
+  { src: banner6, alt: "Compare online universities side by side on fees, approvals and placements", to: "/compare", height: "h-auto" },
+  { src: banner3, alt: "Explore top online programs — MBA, MCA, BBA, BCA and more", to: "/courses", height: "h-auto" },
+  { src: banner4, alt: "Trusted, unbiased admission guidance from AVEDU Insights", to: "/contact", height: "h-auto" },
 ];
 
-export function HeroCarousel() {
+const mobileBanners: Banner[] = [
+  { src: mobile1, alt: "Compare India's top online universities on fees and approvals", to: "/compare", height: "aspect-[4/5]" },
+  { src: mobile2, alt: "Explore UGC-entitled online degree programmes", to: "/courses", height: "aspect-[4/5]" },
+  { src: mobile3, alt: "Free, unbiased admission guidance from AVEDU Insights", to: "/contact", height: "aspect-[4/5]" },
+];
+
+function Carousel({ banners, variant }: { banners: Banner[]; variant: "mobile" | "desktop" }) {
   const [index, setIndex] = useState(0);
   const paused = useRef(false);
   const startX = useRef<number | null>(null);
 
-  const go = useCallback((next: number) => {
-    setIndex(((next % banners.length) + banners.length) % banners.length);
-  }, []);
+  const go = useCallback(
+    (next: number) => setIndex(((next % banners.length) + banners.length) % banners.length),
+    [banners.length],
+  );
 
   useEffect(() => {
     const id = window.setInterval(() => {
       if (!paused.current) setIndex((i) => (i + 1) % banners.length);
     }, 5500);
     return () => window.clearInterval(id);
-  }, []);
+  }, [banners.length]);
 
   return (
     <div
@@ -58,40 +67,25 @@ export function HeroCarousel() {
             <AppLink
               key={b.src}
               to={b.to}
-              className="flex w-full shrink-0 items-center"
+              className={`flex w-full shrink-0 items-center ${variant === "mobile" ? b.height : ""}`}
               aria-hidden={i !== index}
             >
               <img
                 src={b.src}
                 alt={b.alt}
-                width={1536}
-                height={512}
                 loading={i === 0 ? "eager" : "lazy"}
                 fetchPriority={i === 0 ? "high" : "low"}
                 decoding={i === 0 ? "sync" : "async"}
-                className={`w-full max-w-full ${b.mobile} object-cover object-left sm:h-auto sm:object-contain`}
+                className={
+                  variant === "mobile"
+                    ? "h-full w-full object-cover"
+                    : "h-auto w-full max-w-full object-contain"
+                }
               />
             </AppLink>
           ))}
         </div>
       </div>
-
-      <button
-        type="button"
-        aria-label="Previous banner"
-        onClick={() => go(index - 1)}
-        className="absolute left-2 top-1/2 hidden -translate-y-1/2 place-items-center rounded-full border border-border bg-background/85 p-2 text-foreground shadow-sm backdrop-blur transition-colors hover:bg-background sm:grid"
-      >
-        <ChevronLeft className="h-5 w-5" />
-      </button>
-      <button
-        type="button"
-        aria-label="Next banner"
-        onClick={() => go(index + 1)}
-        className="absolute right-2 top-1/2 hidden -translate-y-1/2 place-items-center rounded-full border border-border bg-background/85 p-2 text-foreground shadow-sm backdrop-blur transition-colors hover:bg-background sm:grid"
-      >
-        <ChevronRight className="h-5 w-5" />
-      </button>
 
       <div className="mt-3 flex justify-center gap-2">
         {banners.map((b, i) => (
@@ -110,5 +104,18 @@ export function HeroCarousel() {
         ))}
       </div>
     </div>
+  );
+}
+
+export function HeroCarousel() {
+  return (
+    <>
+      <div className="sm:hidden">
+        <Carousel banners={mobileBanners} variant="mobile" />
+      </div>
+      <div className="hidden sm:block">
+        <Carousel banners={desktopBanners} variant="desktop" />
+      </div>
+    </>
   );
 }
