@@ -19,6 +19,42 @@ export interface NavItem {
 
 export const primaryNav: NavItem[] = [
   {
+    label: "Courses",
+    href: "/courses",
+    columns: [
+      {
+        heading: "Postgraduate",
+        links: [
+          { label: "Online MBA", href: "/courses/online-mba" },
+          { label: "Online MCA", href: "/courses/online-mca" },
+          { label: "Online M.Com", href: "/courses/online-mcom" },
+        ],
+      },
+      {
+        heading: "Undergraduate",
+        links: [
+          { label: "Online BBA", href: "/courses/online-bba" },
+          { label: "Online BCA", href: "/courses/online-bca" },
+          { label: "Online B.Com", href: "/courses/online-bcom" },
+        ],
+      },
+      {
+        heading: "Explore",
+        links: [
+          { label: "All courses", href: "/courses" },
+          { label: "Admissions", href: "/admissions" },
+          { label: "Scholarships", href: "/scholarships" },
+        ],
+      },
+    ],
+    featured: {
+      title: "Programme finder",
+      description: "Match a course to your budget, eligibility and career goal.",
+      href: "/tools",
+      cta: "Open finder",
+    },
+  },
+  {
     label: "Universities",
     href: "/universities",
     columns: [
@@ -40,11 +76,11 @@ export const primaryNav: NavItem[] = [
         ],
       },
       {
-        heading: "Explore",
+        heading: "Research",
         links: [
           { label: "Rankings", href: "/rankings" },
-          { label: "Admissions", href: "/admissions" },
           { label: "Reviews", href: "/reviews" },
+          { label: "Admissions", href: "/admissions" },
         ],
       },
     ],
@@ -54,36 +90,6 @@ export const primaryNav: NavItem[] = [
       href: "/tools",
       cta: "Open finder",
     },
-  },
-  {
-    label: "Courses",
-    href: "/courses",
-    columns: [
-      {
-        heading: "Postgraduate",
-        links: [
-          { label: "Online MBA", href: "/courses/online-mba" },
-          { label: "Online MCA", href: "/courses/online-mca" },
-          { label: "Online M.Com", href: "/courses/online-mcom" },
-        ],
-      },
-      {
-        heading: "Undergraduate",
-        links: [
-          { label: "Online BBA", href: "/courses/online-bba" },
-          { label: "Online BCA", href: "/courses/online-bca" },
-          { label: "Online B.Com", href: "/courses/online-bcom" },
-        ],
-      },
-      {
-        heading: "Specialisations",
-        links: [
-          { label: "Data science", href: "/categories/data-science" },
-          { label: "Finance", href: "/categories/finance" },
-          { label: "Marketing", href: "/categories/marketing" },
-        ],
-      },
-    ],
   },
   {
     label: "Compare",
@@ -108,49 +114,29 @@ export const primaryNav: NavItem[] = [
     ],
   },
   {
-    label: "Reviews",
-    href: "/reviews",
+    label: "Specialisations",
+    href: "/categories",
     columns: [
       {
-        heading: "Student reviews",
+        heading: "In demand",
         links: [
-          { label: "All reviews", href: "/reviews" },
-          { label: "LPU Online review", href: "/reviews/lpu-online" },
-          { label: "Amity Online review", href: "/reviews/amity-online" },
+          { label: "Data science & analytics", href: "/courses/online-mba" },
+          { label: "Finance", href: "/courses/online-mba" },
+          { label: "Marketing", href: "/courses/online-mba" },
         ],
       },
       {
-        heading: "Trust signals",
+        heading: "Browse",
         links: [
-          { label: "Rankings", href: "/rankings" },
-          { label: "Verified alumni", href: "/reviews" },
+          { label: "All specialisations", href: "/categories" },
+          { label: "Tags", href: "/tags" },
+          { label: "Career guides", href: "/career" },
         ],
       },
     ],
   },
   {
-    label: "Career",
-    href: "/career",
-    columns: [
-      {
-        heading: "Career guides",
-        links: [
-          { label: "After online MBA", href: "/career/after-online-mba" },
-          { label: "Data analyst roadmap", href: "/career/data-analyst-roadmap" },
-          { label: "Government jobs & validity", href: "/career/government-jobs-validity" },
-        ],
-      },
-      {
-        heading: "Support",
-        links: [
-          { label: "Scholarships", href: "/scholarships" },
-          { label: "Student tools", href: "/tools" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Insights",
+    label: "Resources",
     href: "/blogs",
     columns: [
       {
@@ -158,19 +144,38 @@ export const primaryNav: NavItem[] = [
         links: [
           { label: "Blogs", href: "/blogs" },
           { label: "News", href: "/news" },
-          { label: "Admission updates", href: "/admissions" },
+          { label: "Reviews", href: "/reviews" },
         ],
       },
       {
-        heading: "Browse",
+        heading: "Guidance",
         links: [
-          { label: "Categories", href: "/categories" },
-          { label: "Tags", href: "/tags" },
+          { label: "Scholarships", href: "/scholarships" },
+          { label: "Career guides", href: "/career" },
+          { label: "Student tools", href: "/tools" },
+        ],
+      },
+      {
+        heading: "About us",
+        links: [
           { label: "Authors", href: "/authors" },
+          { label: "About AVEDU", href: "/about" },
+          { label: "Contact", href: "/contact" },
         ],
       },
     ],
   },
+];
+
+/** Flat mobile menu — one tap per destination, no nesting required. */
+export const mobileNav: NavLink[] = [
+  { label: "Courses", href: "/courses" },
+  { label: "Universities", href: "/universities" },
+  { label: "Compare", href: "/compare" },
+  { label: "Specialisations", href: "/categories" },
+  { label: "Scholarships", href: "/scholarships" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "News", href: "/news" },
   { label: "Tools", href: "/tools" },
 ];
 
