@@ -79,7 +79,11 @@ function Block({ block }: { block: PostBlock }) {
         </ul>
       );
     case "table":
-      return <DataTable caption={block.caption} head={block.head} rows={block.rows} />;
+      return block.caption ? (
+        <DataTable caption={block.caption} head={block.head} rows={block.rows} />
+      ) : (
+        <DataTable head={block.head} rows={block.rows} />
+      );
     case "note":
       return (
         <div className="flex gap-3 rounded-xl border border-border bg-secondary/60 p-4">
