@@ -52,11 +52,18 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+/** Every figure is counted from the dataset this site ships — nothing rounded up. */
 const stats = [
-  { value: "480+", label: "Universities tracked" },
-  { value: "2,600+", label: "Programmes mapped" },
-  { value: "18,000+", label: "Verified reviews" },
-  { value: "100%", label: "Free guidance" },
+  { value: String(universityRecords.length), label: "Universities researched" },
+  {
+    value: String(courseFamilies.length),
+    label: "Course pillars mapped",
+  },
+  {
+    value: String(new Set(comparisons.map((c) => c.slug)).size),
+    label: "Side-by-side comparisons",
+  },
+  { value: "0", label: "Sponsored placements" },
 ];
 
 function HomePage() {
