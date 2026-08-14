@@ -20,13 +20,13 @@ interface CourseCurriculumJson {
 
 interface UniversityResearchJson {
   verified_programs?: string[];
-  mba_fee?: string;
+  mba_fee?: string | string[];
   mba_specialisations?: string[];
-  mba_curriculum_note?: string;
-  exam_pattern?: string;
-  eligibility?: string;
+  mba_curriculum_note?: string | string[];
+  exam_pattern?: string | string[];
+  eligibility?: string | string[];
   scholarships?: string[] | string;
-  university_notes?: string;
+  university_notes?: string | string[];
 }
 
 const curriculumData = master.course_curriculum as unknown as Record<string, CourseCurriculumJson>;
@@ -140,10 +140,11 @@ export interface UniversityResearch {
   specialisations?: string[];
   curriculumNote?: string;
   examPattern?: string;
-  eligibility?: string;
+  eligibility?: string | string[];
   scholarships?: string[];
   scholarshipNote?: string;
   universityNote?: string;
+  universityNotes?: string[];
 }
 
 /** Verified research for a university, keyed by the site's own slug. */
@@ -160,7 +161,12 @@ export function getUniversityResearch(siteSlug: string): UniversityResearch | un
   if (r.eligibility) out.eligibility = neutral(r.eligibility);
   if (Array.isArray(r.scholarships)) out.scholarships = r.scholarships;
   else if (typeof r.scholarships === "string") out.scholarshipNote = neutral(r.scholarships);
-  if (r.university_notes) out.universityNote = neutral(r.university_notes);
+  if (Array.isArray(r.university_notes) && r.university_notes.length) {
+    out.universityNotes = r.university_notes.map((n) => neutral(n)).filter(Boolean);
+    out.universityNote = out.universityNotes[0];
+  } else if (typeof r.university_notes === "string" && r.university_notes.trim()) {
+    out.universityNote = neutral(r.university_notes);
+  }
   return out;
 }
 
@@ -184,6 +190,7 @@ export function getUniversityCourse(siteSlug: string, programmeSlug: string) {
     scholarships: research?.scholarships,
     scholarshipNote: research?.scholarshipNote,
     universityNote: research?.universityNote,
+    universityNotes: research?.universityNotes,
   };
 }
 
