@@ -3,6 +3,7 @@
  * CMS / database later only means replacing the getters below.
  */
 
+import { courseFamilyList } from "@/lib/courseFamily";
 import { programmes as programmeRecords, specialisations as specialisationRecords } from "@/data";
 import {
   academicSession,
@@ -181,42 +182,33 @@ export const courses: Course[] = programmeRecords.map((p) => ({
 }));
 
 /** Editorial ordering: MBA, MCA, MCom, MA first for PG; BBA, BCA, BCom, BA for UG. */
-const preferredOrder = ["MBA", "MCA", "MCOM", "MA", "BBA", "BCA", "BCOM", "BA"];
-
-function familyRank(c: Course): number {
-  const key = normaliseDegree(courseAbbrev(c.shortName, c.name));
-  const i = preferredOrder.indexOf(key);
-  return i === -1 ? preferredOrder.length : i;
-}
+const preferredOrder = ["MBA", "MCA", "MCOM", "MSC", "MA", "BBA", "BCA", "BCOM", "BA"];
 
 /**
- * One card per course — duplicates such as "MBA", "Online MBA" and
- * "Master of Business Administration" collapse into a single entry.
- * Specialisations live on the course page, never as separate cards.
+ * One card per online course pillar page. Cards always use the "Online X"
+ * name and link to `/courses/online-x`, matching the page H1 and breadcrumb.
+ * Individual university programmes are never surfaced as separate cards.
  */
-export const courseFamilies: Course[] = (() => {
-  const map = new Map<string, Course>();
-  for (const c of courses) {
-    const key = `${normaliseDegree(courseAbbrev(c.shortName, c.name))}::${c.level}`;
-    const existing = map.get(key);
-    if (!existing) {
-      map.set(key, { ...c });
-      continue;
-    }
-    existing.universities += c.universities;
-    existing.specialisations = Array.from(new Set([...existing.specialisations, ...c.specialisations])).slice(0, 6);
-    // Prefer the entry backed by the most universities as the canonical page.
-    if (c.universities > existing.universities - c.universities) {
-      existing.slug = c.slug;
-      existing.name = c.name;
-      existing.duration = c.duration || existing.duration;
-      existing.feeRange = c.feeRange || existing.feeRange;
-    }
-  }
-  return [...map.values()].sort(
-    (a, b) => familyRank(a) - familyRank(b) || b.universities - a.universities,
+export const courseFamilies: Course[] = courseFamilyList()
+  .map((f) => ({
+    slug: f.slug,
+    name: f.name,
+    shortName: f.shortName,
+    displayName: f.name,
+    level: f.level as Course["level"],
+    duration: f.durationLabel,
+    feeRange: f.feeRangeLabel,
+    mode: "Online",
+    universities: f.offers.length,
+    summary: `${f.name} (${f.degreeName}) — ${f.durationLabel}, offered online by ${f.offers.length} UGC-entitled universit${f.offers.length === 1 ? "y" : "ies"} with ${f.specialisations.length} specialisations.`,
+    specialisations: f.specialisations.slice(0, 6).map((s) => s.name),
+  }))
+  .sort(
+    (a, b) =>
+      preferredOrder.indexOf(normaliseDegree(a.shortName)) - preferredOrder.indexOf(normaliseDegree(b.shortName)) ||
+      b.universities - a.universities,
   );
-})();
+
 
 
 export const articles: Article[] = [

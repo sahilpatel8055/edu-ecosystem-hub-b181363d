@@ -42,12 +42,14 @@ export const Route = createFileRoute("/courses/$course/")({
   loader: ({ params }) => {
     const family = courseContentBySlug(params.course);
     if (family) return { kind: "family" as const, name: family.family.name };
+    // Every other course slug rolls up to its "Online X" pillar page.
+    const rollup = familyForProgrammeSlug(params.course);
+    if (rollup) throw redirect({ to: "/courses/$course", params: { course: rollup.slug }, statusCode: 301 });
     const profile = programmeProfile(params.course);
     if (!profile) {
-      const rollup = familyForProgrammeSlug(params.course);
-      if (rollup) throw redirect({ to: "/courses/$course", params: { course: rollup.slug } });
       throw notFound();
     }
+
     const p = profile.record;
     return {
       kind: "programme" as const,
