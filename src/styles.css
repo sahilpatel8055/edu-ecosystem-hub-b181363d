@@ -543,3 +543,116 @@
     flex: 0 0 auto;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Readability layer: sectional rhythm, table legibility and mobile comfort.
+ * Applies site-wide so every existing template gets the same treatment.
+ * ------------------------------------------------------------------------- */
+
+/* Alternating page bands so long pages read as distinct sections. */
+@utility section-band {
+  background-color: var(--color-surface-2);
+  border-block: 1px solid color-mix(in oklab, var(--color-border) 80%, transparent);
+}
+
+@utility section-band-soft {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-brand-soft) 45%, var(--color-background)) 0%,
+      var(--color-background) 100%
+    );
+}
+
+/* Auto-alternate stacked content blocks inside an article column. */
+@utility content-stack {
+  & > section:nth-of-type(even) .content-block,
+  & > .content-block:nth-of-type(even) {
+    background-color: color-mix(in oklab, var(--color-surface-2) 70%, var(--color-card));
+  }
+}
+
+@layer base {
+  /* Tables: consistent borders, zebra rows and readable numerics everywhere. */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    line-height: 1.35;
+  }
+
+  tbody td,
+  tbody th {
+    vertical-align: top;
+    line-height: 1.55;
+  }
+
+  tbody tr:nth-child(even) > td {
+    background-color: color-mix(in oklab, var(--color-secondary) 45%, transparent);
+  }
+
+  tbody tr:hover > td {
+    background-color: color-mix(in oklab, var(--color-brand-soft) 55%, transparent);
+  }
+
+  tbody tr:not(:last-child) > td,
+  tbody tr:not(:last-child) > th {
+    border-bottom: 1px solid color-mix(in oklab, var(--color-border) 85%, transparent);
+  }
+
+  /* Long-form headings keep a comfortable gap from the text above. */
+  h2 + p,
+  h3 + p {
+    margin-top: 0.35rem;
+  }
+}
+
+/* Horizontally scrollable table with edge fades so mobile users see there is
+   more content to the right. */
+@utility table-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  scrollbar-width: thin;
+
+  & > table {
+    min-width: 40rem;
+  }
+
+  @media (width >= 640px) {
+    & > table {
+      min-width: 0;
+    }
+  }
+}
+
+/* Key/value strip used for quick facts; collapses to two columns on mobile. */
+@utility fact-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @media (width >= 768px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@utility fact-cell {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: color-mix(in oklab, var(--color-surface-2) 70%, var(--color-card));
+  padding: 0.7rem 0.85rem;
+}
+
+/* Small print used for source lines and verification notes. */
+@utility source-note {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--color-subtle);
+}
