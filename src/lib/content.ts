@@ -225,8 +225,8 @@ export const articles: Article[] = [
     title: "Online MBA fees in India 2026: full cost breakdown",
     excerpt:
       "Fee bands by university type, what the sticker price hides, and the legitimate ways to bring your total outgo down.",
-    category: "Fees & Finance",
-    categorySlug: "fees-finance",
+    category: "Fees & Scholarships",
+    categorySlug: "fees-scholarships",
     tags: ["mba", "fees", "online-degree"],
     author: "Arjun Mehta",
     authorSlug: "arjun-mehta",
