@@ -1,4 +1,5 @@
-import { CalendarClock, CheckCircle2, Info, ShieldCheck, UserRound } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, CalendarClock, CheckCircle2, Info, PhoneCall, ShieldCheck, Sparkles, UserRound } from "lucide-react";
 import { AppLink } from "@/components/common/AppLink";
 import { DataTable } from "@/components/common/Blocks";
 import { ContentSection } from "@/components/templates/DetailLayout";
@@ -93,6 +94,10 @@ function Block({ block }: { block: PostBlock }) {
       );
     case "chart":
       return <BarChart block={block} />;
+    case "cta":
+      return <InlineLeadCTA block={block} />;
+    case "promo":
+      return <PromoBannerBlock block={block} />;
     case "links":
       return (
         <div className="rounded-xl border border-border bg-card p-4">
@@ -141,6 +146,82 @@ function BarChart({ block }: { block: Extract<PostBlock, { kind: "chart" }> }) {
   );
 }
 
+
+/** Inline lead-capture form used between article sections. */
+function InlineLeadCTA({ block }: { block: Extract<PostBlock, { kind: "cta" }> }) {
+  const [sent, setSent] = useState(false);
+  return (
+    <div className="not-prose rounded-2xl border-2 border-[#7f1813] bg-brand-soft p-5 sm:p-6">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#7f1813] px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-wide text-white">
+        <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Free counselling
+      </span>
+      <h3 className="mt-3 font-display text-lg font-extrabold leading-snug text-foreground">{block.title}</h3>
+      {block.body && <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{block.body}</p>}
+      {sent ? (
+        <p className="mt-4 rounded-lg bg-card p-3 text-sm font-semibold text-foreground">
+          Thanks — our counsellor will call you shortly with verified fees and eligibility.
+        </p>
+      ) : (
+        <form
+          className="mt-4 grid gap-2.5 sm:grid-cols-2"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setSent(true);
+          }}
+        >
+          <input
+            required
+            name="name"
+            placeholder="Your name"
+            className="h-11 rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          />
+          <input
+            required
+            name="phone"
+            type="tel"
+            pattern="[0-9+ ]{10,15}"
+            placeholder="Mobile number"
+            className="h-11 rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          />
+          <button
+            type="submit"
+            className="h-11 rounded-lg bg-[#7f1813] text-sm font-bold text-white transition-opacity hover:opacity-90 sm:col-span-2"
+          >
+            {block.buttonLabel ?? "Get free guidance"}
+          </button>
+        </form>
+      )}
+      <p className="mt-2 text-[0.7rem] text-muted-foreground">No spam. Your details are used only for counselling.</p>
+    </div>
+  );
+}
+
+/** Promotional strip placed between sections. */
+function PromoBannerBlock({ block }: { block: Extract<PostBlock, { kind: "promo" }> }) {
+  return (
+    <div className="not-prose flex flex-col gap-3 rounded-2xl bg-[#7f1813] p-5 text-white sm:flex-row sm:items-center sm:justify-between">
+      <div className="min-w-0">
+        <p className="font-display text-base font-extrabold leading-snug">{block.title}</p>
+        {block.body && <p className="mt-1 text-sm leading-relaxed text-white/85">{block.body}</p>}
+      </div>
+      {block.href ? (
+        <AppLink
+          to={block.href}
+          className="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-white px-4 text-sm font-bold text-[#7f1813]"
+        >
+          {block.ctaLabel ?? "Explore now"} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </AppLink>
+      ) : (
+        <a
+          href="tel:+919000000000"
+          className="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-white px-4 text-sm font-bold text-[#7f1813]"
+        >
+          <PhoneCall className="h-4 w-4" aria-hidden="true" /> {block.ctaLabel ?? "Talk to a counsellor"}
+        </a>
+      )}
+    </div>
+  );
+}
 
 export function PostBody({ post }: { post: PostContent }) {
   return (
