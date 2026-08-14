@@ -18,9 +18,9 @@ const desktopBanners: Banner[] = [
 ];
 
 const mobileBanners: Banner[] = [
-  { src: mobile1, alt: "Compare India's top online universities on fees and approvals", to: "/compare", height: "aspect-[16/11]" },
-  { src: mobile2, alt: "Explore UGC-entitled online degree programmes", to: "/courses", height: "aspect-[16/11]" },
-  { src: mobile3, alt: "Free, unbiased admission guidance from AVEDU Insights", to: "/contact", height: "aspect-[16/11]" },
+  { src: mobile1, alt: "Compare India's top online universities on fees and approvals", to: "/compare", height: "aspect-[112/100]" },
+  { src: mobile2, alt: "Explore UGC-entitled online degree programmes", to: "/courses", height: "aspect-[112/100]" },
+  { src: mobile3, alt: "Free, unbiased admission guidance from AVEDU Insights", to: "/contact", height: "aspect-[112/100]" },
 ];
 
 function Carousel({ banners, variant }: { banners: Banner[]; variant: "mobile" | "desktop" }) {

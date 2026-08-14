@@ -139,7 +139,10 @@ export function MasterFacts({
   if (data.feeNote) rows.push({ label: "Fee (as researched)", value: data.feeNote });
   if (data.eligibility) rows.push({ label: "Eligibility", value: data.eligibility });
   if (data.examPattern) rows.push({ label: "Examination pattern", value: data.examPattern });
-  if (data.universityNote) rows.push({ label: "University note", value: data.universityNote });
+  const notes = data.universityNotes ?? (data.universityNote ? [data.universityNote] : []);
+  notes.forEach((n, i) =>
+    rows.push({ label: notes.length > 1 ? `Researched note ${i + 1}` : "University note", value: n }),
+  );
   if (rows.length === 0) return null;
   return (
     <div className="grid gap-3 sm:grid-cols-2">

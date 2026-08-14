@@ -20,21 +20,26 @@ interface CourseCurriculumJson {
 
 interface UniversityResearchJson {
   verified_programs?: string[];
-  mba_fee?: string;
+  mba_fee?: string | string[];
   mba_specialisations?: string[];
-  mba_curriculum_note?: string;
-  exam_pattern?: string;
-  eligibility?: string;
+  mba_curriculum_note?: string | string[];
+  exam_pattern?: string | string[];
+  eligibility?: string | string[];
   scholarships?: string[] | string;
-  university_notes?: string;
+  university_notes?: string | string[];
 }
 
 const curriculumData = master.course_curriculum as unknown as Record<string, CourseCurriculumJson>;
 
-/** Keeps third-party aggregator names out of published copy. */
-function neutral(text: string): string {
-  return text
+/**
+ * Keeps third-party aggregator names out of published copy. The dataset stores
+ * some of these fields as an array of notes, so accept both shapes.
+ */
+function neutral(text: unknown): string {
+  const raw = Array.isArray(text) ? text.filter(Boolean).join(" ") : typeof text === "string" ? text : "";
+  return raw
     .replace(/CollegeSathi[’']?s?/gi, "the referenced programme source")
+    .replace(/CollegeVidya[’']?s?/gi, "the referenced programme source")
     .replace(/\bCited page\b/gi, "The referenced source")
     .replace(/\bthe cited\b/gi, "the referenced");
 }
@@ -139,6 +144,7 @@ export interface UniversityResearch {
   scholarships?: string[];
   scholarshipNote?: string;
   universityNote?: string;
+  universityNotes?: string[];
 }
 
 /** Verified research for a university, keyed by the site's own slug. */
@@ -155,7 +161,13 @@ export function getUniversityResearch(siteSlug: string): UniversityResearch | un
   if (r.eligibility) out.eligibility = neutral(r.eligibility);
   if (Array.isArray(r.scholarships)) out.scholarships = r.scholarships;
   else if (typeof r.scholarships === "string") out.scholarshipNote = neutral(r.scholarships);
-  if (r.university_notes) out.universityNote = neutral(r.university_notes);
+  if (Array.isArray(r.university_notes) && r.university_notes.length) {
+    out.universityNotes = r.university_notes.map((n) => neutral(n)).filter(Boolean);
+    const first = out.universityNotes[0];
+    if (first) out.universityNote = first;
+  } else if (typeof r.university_notes === "string" && r.university_notes.trim()) {
+    out.universityNote = neutral(r.university_notes);
+  }
   return out;
 }
 
@@ -179,6 +191,7 @@ export function getUniversityCourse(siteSlug: string, programmeSlug: string) {
     scholarships: research?.scholarships,
     scholarshipNote: research?.scholarshipNote,
     universityNote: research?.universityNote,
+    universityNotes: research?.universityNotes,
   };
 }
 

@@ -103,7 +103,7 @@ export function ComparisonPage({ pair, course }: { pair: PairComparison; course?
     course
       ? {
           question: `What is the ${course} fee at ${aName} and ${bName}?`,
-          answer: `${aName}: ${feeLabel(sa)}. ${bName}: ${feeLabel(sb)}. Where a figure is not verified, check the official university page linked in Sources.`,
+          answer: `${aName}: ${feeLabel(sa, { universitySlug: uniA?.slug, course })}. ${bName}: ${feeLabel(sb, { universitySlug: uniB?.slug, course })}. Where a figure is not verified, check the official university page linked in Sources.`,
         }
       : {
           question: `Which courses can I compare across ${aName} and ${bName}?`,
@@ -197,7 +197,7 @@ export function ComparisonPage({ pair, course }: { pair: PairComparison; course?
             { label: "Overlapping courses", a: String(courses.length), b: String(courses.length) },
             ...(course
               ? [
-                  { label: `${course} fee`, a: feeLabel(sa), b: feeLabel(sb) },
+                  { label: `${course} fee`, a: feeLabel(sa, { universitySlug: uniA?.slug, course }), b: feeLabel(sb, { universitySlug: uniB?.slug, course }) },
                   { label: "Duration", a: val(sa?.duration), b: val(sb?.duration) },
                 ]
               : []),
@@ -251,7 +251,7 @@ export function ComparisonPage({ pair, course }: { pair: PairComparison; course?
             aName={aName}
             bName={bName}
             rows={[
-              { label: "Total programme fee", a: feeLabel(sa), b: feeLabel(sb) },
+              { label: "Total programme fee", a: feeLabel(sa, { universitySlug: uniA?.slug, course }), b: feeLabel(sb, { universitySlug: uniB?.slug, course }) },
               { label: "Fee status", a: val(sa?.fee_status), b: val(sb?.fee_status) },
               { label: "Semesters", a: val(sa?.semesters), b: val(sb?.semesters) },
               { label: "Last verified", a: val(sa?.last_verified), b: val(sb?.last_verified) },
@@ -264,8 +264,8 @@ export function ComparisonPage({ pair, course }: { pair: PairComparison; course?
             bName={bName}
             rows={courses.map((c) => ({
               label: c,
-              a: feeLabel(pair.course_snapshots?.[c]?.university_a),
-              b: feeLabel(pair.course_snapshots?.[c]?.university_b),
+              a: feeLabel(pair.course_snapshots?.[c]?.university_a, { universitySlug: uniA?.slug, course: c }),
+              b: feeLabel(pair.course_snapshots?.[c]?.university_b, { universitySlug: uniB?.slug, course: c }),
             }))}
           />
         )}
@@ -376,14 +376,14 @@ export function ComparisonPage({ pair, course }: { pair: PairComparison; course?
             <h3 className="text-base font-bold text-foreground">{aName}</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               {courses.length} overlapping programmes with {bName}
-              {course ? `; ${course} at ${feeLabel(sa)}` : ""}. Recognition: {val(uniA?.recognition?.["UGC_status"])}.
+              {course ? `; ${course} at ${feeLabel(sa, { universitySlug: uniA?.slug, course })}` : ""}. Recognition: {val(uniA?.recognition?.["UGC_status"])}.
             </p>
           </div>
           <div className="rounded-xl border border-border bg-card p-4">
             <h3 className="text-base font-bold text-foreground">{bName}</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               {courses.length} overlapping programmes with {aName}
-              {course ? `; ${course} at ${feeLabel(sb)}` : ""}. Recognition: {val(uniB?.recognition?.["UGC_status"])}.
+              {course ? `; ${course} at ${feeLabel(sb, { universitySlug: uniB?.slug, course })}` : ""}. Recognition: {val(uniB?.recognition?.["UGC_status"])}.
             </p>
           </div>
         </div>

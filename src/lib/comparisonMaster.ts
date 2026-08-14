@@ -1,4 +1,6 @@
 import master from "@/data/university-comparison-master-2026-27.json";
+import { offerings } from "@/data/offerings";
+import { courseKeyForProgramme, siteSlugForMasterSlug } from "@/lib/courseMaster";
 
 export type OfficialSource = {
   programme_url: string | null;
@@ -113,10 +115,34 @@ export function comparableCourses(pair: PairComparison): string[] {
   });
 }
 
-export const feeLabel = (side: CourseSnapshotSide | undefined) => {
+/**
+ * Fee fallback: when the comparison snapshot has no figure, use the site's own
+ * verified programme dataset (same numbers the university pages publish)
+ * instead of telling the reader the fee is unverified.
+ */
+export function datasetFeeTotal(universitySlug: string | undefined, courseName: string | undefined) {
+  if (!universitySlug || !courseName) return null;
+  const siteSlug = siteSlugForMasterSlug(universitySlug) ?? universitySlug;
+  const wanted = courseKeyForProgramme(courseSlug(courseName));
+  if (!wanted) return null;
+  const rows = offerings.filter(
+    (o) => o.universitySlug === siteSlug && courseKeyForProgramme(o.programmeSlug) === wanted,
+  );
+  for (const r of rows) {
+    if (typeof r.fee.total === "number" && r.fee.total > 0) return r.fee.total;
+  }
+  return null;
+}
+
+export const feeLabel = (
+  side: CourseSnapshotSide | undefined,
+  ctx?: { universitySlug?: string | undefined; course?: string | undefined },
+) => {
   if (!side?.available) return "Not offered";
   if (typeof side.fee_total === "number" && side.fee_total > 0)
     return `₹${side.fee_total.toLocaleString("en-IN")}`;
+  const fromDataset = datasetFeeTotal(ctx?.universitySlug, ctx?.course);
+  if (fromDataset) return `₹${fromDataset.toLocaleString("en-IN")}`;
   return "Current fee not verified";
 };
 
