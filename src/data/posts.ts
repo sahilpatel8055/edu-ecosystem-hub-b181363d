@@ -51,7 +51,11 @@ const REVIEWER_ROLE = "Education Research Lead, AVEDU";
 
 const base = { reviewer: REVIEWER, reviewerRole: REVIEWER_ROLE };
 
+import { courseGuidePosts } from "./posts-course-guides";
+
 export const postContent: Record<string, PostContent> = {
+  ...courseGuidePosts,
+
   /* ------------------------------- blogs -------------------------------- */
 
   "ugc-entitled-vs-deb-approved": {
