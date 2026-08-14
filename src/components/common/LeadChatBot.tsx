@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquareDots, X, Send } from "lucide-react";
+import { MessageSquareDot, X, Send } from "lucide-react";
 
 type Msg = { from: "bot" | "user"; text: string };
 
@@ -77,7 +77,7 @@ export function LeadChatBot() {
           aria-label="Chat with AVEDU Assist"
           className="fixed bottom-24 right-4 z-50 grid h-14 w-14 place-items-center rounded-2xl bg-[#7f1813] text-white shadow-[0_16px_36px_-14px_oklch(0_0_0/0.7)] transition-transform hover:-translate-y-0.5 lg:bottom-28 lg:right-6"
         >
-          <MessageSquareDots className="h-6 w-6" />
+          <MessageSquareDot className="h-6 w-6" />
           <span className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500" />
         </button>
       )}
