@@ -52,20 +52,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-/** Every figure is counted from the dataset this site ships — nothing rounded up. */
-const stats = [
-  { value: String(universityRecords.length), label: "Universities researched" },
-  {
-    value: String(courseFamilies.length),
-    label: "Course pillars mapped",
-  },
-  {
-    value: String(new Set(comparisons.map((c) => c.slug)).size),
-    label: "Side-by-side comparisons",
-  },
-  { value: "0", label: "Sponsored placements" },
-];
-
 function HomePage() {
   return (
     <>
@@ -138,21 +124,6 @@ function HomePage() {
             </ul>
           </div>
 
-          <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-4 sm:gap-4">
-            {stats.map((s) => (
-              <div key={s.label} className="card-pro p-4 text-center sm:p-5">
-                <dt className="sr-only">{s.label}</dt>
-                <dd>
-                  <span className="block font-display text-2xl font-extrabold text-brand sm:text-3xl">
-                    {s.value}
-                  </span>
-                  <span className="mt-1 block text-[0.7rem] font-medium uppercase tracking-wider text-muted-foreground sm:text-xs">
-                    {s.label}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
