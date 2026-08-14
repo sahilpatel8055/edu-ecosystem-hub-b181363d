@@ -55,8 +55,8 @@ import {
   onlineName,
   providerLinks,
 } from "@/lib/entities";
-import {
 import { specLandingPath } from "@/lib/courseFamily";
+import {
   breadcrumbSchema,
   canonical,
   courseSchema,
