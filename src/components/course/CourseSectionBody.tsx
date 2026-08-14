@@ -88,20 +88,8 @@ export function CourseSectionBody({
               No specialisation list has been published for {family.name} yet.
             </p>
           )}
-          {content.specialisationGuide.length > 0 && (
-            <div className="mt-6">
-              <h3 className="font-display text-base font-bold">
-                Which specialisation should you choose?
-              </h3>
-              <div className="mt-3">
-                <ResponsiveTable
-                  caption="Career goal to specialisation guide"
-                  head={["Career goal", "Suggested specialisation"]}
-                  rows={content.specialisationGuide.map((g) => [g.goal, g.specialisation])}
-                />
-              </div>
-            </div>
-          )}
+
+
         </>
       );
     case "exam-pattern":
