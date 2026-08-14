@@ -129,7 +129,7 @@ export function UniCourseSectionBody({
               const spec = getSpecialisation(p.slug, s);
               return {
                 name: spec?.name ?? s,
-                href: `/courses/${p.slug}`,
+                href: specLandingPath(p.slug, spec?.name ?? s),
                 meta: spec?.careerPaths.slice(0, 2).join(", ") || undefined,
               };
             })}
