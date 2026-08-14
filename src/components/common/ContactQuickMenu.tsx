@@ -45,6 +45,20 @@ export function ContactQuickMenu() {
         <Headset className="h-[1.15rem] w-[1.15rem]" />
       </button>
 
+      {hint && !open && (
+        <button
+          type="button"
+          onClick={() => {
+            setHint(false);
+            setOpen(true);
+          }}
+          className="absolute right-0 top-12 z-50 w-max max-w-[12rem] animate-fade-in rounded-xl border border-border bg-card px-3 py-2 text-left text-[0.72rem] font-medium leading-snug text-foreground shadow-lg"
+        >
+          <span className="mr-1 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 align-middle" />
+          Counsellors online — get connected now
+        </button>
+      )}
+
       {open && (
         <div className="absolute right-0 top-12 z-50 w-48 overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
           <a
