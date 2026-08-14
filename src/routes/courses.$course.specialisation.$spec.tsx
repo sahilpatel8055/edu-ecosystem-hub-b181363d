@@ -14,8 +14,8 @@ import { BackToPillar, SectionUrlGrid } from "@/components/course/SectionHub";
 import { courseContentBySlug } from "@/data/course-pages";
 import { ADMISSION_YEAR } from "@/data/course-pages/types";
 import { familySpecialisation } from "@/lib/courseFamily";
-import {
 import { PubSpecialisationResearch } from "@/components/pub/PubBlocks";
+import {
   breadcrumbSchema,
   canonical,
   courseSchema,
