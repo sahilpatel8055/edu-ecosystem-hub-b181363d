@@ -78,6 +78,12 @@ function HomePage() {
         <div className="container-page relative pb-8 pt-3 sm:pb-14 sm:pt-4 lg:pb-16 lg:pt-5">
           <HeroCarousel />
 
+          {/* Mobile scroll cue — tells first-time visitors there is more below the banner */}
+          <p className="mt-1 flex items-center justify-center gap-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:hidden">
+            Scroll to explore
+            <ArrowRight className="h-3 w-3 rotate-90" aria-hidden="true" />
+          </p>
+
           {/* Course discovery — the first action after the banner on every viewport */}
           <div className="mt-5">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
