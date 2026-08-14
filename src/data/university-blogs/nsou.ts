@@ -143,11 +143,6 @@ export const nsouPosts: Record<string, PostContent> = {
         ],
       },
       {
-        kind: "cta",
-        heading: "",
-        blocks: [],
-      } as unknown as never,
-      {
         heading: "M.Com fee structure",
         blocks: [
           {
@@ -434,11 +429,6 @@ export const nsouPosts: Record<string, PostContent> = {
         ],
       },
       {
-        kind: "cta",
-        heading: "",
-        blocks: [],
-      } as unknown as never,
-      {
         heading: "Step-by-step admission process",
         blocks: [
           {
@@ -716,11 +706,6 @@ export const nsouPosts: Record<string, PostContent> = {
         ],
       },
       {
-        kind: "cta",
-        heading: "",
-        blocks: [],
-      } as unknown as never,
-      {
         heading: "M.Com career scope",
         blocks: [
           {
@@ -959,11 +944,6 @@ export const nsouPosts: Record<string, PostContent> = {
           },
         ],
       },
-      {
-        kind: "cta",
-        heading: "",
-        blocks: [],
-      } as unknown as never,
       {
         heading: "Where NSOU falls short",
         blocks: [
