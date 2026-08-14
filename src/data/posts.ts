@@ -22,7 +22,11 @@ export type PostBlock =
       note?: string;
       data: { label: string; value: number; display?: string }[];
     }
-  | { kind: "links"; title: string; items: { label: string; href: string }[] };
+  | { kind: "links"; title: string; items: { label: string; href: string }[] }
+  /** Inline lead-capture card with a short form. */
+  | { kind: "cta"; title: string; body?: string; buttonLabel?: string }
+  /** Promotional banner strip with a link button. */
+  | { kind: "promo"; title: string; body?: string; ctaLabel?: string; href?: string };
 
 export interface PostSection {
   heading: string;

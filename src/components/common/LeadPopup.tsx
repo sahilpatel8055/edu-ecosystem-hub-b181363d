@@ -66,7 +66,7 @@ export function LeadPopup({ delayMs = 22000 }: { delayMs?: number }) {
         role="dialog"
         aria-modal="true"
         aria-label={copy.title}
-        className="relative w-full max-w-md overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-2xl"
+        className="relative w-full max-w-md overflow-hidden rounded-2xl border-2 border-[#7f1813] bg-card p-6 shadow-2xl"
       >
         <button
           type="button"
