@@ -152,6 +152,8 @@ export const Route = createFileRoute("/compare/$comparison")({
 
 function Page() {
   const { comparison } = Route.useParams();
+  const family = getCourseFamily(comparison);
+  if (family?.offers.length) return <CourseComparisonPage family={family} />;
   const masterPair = masterPairBySlug(comparison);
   if (masterPair) return <ComparisonPage pair={masterPair} />;
   const pair = comparisonBySlug(comparison);
