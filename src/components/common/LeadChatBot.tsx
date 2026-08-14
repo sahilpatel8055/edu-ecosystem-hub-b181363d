@@ -91,15 +91,29 @@ export function LeadChatBot() {
   return (
     <>
       {!open && (
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-label="Chat with AVEDU Assist"
-          className="fixed bottom-24 right-4 z-50 grid h-14 w-14 place-items-center rounded-2xl bg-[#7f1813] text-white shadow-[0_16px_36px_-14px_oklch(0_0_0/0.7)] transition-transform hover:-translate-y-0.5 lg:bottom-28 lg:right-6"
-        >
-          <MessageSquareDot className="h-6 w-6" />
-          <span className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500" />
-        </button>
+        <div className="fixed bottom-4 right-3 z-50 flex items-end gap-2 lg:bottom-6 lg:right-6">
+          {teaser && (
+            <button
+              type="button"
+              onClick={() => {
+                setTeaser(null);
+                setOpen(true);
+              }}
+              className="max-w-[13rem] animate-fade-in rounded-2xl rounded-br-sm border border-border bg-card px-3 py-2 text-left text-[0.72rem] font-medium leading-snug text-foreground shadow-lg"
+            >
+              {teaser}
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Chat with AVEDU Assist"
+            className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl shadow-[0_14px_30px_-14px_oklch(0_0_0/0.7)] transition-transform hover:-translate-y-0.5 lg:h-12 lg:w-12"
+          >
+            <img src={botIcon.url} alt="" className="h-full w-full object-cover" />
+            <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-500" />
+          </button>
+        </div>
       )}
 
       {open && (
