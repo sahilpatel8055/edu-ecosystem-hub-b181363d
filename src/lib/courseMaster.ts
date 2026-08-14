@@ -163,7 +163,8 @@ export function getUniversityResearch(siteSlug: string): UniversityResearch | un
   else if (typeof r.scholarships === "string") out.scholarshipNote = neutral(r.scholarships);
   if (Array.isArray(r.university_notes) && r.university_notes.length) {
     out.universityNotes = r.university_notes.map((n) => neutral(n)).filter(Boolean);
-    out.universityNote = out.universityNotes[0];
+    const first = out.universityNotes[0];
+    if (first) out.universityNote = first;
   } else if (typeof r.university_notes === "string" && r.university_notes.trim()) {
     out.universityNote = neutral(r.university_notes);
   }
