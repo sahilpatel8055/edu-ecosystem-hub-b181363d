@@ -4,6 +4,7 @@ import { ChevronDown, GraduationCap, Menu, Moon, Search, Sun, X } from "lucide-r
 import { mobileNav, primaryNav, type NavItem } from "@/lib/navigation";
 import { useTheme } from "@/hooks/use-theme";
 import { SearchBox } from "./SearchBox";
+import { ContactQuickMenu } from "@/components/common/ContactQuickMenu";
 
 function MegaMenu({ item }: { item: NavItem }) {
   if (!item.columns) return null;
@@ -122,6 +123,7 @@ export function Header() {
           <AppLink to="/contact" className="btn btn-primary hidden sm:inline-flex">
             Get guidance
           </AppLink>
+          <ContactQuickMenu />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}

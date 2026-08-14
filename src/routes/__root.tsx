@@ -15,6 +15,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTA } from "@/components/common/Blocks";
 import { LeadPopup } from "@/components/common/LeadPopup";
+import { LeadChatBot } from "@/components/common/LeadChatBot";
 
 import { jsonLd, organizationSchema, SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
 
@@ -153,6 +154,7 @@ function RootComponent() {
         <Footer />
         <StickyMobileCTA />
         <LeadPopup />
+        <LeadChatBot />
 
       </div>
     </QueryClientProvider>
