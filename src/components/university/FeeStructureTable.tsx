@@ -139,6 +139,14 @@ export function FeeStructureTable({
       </div>
 
       {table.note && <p className="text-xs text-muted-foreground">{table.note}</p>}
+      {hasOpenUniversityFeeSheet(universitySlug) && (
+        <p className="source-note">
+          Course fees for {universityShort} are taken from the university's own published fee
+          structure. Where the university publishes only a per-year or per-semester fee, that is
+          what is shown — no programme total is estimated.
+        </p>
+      )}
+
     </div>
   );
 }
