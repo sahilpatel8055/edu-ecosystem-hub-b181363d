@@ -18,6 +18,7 @@ import {
   UpdatedStamp,
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
+import { PubPillarGuidance } from "@/components/pub/PubBlocks";
 import { getUniversity } from "@/data";
 import {
   articleLinks,
@@ -338,6 +339,10 @@ function Page() {
                 </li>
               ))}
           </ul>
+        </ContentSection>
+
+        <ContentSection title="How to compare universities for this course">
+          <PubPillarGuidance familySlug={course} />
         </ContentSection>
 
         <SectionUrlGrid base={pillarBase} title={`More on the ${p.name}`} />
