@@ -86,7 +86,12 @@ export function courseKeyForProgramme(programmeSlug: string): string | undefined
   if (s === "ma" || s.startsWith("ma-")) return "online-ma";
   if (has("bachelor-of-arts", "b-a-", "online-ba")) return "online-ba";
   if (s === "ba" || s.startsWith("ba-")) return "online-ba";
+  // Fallback for spaced-out slugs like "online-m-a" / "online-b-a".
+  const flat = s.replace(/[^a-z]/g, "");
+  if (flat.includes("ma")) return "online-ma";
+  if (flat.includes("ba")) return "online-ba";
   return undefined;
+
 }
 
 export interface Semester {

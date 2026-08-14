@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
 import { SectionUrlGrid } from "@/components/course/SectionHub";
 import { PromoBanner } from "@/components/course/PromoBanner";
@@ -13,7 +13,7 @@ import {
 } from "@/components/common/Blocks";
 import { AppLink } from "@/components/common/AppLink";
 import { ApprovalMarquee, SpecialisationBoxes } from "@/components/common/BoxMarquee";
-import { getSpecialisation } from "@/data";
+import { getSpecialisation, listOfferingsByUniversity } from "@/data";
 import {
   AdmissionInsightSection,
   CareerOpportunitiesSection,
@@ -31,7 +31,7 @@ import {
 } from "@/components/university/CourseDecisionSections";
 import { NextStep } from "@/components/common/NextStep";
 import { PubCourseResearch } from "@/components/pub/PubBlocks";
-import { getUniversityCourse, masterResearchDate } from "@/lib/courseMaster";
+import { courseKeyForProgramme, getUniversityCourse, masterResearchDate, siteSlugForMasterSlug } from "@/lib/courseMaster";
 import {
   CurriculumSection,
   MasterFacts,
@@ -70,9 +70,28 @@ import {
  * URL: /universities/{university}/courses/{course}
  */
 export const Route = createFileRoute("/universities/$slug/courses/$course")({
+  beforeLoad: ({ params }) => {
+    if (offeringProfile(params.slug, params.course)) return;
+    // Slug spellings differ between universities ("online-m-com" vs "online-mcom").
+    // Resolve to the same degree family for this university instead of 404ing.
+    const wanted = courseKeyForProgramme(params.course);
+    const slug = siteSlugForMasterSlug(params.slug) ?? params.slug;
+    const candidates = listOfferingsByUniversity(slug);
+    const match =
+      candidates.find((o) => o.programmeSlug === params.course) ??
+      (wanted ? candidates.find((o) => courseKeyForProgramme(o.programmeSlug) === wanted) : undefined);
+    if (match && (match.programmeSlug !== params.course || slug !== params.slug)) {
+      throw redirect({
+        to: "/universities/$slug/courses/$course",
+        params: { slug, course: match.programmeSlug },
+        statusCode: 301,
+      });
+    }
+  },
   loader: ({ params }) => {
     const profile = offeringProfile(params.slug, params.course);
     if (!profile) throw notFound();
+
     return {
       universityName: profile.university.record.name,
       universityShort: profile.university.record.shortName,

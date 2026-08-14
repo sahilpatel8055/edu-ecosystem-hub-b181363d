@@ -2,7 +2,6 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import {
-  ChipList,
   FeeSummaryTable,
   FinalCta,
   LinkTiles,
@@ -11,10 +10,20 @@ import {
   UniversityTileGrid,
 } from "@/components/course/CourseSections";
 import { BackToPillar, SectionUrlGrid } from "@/components/course/SectionHub";
-import { courseContentBySlug } from "@/data/course-pages";
+import { Faq } from "@/components/common/Faq";
+import {
+  BrandBand,
+  ChipRow,
+  CollegeTable,
+  HighlightTable,
+  NumberedList,
+  SalaryTable,
+  SpecProse,
+  SpecSection,
+} from "@/components/specialisation/SpecSections";
+import { specContentFor, SPEC_YEAR } from "@/data/specialisation-content";
 import { ADMISSION_YEAR } from "@/data/course-pages/types";
 import { familySpecialisation } from "@/lib/courseFamily";
-import { PubSpecialisationResearch } from "@/components/pub/PubBlocks";
 import {
   breadcrumbSchema,
   canonical,
@@ -82,7 +91,7 @@ export const Route = createFileRoute("/courses/$course/specialisation/$spec")({
 function Page() {
   const { course, spec } = Route.useParams();
   const { family, spec: specialisation, offers } = familySpecialisation(course, spec)!;
-  const content = courseContentBySlug(course)?.content;
+  const rich = specContentFor(family, specialisation, offers);
   const pillar = `/courses/${course}`;
   const roles = [...new Set(offers.flatMap((o) => o.careerRoles))].slice(0, 14);
   const industries = [...new Set(offers.flatMap((o) => o.industries))].slice(0, 14);
@@ -115,51 +124,103 @@ function Page() {
       </div>
 
       <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14">
-        <main className="min-w-0 space-y-10">
-          <Section title="Researched specialisation record" tone="cream">
-            <PubSpecialisationResearch slug={spec} familySlug={course} />
-          </Section>
+        <main className="min-w-0 space-y-8">
+          <SpecSection title={`What is an ${family.name} in ${specialisation.name}?`} tone="cream">
+            <SpecProse paragraphs={rich.what} />
+          </SpecSection>
 
-          <Section
-            title={`Universities offering ${specialisation.name}`}
-            intro="Each tile links to the university-course page with the full fee, eligibility and admission detail."
-            tone="tint"
+          <SpecSection title={`Highlights of ${family.name} in ${specialisation.name} ${SPEC_YEAR}`} tone="brand">
+            <HighlightTable items={rich.highlights} />
+          </SpecSection>
+
+          <SpecSection title={`Scope of ${family.name} in ${specialisation.name}`}>
+            <SpecProse paragraphs={rich.scope} />
+            <div className="mt-5 grid grid-cols-2 gap-2.5 lg:grid-cols-3">
+              {rich.scopeAreas.map((a) => (
+                <div key={a.title} className="rounded-2xl border border-border bg-secondary/40 p-3 transition-colors hover:bg-brand-soft/50">
+                  <p className="font-display text-[0.82rem] font-bold sm:text-[0.9rem]">{a.title}</p>
+                  <p className="mt-1 text-[0.74rem] leading-relaxed text-muted-foreground sm:text-[0.82rem]">{a.detail}</p>
+                </div>
+              ))}
+            </div>
+          </SpecSection>
+
+          <SpecSection title="Eligibility criteria" tone="tint" intro={rich.eligibilityNote}>
+            <NumberedList items={rich.eligibility} />
+          </SpecSection>
+
+          <SpecSection title="Admission process" tone="cream">
+            <NumberedList items={rich.admissionSteps.map((s) => `${s.title} — ${s.detail}`)} />
+          </SpecSection>
+
+          <BrandBand
+            title={`Why study ${specialisation.name} in online mode?`}
+            points={rich.whyOnline}
+          />
+
+          <SpecSection title={`Syllabus of ${family.name} in ${specialisation.name}`} intro={rich.syllabusNote}>
+            {rich.syllabus.length > 0 ? (
+              <div className="grid gap-3 sm:grid-cols-2">
+                {rich.syllabus.map((sem) => (
+                  <div key={sem.semester} className="overflow-hidden rounded-2xl border border-border bg-card">
+                    <p className="bg-secondary px-3 py-2 text-[0.76rem] font-bold uppercase tracking-wide text-foreground">
+                      {sem.semester}
+                    </p>
+                    <ul className="divide-y divide-border">
+                      {sem.subjects.map((s) => (
+                        <li key={s.name} className="px-3 py-2 text-[0.8rem] text-muted-foreground">
+                          {s.name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">{rich.syllabusNote}</p>
+            )}
+          </SpecSection>
+
+          <SpecSection title={`Top colleges offering ${family.name} in ${specialisation.name}`} tone="brand">
+            <CollegeTable offers={offers.length ? offers : family.offers} courseName={`${family.name} in ${specialisation.name}`} />
+          </SpecSection>
+
+          <SpecSection
+            title={`Career prospects & average salary ${SPEC_YEAR}`}
+            intro={rich.salaryNote}
+            tone="exam"
           >
-            <UniversityTileGrid offers={offers.length ? offers : family.offers} />
-          </Section>
+            <SalaryTable roles={rich.careers} />
+            {rich.recruiters.length > 0 && (
+              <div className="mt-5">
+                <h3 className="font-display text-base font-bold">Top recruiters</h3>
+                <div className="mt-2.5">
+                  <ChipRow items={rich.recruiters} />
+                </div>
+              </div>
+            )}
+            {rich.industries.length > 0 && (
+              <div className="mt-5">
+                <h3 className="font-display text-base font-bold">Industries hiring</h3>
+                <div className="mt-2.5">
+                  <ChipRow items={rich.industries} tone="outline" />
+                </div>
+              </div>
+            )}
+          </SpecSection>
 
-          <Section title="Fees for this specialisation" tone="cream">
+          <SpecSection title="Fees for this specialisation" tone="cream">
             <FeeSummaryTable offers={offers.length ? offers : family.offers} />
             <Note>
               Specialisation choice rarely changes the {family.name} fee — the figures above are the
               programme fees published by each university.
             </Note>
-          </Section>
+          </SpecSection>
 
-          <Section title="Career roles">
-            {roles.length ? (
-              <ChipList items={roles} />
-            ) : (
-              <p className="text-sm text-muted-foreground">
-                The universities offering this track have not published a role list yet.
-              </p>
-            )}
-            {industries.length > 0 && (
-              <div className="mt-6">
-                <h3 className="font-display text-base font-bold">Industries hiring</h3>
-                <div className="mt-3">
-                  <ChipList items={industries} />
-                </div>
-              </div>
-            )}
-          </Section>
+          <section id="faqs" className="scroll-mt-36">
+            <Faq items={rich.faqs} title={`${family.name} in ${specialisation.name} FAQs`} />
+          </section>
 
-          {content && content.eligibility.length > 0 && (
-            <Section title="Eligibility">
-              <ChipList items={content.eligibility.map((e) => e.title)} />
-              <Note>{content.eligibilityNote}</Note>
-            </Section>
-          )}
 
           <SectionUrlGrid base={pillar} title={`More on the ${family.name}`} />
 
