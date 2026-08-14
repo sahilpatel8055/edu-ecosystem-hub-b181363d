@@ -14,6 +14,7 @@ import { BackToPillar, SectionUrlGrid } from "@/components/course/SectionHub";
 import { courseContentBySlug } from "@/data/course-pages";
 import { ADMISSION_YEAR } from "@/data/course-pages/types";
 import { familySpecialisation } from "@/lib/courseFamily";
+import { PubSpecialisationResearch } from "@/components/pub/PubBlocks";
 import {
   breadcrumbSchema,
   canonical,
@@ -115,6 +116,10 @@ function Page() {
 
       <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14">
         <main className="min-w-0 space-y-10">
+          <Section title="Researched specialisation record" tone="cream">
+            <PubSpecialisationResearch slug={spec} familySlug={course} />
+          </Section>
+
           <Section
             title={`Universities offering ${specialisation.name}`}
             intro="Each tile links to the university-course page with the full fee, eligibility and admission detail."

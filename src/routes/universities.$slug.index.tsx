@@ -11,6 +11,7 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityHero } from "@/components/university/UniversityHero";
 import { AppLink } from "@/components/common/AppLink";
+import { PubUniversityResearch } from "@/components/pub/PubBlocks";
 import { ApprovalsSection } from "@/components/university/ApprovalsSection";
 import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
 import {
@@ -371,6 +372,10 @@ function Page() {
             lastVerified={u.lastUpdated}
             status={json?.data_status ?? (u.verified ? "verified_official" : "partial_verification")}
           />
+        </ContentSection>
+
+        <ContentSection title="Researched university record">
+          <PubUniversityResearch slug={slug} />
         </ContentSection>
 
         <ContentSection title="Official documents & sources">

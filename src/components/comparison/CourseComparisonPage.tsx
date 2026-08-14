@@ -5,6 +5,7 @@ import { NextStep } from "@/components/common/NextStep";
 import { CourseComparisonBoard } from "./CourseComparisonBoard";
 import type { CourseFamily } from "@/lib/courseFamily";
 import { academicSessionLabel } from "@/lib/phaseSpec";
+import { PubComparisonRows } from "@/components/pub/PubBlocks";
 
 /**
  * Phase 5 — evergreen course comparison page (`/compare/online-mba`, …).
@@ -63,6 +64,8 @@ export function CourseComparisonPage({ family }: { family: CourseFamily }) {
         </section>
 
         <CourseComparisonBoard family={family} />
+
+        <PubComparisonRows familySlug={family.slug} />
 
         <section aria-labelledby="verify-before">
           <h2 id="verify-before" className="text-base font-bold sm:text-lg">
