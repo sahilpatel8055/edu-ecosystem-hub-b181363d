@@ -14,6 +14,14 @@ export type PostBlock =
   | { kind: "list"; items: string[]; ordered?: boolean }
   | { kind: "table"; caption?: string; head: string[]; rows: string[][] }
   | { kind: "note"; text: string }
+  | {
+      /** Simple horizontal bar chart rendered inline — no chart library needed. */
+      kind: "chart";
+      title: string;
+      unit?: string;
+      note?: string;
+      data: { label: string; value: number; display?: string }[];
+    }
   | { kind: "links"; title: string; items: { label: string; href: string }[] };
 
 export interface PostSection {
@@ -28,6 +36,8 @@ export interface PostContent {
   updated: string;
   reviewer: string;
   reviewerRole: string;
+  /** Key into `blogBanners` for the editorial cover artwork. */
+  banner?: string;
   sections: PostSection[];
   faqs: { question: string; answer: string }[];
   sources?: { label: string; href: string }[];
@@ -35,12 +45,17 @@ export interface PostContent {
   cta?: string;
 }
 
+
 const REVIEWER = "Kartik Ahuja";
 const REVIEWER_ROLE = "Education Research Lead, AVEDU";
 
 const base = { reviewer: REVIEWER, reviewerRole: REVIEWER_ROLE };
 
+import { courseGuidePosts } from "./posts-course-guides";
+
 export const postContent: Record<string, PostContent> = {
+  ...courseGuidePosts,
+
   /* ------------------------------- blogs -------------------------------- */
 
   "ugc-entitled-vs-deb-approved": {

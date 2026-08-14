@@ -91,6 +91,8 @@ function Block({ block }: { block: PostBlock }) {
           <p className="text-sm leading-relaxed text-muted-foreground">{block.text}</p>
         </div>
       );
+    case "chart":
+      return <BarChart block={block} />;
     case "links":
       return (
         <div className="rounded-xl border border-border bg-card p-4">
@@ -106,8 +108,39 @@ function Block({ block }: { block: PostBlock }) {
           </ul>
         </div>
       );
+    default:
+      return null;
   }
 }
+
+/** Inline horizontal bar chart — pure CSS, no chart dependency. */
+function BarChart({ block }: { block: Extract<PostBlock, { kind: "chart" }> }) {
+  const max = Math.max(...block.data.map((d) => d.value), 1);
+  return (
+    <figure className="rounded-xl border border-border bg-card p-4 sm:p-5">
+      <figcaption className="text-sm font-bold">{block.title}</figcaption>
+      {block.unit && <p className="mt-1 text-xs text-muted-foreground">{block.unit}</p>}
+      <div className="mt-4 space-y-3">
+        {block.data.map((d) => (
+          <div key={d.label}>
+            <div className="flex items-baseline justify-between gap-3 text-xs">
+              <span className="font-medium">{d.label}</span>
+              <span className="tabular-nums text-muted-foreground">{d.display ?? d.value}</span>
+            </div>
+            <div className="mt-1.5 h-2.5 w-full overflow-hidden rounded-full bg-secondary">
+              <div
+                className="h-full rounded-full bg-brand"
+                style={{ width: `${Math.max(4, (d.value / max) * 100)}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+      {block.note && <p className="mt-4 text-xs text-muted-foreground">{block.note}</p>}
+    </figure>
+  );
+}
+
 
 export function PostBody({ post }: { post: PostContent }) {
   return (

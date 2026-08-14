@@ -5,6 +5,8 @@ import { ArticleCard } from "@/components/cards";
 import { RelatedContent } from "@/components/templates/DetailLayout";
 import { articles, news } from "@/lib/content";
 import { getPostContent } from "@/data/posts";
+import { blogBanner } from "@/lib/blogBanners";
+
 import {
   articleSchema,
   breadcrumbSchema,
@@ -80,17 +82,31 @@ function Page() {
   ];
   const related = all.filter((a) => a.slug !== item.slug && a.categorySlug === item.categorySlug).slice(0, 2);
 
+  const banner = blogBanner(post.banner);
+
   return (
     <DetailLayout
       crumbs={[
         { name: "Blogs", href: "/blogs" },
         { name: item.title, href: `/blogs/${item.slug}` },
       ]}
+      hero={
+        banner ? (
+          <img
+            src={banner}
+            alt={item.title}
+            width={1280}
+            height={640}
+            className="aspect-[2/1] w-full rounded-2xl border border-border object-cover"
+          />
+        ) : undefined
+      }
       eyebrow={item.category}
       title={item.title}
       subtitle={post.intro}
       meta={<PostByline item={item} post={post} />}
       tocSections={toc}
+
       faqs={post.faqs}
       related={
         related.length ? (
