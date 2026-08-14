@@ -2,7 +2,6 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import {
-  ChipList,
   FeeSummaryTable,
   FinalCta,
   LinkTiles,
@@ -25,7 +24,6 @@ import {
 import { specContentFor, SPEC_YEAR } from "@/data/specialisation-content";
 import { ADMISSION_YEAR } from "@/data/course-pages/types";
 import { familySpecialisation } from "@/lib/courseFamily";
-import { PubSpecialisationResearch } from "@/components/pub/PubBlocks";
 import {
   breadcrumbSchema,
   canonical,
