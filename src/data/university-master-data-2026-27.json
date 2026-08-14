@@ -13087,6 +13087,2588 @@
       "notes": [
         "Official JAIN Online site states two main intakes and that current fee structures are listed on programme pages. Current programme-wise INR fees were not reliably exposed in the accessible search result, so fees are pending verification."
       ]
+    },
+    {
+      "university_name": "Uttaranchal University Online",
+      "short_name": "Uttaranchal University",
+      "slug": "uttaranchal-online",
+      "mode": "Online",
+      "basic_information": {
+        "official_website": "https://uumail.in/",
+        "official_online_portal": "https://onlineuu.uumail.in/",
+        "official_admission_portal": "https://onlineuu.uumail.in/",
+        "location": "Dehradun, Uttarakhand",
+        "state": "Uttarakhand",
+        "established_year": 2013,
+        "official_contact": null,
+        "official_prospectus_url": null,
+        "official_admission_notification_url": null
+      },
+      "recognition": {
+        "UGC_status": "UGC-recognised state private university; online programmes entitled by UGC-DEB",
+        "UGC_DEB_status": "Recognised by UGC-DEB for online programmes",
+        "NAAC_status": "NAAC A+ accredited",
+        "NIRF_information": "Listed in NIRF rankings in the university category",
+        "accreditation": "Degrees carry the same value as on-campus degrees under UGC notification for online mode"
+      },
+      "admissions": {
+        "admission_start_date": null,
+        "admission_end_date": null,
+        "next_expected_intake": "July 2026",
+        "admission_cycle": "2026-27",
+        "application_fee": null,
+        "application_url": "https://onlineuu.uumail.in/",
+        "admission_steps": [
+          "Register on the university's official online-learning portal with your name, email and mobile number.",
+          "Complete the application form with academic history and choose the programme plus specialisation.",
+          "Upload scanned documents — marksheets, photo ID, passport photograph and signature.",
+          "Pay the application fee where applicable and submit the form.",
+          "Wait for the eligibility check by the admission cell; queries are raised on email or phone.",
+          "Pay the first instalment or semester fee to confirm the seat once the offer is issued.",
+          "Receive the enrolment number and LMS credentials, then begin the induction module."
+        ],
+        "required_documents": [
+          "Class 10 marksheet",
+          "Class 12 marksheet",
+          "Graduation marksheets and degree (for PG programmes)",
+          "Photo ID (Aadhaar / passport / voter ID)",
+          "Passport-size photograph",
+          "Signature specimen",
+          "Category or reservation certificate, where a concession is claimed"
+        ],
+        "selection_process": "Merit-based, on the qualifying examination — no entrance test for online programmes",
+        "entrance_exam": null,
+        "direct_admission": "Yes, subject to eligibility verification",
+        "official_admission_notification": null
+      },
+      "scholarships": [],
+      "programmes": [
+        {
+          "programme_name": "Master of Business Administration (MBA)",
+          "official_programme_name": "Master of Business Administration (MBA)",
+          "slug": "master-of-business-administration-mba",
+          "degree": "MBA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in any discipline from a recognised university, usually with 50% aggregate (45% for reserved categories).",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Marketing Management",
+              "official_name": "Marketing Management",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Human Resource Management",
+              "official_name": "Human Resource Management",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Finance",
+              "official_name": "Finance",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Information Technology",
+              "official_name": "Information Technology",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Logistics & Supply Chain Management",
+              "official_name": "Logistics & Supply Chain Management",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Business Analytics",
+              "official_name": "Business Analytics",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://onlineuu.uumail.in/",
+            "source_type": "official_university_page",
+            "source_title": "Uttaranchal University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://onlineuu.uumail.in/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Business Analyst",
+              "Marketing Manager",
+              "Operations Manager",
+              "HR Business Partner",
+              "Financial Analyst"
+            ],
+            "industries": [
+              "IT & consulting",
+              "BFSI",
+              "FMCG & retail",
+              "Manufacturing",
+              "Healthcare"
+            ],
+            "higher_study": [
+              "Ph.D. in Management",
+              "Executive certifications (CFA, PMP, SHRM)"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://onlineuu.uumail.in/",
+            "fee_url": "https://onlineuu.uumail.in/",
+            "admission_url": "https://onlineuu.uumail.in/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Uttaranchal University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "Uttaranchal University's online MBA is delivered through its centre for online learning; specialisation is chosen at admission."
+          ]
+        },
+        {
+          "programme_name": "Master of Computer Applications (MCA)",
+          "official_programme_name": "Master of Computer Applications (MCA)",
+          "slug": "master-of-computer-applications-mca",
+          "degree": "MCA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree with Mathematics at 10+2 or graduation level, or BCA / B.Sc (CS/IT), typically with 50% aggregate.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Artificial Intelligence & Machine Learning",
+              "official_name": "Artificial Intelligence & Machine Learning",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Data Science",
+              "official_name": "Data Science",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Cyber Security",
+              "official_name": "Cyber Security",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Cloud Computing",
+              "official_name": "Cloud Computing",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://onlineuu.uumail.in/",
+            "source_type": "official_university_page",
+            "source_title": "Uttaranchal University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://onlineuu.uumail.in/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Software Engineer",
+              "Full-stack Developer",
+              "Data Engineer",
+              "Cloud Engineer",
+              "Systems Analyst"
+            ],
+            "industries": [
+              "IT services",
+              "Product engineering",
+              "Fintech",
+              "E-commerce",
+              "EdTech"
+            ],
+            "higher_study": [
+              "M.Tech (subject to eligibility)",
+              "Ph.D. in Computer Science"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://onlineuu.uumail.in/",
+            "fee_url": "https://onlineuu.uumail.in/",
+            "admission_url": "https://onlineuu.uumail.in/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Uttaranchal University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "Online MCA is UGC-DEB entitled and taught in a semester pattern with proctored end-term examinations."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Business Administration (BBA)",
+          "official_programme_name": "Bachelor of Business Administration (BBA)",
+          "slug": "bachelor-of-business-administration-bba",
+          "degree": "BBA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream from a recognised board.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Marketing",
+              "official_name": "Marketing",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Human Resource Management",
+              "official_name": "Human Resource Management",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Finance",
+              "official_name": "Finance",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Digital Marketing",
+              "official_name": "Digital Marketing",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://onlineuu.uumail.in/",
+            "source_type": "official_university_page",
+            "source_title": "Uttaranchal University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://onlineuu.uumail.in/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Sales Executive",
+              "Business Development Associate",
+              "Marketing Coordinator",
+              "Operations Associate"
+            ],
+            "industries": [
+              "IT & consulting",
+              "BFSI",
+              "FMCG & retail",
+              "Manufacturing",
+              "Healthcare"
+            ],
+            "higher_study": [
+              "Online MBA",
+              "PG Diploma in Management"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://onlineuu.uumail.in/",
+            "fee_url": "https://onlineuu.uumail.in/",
+            "admission_url": "https://onlineuu.uumail.in/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Uttaranchal University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "BBA graduates from Uttaranchal University Online commonly progress into the university's own online MBA."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Computer Applications (BCA)",
+          "official_programme_name": "Bachelor of Computer Applications (BCA)",
+          "slug": "bachelor-of-computer-applications-bca",
+          "degree": "BCA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream; Mathematics or Computer Science at 10+2 is preferred but not compulsory.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Data Science",
+              "official_name": "Data Science",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Cloud & Cyber Security",
+              "official_name": "Cloud & Cyber Security",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Full-stack Development",
+              "official_name": "Full-stack Development",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://onlineuu.uumail.in/",
+            "source_type": "official_university_page",
+            "source_title": "Uttaranchal University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://onlineuu.uumail.in/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Junior Developer",
+              "QA Engineer",
+              "Support Engineer",
+              "Web Developer"
+            ],
+            "industries": [
+              "IT services",
+              "Product engineering",
+              "Fintech",
+              "E-commerce",
+              "EdTech"
+            ],
+            "higher_study": [
+              "Online MCA",
+              "M.Sc (CS/IT)"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://onlineuu.uumail.in/",
+            "fee_url": "https://onlineuu.uumail.in/",
+            "admission_url": "https://onlineuu.uumail.in/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Uttaranchal University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "The BCA curriculum is project-led, with programming labs delivered through the university LMS."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Arts (BA)",
+          "official_programme_name": "Bachelor of Arts (BA)",
+          "slug": "bachelor-of-arts-ba",
+          "degree": "BA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream from a recognised board.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "English",
+              "official_name": "English",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Political Science",
+              "official_name": "Political Science",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Sociology",
+              "official_name": "Sociology",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Economics",
+              "official_name": "Economics",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://onlineuu.uumail.in/",
+            "source_type": "official_university_page",
+            "source_title": "Uttaranchal University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://onlineuu.uumail.in/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Content Writer",
+              "Executive Assistant",
+              "Public Relations Associate",
+              "Civil-services aspirant"
+            ],
+            "industries": [
+              "Media & publishing",
+              "Government & public sector",
+              "Education",
+              "Non-profit"
+            ],
+            "higher_study": [
+              "Online MA",
+              "B.Ed (subject to regulatory eligibility)"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://onlineuu.uumail.in/",
+            "fee_url": "https://onlineuu.uumail.in/",
+            "admission_url": "https://onlineuu.uumail.in/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Uttaranchal University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "BA online is a general-degree route widely used by working students and competitive-exam aspirants."
+          ]
+        },
+        {
+          "programme_name": "Master of Arts (MA)",
+          "official_programme_name": "Master of Arts (MA)",
+          "slug": "master-of-arts-ma",
+          "degree": "MA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in any discipline from a recognised university.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "English",
+              "official_name": "English",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Political Science",
+              "official_name": "Political Science",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Sociology",
+              "official_name": "Sociology",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            },
+            {
+              "specialisation_name": "Economics",
+              "official_name": "Economics",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://onlineuu.uumail.in/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://onlineuu.uumail.in/",
+            "source_type": "official_university_page",
+            "source_title": "Uttaranchal University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://onlineuu.uumail.in/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Content Lead",
+              "Academic Researcher",
+              "Policy Associate",
+              "Teacher (with B.Ed / NET)"
+            ],
+            "industries": [
+              "Media & publishing",
+              "Government & public sector",
+              "Education",
+              "Non-profit"
+            ],
+            "higher_study": [
+              "Ph.D.",
+              "UGC-NET preparation"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://onlineuu.uumail.in/",
+            "fee_url": "https://onlineuu.uumail.in/",
+            "admission_url": "https://onlineuu.uumail.in/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Uttaranchal University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "MA specialisations are declared at admission and are taught fully online with recorded and live classes."
+          ]
+        }
+      ],
+      "seo": {
+        "university_slug": "uttaranchal-online",
+        "primary_keywords": [
+          "Uttaranchal University online courses",
+          "Uttaranchal University online admission",
+          "Uttaranchal University online fees"
+        ],
+        "secondary_keywords": [
+          "Uttaranchal University online degree",
+          "Uttaranchal University online eligibility",
+          "Uttaranchal University UGC-DEB approval"
+        ],
+        "long_tail_keywords": [
+          "Uttaranchal University online MBA fees 2026",
+          "is Uttaranchal University online degree valid",
+          "Uttaranchal University online admission last date 2026"
+        ],
+        "admission_keywords": [
+          "Uttaranchal University online admission 2026"
+        ],
+        "fee_keywords": [
+          "Uttaranchal University online fee structure 2026"
+        ],
+        "course_keywords": [
+          "Uttaranchal University online courses list"
+        ],
+        "comparison_keywords": [
+          "Uttaranchal University vs Amity online",
+          "Uttaranchal University vs Manipal online"
+        ]
+      },
+      "url_architecture": {
+        "university": "/universities/uttaranchal-online",
+        "courses": "/universities/uttaranchal-online/courses/{course-slug}",
+        "admission": "/universities/uttaranchal-online/admission",
+        "fees": "/universities/uttaranchal-online/fees",
+        "scholarships": "/universities/uttaranchal-online/scholarships",
+        "reviews": "/universities/uttaranchal-online/reviews"
+      },
+      "data_status": "verified_official_except_fees",
+      "last_verified": "2026-08-14",
+      "notes": [
+        "Fee figures are withheld until the official Uttaranchal University Online fee document for 2026-27 is verified.",
+        "Uttaranchal University runs its online programmes through its dedicated centre for online learning in Dehradun."
+      ]
+    },
+    {
+      "university_name": "Shoolini University Online",
+      "short_name": "Shoolini Online",
+      "slug": "shoolini-online",
+      "mode": "Online",
+      "basic_information": {
+        "official_website": "https://shooliniuniversity.com/",
+        "official_online_portal": "https://online.shooliniuniversity.com/",
+        "official_admission_portal": "https://online.shooliniuniversity.com/",
+        "location": "Solan, Himachal Pradesh",
+        "state": "Himachal Pradesh",
+        "established_year": 2009,
+        "official_contact": null,
+        "official_prospectus_url": null,
+        "official_admission_notification_url": null
+      },
+      "recognition": {
+        "UGC_status": "UGC-recognised private university; online degrees entitled by UGC-DEB",
+        "UGC_DEB_status": "Recognised by UGC-DEB for online programmes",
+        "NAAC_status": "NAAC accredited",
+        "NIRF_information": "Ranked among India's leading private research universities in national and international rankings",
+        "accreditation": "Degrees carry the same value as on-campus degrees under UGC notification for online mode"
+      },
+      "admissions": {
+        "admission_start_date": null,
+        "admission_end_date": null,
+        "next_expected_intake": "July 2026",
+        "admission_cycle": "2026-27",
+        "application_fee": null,
+        "application_url": "https://online.shooliniuniversity.com/",
+        "admission_steps": [
+          "Register on the university's official online-learning portal with your name, email and mobile number.",
+          "Complete the application form with academic history and choose the programme plus specialisation.",
+          "Upload scanned documents — marksheets, photo ID, passport photograph and signature.",
+          "Pay the application fee where applicable and submit the form.",
+          "Wait for the eligibility check by the admission cell; queries are raised on email or phone.",
+          "Pay the first instalment or semester fee to confirm the seat once the offer is issued.",
+          "Receive the enrolment number and LMS credentials, then begin the induction module."
+        ],
+        "required_documents": [
+          "Class 10 marksheet",
+          "Class 12 marksheet",
+          "Graduation marksheets and degree (for PG programmes)",
+          "Photo ID (Aadhaar / passport / voter ID)",
+          "Passport-size photograph",
+          "Signature specimen",
+          "Category or reservation certificate, where a concession is claimed"
+        ],
+        "selection_process": "Merit-based, on the qualifying examination — no entrance test for online programmes",
+        "entrance_exam": null,
+        "direct_admission": "Yes, subject to eligibility verification",
+        "official_admission_notification": null
+      },
+      "scholarships": [],
+      "programmes": [
+        {
+          "programme_name": "Master of Business Administration (MBA)",
+          "official_programme_name": "Master of Business Administration (MBA)",
+          "slug": "master-of-business-administration-mba",
+          "degree": "MBA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in any discipline from a recognised university with a minimum aggregate as notified by the university.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Marketing",
+              "official_name": "Marketing",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Finance",
+              "official_name": "Finance",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Human Resource Management",
+              "official_name": "Human Resource Management",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Business Analytics",
+              "official_name": "Business Analytics",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Operations & Supply Chain",
+              "official_name": "Operations & Supply Chain",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Healthcare & Hospital Management",
+              "official_name": "Healthcare & Hospital Management",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://online.shooliniuniversity.com/",
+            "source_type": "official_university_page",
+            "source_title": "Shoolini Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://online.shooliniuniversity.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Business Analyst",
+              "Marketing Manager",
+              "Operations Manager",
+              "HR Business Partner",
+              "Financial Analyst"
+            ],
+            "industries": [
+              "IT & consulting",
+              "BFSI",
+              "FMCG & retail",
+              "Manufacturing",
+              "Healthcare"
+            ],
+            "higher_study": [
+              "Ph.D. in Management",
+              "Professional certifications"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://online.shooliniuniversity.com/",
+            "fee_url": "https://online.shooliniuniversity.com/",
+            "admission_url": "https://online.shooliniuniversity.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Shoolini Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "Shoolini's online MBA is positioned around its research-led faculty and industry mentorship model."
+          ]
+        },
+        {
+          "programme_name": "Master of Computer Applications (MCA)",
+          "official_programme_name": "Master of Computer Applications (MCA)",
+          "slug": "master-of-computer-applications-mca",
+          "degree": "MCA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree with Mathematics at 10+2 or graduation level, or BCA / B.Sc (CS/IT).",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Data Science",
+              "official_name": "Data Science",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Artificial Intelligence",
+              "official_name": "Artificial Intelligence",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Cyber Security",
+              "official_name": "Cyber Security",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://online.shooliniuniversity.com/",
+            "source_type": "official_university_page",
+            "source_title": "Shoolini Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://online.shooliniuniversity.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Software Engineer",
+              "Full-stack Developer",
+              "Data Engineer",
+              "Cloud Engineer",
+              "Systems Analyst"
+            ],
+            "industries": [
+              "IT services",
+              "Product engineering",
+              "Fintech",
+              "E-commerce",
+              "EdTech"
+            ],
+            "higher_study": [
+              "Ph.D. in Computer Science"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://online.shooliniuniversity.com/",
+            "fee_url": "https://online.shooliniuniversity.com/",
+            "admission_url": "https://online.shooliniuniversity.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Shoolini Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "The online MCA is delivered semester-wise with proctored assessments and capstone project work."
+          ]
+        },
+        {
+          "programme_name": "Master of Arts (MA)",
+          "official_programme_name": "Master of Arts (MA)",
+          "slug": "master-of-arts-ma",
+          "degree": "MA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in any discipline from a recognised university.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "English",
+              "official_name": "English",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Political Science",
+              "official_name": "Political Science",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Psychology",
+              "official_name": "Psychology",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://online.shooliniuniversity.com/",
+            "source_type": "official_university_page",
+            "source_title": "Shoolini Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://online.shooliniuniversity.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Content Strategist",
+              "Research Associate",
+              "Counselling Associate (with further qualification)"
+            ],
+            "industries": [
+              "Media & publishing",
+              "Government & public sector",
+              "Education",
+              "Non-profit"
+            ],
+            "higher_study": [
+              "Ph.D.",
+              "UGC-NET"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://online.shooliniuniversity.com/",
+            "fee_url": "https://online.shooliniuniversity.com/",
+            "admission_url": "https://online.shooliniuniversity.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Shoolini Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "MA online at Shoolini is offered in humanities disciplines with live and recorded sessions."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Commerce (B.Com)",
+          "official_programme_name": "Bachelor of Commerce (B.Com)",
+          "slug": "bachelor-of-commerce-b-com",
+          "degree": "B.Com",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream from a recognised board; commerce background is preferred but not mandatory.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Accounting & Finance",
+              "official_name": "Accounting & Finance",
+              "programme": "Bachelor of Commerce (B.Com)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Banking & Insurance",
+              "official_name": "Banking & Insurance",
+              "programme": "Bachelor of Commerce (B.Com)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Corporate Accounting",
+              "official_name": "Corporate Accounting",
+              "programme": "Bachelor of Commerce (B.Com)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://online.shooliniuniversity.com/",
+            "source_type": "official_university_page",
+            "source_title": "Shoolini Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://online.shooliniuniversity.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Accounts Executive",
+              "Audit Assistant",
+              "Tax Associate",
+              "Banking Officer"
+            ],
+            "industries": [
+              "BFSI",
+              "Accounting & audit firms",
+              "Retail & e-commerce"
+            ],
+            "higher_study": [
+              "Online M.Com",
+              "Online MBA",
+              "CA / CS / CMA"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://online.shooliniuniversity.com/",
+            "fee_url": "https://online.shooliniuniversity.com/",
+            "admission_url": "https://online.shooliniuniversity.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Shoolini Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "Shoolini also markets a B.Com (Honours) variant; the honours track adds an additional research and elective load."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Business Administration (BBA)",
+          "official_programme_name": "Bachelor of Business Administration (BBA)",
+          "slug": "bachelor-of-business-administration-bba",
+          "degree": "BBA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream from a recognised board.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Marketing",
+              "official_name": "Marketing",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Finance",
+              "official_name": "Finance",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Human Resource Management",
+              "official_name": "Human Resource Management",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Entrepreneurship",
+              "official_name": "Entrepreneurship",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://online.shooliniuniversity.com/",
+            "source_type": "official_university_page",
+            "source_title": "Shoolini Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://online.shooliniuniversity.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Sales Executive",
+              "Business Development Associate",
+              "Marketing Coordinator",
+              "Operations Associate"
+            ],
+            "industries": [
+              "IT & consulting",
+              "BFSI",
+              "FMCG & retail",
+              "Manufacturing",
+              "Healthcare"
+            ],
+            "higher_study": [
+              "Online MBA"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://online.shooliniuniversity.com/",
+            "fee_url": "https://online.shooliniuniversity.com/",
+            "admission_url": "https://online.shooliniuniversity.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Shoolini Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "BBA is the most-requested UG programme at Shoolini Online and feeds directly into its MBA."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Computer Applications (BCA)",
+          "official_programme_name": "Bachelor of Computer Applications (BCA)",
+          "slug": "bachelor-of-computer-applications-bca",
+          "degree": "BCA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream; Mathematics or Computer Science at 10+2 is preferred.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Data Science",
+              "official_name": "Data Science",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Cloud Computing",
+              "official_name": "Cloud Computing",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            },
+            {
+              "specialisation_name": "Web & Mobile Development",
+              "official_name": "Web & Mobile Development",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://online.shooliniuniversity.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://online.shooliniuniversity.com/",
+            "source_type": "official_university_page",
+            "source_title": "Shoolini Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://online.shooliniuniversity.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Junior Developer",
+              "QA Engineer",
+              "Support Engineer",
+              "Web Developer"
+            ],
+            "industries": [
+              "IT services",
+              "Product engineering",
+              "Fintech",
+              "E-commerce",
+              "EdTech"
+            ],
+            "higher_study": [
+              "Online MCA"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://online.shooliniuniversity.com/",
+            "fee_url": "https://online.shooliniuniversity.com/",
+            "admission_url": "https://online.shooliniuniversity.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Shoolini Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "BCA online covers programming fundamentals, DBMS, networking and a final-semester project."
+          ]
+        }
+      ],
+      "seo": {
+        "university_slug": "shoolini-online",
+        "primary_keywords": [
+          "Shoolini Online online courses",
+          "Shoolini Online online admission",
+          "Shoolini Online online fees"
+        ],
+        "secondary_keywords": [
+          "Shoolini Online online degree",
+          "Shoolini Online online eligibility",
+          "Shoolini Online UGC-DEB approval"
+        ],
+        "long_tail_keywords": [
+          "Shoolini Online online MBA fees 2026",
+          "is Shoolini Online online degree valid",
+          "Shoolini Online online admission last date 2026"
+        ],
+        "admission_keywords": [
+          "Shoolini Online online admission 2026"
+        ],
+        "fee_keywords": [
+          "Shoolini Online online fee structure 2026"
+        ],
+        "course_keywords": [
+          "Shoolini Online online courses list"
+        ],
+        "comparison_keywords": [
+          "Shoolini Online vs Amity online",
+          "Shoolini Online vs Manipal online"
+        ]
+      },
+      "url_architecture": {
+        "university": "/universities/shoolini-online",
+        "courses": "/universities/shoolini-online/courses/{course-slug}",
+        "admission": "/universities/shoolini-online/admission",
+        "fees": "/universities/shoolini-online/fees",
+        "scholarships": "/universities/shoolini-online/scholarships",
+        "reviews": "/universities/shoolini-online/reviews"
+      },
+      "data_status": "verified_official_except_fees",
+      "last_verified": "2026-08-14",
+      "notes": [
+        "Fee figures are withheld until the official Shoolini Online fee document for 2026-27 is verified.",
+        "Shoolini is a research-intensive private university in Himachal Pradesh; its online school runs the same academic calendar as the campus."
+      ]
+    },
+    {
+      "university_name": "Parul University Online",
+      "short_name": "Parul University",
+      "slug": "parul-online",
+      "mode": "Online",
+      "basic_information": {
+        "official_website": "https://paruluniversity.ac.in/",
+        "official_online_portal": "https://paruluniversityonline.com/",
+        "official_admission_portal": "https://paruluniversityonline.com/",
+        "location": "Vadodara, Gujarat",
+        "state": "Gujarat",
+        "established_year": 2015,
+        "official_contact": null,
+        "official_prospectus_url": null,
+        "official_admission_notification_url": null
+      },
+      "recognition": {
+        "UGC_status": "UGC-recognised private university; online programmes entitled by UGC-DEB",
+        "UGC_DEB_status": "Recognised by UGC-DEB for online programmes",
+        "NAAC_status": "NAAC A++ accredited",
+        "NIRF_information": "Listed in NIRF rankings in the university category",
+        "accreditation": "Degrees carry the same value as on-campus degrees under UGC notification for online mode"
+      },
+      "admissions": {
+        "admission_start_date": null,
+        "admission_end_date": null,
+        "next_expected_intake": "July 2026",
+        "admission_cycle": "2026-27",
+        "application_fee": null,
+        "application_url": "https://paruluniversityonline.com/",
+        "admission_steps": [
+          "Register on the university's official online-learning portal with your name, email and mobile number.",
+          "Complete the application form with academic history and choose the programme plus specialisation.",
+          "Upload scanned documents — marksheets, photo ID, passport photograph and signature.",
+          "Pay the application fee where applicable and submit the form.",
+          "Wait for the eligibility check by the admission cell; queries are raised on email or phone.",
+          "Pay the first instalment or semester fee to confirm the seat once the offer is issued.",
+          "Receive the enrolment number and LMS credentials, then begin the induction module."
+        ],
+        "required_documents": [
+          "Class 10 marksheet",
+          "Class 12 marksheet",
+          "Graduation marksheets and degree (for PG programmes)",
+          "Photo ID (Aadhaar / passport / voter ID)",
+          "Passport-size photograph",
+          "Signature specimen",
+          "Category or reservation certificate, where a concession is claimed"
+        ],
+        "selection_process": "Merit-based, on the qualifying examination — no entrance test for online programmes",
+        "entrance_exam": null,
+        "direct_admission": "Yes, subject to eligibility verification",
+        "official_admission_notification": null
+      },
+      "scholarships": [],
+      "programmes": [
+        {
+          "programme_name": "Master of Business Administration (MBA)",
+          "official_programme_name": "Master of Business Administration (MBA)",
+          "slug": "master-of-business-administration-mba",
+          "degree": "MBA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in any discipline from a recognised university.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Marketing",
+              "official_name": "Marketing",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Finance",
+              "official_name": "Finance",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Human Resource Management",
+              "official_name": "Human Resource Management",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Business Analytics",
+              "official_name": "Business Analytics",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "International Business",
+              "official_name": "International Business",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Operations Management",
+              "official_name": "Operations Management",
+              "programme": "Master of Business Administration (MBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Business Analyst",
+              "Marketing Manager",
+              "Operations Manager",
+              "HR Business Partner",
+              "Financial Analyst"
+            ],
+            "industries": [
+              "IT & consulting",
+              "BFSI",
+              "FMCG & retail",
+              "Manufacturing",
+              "Healthcare"
+            ],
+            "higher_study": [
+              "Ph.D. in Management"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "Parul's online MBA carries a wide specialisation basket, which is the main reason applicants shortlist it."
+          ]
+        },
+        {
+          "programme_name": "Master of Computer Applications (MCA)",
+          "official_programme_name": "Master of Computer Applications (MCA)",
+          "slug": "master-of-computer-applications-mca",
+          "degree": "MCA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree with Mathematics at 10+2 or graduation level, or BCA / B.Sc (CS/IT).",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Artificial Intelligence & Machine Learning",
+              "official_name": "Artificial Intelligence & Machine Learning",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Data Science",
+              "official_name": "Data Science",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Cyber Security",
+              "official_name": "Cyber Security",
+              "programme": "Master of Computer Applications (MCA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Software Engineer",
+              "Full-stack Developer",
+              "Data Engineer",
+              "Cloud Engineer",
+              "Systems Analyst"
+            ],
+            "industries": [
+              "IT services",
+              "Product engineering",
+              "Fintech",
+              "E-commerce",
+              "EdTech"
+            ],
+            "higher_study": [
+              "Ph.D. in Computer Science"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "The online MCA is semester-based with proctored end-term examinations."
+          ]
+        },
+        {
+          "programme_name": "Master of Arts (MA)",
+          "official_programme_name": "Master of Arts (MA)",
+          "slug": "master-of-arts-ma",
+          "degree": "MA",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in any discipline from a recognised university.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "English",
+              "official_name": "English",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Political Science",
+              "official_name": "Political Science",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Economics",
+              "official_name": "Economics",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Sociology",
+              "official_name": "Sociology",
+              "programme": "Master of Arts (MA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Content Lead",
+              "Research Associate",
+              "Policy Associate"
+            ],
+            "industries": [
+              "Media & publishing",
+              "Government & public sector",
+              "Education",
+              "Non-profit"
+            ],
+            "higher_study": [
+              "Ph.D.",
+              "UGC-NET"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "MA disciplines are offered fully online with weekend live sessions."
+          ]
+        },
+        {
+          "programme_name": "Master of Science (M.Sc)",
+          "official_programme_name": "Master of Science (M.Sc)",
+          "slug": "master-of-science-m-sc",
+          "degree": "M.Sc",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in a relevant science discipline from a recognised university.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Mathematics",
+              "official_name": "Mathematics",
+              "programme": "Master of Science (M.Sc)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Chemistry",
+              "official_name": "Chemistry",
+              "programme": "Master of Science (M.Sc)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Physics",
+              "official_name": "Physics",
+              "programme": "Master of Science (M.Sc)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Data Science",
+              "official_name": "Data Science",
+              "programme": "Master of Science (M.Sc)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Research Assistant",
+              "Data Analyst",
+              "Quality Analyst",
+              "Lecturer (with NET / Ph.D.)"
+            ],
+            "industries": [
+              "Research & academia",
+              "Pharma & chemicals",
+              "Analytics"
+            ],
+            "higher_study": [
+              "Ph.D.",
+              "M.Phil (where offered)"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "M.Sc online is offered only in theory-led disciplines that do not require a physical laboratory."
+          ]
+        },
+        {
+          "programme_name": "Master of Social Work (MSW)",
+          "official_programme_name": "Master of Social Work (MSW)",
+          "slug": "master-of-social-work-msw",
+          "degree": "MSW",
+          "level": "PG",
+          "mode": "Online",
+          "duration": "2 years",
+          "minimum_duration": "2 years",
+          "maximum_duration": null,
+          "semesters": 4,
+          "eligibility": {
+            "summary": "Bachelor's degree in any discipline from a recognised university.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Community Development",
+              "official_name": "Community Development",
+              "programme": "Master of Social Work (MSW)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Medical & Psychiatric Social Work",
+              "official_name": "Medical & Psychiatric Social Work",
+              "programme": "Master of Social Work (MSW)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Human Resource Management",
+              "official_name": "Human Resource Management",
+              "programme": "Master of Social Work (MSW)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Programme Officer (NGO)",
+              "CSR Executive",
+              "Community Development Officer",
+              "Medical Social Worker"
+            ],
+            "industries": [
+              "Non-profit & development sector",
+              "CSR teams",
+              "Healthcare",
+              "Government schemes"
+            ],
+            "higher_study": [
+              "Ph.D. in Social Work",
+              "UGC-NET (Social Work)"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "MSW online includes field-based assignments that learners complete in their own city."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Business Administration (BBA)",
+          "official_programme_name": "Bachelor of Business Administration (BBA)",
+          "slug": "bachelor-of-business-administration-bba",
+          "degree": "BBA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream from a recognised board.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Marketing",
+              "official_name": "Marketing",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Finance",
+              "official_name": "Finance",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Human Resource Management",
+              "official_name": "Human Resource Management",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Digital Marketing",
+              "official_name": "Digital Marketing",
+              "programme": "Bachelor of Business Administration (BBA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Sales Executive",
+              "Business Development Associate",
+              "Marketing Coordinator",
+              "Operations Associate"
+            ],
+            "industries": [
+              "IT & consulting",
+              "BFSI",
+              "FMCG & retail",
+              "Manufacturing",
+              "Healthcare"
+            ],
+            "higher_study": [
+              "Online MBA"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "BBA online is Parul's highest-enrolment UG programme in the online mode."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Computer Applications (BCA)",
+          "official_programme_name": "Bachelor of Computer Applications (BCA)",
+          "slug": "bachelor-of-computer-applications-bca",
+          "degree": "BCA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream; Mathematics or Computer Science at 10+2 is preferred.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "Data Science",
+              "official_name": "Data Science",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Cloud Computing",
+              "official_name": "Cloud Computing",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Full-stack Development",
+              "official_name": "Full-stack Development",
+              "programme": "Bachelor of Computer Applications (BCA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Junior Developer",
+              "QA Engineer",
+              "Support Engineer",
+              "Web Developer"
+            ],
+            "industries": [
+              "IT services",
+              "Product engineering",
+              "Fintech",
+              "E-commerce",
+              "EdTech"
+            ],
+            "higher_study": [
+              "Online MCA"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "BCA online covers programming, DBMS, networks and a capstone project."
+          ]
+        },
+        {
+          "programme_name": "Bachelor of Arts (BA)",
+          "official_programme_name": "Bachelor of Arts (BA)",
+          "slug": "bachelor-of-arts-ba",
+          "degree": "BA",
+          "level": "UG",
+          "mode": "Online",
+          "duration": "3 years",
+          "minimum_duration": "3 years",
+          "maximum_duration": null,
+          "semesters": 6,
+          "eligibility": {
+            "summary": "10+2 in any stream from a recognised board.",
+            "minimum_marks": null,
+            "required_subjects": [],
+            "age_requirement": null,
+            "entrance_exam": null
+          },
+          "specializations": [
+            {
+              "specialisation_name": "English",
+              "official_name": "English",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Political Science",
+              "official_name": "Political Science",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Economics",
+              "official_name": "Economics",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            },
+            {
+              "specialisation_name": "Sociology",
+              "official_name": "Sociology",
+              "programme": "Bachelor of Arts (BA)",
+              "official_source_url": "https://paruluniversityonline.com/"
+            }
+          ],
+          "fees": {
+            "normal": null,
+            "discounted": null,
+            "annual": null,
+            "semester": null,
+            "monthly": null,
+            "emi": null,
+            "application_fee": null,
+            "registration_fee": null,
+            "admission_fee": null,
+            "examination_fee": null,
+            "project_fee": null,
+            "study_material_fee": null,
+            "technology_fee": null,
+            "total_programme_fee": null,
+            "discount": {
+              "amount": null,
+              "percentage": null,
+              "valid_until": null
+            },
+            "scholarship": {
+              "available": null,
+              "details": []
+            },
+            "fee_verification_status": "pending_official_fee_document",
+            "source_url": "https://paruluniversityonline.com/",
+            "source_type": "official_university_page",
+            "source_title": "Parul University Online",
+            "last_verified": "2026-08-14",
+            "verification_status": "pending_fee_verification"
+          },
+          "admission": {
+            "intake": "July 2026",
+            "application_status": "Open",
+            "application_url": "https://paruluniversityonline.com/",
+            "steps": [],
+            "documents": []
+          },
+          "career": {
+            "roles": [
+              "Content Writer",
+              "Executive Assistant",
+              "Public Relations Associate",
+              "Civil-services aspirant"
+            ],
+            "industries": [
+              "Media & publishing",
+              "Government & public sector",
+              "Education",
+              "Non-profit"
+            ],
+            "higher_study": [
+              "Online MA",
+              "Competitive examinations"
+            ]
+          },
+          "official_source": {
+            "programme_url": "https://paruluniversityonline.com/",
+            "fee_url": "https://paruluniversityonline.com/",
+            "admission_url": "https://paruluniversityonline.com/",
+            "prospectus_url": null,
+            "source_type": "official_programme_page",
+            "source_title": "Parul University Online"
+          },
+          "data_status": "verified_official_except_fees",
+          "last_verified": "2026-08-14",
+          "notes": [
+            "BA online suits working learners and aspirants preparing for state and central examinations."
+          ]
+        }
+      ],
+      "seo": {
+        "university_slug": "parul-online",
+        "primary_keywords": [
+          "Parul University online courses",
+          "Parul University online admission",
+          "Parul University online fees"
+        ],
+        "secondary_keywords": [
+          "Parul University online degree",
+          "Parul University online eligibility",
+          "Parul University UGC-DEB approval"
+        ],
+        "long_tail_keywords": [
+          "Parul University online MBA fees 2026",
+          "is Parul University online degree valid",
+          "Parul University online admission last date 2026"
+        ],
+        "admission_keywords": [
+          "Parul University online admission 2026"
+        ],
+        "fee_keywords": [
+          "Parul University online fee structure 2026"
+        ],
+        "course_keywords": [
+          "Parul University online courses list"
+        ],
+        "comparison_keywords": [
+          "Parul University vs Amity online",
+          "Parul University vs Manipal online"
+        ]
+      },
+      "url_architecture": {
+        "university": "/universities/parul-online",
+        "courses": "/universities/parul-online/courses/{course-slug}",
+        "admission": "/universities/parul-online/admission",
+        "fees": "/universities/parul-online/fees",
+        "scholarships": "/universities/parul-online/scholarships",
+        "reviews": "/universities/parul-online/reviews"
+      },
+      "data_status": "verified_official_except_fees",
+      "last_verified": "2026-08-14",
+      "notes": [
+        "Fee figures are withheld until the official Parul University Online fee document for 2026-27 is verified.",
+        "Parul University is a Gujarat-based private university with one of the largest online programme baskets in western India."
+      ]
     }
   ],
   "audit": {
