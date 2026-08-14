@@ -31,10 +31,15 @@ interface UniversityResearchJson {
 
 const curriculumData = master.course_curriculum as unknown as Record<string, CourseCurriculumJson>;
 
-/** Keeps third-party aggregator names out of published copy. */
-function neutral(text: string): string {
-  return text
+/**
+ * Keeps third-party aggregator names out of published copy. The dataset stores
+ * some of these fields as an array of notes, so accept both shapes.
+ */
+function neutral(text: unknown): string {
+  const raw = Array.isArray(text) ? text.filter(Boolean).join(" ") : typeof text === "string" ? text : "";
+  return raw
     .replace(/CollegeSathi[’']?s?/gi, "the referenced programme source")
+    .replace(/CollegeVidya[’']?s?/gi, "the referenced programme source")
     .replace(/\bCited page\b/gi, "The referenced source")
     .replace(/\bthe cited\b/gi, "the referenced");
 }
