@@ -1,6 +1,8 @@
 import { feeTableFor } from "@/data/university-fee-tables";
 import { courseIndexFor } from "@/lib/universityData";
 import { AppLink } from "@/components/common/AppLink";
+import { hasOpenUniversityFeeSheet } from "@/lib/openUniversityFees";
+
 
 const norm = (v: string) => v.toLowerCase().replace(/[^a-z0-9]/g, "");
 
@@ -139,6 +141,14 @@ export function FeeStructureTable({
       </div>
 
       {table.note && <p className="text-xs text-muted-foreground">{table.note}</p>}
+      {hasOpenUniversityFeeSheet(universitySlug) && (
+        <p className="source-note">
+          Course fees for {universityShort} are taken from the university's own published fee
+          structure. Where the university publishes only a per-year or per-semester fee, that is
+          what is shown — no programme total is estimated.
+        </p>
+      )}
+
     </div>
   );
 }
