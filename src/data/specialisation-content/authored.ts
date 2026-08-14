@@ -1104,7 +1104,7 @@ function toAuthored(seed: Seed): AuthoredSpec {
     roles: seed.roles,
     recruiters: seed.recruiters,
     industries: seed.industries,
-    extraFaqs: seed.faqs,
+    ...(seed.faqs ? { extraFaqs: seed.faqs } : {}),
   };
 }
 
