@@ -11,7 +11,18 @@ import {
   UniversityTileGrid,
 } from "@/components/course/CourseSections";
 import { BackToPillar, SectionUrlGrid } from "@/components/course/SectionHub";
-import { courseContentBySlug } from "@/data/course-pages";
+import { Faq } from "@/components/common/Faq";
+import {
+  BrandBand,
+  ChipRow,
+  CollegeTable,
+  HighlightTable,
+  NumberedList,
+  SalaryTable,
+  SpecProse,
+  SpecSection,
+} from "@/components/specialisation/SpecSections";
+import { specContentFor, SPEC_YEAR } from "@/data/specialisation-content";
 import { ADMISSION_YEAR } from "@/data/course-pages/types";
 import { familySpecialisation } from "@/lib/courseFamily";
 import { PubSpecialisationResearch } from "@/components/pub/PubBlocks";
@@ -82,7 +93,7 @@ export const Route = createFileRoute("/courses/$course/specialisation/$spec")({
 function Page() {
   const { course, spec } = Route.useParams();
   const { family, spec: specialisation, offers } = familySpecialisation(course, spec)!;
-  const content = courseContentBySlug(course)?.content;
+  const rich = specContentFor(family, specialisation, offers);
   const pillar = `/courses/${course}`;
   const roles = [...new Set(offers.flatMap((o) => o.careerRoles))].slice(0, 14);
   const industries = [...new Set(offers.flatMap((o) => o.industries))].slice(0, 14);
