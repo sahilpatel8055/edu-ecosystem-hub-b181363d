@@ -32,6 +32,7 @@ import {
   type CourseReview,
 } from "@/components/course/CourseSections";
 import { PromoBanner } from "@/components/course/PromoBanner";
+import { PubPillarGuidance } from "@/components/pub/PubBlocks";
 import type { CourseContent } from "@/data/course-pages/types";
 import type { CourseFamily } from "@/lib/courseFamily";
 
@@ -454,6 +455,10 @@ export function CoursePageTemplate({
 
           <Section title={`Why compare ${family.name} here`}>
             <PlatformTrust family={family} />
+          </Section>
+
+          <Section title="How to compare universities for this course">
+            <PubPillarGuidance familySlug={family.slug} />
           </Section>
 
           <Section title="Reviews">
