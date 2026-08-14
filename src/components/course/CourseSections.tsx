@@ -753,53 +753,75 @@ export function UniversityTile({ offer }: { offer: FamilyOffer }) {
 
 export function SpecialisationShowcase({
   items,
+  courseSlug,
 }: {
   items: {
     slug: string;
     name: string;
     universities: { name: string; slug: string; path: string }[];
   }[];
+  /** Pillar course slug — used to build the specialisation landing page URL. */
+  courseSlug?: string;
 }) {
   const [showAll, setShowAll] = useState(false);
   const visible = showAll ? items : items.slice(0, 6);
   return (
     <div>
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((s, i) => (
-          <li
-            key={s.slug}
-            className={`group relative overflow-hidden rounded-2xl border p-4 transition-transform hover:-translate-y-0.5 ${
-              i % 3 === 0
-                ? "border-brand/20 bg-gradient-to-br from-brand-soft to-card"
-                : i % 3 === 1
-                  ? "border-highlight/30 bg-gradient-to-br from-highlight/20 to-card"
-                  : "border-success/25 bg-gradient-to-br from-success/12 to-card"
-            }`}
-          >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-card/80 px-2 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-brand">
-              <Sparkles className="h-3 w-3" aria-hidden="true" /> Specialisation
-            </span>
-            <p className="mt-2 font-display text-[0.95rem] font-bold leading-snug text-foreground">
-              {s.name}
-            </p>
-            <p className="mt-1 text-[0.74rem] text-foreground/65">
-              {s.universities.length} universit{s.universities.length === 1 ? "y" : "ies"} offer
-              this
-            </p>
-            <ul className="mt-2.5 flex flex-wrap gap-1.5">
-              {s.universities.slice(0, 3).map((u) => (
-                <li key={u.slug}>
-                  <AppLink
-                    to={u.path}
-                    className="rounded-md bg-card px-2 py-1 text-[0.68rem] font-semibold text-brand"
-                  >
-                    {u.name}
-                  </AppLink>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
+        {visible.map((s, i) => {
+          const card = (
+            <>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-card/80 px-2 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-brand">
+                <Sparkles className="h-3 w-3" aria-hidden="true" /> Specialisation
+              </span>
+              <p className="mt-2 font-display text-[0.95rem] font-bold leading-snug text-foreground">
+                {s.name}
+              </p>
+              <p className="mt-1 text-[0.74rem] text-foreground/65">
+                {s.universities.length} universit{s.universities.length === 1 ? "y" : "ies"} offer
+                this
+              </p>
+              <p className="mt-2.5 text-[0.7rem] font-medium text-foreground/60">
+                {s.universities
+                  .slice(0, 3)
+                  .map((u) => u.name)
+                  .join(" · ")}
+                {s.universities.length > 3 ? ` +${s.universities.length - 3} more` : ""}
+              </p>
+              {courseSlug && (
+                <span className="mt-3 inline-flex items-center gap-1.5 text-[0.76rem] font-bold text-brand">
+                  Know more
+                  <ArrowRight
+                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </span>
+              )}
+            </>
+          );
+          const shell = `group relative flex h-full flex-col overflow-hidden rounded-2xl border p-4 transition-transform hover:-translate-y-0.5 ${
+            i % 3 === 0
+              ? "border-brand/20 bg-gradient-to-br from-brand-soft to-card"
+              : i % 3 === 1
+                ? "border-highlight/30 bg-gradient-to-br from-highlight/20 to-card"
+                : "border-success/25 bg-gradient-to-br from-success/12 to-card"
+          }`;
+          return (
+            <li key={s.slug} className="min-w-0">
+              {courseSlug ? (
+                <AppLink
+                  to={`/courses/${courseSlug}/specialisation/${s.slug}`}
+                  className={shell}
+                  aria-label={`${s.name} specialisation — know more`}
+                >
+                  {card}
+                </AppLink>
+              ) : (
+                <div className={shell}>{card}</div>
+              )}
+            </li>
+          );
+        })}
       </ul>
       {items.length > 6 && (
         <div className="mt-5 text-center">
