@@ -8,7 +8,8 @@ export const ignouArticles: Article[] = [
   {
     slug: "ignou-online-courses-fees-2026-27",
     title: "IGNOU Online Courses & Fees 2026-27: Complete Guide",
-    excerpt: "IGNOU UG, PG, diploma and certificate fees for 2026-27, the revised fee hike, and how the online admission cycle works.",
+    excerpt:
+      "IGNOU UG, PG, diploma and certificate fees for 2026-27, the revised fee hike, and how the online admission cycle works.",
     category: "Fees & Scholarships",
     categorySlug: "fees-scholarships",
     tags: ["ignou", "ignou-fees", "ignou-online-courses", "fees-2026-27"],
@@ -21,7 +22,8 @@ export const ignouArticles: Article[] = [
   {
     slug: "ignou-admission-process-eligibility-2026",
     title: "IGNOU Admission Process & Eligibility 2026: Step by Step",
-    excerpt: "How to apply for IGNOU online and ODL courses in 2026 -- eligibility for UG, PG, diploma and certificate programmes, documents and deadlines.",
+    excerpt:
+      "How to apply for IGNOU online and ODL courses in 2026 -- eligibility for UG, PG, diploma and certificate programmes, documents and DEB-ID.",
     category: "Admission Guidance",
     categorySlug: "admission-guidance",
     tags: ["ignou", "ignou-admission", "ignou-eligibility", "deb-id"],
@@ -34,7 +36,8 @@ export const ignouArticles: Article[] = [
   {
     slug: "ignou-online-mba-career-placement",
     title: "IGNOU Online MBA: Career Scope, Salary & Placement Support",
-    excerpt: "What the IGNOU Online MBA (MBAOL) actually offers -- fees, specialisations, career paths, salary ranges and how its placement support works.",
+    excerpt:
+      "What the IGNOU Online MBA (MBAOL) offers -- fees, specialisations, career paths, salary ranges and how placement support actually works.",
     category: "Career Growth",
     categorySlug: "career-growth",
     tags: ["ignou-mba", "ignou-online-mba", "ignou-placement", "mbaol"],
@@ -46,8 +49,9 @@ export const ignouArticles: Article[] = [
   },
   {
     slug: "is-ignou-worth-it-scholarships-comparison",
-    title: "Is IGNOU Worth It? Fee Concessions & How It Compares",
-    excerpt: "IGNOU's affordability, SC/ST fee concession, recognition (UGC-DEB, NAAC A++, AICTE) and how it stacks up against other options in 2026.",
+    title: "Is IGNOU Worth It in 2026? Fee Concessions & Comparison",
+    excerpt:
+      "IGNOU's affordability, SC/ST fee concession, recognition (UGC-DEB, NAAC A++, AICTE) and how it compares with other options in 2026.",
     category: "Study Guides",
     categorySlug: "study-guides",
     tags: ["ignou", "is-ignou-worth-it", "ignou-scholarship", "ignou-recognition"],
@@ -60,22 +64,23 @@ export const ignouArticles: Article[] = [
 ];
 
 export const ignouPosts: Record<string, PostContent> = {
+  /* ---------------------------------------------------------------- */
   "ignou-online-courses-fees-2026-27": {
     ...base,
     updated: UPDATED,
     intro:
-      "IGNOU online courses and fees for 2026-27 have been revised by the Planning and Development Division in a notification issued on 25 May 2026, with the new fee applicable from the July 2026 admission cycle and carried forward to January 2027. The hike is mostly between Rs 200 and Rs 500 per programme, though some specialised postgraduate programmes have gone up by Rs 1,000 or more. This guide walks through the updated UG, PG, diploma and certificate fee tables so you know exactly what you will pay before you register.",
+      "IGNOU online courses and fees for 2026-27 were revised by the Planning and Development Division in a notification dated 25 May 2026, applicable from the July 2026 admission cycle and carried forward to January 2027. The hike is mostly between Rs 200 and Rs 500 per programme, though a handful of specialised postgraduate programmes rose by Rs 1,000 or more. This guide sets out the updated UG, PG, diploma and certificate fee tables so you know what to budget before you register.",
     keyTakeaways: [
-      "IGNOU revised UG, PG, Diploma, Certificate and Appreciation programme fees effective July 2026, valid through the January 2027 session.",
-      "Most fee increases fall between Rs 200 and Rs 500; a handful of specialised PG programmes rose by Rs 1,000 or more.",
-      "UG programme fees mostly increased by Rs 200-500 per programme (not per semester) for the full course.",
-      "The Online MBA (MBAOL) is priced per semester: Rs 14,000 each for semesters 1, 2 and 4, and Rs 16,000 for semester 3, totalling Rs 58,000.",
-      "Application/registration fee for most UG programmes such as BCom is a non-refundable Rs 300.",
-      "Always confirm the exact figure on the official IGNOU admission portal before paying -- fee tables can change between notifications.",
+      "IGNOU revised UG, PG, Diploma, Certificate and Appreciation programme fees effective July 2026, valid through January 2027.",
+      "Most fee increases fall between Rs 200 and Rs 500; a few specialised PG programmes rose by Rs 1,000 or more.",
+      "The Online MBA (MBAOL) is charged per semester: Rs 14,000 each for semesters 1, 2 and 4, and Rs 16,000 for semester 3, a total of Rs 58,000.",
+      "The non-refundable application/registration fee for most UG programmes such as BCom is Rs 300.",
+      "IGNOU gives a 50% fee concession to eligible SC/ST students on programme fees.",
+      "Always confirm the exact figure on the official IGNOU admission portal before paying -- fee codes vary by specialisation.",
     ],
     sections: [
       {
-        heading: "IGNOU Fee Update 2026: what changed",
+        heading: "IGNOU fee update 2026: what changed",
         blocks: [
           {
             kind: "p",
@@ -98,7 +103,7 @@ export const ignouPosts: Record<string, PostContent> = {
         blocks: [
           {
             kind: "p",
-            text: "IGNOU is widely picked for low-cost distance and online learning in India, so any fee revision draws attention. After the May 2026 notice, students are commonly asking how much fees have increased, which course remains cheapest, and whether IGNOU is still affordable.",
+            text: "IGNOU is widely chosen for low-cost distance and online learning in India, so any fee revision draws attention. After the May 2026 notice, students are commonly asking how much fees increased, which course stays cheapest, and whether IGNOU is still affordable for 2026-27 admission.",
           },
           {
             kind: "note",
@@ -111,12 +116,12 @@ export const ignouPosts: Record<string, PostContent> = {
         blocks: [
           {
             kind: "p",
-            text: "Postgraduate programme fees below are full programme fees under the revised 2026-27 structure. LER stands for the programmes flagged with a larger effective revision in the notification.",
+            text: "Postgraduate fees below reflect the revised 2026-27 structure for selected programme codes. Figures marked LER (larger effective revision) were among the programmes with a bigger jump.",
           },
           {
             kind: "table",
-            caption: "Selected IGNOU PG programme fees (existing vs revised)",
-            head: ["Programme Code", "Existing Fee", "Revised Fee 2026-27", "Increase"],
+            caption: "Selected IGNOU PG programme fees, existing vs revised",
+            head: ["Programme code", "Existing fee", "Revised fee 2026-27", "Increase"],
             rows: [
               ["MCOM / MCOMOL", "Rs 10,000", "Rs 10,200", "Rs 200"],
               ["MAEG / MEG / MEGOL", "Rs 8,000", "Rs 8,200", "Rs 200"],
@@ -130,14 +135,43 @@ export const ignouPosts: Record<string, PostContent> = {
           },
           {
             kind: "note",
-            text: "This is a representative extract. Fee codes for every specialisation are published on the official IGNOU admission portal -- always match your exact programme code before paying.",
+            text: "This is a representative extract, not the full list. Match your exact programme code on the official IGNOU admission portal before paying.",
           },
         ],
       },
       {
-        kind: undefined as any,
+        heading: "Updated IGNOU undergraduate programme fees 2026-27",
+        blocks: [
+          {
+            kind: "p",
+            text: "Undergraduate fees mostly rose by Rs 200 per programme in the 2026-27 revision, with a smaller set of programmes rising by Rs 500.",
+          },
+          {
+            kind: "table",
+            caption: "Selected IGNOU UG programme fees, existing vs revised",
+            head: ["Programme code", "Existing fee", "Revised fee 2026-27", "Increase"],
+            rows: [
+              ["BAM / BAG", "Rs 4,800", "Rs 5,000", "Rs 200"],
+              ["BCOMF / BCOMG / BCOMFOL", "Rs 4,800", "Rs 5,000", "Rs 200"],
+              ["BBA", "Rs 10,300", "Rs 10,500", "Rs 200"],
+              ["BSCM / BSCG", "Rs 6,300", "Rs 6,500", "Rs 200"],
+              ["BSWG / BFSW / BSWGOL", "Rs 6,500", "Rs 6,700", "Rs 200"],
+              ["BAFEDU", "Rs 5,000", "Rs 5,500", "Rs 500"],
+              ["BFTTM / BFTTMOL", "Rs 5,000", "Rs 5,500", "Rs 500"],
+            ],
+          },
+          {
+            kind: "p",
+            text: "Separately published UG fee overviews list Bachelor of Commerce at around Rs 12,000 plus exam fees, Bachelor of Computer Applications at around Rs 36,000 plus exam fees, and Bachelor of Social Work at around Rs 17,700 plus exam fees -- treat these as broad, non-code-specific figures and cross-check the code-wise table above for your exact specialisation.",
+          },
+        ],
       },
-    ].filter(Boolean) as any,
+      {
+        kind: "cta",
+        heading: "",
+        blocks: [],
+      } as any,
+    ],
     faqs: [],
     sources: [],
   },
