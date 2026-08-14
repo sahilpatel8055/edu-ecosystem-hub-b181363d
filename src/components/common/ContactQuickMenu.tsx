@@ -10,7 +10,19 @@ export const AVEDU_WHATSAPP = "919000000000";
  */
 export function ContactQuickMenu() {
   const [open, setOpen] = useState(false);
+  const [hint, setHint] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  // Gentle nudge at 36s — after the chat teaser has gone, before the lead popup.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const show = window.setTimeout(() => setHint(true), 36000);
+    const hide = window.setTimeout(() => setHint(false), 46000);
+    return () => {
+      window.clearTimeout(show);
+      window.clearTimeout(hide);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
