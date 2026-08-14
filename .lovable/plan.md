@@ -1,84 +1,62 @@
-# Filling the site with real depth — plan from the current committed project
+# Batch A: fee corrections, 4 private universities in depth, and UI/UX polish
 
-## Where the project actually stands today
+## What you sent (verified by opening the files)
 
-Verified from the repo (`src/data/pub/*.json`, `src/routes/`):
+- **Spreadsheet** — IGNOU / DU SOL / BAOU programme fee lists (e.g. IGNOU Online MA English MEGOL INR 7,300 per year, Online MCA MCAOL INR 25,000 per year).
+- **29-Fees_Structure.pdf** — official NSOU fee table, per-year and total programme fee per programme (BA Hons 3,300/yr → 9,900 total, B.Sc. Physics 5,200/yr → 15,600 total, etc.).
+- **KSOU_COURSE_FEE.pdf** — KSOU fee table with total/semester fee plus registration, prospectus and exam fees per course.
 
-| Asset | Count today |
+These four (IGNOU, DU SOL, BAOU, NSOU, KSOU) become the corrected fee source; you confirmed the other universities' fees are already correct, so they are left untouched.
+
+## Step 1 — Fee corrections (open universities)
+
+Transcribe the spreadsheet and both PDFs into the existing fee-override layer (`src/lib/feeSheet.ts` pattern) as literal, citable values:
+
+- Per-programme yearly / semester / total fee, plus registration, prospectus and exam fees where the PDF lists them.
+- Every corrected row is tagged `verified_official` with the source document and the verification date, so the page shows a "verified" badge instead of a generic label.
+- Anything the documents do not cover keeps the existing "not published by the university" label — no invented numbers.
+
+## Step 2 — Four universities, in depth (Amity, Manipal, Chandigarh, LPU)
+
+For the 32 course URLs you listed, one research pass per university, written into the existing content pack so all templates pick it up automatically:
+
+| University | Courses in this batch |
 |---|---|
-| Universities researched | 14 |
-| University × course pages | 155 |
-| Specialisation records | 55 |
-| Guides / supporting articles | 23 |
-| Course pillars | present |
-| Comparisons | present |
-| Route files | 49 (universities, courses, compare, specialisation, blogs, news, tools silos all wired) |
+| Amity Online | MA Public Policy, M.Com Financial Management, BA, BCA, B.Com, BBA, MBA |
+| Online Manipal (MUJ) | MA JMC, M.Com, MA Economics, M.Sc Mathematics, B.Com, MCA, BCA, MBA, BBA |
+| Chandigarh University Online | BCA, BBA, BA JMC, MA JMC, MCA, MA English, M.Sc Data Science, MBA |
+| LPU Online | M.Com, MA English, BA, M.Sc Mathematics, BCA, BBA, MCA, MBA |
 
-So the **templates and routing are done**. The gap versus CollegeVidya / CollegeSathi / Edukyu / OnlineUniversitiess is purely **dataset volume and per-page depth**, not architecture. That is good news for credits: everything from here is data batches poured into templates that already exist.
+Each course page gets the full 12-block depth standard: quick facts, fee + EMI table, eligibility, admission steps, semester-wise syllabus, specialisation grid, exam pattern, careers + salary bands, who should choose / reconsider, auto comparison vs rivals, 8+ FAQs with schema, sources + last-verified byline. Content is written uniquely per university — no shared boilerplate paragraphs.
 
-## The scaling formula
+## Step 3 — Course pillar + specialisation expansion
 
-```text
-1 research batch (JSON) -> existing template -> dozens of deep pages
-                        -> auto internal links, schema, sitemap entries
-```
+Using only these four universities plus the existing dataset, fill one course family at a time — Online MBA, MCA, BBA, BCA, MA, M.Com, B.Com, M.Sc — each with its pillar page, every specialisation page under it, and the comparison tables between the four universities for that course.
 
-Credit spend scales with batches, not with pages. One university batch can publish 10–15 pages.
+## Step 4 — UI/UX polish (applies site-wide)
 
-## Target scale
+- **Theme** — a distinctive, warm-neutral page background with alternating section surfaces (tinted / white / accent band) so long pages read in clear blocks instead of one flat wall.
+- **Borders & cards** — consistent hairline borders, softer radii, subtle elevation on cards and tables.
+- **Tables** — sticky headers, zebra rows, right-aligned money columns, and horizontal-scroll-with-fade on mobile; on narrow screens fee tables collapse into labelled stacked rows.
+- **Mega menu** in the header (courses by level, universities, tools, guides).
+- **Sticky TOC** on detail pages, highlighting the active section.
+- **Compare tray** — pick universities anywhere, floating tray to launch the comparison.
+- **Listing filters** — mode, fee band, approval body, duration.
+- **Mobile sticky CTA bar** and tools positioned as lead magnets.
+- Full mobile pass: tap targets, type scale, spacing, no horizontal overflow.
 
-| Layer | Now | Target |
-|---|---|---|
-| Universities | 14 | 40–50 |
-| University × course | 155 | 500+ |
-| Course pillars | partial | 30–40 |
-| Specialisations | 55 | 250+ |
-| Comparisons (auto-generated pairs) | partial | 400+ |
-| Guides / blogs / news | 23 | 150+ |
+## Technical notes
 
-## Per-page depth standard (applied to every template once)
+- Fee overrides go through the existing `sheetFee()` override layer so `src/data/offerings.ts` picks them up with no template changes.
+- New university/course content lands in `src/data/pub/*.json` (universities, course-pages, pillars, specialisations, comparisons) — read by `src/lib/pubContent.ts`, so routes and templates need no rewrite.
+- Theme and section-surface tokens are added to `src/styles.css`; table/card styling becomes shared components rather than per-page classes.
+- Every new page gets its own `head()` with unique title/description/OG plus `Course`, `EducationalOrganization`, `FAQPage` and `BreadcrumbList` JSON-LD, and enters the sitemap automatically.
 
-Audit each template against this checklist and fill missing blocks:
+## What remains after this batch (I will list it again on completion)
 
-1. Quick-facts strip — fee, duration, approvals, EMI, intake, last verified
-2. Fee + EMI table with discount / list price
-3. Eligibility + step-by-step admission
-4. Semester-wise syllabus
-5. Specialisation grid linking out
-6. Exam pattern and evaluation
-7. Career roles + salary bands + recruiters
-8. Who should choose / who should reconsider (the trust wedge competitors skip)
-9. Auto comparison table vs 2–3 rival universities
-10. 8+ FAQs with FAQ schema
-11. Sources list + author byline + review date
-12. Lead CTA: sidebar, inline, sticky mobile bar
-
-## Execution order (each step shippable)
-
-1. **Depth audit pass** — run the 12-block checklist across university, course, specialisation and comparison templates; fill gaps once, and all 155+ existing pages get deeper instantly.
-2. **University batches** — 5 universities per batch, all their courses, until ~45. Each batch = one research file.
-3. **Course pillar + specialisation expansion** — one course family per batch (Online MBA, MCA, BBA, BCA, MA, MCom…), filling pillar + all its specialisations + comparisons together.
-4. **Comparison engine at scale** — auto-generate every credible university pair per course from the existing dataset.
-5. **Content cluster (blogs/news/guides)** — 8–12 supporting articles per course family, each internally linked to the pillar.
-6. **SEO hardening** — per-route head/canonical/OG, JSON-LD (`Course`, `EducationalOrganization`, `FAQPage`, `BreadcrumbList`, `ItemList`, `Review`), segmented sitemap, internal-link automation, freshness dates.
-7. **UI/UX polish** — mega menu, sticky TOC, compare tray, listing filters (mode / fee band / approval / duration), mobile sticky CTA, tools as lead magnets.
-8. **Lead layer** — capture on every template, tagged with source page + course + university, deep-linked into the AVEDU sites with UTM + prefill.
-
-## What I need from you (content inputs)
-
-I will not invent fees, rankings, placement numbers or reviews. To go deep, send whatever you have of these — even partial:
-
-1. **University list** — the exact universities you want covered, in priority order.
-2. **Fee sheets** — official fee/EMI per university per course (PDF, screenshot or sheet). This is the single biggest differentiator.
-3. **Official source URLs** — university online-programme pages and admission pages, so every fact is citable.
-4. **Prospectus / syllabus PDFs** — for semester-wise curriculum.
-5. **Approval details** — UGC-DEB / AICTE / NAAC status and validity years.
-6. **Placement or recruiter info** — only what the universities officially publish.
-7. **Your AVEDU handoff rules** — which university should route to which AVEDU domain, and what URL/UTM format the application forms expect.
-8. **Brand basics** — logo, brand colours, author names/bios for E-E-A-T bylines, contact details.
-
-Anything you cannot supply, I source from official university pages and mark with the existing "not published by the university" label rather than guessing.
-
-## Suggested first move
-
-Step 1 (depth audit pass) — cheapest, highest impact: it upgrades every one of the 155 existing pages without new research. Say "start step 1" and I begin.
+1. Universities 5–45 in batches of five (needs your priority list + fee sheets per batch).
+2. Comparison engine at full scale across all pairs.
+3. Blog / news / guide clusters — 8–12 articles per course family.
+4. Site-wide SEO hardening: segmented sitemap, internal-link automation, freshness dates.
+5. Lead layer: capture on every template, tagged with source page, deep-linked into AVEDU with UTM + prefill (needs your handoff rules).
+6. Brand basics: logo, colours, author bios for E-E-A-T bylines, contact details.
