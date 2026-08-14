@@ -43,10 +43,23 @@ export function LeadChatBot() {
     { from: "bot", text: "Which level are you looking for?" },
   ]);
   const endRef = useRef<HTMLDivElement>(null);
+  const [teaser, setTeaser] = useState<string | null>(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ block: "end" });
   }, [msgs, step]);
+
+  // Teaser bubble: appears at 20s, rotates once, hides before the header hint (35s).
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const timers = [
+      window.setTimeout(() => setTeaser(TEASERS[0]!), 20000),
+      window.setTimeout(() => setTeaser(TEASERS[1]!), 25000),
+      window.setTimeout(() => setTeaser(TEASERS[2]!), 29000),
+      window.setTimeout(() => setTeaser(null), 33000),
+    ];
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, []);
 
   const push = (m: Msg[]) => setMsgs((prev) => [...prev, ...m]);
 
