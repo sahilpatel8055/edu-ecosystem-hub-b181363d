@@ -5,6 +5,8 @@ import { ArticleCard } from "@/components/cards";
 import { RelatedContent } from "@/components/templates/DetailLayout";
 import { articles, news } from "@/lib/content";
 import { getPostContent } from "@/data/posts";
+import { blogBanner } from "@/lib/blogBanners";
+
 import {
   articleSchema,
   breadcrumbSchema,
