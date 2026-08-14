@@ -224,7 +224,7 @@ export function CoursePageTemplate({
             }
           >
             {family.specialisations.length ? (
-              <SpecialisationShowcase items={family.specialisations} />
+              <SpecialisationShowcase items={family.specialisations} courseSlug={family.slug} />
             ) : (
               <p className="text-sm text-muted-foreground">
                 No specialisation list has been published by the universities tracked for this

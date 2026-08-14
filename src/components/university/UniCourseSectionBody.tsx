@@ -4,6 +4,7 @@ import { SpecialisationBoxes } from "@/components/common/BoxMarquee";
 import { SectionBannerInline } from "@/components/common/SectionBanner";
 import { PlacementSupportSection } from "@/components/university/PlacementSupportSection";
 import { getSpecialisation } from "@/data";
+import { specLandingPath } from "@/lib/courseFamily";
 import {
   AdmissionInsightSection,
   CareerOpportunitiesSection,
@@ -129,7 +130,7 @@ export function UniCourseSectionBody({
               const spec = getSpecialisation(p.slug, s);
               return {
                 name: spec?.name ?? s,
-                href: `/courses/${p.slug}`,
+                href: specLandingPath(p.slug, spec?.name ?? s),
                 meta: spec?.careerPaths.slice(0, 2).join(", ") || undefined,
               };
             })}

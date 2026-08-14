@@ -322,3 +322,18 @@ export function familySpecialisation(familySlug: string, specSlug: string) {
   const offers = family.offers.filter((o) => o.specialisations.some((n) => slugify(n) === specSlug));
   return { family, spec, offers };
 }
+
+/**
+ * Landing page for a specialisation published on a university course page.
+ * Returns undefined when the specialisation has no pillar landing page yet, so
+ * callers can render a plain (non-clickable) box instead of a dead link.
+ */
+export function specLandingPath(programmeSlug: string, specName: string): string | undefined {
+  const family = familyForProgrammeSlug(programmeSlug);
+  if (!family) return undefined;
+  const slug = slugify(specName);
+  if (!slug) return undefined;
+  return family.specialisations.some((s) => s.slug === slug)
+    ? `${family.path}/specialisation/${slug}`
+    : undefined;
+}

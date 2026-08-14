@@ -52,11 +52,18 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+/** Every figure is counted from the dataset this site ships — nothing rounded up. */
 const stats = [
-  { value: "480+", label: "Universities tracked" },
-  { value: "2,600+", label: "Programmes mapped" },
-  { value: "18,000+", label: "Verified reviews" },
-  { value: "100%", label: "Free guidance" },
+  { value: String(universityRecords.length), label: "Universities researched" },
+  {
+    value: String(courseFamilies.length),
+    label: "Course pillars mapped",
+  },
+  {
+    value: String(new Set(comparisons.map((c) => c.slug)).size),
+    label: "Side-by-side comparisons",
+  },
+  { value: "0", label: "Sponsored placements" },
 ];
 
 function HomePage() {
@@ -70,6 +77,12 @@ function HomePage() {
         />
         <div className="container-page relative pb-8 pt-3 sm:pb-14 sm:pt-4 lg:pb-16 lg:pt-5">
           <HeroCarousel />
+
+          {/* Mobile scroll cue — tells first-time visitors there is more below the banner */}
+          <p className="mt-1 flex items-center justify-center gap-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:hidden">
+            Scroll to explore
+            <ArrowRight className="h-3 w-3 rotate-90" aria-hidden="true" />
+          </p>
 
           {/* Course discovery — the first action after the banner on every viewport */}
           <div className="mt-5">

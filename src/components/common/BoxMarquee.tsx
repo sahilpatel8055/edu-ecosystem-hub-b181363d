@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { approvalIcon } from "@/lib/assets";
 import { AppLink } from "./AppLink";
 
@@ -94,10 +94,24 @@ export interface SpecialisationBoxItem {
 }
 
 function SpecBoxInner({ item }: { item: SpecialisationBoxItem }) {
+  const clickable = Boolean(item.href);
   return (
-    <div className="box-hover flex h-full min-h-[5.5rem] flex-col justify-center gap-1 rounded-2xl border border-brand/30 bg-card p-4 text-center">
+    <div
+      className={`box-hover flex h-full min-h-[5.5rem] flex-col justify-center gap-1 rounded-2xl border p-4 text-center ${
+        clickable ? "group border-brand/30 bg-card hover:border-brand" : "border-brand/30 bg-card"
+      }`}
+    >
       <p className="text-sm font-bold leading-snug text-card-foreground">{item.name}</p>
       {item.meta && <p className="text-[11px] text-muted-foreground">{item.meta}</p>}
+      {clickable && (
+        <span className="mt-1 inline-flex items-center justify-center gap-1 text-[11px] font-bold text-brand">
+          Know more
+          <ArrowRight
+            className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
+        </span>
+      )}
     </div>
   );
 }
