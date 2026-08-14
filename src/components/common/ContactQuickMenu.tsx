@@ -10,7 +10,19 @@ export const AVEDU_WHATSAPP = "919000000000";
  */
 export function ContactQuickMenu() {
   const [open, setOpen] = useState(false);
+  const [hint, setHint] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  // Gentle nudge at 36s — after the chat teaser has gone, before the lead popup.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const show = window.setTimeout(() => setHint(true), 36000);
+    const hide = window.setTimeout(() => setHint(false), 46000);
+    return () => {
+      window.clearTimeout(show);
+      window.clearTimeout(hide);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -32,6 +44,20 @@ export function ContactQuickMenu() {
       >
         <Headset className="h-[1.15rem] w-[1.15rem]" />
       </button>
+
+      {hint && !open && (
+        <button
+          type="button"
+          onClick={() => {
+            setHint(false);
+            setOpen(true);
+          }}
+          className="absolute right-0 top-12 z-50 w-max max-w-[12rem] animate-fade-in rounded-xl border border-border bg-card px-3 py-2 text-left text-[0.72rem] font-medium leading-snug text-foreground shadow-lg"
+        >
+          <span className="mr-1 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 align-middle" />
+          Counsellors online — get connected now
+        </button>
+      )}
 
       {open && (
         <div className="absolute right-0 top-12 z-50 w-48 overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
