@@ -56,6 +56,7 @@ import {
   providerLinks,
 } from "@/lib/entities";
 import {
+import { specLandingPath } from "@/lib/courseFamily";
   breadcrumbSchema,
   canonical,
   courseSchema,

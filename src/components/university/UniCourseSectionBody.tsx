@@ -4,6 +4,7 @@ import { SpecialisationBoxes } from "@/components/common/BoxMarquee";
 import { SectionBannerInline } from "@/components/common/SectionBanner";
 import { PlacementSupportSection } from "@/components/university/PlacementSupportSection";
 import { getSpecialisation } from "@/data";
+import { specLandingPath } from "@/lib/courseFamily";
 import {
   AdmissionInsightSection,
   CareerOpportunitiesSection,
