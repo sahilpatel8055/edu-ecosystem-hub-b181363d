@@ -117,7 +117,7 @@ export function LeadChatBot() {
       )}
 
       {open && (
-        <div className="fixed inset-x-3 bottom-24 z-50 flex max-h-[68dvh] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl sm:inset-x-auto sm:right-6 sm:w-[22rem] lg:bottom-28">
+        <div className="fixed inset-x-3 bottom-4 z-50 flex max-h-[68dvh] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl sm:inset-x-auto sm:right-6 sm:w-[22rem] lg:bottom-6">
           <div className="flex items-center justify-between bg-[#7f1813] px-4 py-3 text-white">
             <div className="min-w-0">
               <p className="truncate text-sm font-bold">AVEDU Assist</p>

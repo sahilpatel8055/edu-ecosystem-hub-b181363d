@@ -153,7 +153,7 @@ function RootComponent() {
         </div>
         <Footer />
         <StickyMobileCTA />
-        <LeadPopup />
+        <LeadPopup delayMs={60000} />
         <LeadChatBot />
 
       </div>
