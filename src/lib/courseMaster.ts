@@ -140,7 +140,7 @@ export interface UniversityResearch {
   specialisations?: string[];
   curriculumNote?: string;
   examPattern?: string;
-  eligibility?: string | string[];
+  eligibility?: string;
   scholarships?: string[];
   scholarshipNote?: string;
   universityNote?: string;
