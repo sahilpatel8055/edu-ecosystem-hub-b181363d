@@ -1,6 +1,8 @@
 import { feeTableFor } from "@/data/university-fee-tables";
 import { courseIndexFor } from "@/lib/universityData";
 import { AppLink } from "@/components/common/AppLink";
+import { hasOpenUniversityFeeSheet } from "@/lib/openUniversityFees";
+
 
 const norm = (v: string) => v.toLowerCase().replace(/[^a-z0-9]/g, "");
 
