@@ -30,6 +30,7 @@ import {
   RequiredDocuments,
 } from "@/components/university/CourseDecisionSections";
 import { NextStep } from "@/components/common/NextStep";
+import { PubCourseResearch } from "@/components/pub/PubBlocks";
 import { getUniversityCourse, masterResearchDate } from "@/lib/courseMaster";
 import {
   CurriculumSection,
@@ -413,6 +414,10 @@ function Page() {
             lastVerified={offering.lastUpdated}
             status={offering.verified ? "verified_official" : "partial_verification"}
           />
+        </ContentSection>
+
+        <ContentSection title="Researched programme record">
+          <PubCourseResearch universitySlug={u.slug} programmeSlug={p.slug} />
         </ContentSection>
 
         <SectionUrlGrid
