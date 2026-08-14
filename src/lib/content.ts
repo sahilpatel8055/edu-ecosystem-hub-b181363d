@@ -3,6 +3,7 @@
  * CMS / database later only means replacing the getters below.
  */
 
+import { courseFamilyList } from "@/lib/courseFamily";
 import { programmes as programmeRecords, specialisations as specialisationRecords } from "@/data";
 import {
   academicSession,
