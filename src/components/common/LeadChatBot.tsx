@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquareDot, X, Send } from "lucide-react";
+import { X, Send } from "lucide-react";
+import botIcon from "@/assets/leadbot-icon.png.asset.json";
+
+const TEASERS = [
+  "Ask me anything about online degrees",
+  "Explore Online MBA, MCA or BBA",
+  "Check fees, eligibility & scholarships",
+];
 
 type Msg = { from: "bot" | "user"; text: string };
 
