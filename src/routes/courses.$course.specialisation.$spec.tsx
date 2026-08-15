@@ -1,3 +1,4 @@
+import { QuickEnquiry } from "@/components/common/QuickEnquiry";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
@@ -117,6 +118,9 @@ function Page() {
             {offers.length} universities in our dataset run the {specialisation.name} track of the{" "}
             {family.name}. Everything below is what those universities publish officially.
           </p>
+          <div className="mt-5 max-w-xl">
+            <QuickEnquiry heading={`Talk to a ${specialisation.name} counsellor`} />
+          </div>
           <div className="mt-5">
             <BackToPillar href={pillar} label={`Back to ${family.name} overview`} />
           </div>

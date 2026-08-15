@@ -3,6 +3,7 @@ import { SectionNav } from "@/components/common/SectionNav";
 import { Faq } from "@/components/common/Faq";
 import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import { AppLink } from "@/components/common/AppLink";
+import { QuickEnquiry } from "@/components/common/QuickEnquiry";
 import { SectionBanner } from "@/components/common/SectionBanner";
 import { NextStep } from "@/components/common/NextStep";
 import { BlogStrip } from "@/components/common/UniversityBlogs";
