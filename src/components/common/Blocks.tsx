@@ -253,7 +253,6 @@ export function References({ items }: { items: { label: string; href?: string | 
 
 export function StickyMobileCTA({
   label = "Get free guidance",
-  href = "/contact",
 }: {
   label?: string;
   href?: string;

@@ -11,7 +11,6 @@ export function PromoBanner({
   title,
   subtitle,
   ctaLabel,
-  to = "/contact",
 }: {
   variant?: "offer" | "guidance";
   title: string;
