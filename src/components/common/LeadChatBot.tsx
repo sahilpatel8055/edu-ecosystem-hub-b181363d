@@ -48,25 +48,25 @@ export function LeadChatBot() {
     { from: "bot", text: "Which level are you looking for?" },
   ]);
   const endRef = useRef<HTMLDivElement>(null);
-  const [teaser, setTeaser] = useState<string | null>(null);
-  const [showCounsel, setShowCounsel] = useState(false);
+  const { openCounselling } = usePopupSurface();
+
+  // Teasers rotate inside one managed window; the drop-up is a separate surface.
+  const teaserSurface = useTimedSurface("botTeaser", 30000, 120000);
+  const counselSurface = useTimedSurface("botChat", 40000, 90000);
+  const [teaserIndex, setTeaserIndex] = useState(0);
+  const teaser = teaserSurface.shown && !open ? TEASERS[teaserIndex % TEASERS.length]! : null;
+  const showCounsel = counselSurface.shown && !open;
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ block: "end" });
   }, [msgs, step]);
 
-  // Teaser bubbles rotate every 30s; counselling drop-up appears at 40s.
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const timers = [
-      window.setTimeout(() => setTeaser(TEASERS[0]!), 30000),
-      window.setTimeout(() => setTeaser(TEASERS[1]!), 60000),
-      window.setTimeout(() => setTeaser(TEASERS[2]!), 90000),
-      window.setTimeout(() => setTeaser(null), 120000),
-      window.setTimeout(() => setShowCounsel(true), 40000),
-    ];
-    return () => timers.forEach((t) => window.clearTimeout(t));
-  }, []);
+    if (!teaserSurface.shown) return;
+    const id = window.setInterval(() => setTeaserIndex((i) => i + 1), 30000);
+    return () => window.clearInterval(id);
+  }, [teaserSurface.shown]);
+
 
   const push = (m: Msg[]) => setMsgs((prev) => [...prev, ...m]);
 
