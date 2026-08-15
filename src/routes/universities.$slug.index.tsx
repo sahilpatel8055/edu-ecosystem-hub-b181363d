@@ -386,6 +386,18 @@ function Page() {
           />
         </ContentSection>
 
+        {blogsForUniversity(slug).length > 0 && (
+          <ContentSection title={`${u.shortName} guides & articles`}>
+            <BlogStrip
+              items={blogsForUniversity(slug).slice(0, 6)}
+              title={`${u.shortName} articles`}
+              intro={`Research reads on ${u.name} — admissions, fees, placements and student experience.`}
+            />
+          </ContentSection>
+        )}
+
+
+
         <RelatedPageLinks
           title={`${u.shortName} guides`}
           links={universitySectionPages(slug).map((sec) => ({
