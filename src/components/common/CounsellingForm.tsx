@@ -31,10 +31,8 @@ export function UniversityLogoMarquee() {
   const items = universities.slice(0, 14);
   const track = [...items, ...items];
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-border bg-secondary/40 py-2.5">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-card to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-card to-transparent" />
-      <ul className="flex w-max animate-marquee items-center gap-6 group-hover:[animation-play-state:paused]">
+    <div className="marquee rounded-xl border border-border bg-secondary/40 py-2.5">
+      <ul className="marquee-track items-center" style={{ animationDuration: "28s", gap: "1.5rem" }}>
         {track.map((u, i) => {
           const logo = universityLogo(u.slug);
           return (
