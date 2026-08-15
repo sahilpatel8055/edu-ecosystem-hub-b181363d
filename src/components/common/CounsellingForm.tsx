@@ -26,6 +26,8 @@ const STATES = [
 const field =
   "h-11 w-full rounded-xl border border-input bg-background px-3.5 text-[0.9rem] outline-none transition-colors focus-visible:border-[#7f1813] focus-visible:ring-2 focus-visible:ring-[#7f1813]/25";
 
+const label = "mb-1 block text-[0.72rem] font-bold uppercase tracking-wide text-muted-foreground";
+
 /** Auto-scrolling university logo ribbon. Pure CSS, duplicated track for a seamless loop. */
 export function UniversityLogoMarquee() {
   const items = universities.slice(0, 14);
