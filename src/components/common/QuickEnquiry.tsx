@@ -49,21 +49,25 @@ export function QuickEnquiry({
       </p>
 
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-dashed border-[#7f1813]/45 bg-[#7f1813]/[0.06] px-3 py-2.5">
-        <p className="flex items-start gap-2 text-[0.8rem] leading-tight">
+        <p className="flex w-full items-start gap-2 text-[0.8rem] leading-tight sm:w-auto">
           <TimerReset className="mt-0.5 h-5 w-5 shrink-0 text-[#7f1813]" aria-hidden="true" />
           <span>
             <span className="block text-[0.68rem] font-extrabold uppercase tracking-wider text-[#7f1813]">
               Limited time offer
             </span>
-            <span className="block font-bold text-foreground">{offer}</span>
+            <span className="block font-bold text-foreground">
+              <mark className="rounded-md bg-yellow-300/80 px-1.5 py-0.5 font-display text-[1.02rem] font-extrabold text-[#7f1813]">
+                {offer}
+              </mark>
+            </span>
           </span>
         </p>
-        <div className="flex items-center gap-1.5">
+        <div className="flex w-full items-center justify-between gap-1.5 sm:w-auto sm:justify-end">
           {units.map((u, i) => (
-            <div key={u.l} className="flex items-center gap-1.5">
+            <div key={u.l} className="flex flex-1 items-center gap-1.5 sm:flex-none">
               {i > 0 && <span className="font-extrabold text-[#7f1813]">:</span>}
-              <div className="text-center">
-                <span className="block min-w-[2.4rem] rounded-lg bg-[#7f1813] px-1.5 py-1 font-display text-[0.95rem] font-extrabold tabular-nums text-white">
+              <div className="flex-1 text-center sm:flex-none">
+                <span className="block w-full min-w-[2.4rem] rounded-lg bg-[#7f1813] px-1.5 py-1.5 font-display text-[1rem] font-extrabold tabular-nums text-white">
                   {u.v}
                 </span>
                 <span className="mt-0.5 block text-[0.55rem] font-bold tracking-wider text-muted-foreground">
