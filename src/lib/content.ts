@@ -4,6 +4,7 @@
  */
 
 import { courseFamilyList } from "@/lib/courseFamily";
+import { universityBlogArticles } from "@/data/university-blogs";
 import { programmes as programmeRecords, specialisations as specialisationRecords } from "@/data";
 import {
   academicSession,
@@ -410,7 +411,9 @@ export const articles: Article[] = [
     kind: "blog",
     featured: true,
   },
+  ...universityBlogArticles,
 ];
+
 
 export const news: Article[] = [
   {
