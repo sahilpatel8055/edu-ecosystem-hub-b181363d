@@ -117,13 +117,23 @@ export function LeadChatBot() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat on WhatsApp"
-                  className="grid h-8 w-8 place-items-center rounded-full bg-[#25D366] text-white"
+                  className="grid h-8 w-8 place-items-center overflow-hidden rounded-full"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <img src={WHATSAPP_ICON} alt="" className="h-8 w-8 object-contain" />
                 </a>
                 <button
                   type="button"
-                  onClick={() => setShowCounsel(false)}
+                  onClick={() => {
+                    counselSurface.close();
+                    openCounselling();
+                  }}
+                  className="rounded-full bg-[#7f1813] px-2.5 py-1 text-[0.68rem] font-bold text-white"
+                >
+                  Book
+                </button>
+                <button
+                  type="button"
+                  onClick={() => counselSurface.close()}
                   aria-label="Dismiss"
                   className="ml-auto grid h-6 w-6 place-items-center rounded-full text-muted-foreground hover:bg-secondary"
                 >
@@ -136,7 +146,7 @@ export function LeadChatBot() {
             <button
               type="button"
               onClick={() => {
-                setTeaser(null);
+                teaserSurface.close();
                 setOpen(true);
               }}
               className="max-w-[13rem] animate-fade-in rounded-2xl rounded-br-sm border-2 border-[#7f1813] bg-card px-3 py-2 text-left text-[0.72rem] font-medium leading-snug text-foreground shadow-lg"
@@ -144,6 +154,7 @@ export function LeadChatBot() {
               {teaser}
             </button>
           )}
+
           <button
             type="button"
             onClick={() => setOpen(true)}
