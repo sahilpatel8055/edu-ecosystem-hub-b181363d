@@ -61,8 +61,8 @@ export function UniversityLogoMarquee() {
  * Mobile-first: generous padding, 44px controls and single-column layout.
  */
 export function CounsellingForm({
-  title = "Book your free counselling session",
-  subtitle = "Talk to an unbiased AVEDU counsellor. Verified fees, approvals and scholarships — no spam, no pressure.",
+  title = "Book Free 1-1 counselling session",
+  subtitle = "Let's Find your right online degree togethor.",
   compact = false,
   onDone,
 }: {
@@ -98,7 +98,7 @@ export function CounsellingForm({
 
   return (
     <div className={compact ? "p-5 sm:p-6" : "p-5 sm:p-8"}>
-      <div className="flex items-start gap-3">
+      <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:items-start sm:text-left">
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#7f1813] text-white">
           <Headphones className="h-5 w-5" />
         </span>
@@ -110,52 +110,73 @@ export function CounsellingForm({
         </div>
       </div>
 
+      <div className="mt-4">
+        <UniversityLogoMarquee />
+      </div>
+
       <form
-        className="mt-5 grid gap-3 sm:grid-cols-2"
+        className="mx-auto mt-5 grid w-full max-w-md gap-3 sm:max-w-none sm:grid-cols-2"
         onSubmit={(e) => {
           e.preventDefault();
           setSent(true);
         }}
       >
-        <input required name="name" autoComplete="name" placeholder="Full name" className={field} />
-        <input
-          required
-          name="email"
-          type="email"
-          autoComplete="email"
-          placeholder="Email address"
-          className={field}
-        />
-        <input
-          required
-          name="phone"
-          type="tel"
-          inputMode="numeric"
-          pattern="[0-9+ ]{10,15}"
-          autoComplete="tel"
-          placeholder="Mobile number"
-          className={field}
-        />
-        <select required name="course" defaultValue="" className={field}>
-          <option value="" disabled>
-            Course you want
-          </option>
-          {COURSES.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
-        <select required name="state" defaultValue="" className={`${field} sm:col-span-2`}>
-          <option value="" disabled>
-            Your state
-          </option>
-          {STATES.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
+        <label className="block">
+          <span className={label}>Full name :</span>
+          <input required name="name" autoComplete="name" placeholder="Full name" className={field} />
+        </label>
+        <label className="block">
+          <span className={label}>Email :</span>
+          <input
+            required
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="Email address"
+            className={field}
+          />
+        </label>
+        <label className="block sm:col-span-2">
+          <span className={label}>Mobile :</span>
+          <input
+            required
+            name="phone"
+            type="tel"
+            inputMode="numeric"
+            pattern="[0-9+ ]{10,15}"
+            autoComplete="tel"
+            placeholder="Mobile number"
+            className={field}
+          />
+        </label>
+        <div className="grid grid-cols-2 gap-3 sm:col-span-2">
+          <label className="block min-w-0">
+            <span className={label}>Course :</span>
+            <select required name="course" defaultValue="" className={field}>
+              <option value="" disabled>
+                Select course
+              </option>
+              {COURSES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="block min-w-0">
+            <span className={label}>State :</span>
+            <select required name="state" defaultValue="" className={field}>
+              <option value="" disabled>
+                Select state
+              </option>
+              {STATES.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
         <button
           type="submit"
           className="h-12 rounded-xl bg-[#7f1813] text-sm font-bold text-white transition-opacity hover:opacity-90 sm:col-span-2"
@@ -164,16 +185,9 @@ export function CounsellingForm({
         </button>
       </form>
 
-      <p className="mt-3 flex items-center justify-center gap-1.5 text-[0.72rem] font-medium text-muted-foreground">
-        <ShieldCheck className="h-3.5 w-3.5" /> Your details stay private. No spam calls.
+      <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[0.72rem] font-medium text-muted-foreground">
+        <ShieldCheck className="h-3.5 w-3.5 shrink-0" /> Your details stay private. No spam calls.
       </p>
-
-      <div className="mt-5">
-        <p className="mb-2 text-center text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground">
-          Counselling for admissions at
-        </p>
-        <UniversityLogoMarquee />
-      </div>
     </div>
   );
 }
