@@ -410,7 +410,9 @@ export const articles: Article[] = [
     kind: "blog",
     featured: true,
   },
+  ...universityBlogArticles,
 ];
+
 
 export const news: Article[] = [
   {
