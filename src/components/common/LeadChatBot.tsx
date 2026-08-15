@@ -1,6 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { X, Send, Phone } from "lucide-react";
 import { useTimedSurface, usePopupSurface } from "@/components/common/PopupManager";
+import { useRouterState } from "@tanstack/react-router";
+import { universities } from "@/data";
+import { courseFamilies } from "@/lib/content";
 
 const WHATSAPP_ICON = "/whatsapp-icon.png";
 
@@ -12,6 +15,84 @@ const TEASERS = [
   "Explore Online MBA, MCA or BBA",
   "Check fees, eligibility & scholarships",
 ];
+
+/** Page-aware teaser copy — university, course and specialisation pages get their own script. */
+function teasersForPath(pathname: string): string[] {
+  const parts = pathname.split("/").filter(Boolean);
+
+  if (parts[0] === "universities" && parts[1]) {
+    const uni = universities.find((u) => u.slug === parts[1]);
+    if (uni) {
+      const courses = "MBA, MCA, BBA, BCA & more";
+      return [
+        `Want to know more about ${uni.name}?`,
+        `Ask me anything about ${uni.shortName}`,
+        `Explore ${uni.shortName} ${courses}`,
+      ];
+    }
+  }
+
+  if (parts[0] === "courses" && parts[1]) {
+    const fam = courseFamilies.find((c) => c.slug === parts[1]);
+    if (fam) {
+      if (parts[2] === "specialisation" && parts[3]) {
+        const spec = parts[3].replace(/-/g, " ");
+        return [
+          `Is ${spec} the right ${fam.shortName} specialisation for you?`,
+          `Ask me anything about ${fam.name} in ${spec}`,
+          `Compare universities offering this ${fam.shortName} track`,
+        ];
+      }
+      return [
+        `Want to know more about the ${fam.name}?`,
+        `Ask me anything about ${fam.name} fees & eligibility`,
+        `Compare ${fam.shortName} universities side by side`,
+      ];
+    }
+  }
+
+  if (parts[0] === "compare") return ["Confused between two universities?", "I can help you shortlist in 2 minutes"];
+  if (parts[0] === "scholarships") return ["Want to check your scholarship eligibility?", "Ask me about fee waivers & EMI"];
+
+  return TEASERS;
+}
+
+/** Types a message in, holds it, erases it in reverse, then moves to the next. */
+function useTypewriter(messages: string[], active: boolean) {
+  const [index, setIndex] = useState(0);
+  const [len, setLen] = useState(0);
+  const [erasing, setErasing] = useState(false);
+
+  useEffect(() => {
+    setIndex(0);
+    setLen(0);
+    setErasing(false);
+  }, [messages.join("|")]);
+
+  useEffect(() => {
+    if (!active || messages.length === 0) return;
+    const full = messages[index % messages.length] ?? "";
+    let delay = erasing ? 26 : 42;
+    if (!erasing && len === full.length) delay = 2200;
+    if (erasing && len === 0) delay = 350;
+
+    const id = window.setTimeout(() => {
+      if (!erasing) {
+        if (len < full.length) setLen(len + 1);
+        else setErasing(true);
+      } else if (len > 0) {
+        setLen(len - 1);
+      } else {
+        setErasing(false);
+        setIndex((i) => i + 1);
+      }
+    }, delay);
+    return () => window.clearTimeout(id);
+  }, [active, erasing, len, index, messages]);
+
+  const full = messages[index % Math.max(1, messages.length)] ?? "";
+  return full.slice(0, len);
+}
 
 type Msg = { from: "bot" | "user"; text: string };
 
@@ -51,21 +132,18 @@ export function LeadChatBot() {
   const { openCounselling } = usePopupSurface();
 
   // Teasers rotate inside one managed window; the drop-up is a separate surface.
-  const teaserSurface = useTimedSurface("botTeaser", 30000, 120000);
-  const counselSurface = useTimedSurface("botChat", 40000, 90000);
-  const [teaserIndex, setTeaserIndex] = useState(0);
-  const teaser = teaserSurface.shown && !open ? TEASERS[teaserIndex % TEASERS.length]! : null;
+  const teaserSurface = useTimedSurface("botTeaser", 20000, 180000);
+  const counselSurface = useTimedSurface("botChat", 60000, 110000);
+  const pathname = useRouterState({ select: (st) => st.location.pathname });
+  const teaserScript = useMemo(() => teasersForPath(pathname), [pathname]);
+  const typed = useTypewriter(teaserScript, teaserSurface.shown && !open);
+  const teaser = teaserSurface.shown && !open ? typed : null;
   const showCounsel = counselSurface.shown && !open;
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ block: "end" });
   }, [msgs, step]);
 
-  useEffect(() => {
-    if (!teaserSurface.shown) return;
-    const id = window.setInterval(() => setTeaserIndex((i) => i + 1), 30000);
-    return () => window.clearInterval(id);
-  }, [teaserSurface.shown]);
 
 
   const push = (m: Msg[]) => setMsgs((prev) => [...prev, ...m]);
@@ -142,7 +220,7 @@ export function LeadChatBot() {
               </div>
             </div>
           )}
-          {teaser && (
+          {teaser !== null && teaser.length > 0 && (
             <button
               type="button"
               onClick={() => {
