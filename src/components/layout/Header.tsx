@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AppLink } from "@/components/common/AppLink";
-import { ChevronDown, GraduationCap, Menu, Moon, Search, Sun, X } from "lucide-react";
+import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { mobileNav, primaryNav, type NavItem } from "@/lib/navigation";
 import { useTheme } from "@/hooks/use-theme";
 import { SearchBox } from "./SearchBox";
@@ -69,16 +69,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
       <div className="container-page flex h-16 items-center gap-3 lg:h-[4.5rem] lg:gap-4">
-        <AppLink to="/" className="flex min-w-0 shrink-0 items-center gap-2.5" aria-label="AVEDU Insights home">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground">
-            <GraduationCap className="h-5 w-5" />
-          </span>
-          <span className="min-w-0">
-            <span className="block font-display text-base font-bold leading-tight">AVEDU</span>
-            <span className="block text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground">
-              Insights
-            </span>
-          </span>
+        <AppLink to="/" className="flex min-w-0 shrink-0 items-center" aria-label="Degreekhojo home">
+          <img
+            src="/degreekhojo-logo.png"
+            alt="Degreekhojo logo"
+            width={180}
+            height={48}
+            className="h-9 w-auto object-contain lg:h-11"
+          />
         </AppLink>
 
         <nav className="hidden flex-1 items-center justify-center xl:flex" aria-label="Primary">

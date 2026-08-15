@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, CalendarDays, Clock, ShieldCheck } from "lucide-react";
 import { usePopupSurface } from "@/components/common/PopupManager";
-import girl from "@/assets/admission-counsellor.png.asset.json";
+
 
 /** Fixed 3-day admission cycle anchored to a stable epoch, in the user's local time. */
 const CYCLE_DAYS = 3;
@@ -79,13 +79,13 @@ export function AdmissionPopup({ onClose }: { onClose: () => void }) {
         <div className="relative bg-gradient-to-br from-[#fdf3f3] via-white to-[#fbeaea] px-5 pb-4 pt-5 sm:px-7 sm:pt-6">
           {/* Girl artwork — decorative, sits at the right on all sizes */}
           <img
-            src={girl.url}
+            src="/banner-girl.png"
             alt=""
             aria-hidden="true"
             loading="lazy"
-            width={912}
-            height={1200}
-            className="pointer-events-none absolute -bottom-2 right-[-2rem] h-[68%] w-auto select-none object-contain opacity-90 sm:right-0 sm:h-[80%] sm:opacity-100"
+            width={1024}
+            height={1536}
+            className="pointer-events-none absolute bottom-0 right-0 h-[70%] w-auto select-none object-contain object-bottom sm:h-[84%]"
           />
 
           <div className="relative z-10 max-w-[64%] sm:max-w-[58%]">

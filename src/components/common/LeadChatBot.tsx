@@ -73,7 +73,7 @@ function useTypewriter(messages: string[], active: boolean) {
     if (!active || messages.length === 0) return;
     const full = messages[index % messages.length] ?? "";
     let delay = erasing ? 26 : 42;
-    if (!erasing && len === full.length) delay = 2200;
+    if (!erasing && len === full.length) delay = 5000;
     if (erasing && len === 0) delay = 350;
 
     const id = window.setTimeout(() => {
