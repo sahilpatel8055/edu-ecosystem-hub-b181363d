@@ -18,6 +18,7 @@ import { Route as CareerRouteImport } from './routes/career'
 import { Route as CategoriesRouteImport } from './routes/categories'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CounsellingRouteImport } from './routes/counselling'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
@@ -100,6 +101,11 @@ const CompareRoute = CompareRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CounsellingRoute = CounsellingRouteImport.update({
+  id: '/counselling',
+  path: '/counselling',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesRoute = CoursesRouteImport.update({
@@ -311,6 +317,7 @@ export interface FileRoutesByFullPath {
   '/categories': typeof CategoriesRoute
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
+  '/counselling': typeof CounsellingRoute
   '/courses': typeof CoursesRouteWithChildren
   '/news': typeof NewsRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -358,6 +365,7 @@ export interface FileRoutesByTo {
   '/career': typeof CareerRouteWithChildren
   '/categories': typeof CategoriesRoute
   '/contact': typeof ContactRoute
+  '/counselling': typeof CounsellingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/rankings': typeof RankingsRoute
   '/reviews': typeof ReviewsRouteWithChildren
@@ -403,6 +411,7 @@ export interface FileRoutesById {
   '/categories': typeof CategoriesRoute
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
+  '/counselling': typeof CounsellingRoute
   '/courses': typeof CoursesRouteWithChildren
   '/news': typeof NewsRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -454,6 +463,7 @@ export interface FileRouteTypes {
     | '/categories'
     | '/compare'
     | '/contact'
+    | '/counselling'
     | '/courses'
     | '/news'
     | '/privacy-policy'
@@ -501,6 +511,7 @@ export interface FileRouteTypes {
     | '/career'
     | '/categories'
     | '/contact'
+    | '/counselling'
     | '/privacy-policy'
     | '/rankings'
     | '/reviews'
@@ -545,6 +556,7 @@ export interface FileRouteTypes {
     | '/categories'
     | '/compare'
     | '/contact'
+    | '/counselling'
     | '/courses'
     | '/news'
     | '/privacy-policy'
@@ -595,6 +607,7 @@ export interface RootRouteChildren {
   CategoriesRoute: typeof CategoriesRoute
   CompareRoute: typeof CompareRouteWithChildren
   ContactRoute: typeof ContactRoute
+  CounsellingRoute: typeof CounsellingRoute
   CoursesRoute: typeof CoursesRouteWithChildren
   NewsRoute: typeof NewsRouteWithChildren
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -673,6 +686,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counselling': {
+      id: '/counselling'
+      path: '/counselling'
+      fullPath: '/counselling'
+      preLoaderRoute: typeof CounsellingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses': {
@@ -1110,6 +1130,7 @@ const rootRouteChildren: RootRouteChildren = {
   CategoriesRoute: CategoriesRoute,
   CompareRoute: CompareRouteWithChildren,
   ContactRoute: ContactRoute,
+  CounsellingRoute: CounsellingRoute,
   CoursesRoute: CoursesRouteWithChildren,
   NewsRoute: NewsRouteWithChildren,
   PrivacyPolicyRoute: PrivacyPolicyRoute,

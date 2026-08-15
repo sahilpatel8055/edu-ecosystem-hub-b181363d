@@ -22,6 +22,12 @@ export const Route = createFileRoute("/blogs/")({
 });
 
 function Page() {
+  const [university, setUniversity] = useState("All");
+  const list =
+    university === "All"
+      ? articles
+      : articles.filter((a) => universityLabelByBlogSlug[a.slug] === university);
+
   return (
     <PageShell
       crumbs={[{ name: "Blogs", href: path }]}
@@ -29,12 +35,31 @@ function Page() {
       title="Articles, Guides & Research"
       description={description}
     >
-      <FilterBar groups={[{"label":"Category","options":["All","Admission Guidance","Career Growth","Fees & Scholarships","Study Guides"]}]} />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {articles.map((i) => (<ArticleCard key={i.slug} item={i} />))}
+      <div className="mb-6 flex flex-wrap gap-2">
+        {["All", ...universityBlogFilterOptions].map((opt) => (
+          <button
+            key={opt}
+            type="button"
+            onClick={() => setUniversity(opt)}
+            aria-pressed={university === opt}
+            className={`rounded-full border px-4 py-2 text-[0.8rem] font-semibold transition-colors ${
+              university === opt
+                ? "border-brand bg-brand text-brand-foreground"
+                : "border-border bg-card text-muted-foreground hover:bg-secondary"
+            }`}
+          >
+            {opt}
+          </button>
+        ))}
       </div>
-      <SimplePagination />
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {list.map((i) => (<ArticleCard key={i.slug} item={i} />))}
+      </div>
+      {!list.length && (
+        <p className="text-sm text-muted-foreground">No articles for this university yet.</p>
+      )}
       <div className="mt-16"><CTASection /></div>
     </PageShell>
   );
 }
+
