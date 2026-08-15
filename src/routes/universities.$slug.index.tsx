@@ -11,6 +11,9 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityHero } from "@/components/university/UniversityHero";
 import { AppLink } from "@/components/common/AppLink";
+import { BlogStrip } from "@/components/common/UniversityBlogs";
+import { blogsForUniversity } from "@/data/university-blogs";
+
 import { PubUniversityResearch } from "@/components/pub/PubBlocks";
 import { ApprovalsSection } from "@/components/university/ApprovalsSection";
 import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
