@@ -101,11 +101,11 @@ function HomePage() {
           <div className="mx-auto mt-10 max-w-3xl text-center sm:mt-14">
             <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
 
-              <span className="text-shine">Decide your degree</span> with research, not guesswork.
+              <span className="text-shine">Choose the Right Degree.</span> Compare. Research. Decide with Confidence.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground sm:text-lg">
-              Verified data on India's online and distance universities — <span className="mark-brand">approvals</span>,{" "}
-              <span className="mark-brand">fees</span>, placements and real student reviews, in one knowledge hub.
+              Compare universities, courses, <span className="mark-brand">fees</span>,{" "}
+              <span className="mark-brand">eligibility</span> &amp; career options — all in one place.
             </p>
             <div className="mx-auto mt-8 max-w-2xl">
               <SearchBox size="lg" />

@@ -3,6 +3,7 @@ import { SectionNav } from "@/components/common/SectionNav";
 import { Faq } from "@/components/common/Faq";
 import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import { AppLink } from "@/components/common/AppLink";
+import { QuickEnquiry } from "@/components/common/QuickEnquiry";
 import { SectionBanner } from "@/components/common/SectionBanner";
 import { NextStep } from "@/components/common/NextStep";
 import { BlogStrip } from "@/components/common/UniversityBlogs";
@@ -115,6 +116,10 @@ export function CoursePageTemplate({
             <li aria-hidden="true">·</li>
             <li>No sponsored ranking</li>
           </ul>
+
+          <div className="mt-5 max-w-xl">
+            <QuickEnquiry heading={`Take a step towards your ${family.shortName} career`} />
+          </div>
 
           <div className="mt-5 flex flex-wrap items-start gap-2.5">
             <a href="#universities" className="btn btn-primary">

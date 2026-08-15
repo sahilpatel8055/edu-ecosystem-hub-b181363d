@@ -1,3 +1,4 @@
+import { QuickEnquiry } from "@/components/common/QuickEnquiry";
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { ContentSection, DetailLayout } from "@/components/templates/DetailLayout";
 import { SectionUrlGrid } from "@/components/course/SectionHub";
@@ -205,7 +206,14 @@ function Page() {
         eyebrow={`${u.shortName} · ${p.level} programme`}
         title={`${u.shortName} ${p.name}: Fees, Eligibility & Admission 2026`}
         subtitle={`${p.summary} This page covers the ${p.name} exactly as delivered by ${u.name}.`}
-        meta={<UpdatedStamp date={offering.lastUpdated} verified={offering.verified} />}
+        meta={
+          <>
+            <div className="mb-5 max-w-xl">
+              <QuickEnquiry heading={`Enquire about ${u.shortName} ${p.shortName}`} />
+            </div>
+            <UpdatedStamp date={offering.lastUpdated} verified={offering.verified} />
+          </>
+        }
         tocSections={[
           "Quick facts",
           "Overview",

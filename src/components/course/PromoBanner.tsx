@@ -1,4 +1,4 @@
-import { AppLink } from "@/components/common/AppLink";
+import { usePopupSurface } from "@/components/common/PopupManager";
 import offerArt from "@/assets/course-offer-illustration.png";
 import counsellingArt from "@/assets/course-counselling-illustration.png";
 
@@ -11,7 +11,6 @@ export function PromoBanner({
   title,
   subtitle,
   ctaLabel,
-  to = "/contact",
 }: {
   variant?: "offer" | "guidance";
   title: string;
@@ -19,6 +18,7 @@ export function PromoBanner({
   ctaLabel: string;
   to?: string;
 }) {
+  const { openCounselling } = usePopupSurface();
   const isOffer = variant === "offer";
   return (
     <div
@@ -38,12 +38,13 @@ export function PromoBanner({
           <p className="mt-1.5 text-[0.85rem] leading-relaxed text-white/85 sm:text-base">
             {subtitle}
           </p>
-          <AppLink
-            to={to}
+          <button
+            type="button"
+            onClick={openCounselling}
             className="mt-4 inline-flex rounded-xl bg-white px-5 py-2.5 text-[0.85rem] font-extrabold text-foreground shadow-sm transition-transform hover:-translate-y-0.5"
           >
             {ctaLabel}
-          </AppLink>
+          </button>
         </div>
         <img
           src={isOffer ? offerArt : counsellingArt}
