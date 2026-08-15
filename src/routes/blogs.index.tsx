@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/templates/PageShell";
-import { FilterBar, SimplePagination, CTASection } from "@/components/common/Primitives";
+import { CTASection } from "@/components/common/Primitives";
 import { ArticleCard } from "@/components/cards";
 import { articles } from "@/lib/content";
+import {
+  universityBlogFilterOptions,
+  universityLabelByBlogSlug,
+} from "@/data/university-blogs";
 import { canonical, collectionSchema, jsonLd, pageMeta, breadcrumbSchema } from "@/lib/seo";
+
 
 const title = "Articles, Guides & Research";
 const description = "In-depth articles on choosing, funding and finishing an online or distance degree in India.";
