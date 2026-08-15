@@ -14,8 +14,9 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTA } from "@/components/common/Blocks";
-import { LeadPopup } from "@/components/common/LeadPopup";
 import { LeadChatBot } from "@/components/common/LeadChatBot";
+import { PopupProvider } from "@/components/common/PopupManager";
+
 
 import { jsonLd, organizationSchema, SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
 
@@ -145,18 +146,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <div className="flex-1 pb-20 lg:pb-0">
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
+      <PopupProvider>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <div className="flex-1 pb-20 lg:pb-0">
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </div>
+          <Footer />
+          <StickyMobileCTA />
+          <LeadChatBot />
         </div>
-        <Footer />
-        <StickyMobileCTA />
-        <LeadPopup delayMs={60000} />
-        <LeadChatBot />
-
-      </div>
+      </PopupProvider>
     </QueryClientProvider>
   );
 }
+

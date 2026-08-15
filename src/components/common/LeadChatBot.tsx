@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { X, Send, Phone, MessageCircle } from "lucide-react";
+import { X, Send, Phone } from "lucide-react";
+import { useTimedSurface, usePopupSurface } from "@/components/common/PopupManager";
+
+const WHATSAPP_ICON = "/whatsapp-icon.png";
+
 
 const BOT_ICON = "/leadbot-icon.png";
 
@@ -44,25 +48,25 @@ export function LeadChatBot() {
     { from: "bot", text: "Which level are you looking for?" },
   ]);
   const endRef = useRef<HTMLDivElement>(null);
-  const [teaser, setTeaser] = useState<string | null>(null);
-  const [showCounsel, setShowCounsel] = useState(false);
+  const { openCounselling } = usePopupSurface();
+
+  // Teasers rotate inside one managed window; the drop-up is a separate surface.
+  const teaserSurface = useTimedSurface("botTeaser", 30000, 120000);
+  const counselSurface = useTimedSurface("botChat", 40000, 90000);
+  const [teaserIndex, setTeaserIndex] = useState(0);
+  const teaser = teaserSurface.shown && !open ? TEASERS[teaserIndex % TEASERS.length]! : null;
+  const showCounsel = counselSurface.shown && !open;
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ block: "end" });
   }, [msgs, step]);
 
-  // Teaser bubbles rotate every 30s; counselling drop-up appears at 40s.
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const timers = [
-      window.setTimeout(() => setTeaser(TEASERS[0]!), 30000),
-      window.setTimeout(() => setTeaser(TEASERS[1]!), 60000),
-      window.setTimeout(() => setTeaser(TEASERS[2]!), 90000),
-      window.setTimeout(() => setTeaser(null), 120000),
-      window.setTimeout(() => setShowCounsel(true), 40000),
-    ];
-    return () => timers.forEach((t) => window.clearTimeout(t));
-  }, []);
+    if (!teaserSurface.shown) return;
+    const id = window.setInterval(() => setTeaserIndex((i) => i + 1), 30000);
+    return () => window.clearInterval(id);
+  }, [teaserSurface.shown]);
+
 
   const push = (m: Msg[]) => setMsgs((prev) => [...prev, ...m]);
 
@@ -113,13 +117,23 @@ export function LeadChatBot() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat on WhatsApp"
-                  className="grid h-8 w-8 place-items-center rounded-full bg-[#25D366] text-white"
+                  className="grid h-8 w-8 place-items-center overflow-hidden rounded-full"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <img src={WHATSAPP_ICON} alt="" className="h-8 w-8 object-contain" />
                 </a>
                 <button
                   type="button"
-                  onClick={() => setShowCounsel(false)}
+                  onClick={() => {
+                    counselSurface.close();
+                    openCounselling();
+                  }}
+                  className="rounded-full bg-[#7f1813] px-2.5 py-1 text-[0.68rem] font-bold text-white"
+                >
+                  Book
+                </button>
+                <button
+                  type="button"
+                  onClick={() => counselSurface.close()}
                   aria-label="Dismiss"
                   className="ml-auto grid h-6 w-6 place-items-center rounded-full text-muted-foreground hover:bg-secondary"
                 >
@@ -132,7 +146,7 @@ export function LeadChatBot() {
             <button
               type="button"
               onClick={() => {
-                setTeaser(null);
+                teaserSurface.close();
                 setOpen(true);
               }}
               className="max-w-[13rem] animate-fade-in rounded-2xl rounded-br-sm border-2 border-[#7f1813] bg-card px-3 py-2 text-left text-[0.72rem] font-medium leading-snug text-foreground shadow-lg"
@@ -140,6 +154,7 @@ export function LeadChatBot() {
               {teaser}
             </button>
           )}
+
           <button
             type="button"
             onClick={() => setOpen(true)}

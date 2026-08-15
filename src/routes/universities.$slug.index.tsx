@@ -11,6 +11,9 @@ import {
 import { LinkCluster } from "@/components/common/Blocks";
 import { UniversityHero } from "@/components/university/UniversityHero";
 import { AppLink } from "@/components/common/AppLink";
+import { BlogStrip } from "@/components/common/UniversityBlogs";
+import { blogsForUniversity } from "@/data/university-blogs";
+
 import { PubUniversityResearch } from "@/components/pub/PubBlocks";
 import { ApprovalsSection } from "@/components/university/ApprovalsSection";
 import { CourseLevelTabs } from "@/components/university/CourseLevelTabs";
@@ -385,6 +388,18 @@ function Page() {
             websiteUrl={u.websiteUrl}
           />
         </ContentSection>
+
+        {blogsForUniversity(slug).length > 0 && (
+          <ContentSection title={`${u.shortName} guides & articles`}>
+            <BlogStrip
+              items={blogsForUniversity(slug).slice(0, 6)}
+              title={`${u.shortName} articles`}
+              intro={`Research reads on ${u.name} — admissions, fees, placements and student experience.`}
+            />
+          </ContentSection>
+        )}
+
+
 
         <RelatedPageLinks
           title={`${u.shortName} guides`}
