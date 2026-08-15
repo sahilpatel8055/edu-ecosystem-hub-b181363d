@@ -145,18 +145,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <div className="flex-1 pb-20 lg:pb-0">
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
+      <PopupProvider>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <div className="flex-1 pb-20 lg:pb-0">
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </div>
+          <Footer />
+          <StickyMobileCTA />
+          <LeadChatBot />
         </div>
-        <Footer />
-        <StickyMobileCTA />
-        <LeadPopup delayMs={60000} />
-        <LeadChatBot />
-
-      </div>
+      </PopupProvider>
     </QueryClientProvider>
   );
 }
+
