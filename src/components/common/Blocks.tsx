@@ -1,3 +1,4 @@
+import { usePopupSurface } from "@/components/common/PopupManager";
 import type { ReactNode } from "react";
 import {
   BookOpen,
