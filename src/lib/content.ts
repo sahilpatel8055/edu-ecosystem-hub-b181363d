@@ -4,6 +4,7 @@
  */
 
 import { courseFamilyList } from "@/lib/courseFamily";
+import { universityBlogArticles } from "@/data/university-blogs";
 import { programmes as programmeRecords, specialisations as specialisationRecords } from "@/data";
 import {
   academicSession,
