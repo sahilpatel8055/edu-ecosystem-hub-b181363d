@@ -260,6 +260,7 @@ export function StickyMobileCTA({
   secondaryLabel?: string;
   secondaryHref?: string;
 }) {
+  const { openCounselling } = usePopupSurface();
   const items = [
     { to: "/", icon: Home, label: "Home" },
     { to: "/universities", icon: Building2, label: "Universities" },
@@ -278,13 +279,14 @@ export function StickyMobileCTA({
           {items.slice(0, 2).map((i) => (
             <NavItem key={i.to} {...i} />
           ))}
-          <AppLink
-            to={href}
+          <button
+            type="button"
+            onClick={openCounselling}
             aria-label={label}
             className="mx-auto -mt-7 grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-white/40 bg-brand text-center text-[0.6rem] font-extrabold uppercase leading-tight tracking-wide text-brand-foreground shadow-[0_10px_24px_-8px_oklch(0_0_0/0.6),inset_0_1px_0_oklch(1_0_0/0.5)] backdrop-blur"
           >
             <span className="px-1">Apply now</span>
-          </AppLink>
+          </button>
           {items.slice(2).map((i) => (
             <NavItem key={i.to} {...i} />
           ))}
