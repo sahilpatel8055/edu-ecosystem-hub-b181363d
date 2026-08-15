@@ -5,6 +5,9 @@ import { LeadCaptureCard, TrustCard } from "@/components/common/Sidebar";
 import { AppLink } from "@/components/common/AppLink";
 import { SectionBanner } from "@/components/common/SectionBanner";
 import { NextStep } from "@/components/common/NextStep";
+import { BlogStrip } from "@/components/common/UniversityBlogs";
+import { blogsForCourse } from "@/data/university-blogs";
+
 import { CompareUniversities } from "@/components/course/CompareUniversities";
 import {
   AudienceCards,
