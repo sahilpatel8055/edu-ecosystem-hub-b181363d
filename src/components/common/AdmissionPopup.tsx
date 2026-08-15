@@ -83,9 +83,9 @@ export function AdmissionPopup({ onClose }: { onClose: () => void }) {
             alt=""
             aria-hidden="true"
             loading="lazy"
-            width={912}
-            height={1200}
-            className="pointer-events-none absolute -bottom-2 right-[-2rem] h-[68%] w-auto select-none object-contain opacity-90 sm:right-0 sm:h-[80%] sm:opacity-100"
+            width={1024}
+            height={1536}
+            className="pointer-events-none absolute bottom-0 right-0 h-[70%] w-auto select-none object-contain object-bottom sm:h-[84%]"
           />
 
           <div className="relative z-10 max-w-[64%] sm:max-w-[58%]">
