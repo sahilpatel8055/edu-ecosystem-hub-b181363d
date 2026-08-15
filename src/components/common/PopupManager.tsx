@@ -11,6 +11,7 @@ import {
 import { AdmissionPopup } from "@/components/common/AdmissionPopup";
 import { CounsellingForm } from "@/components/common/CounsellingForm";
 import { X } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
 
 /**
  * Surfaces that can appear on top of the page. Only one may be visible at a
@@ -134,20 +135,24 @@ export function PopupProvider({ children }: { children: ReactNode }) {
 function AdmissionScheduler() {
   const { request, release, active } = usePopupSurface();
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (isHome) return;
     try {
       if (sessionStorage.getItem("avedu-admission-popup") === "seen") return;
     } catch {
       /* ignore */
     }
+    // Any inside page — direct landing or after the homepage — shows it at 5s.
     const id = window.setTimeout(() => {
       if (request("admission")) setOpen(true);
-    }, 60000);
+    }, 5000);
     return () => window.clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isHome]);
 
   const close = () => {
     setOpen(false);

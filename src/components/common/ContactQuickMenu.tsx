@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Headset, Phone, MessageCircle } from "lucide-react";
+import { Headset, Phone } from "lucide-react";
 
 export const AVEDU_PHONE = "+919000000000";
 export const AVEDU_WHATSAPP = "919000000000";
@@ -75,7 +75,7 @@ export function ContactQuickMenu() {
             onClick={() => setOpen(false)}
             className="flex min-h-12 items-center gap-3 border-t border-border px-4 text-[0.95rem] font-semibold text-foreground transition-colors hover:bg-secondary"
           >
-            <MessageCircle className="h-4 w-4 text-[#25D366]" /> WhatsApp
+            <img src="/whatsapp-icon.png" alt="" className="h-5 w-5 object-contain" /> WhatsApp
           </a>
         </div>
       )}
