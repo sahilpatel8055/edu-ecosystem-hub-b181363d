@@ -1,5 +1,5 @@
 import { AppLink } from "@/components/common/AppLink";
-import { ArrowUpRight, GraduationCap, Linkedin, Instagram, Youtube, Twitter } from "lucide-react";
+import { ArrowUpRight, Linkedin, Instagram, Youtube, Twitter } from "lucide-react";
 import { ecosystemLinks, footerNav } from "@/lib/navigation";
 import { NewsletterSignup } from "@/components/common/NewsletterSignup";
 
