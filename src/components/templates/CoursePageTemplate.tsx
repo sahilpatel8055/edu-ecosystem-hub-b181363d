@@ -116,6 +116,10 @@ export function CoursePageTemplate({
             <li>No sponsored ranking</li>
           </ul>
 
+          <div className="mt-5 max-w-xl">
+            <QuickEnquiry heading={`Take a step towards your ${family.shortName} career`} />
+          </div>
+
           <div className="mt-5 flex flex-wrap items-start gap-2.5">
             <a href="#universities" className="btn btn-primary">
               Explore universities
