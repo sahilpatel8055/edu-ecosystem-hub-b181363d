@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AppLink } from "@/components/common/AppLink";
-import { ChevronDown, GraduationCap, Menu, Moon, Search, Sun, X } from "lucide-react";
+import { ChevronDown, Menu, Moon, Search, Sun, X } from "lucide-react";
 import { mobileNav, primaryNav, type NavItem } from "@/lib/navigation";
 import { useTheme } from "@/hooks/use-theme";
 import { SearchBox } from "./SearchBox";
