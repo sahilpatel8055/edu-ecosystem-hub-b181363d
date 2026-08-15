@@ -16,11 +16,15 @@ export function Footer() {
       <div className="container-page py-16">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div>
-            <AppLink to="/" className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-brand-foreground">
-                <GraduationCap className="h-5 w-5" />
-              </span>
-              <span className="font-display text-base font-bold">AVEDU Insights</span>
+            <AppLink to="/" className="flex items-center">
+              <img
+                src="/degreekhojo-logo.png"
+                alt="Degreekhojo logo"
+                width={180}
+                height={48}
+                loading="lazy"
+                className="h-10 w-auto object-contain"
+              />
             </AppLink>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Independent research, comparisons and guidance on India's online and distance education
