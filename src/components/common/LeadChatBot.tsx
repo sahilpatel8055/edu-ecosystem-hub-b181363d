@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { X, Send, Phone, MessageCircle } from "lucide-react";
+import { X, Send, Phone } from "lucide-react";
+import { useTimedSurface, usePopupSurface } from "@/components/common/PopupManager";
+
+const WHATSAPP_ICON = "/whatsapp-icon.png";
+
 
 const BOT_ICON = "/leadbot-icon.png";
 
