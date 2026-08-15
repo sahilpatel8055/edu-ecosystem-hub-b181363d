@@ -448,6 +448,17 @@ export function CoursePageTemplate({
             <ReviewList reviews={reviews} />
           </Section>
 
+          {blogsForCourse(family.shortName).length > 0 && (
+            <Section title={`${family.name} guides & articles`}>
+              <BlogStrip
+                items={blogsForCourse(family.shortName, 6)}
+                title={`${family.shortName} articles`}
+                intro={`University-published research and guides relevant to ${family.name}.`}
+              />
+            </Section>
+          )}
+
+
           <section id="faqs" className="scroll-mt-36">
             <Faq items={content.faqs} title={`${family.name} FAQs`} />
           </section>
