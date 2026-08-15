@@ -100,6 +100,20 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <AppLink
+            to="/courses"
+            className="hidden rounded-full px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground lg:inline-flex"
+            activeProps={{ className: "bg-brand-soft text-brand" }}
+          >
+            Explore Programs
+          </AppLink>
+          <AppLink
+            to="/universities"
+            className="hidden rounded-full px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground lg:inline-flex"
+            activeProps={{ className: "bg-brand-soft text-brand" }}
+          >
+            Top Universities
+          </AppLink>
           <div className="hidden w-52 lg:block xl:w-56">
             <SearchBox placeholder="Search…" />
           </div>
